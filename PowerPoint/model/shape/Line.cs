@@ -25,6 +25,19 @@ namespace PowerPoint
             _name = LINE;
         }
 
+        // get the chinese name of line
+        public override string GetShapeChineseName()
+        {
+            const string LINE_CHINESE = "線";
+            return LINE_CHINESE;
+        }
+
+        // get the name of line
+        public override string GetShapeName()
+        {
+            return _name;
+        }
+
         // get the position of line
         public override string GetInformation()
         {
@@ -32,12 +45,6 @@ namespace PowerPoint
             const string RIGHT_BRACKET = ")";
             const string COMMA = ", ";
             return LEFT_BRACKET + _x1.ToString() + COMMA + _y1.ToString() + RIGHT_BRACKET + COMMA + LEFT_BRACKET + _x2.ToString() + COMMA + _y2.ToString() + RIGHT_BRACKET;
-        }
-
-        // get the name of line
-        public override string GetShapeName()
-        {
-            return _name;
         }
     }
 }

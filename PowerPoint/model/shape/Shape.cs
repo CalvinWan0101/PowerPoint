@@ -10,6 +10,9 @@ namespace PowerPoint.Properties
     {
         protected string _name;
 
+        // function to get the chinese name of the shape
+        public abstract string GetShapeChineseName();
+
         // function to get the name of the shape
         public abstract string GetShapeName();
 

@@ -1,12 +1,5 @@
-﻿using PowerPoint.Properties;
+﻿using PowerPoint.model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PowerPoint
@@ -15,11 +8,11 @@ namespace PowerPoint
     {
         const int LINE_NUMBER = 0;
         const int RECTANGLE_NUMBER = 1;
+        const int CIRCLE_NUMBER = 2;
+        const string DELETE = "Delete";
         const string LINE = "Line";
         const string RECTANGLE = "Rectangle";
-        const string DELETE_BUTTON = "刪除";
-        const string LINE_CHINESE = "線";
-        const string RECTANGLE_CHINESE = "矩形";
+        const string CIRCLE = "Circle";
         const int RANDOM_NUMBER_MAX = 101;
 
         private Model _model;
@@ -35,21 +28,21 @@ namespace PowerPoint
         private void CreateNewShapeButtonClick(object sender, EventArgs e)
         {
             string name = "";
-            string showName = "";
             switch (_addNewShapeSelector.SelectedIndex)
             {
                 case LINE_NUMBER:
                     name = LINE;
-                    showName = LINE_CHINESE;
                     break;
                 case RECTANGLE_NUMBER:
                     name = RECTANGLE;
-                    showName = RECTANGLE_CHINESE;
+                    break;
+                case CIRCLE_NUMBER:
+                    name = CIRCLE;
                     break;
             }
             if (name != "")
             {
-                _shapesDataGridView.Rows.Add(DELETE_BUTTON, showName, _model.Add(name, _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX)).GetInformation());
+                _shapesDataGridView.Rows.Add(Translator.Translate(DELETE), Translator.Translate(name), _model.Add(name, _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX)).GetInformation());
             }
         }
 

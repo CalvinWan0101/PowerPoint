@@ -10,7 +10,6 @@ namespace PowerPoint
     public class Shapes
     {
         private List<Shape> _shapes = new List<Shape>();
-        Factory _factory = new Factory();
 
         // add a new shape to the end of the list
         public Shape Add(string shapeName, params int[] position)

@@ -53,8 +53,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\shape\Circle.cs" />
     <Compile Include="model\shape\Line.cs" />
     <Compile Include="model\Model.cs" />
+    <Compile Include="model\Translator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="model\shape\Rectangle.cs" />
