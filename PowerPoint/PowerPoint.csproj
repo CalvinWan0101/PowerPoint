@@ -59,7 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="model\shape\Rectangle.cs" />
     <Compile Include="model\shape\Shape.cs" />
-    <Compile Include="model\shape\Shapes.cs" />
+    <Compile Include="model\Shapes.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
