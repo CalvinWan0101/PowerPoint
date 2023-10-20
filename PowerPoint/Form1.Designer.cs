@@ -117,6 +117,7 @@ namespace PowerPoint
             // 
             // _shapesDataGridView
             // 
+            this._shapesDataGridView.AllowUserToAddRows = false;
             this._shapesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._shapesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._deleteColumn,
