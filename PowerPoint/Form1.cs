@@ -69,6 +69,7 @@ namespace PowerPoint
             PointF point1 = new PointF(100.0F, 100.0F);
             PointF point2 = new PointF(500.0F, 200.0F);
             e.Graphics.DrawLine(pen, point1, point2);
+            Console.WriteLine(point1.X);
         }
     }
 }
