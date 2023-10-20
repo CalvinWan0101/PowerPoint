@@ -1,9 +1,4 @@
 ﻿using PowerPoint.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace PowerPoint.model.shape
@@ -47,7 +42,6 @@ namespace PowerPoint.model.shape
         // function to draw the circle
         public override void Draw()
         {
-            Console.WriteLine("test");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PowerPoint.model;
+﻿using PowerPoint.Properties;
+using PowerPoint.model;
 using System;
 using System.Windows.Forms;
 using System.Drawing;
@@ -10,10 +11,10 @@ namespace PowerPoint
         const int LINE_NUMBER = 0;
         const int RECTANGLE_NUMBER = 1;
         const int CIRCLE_NUMBER = 2;
-        const string DELETE = "Delete";
         const string LINE = "Line";
         const string RECTANGLE = "Rectangle";
         const string CIRCLE = "Circle";
+        const string DELETE = "刪除";
         const int RANDOM_NUMBER_MAX = 101;
 
         private Model _model;
@@ -41,35 +42,26 @@ namespace PowerPoint
                     name = CIRCLE;
                     break;
             }
-            if (name != "")
-            {
-                _shapesDataGridView.Rows.Add(Translator.Translate(DELETE), Translator.Translate(name), _model.Add(name, _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX)).GetInformation());
-            }
+            Shape shapeTemp = _model.Add(name, _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX));
+            _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
         }
 
         // delete shpae
         private void DeleteShapeButtonClick(object sender, DataGridViewCellEventArgs e)
         {
-            int clickColumn = e.ColumnIndex;
-            if (clickColumn != 0)
-            {
-                return;
-            }
             int selectedRowIndex = e.RowIndex;
             _model.Remove(selectedRowIndex);
             _shapesDataGridView.Rows.RemoveAt(selectedRowIndex);
         }
 
         // what show on panel
-        private void _panel_Paint(object sender, PaintEventArgs e)
+        private void _panelShow(object sender, PaintEventArgs e)
         {
-            Graphics graphics = this._panel.CreateGraphics();
+            //Graphics graphics = this._panel.CreateGraphics();
             Pen pen = new Pen(Color.Black, 3);
-
             PointF point1 = new PointF(100.0F, 100.0F);
             PointF point2 = new PointF(500.0F, 200.0F);
             e.Graphics.DrawLine(pen, point1, point2);
-            Console.WriteLine(point1.X);
         }
     }
 }

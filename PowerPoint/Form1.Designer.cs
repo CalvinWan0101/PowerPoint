@@ -222,7 +222,7 @@ namespace PowerPoint
             this._panel.Name = "_panel";
             this._panel.Size = new System.Drawing.Size(672, 512);
             this._panel.TabIndex = 7;
-            this._panel.Paint += new System.Windows.Forms.PaintEventHandler(this._panel_Paint);
+            this._panel.Paint += new System.Windows.Forms.PaintEventHandler(this._panelShow);
             // 
             // Form1
             // 

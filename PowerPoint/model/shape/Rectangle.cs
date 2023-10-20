@@ -1,9 +1,4 @@
 ﻿using PowerPoint.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 
@@ -48,7 +43,6 @@ namespace PowerPoint
         // function to draw the rectangle
         public override void Draw()
         {
-            Console.WriteLine("test");
         }
     }
 }

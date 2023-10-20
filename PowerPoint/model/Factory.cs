@@ -1,10 +1,5 @@
 ﻿using PowerPoint.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
+using PowerPoint.model.shape;
 
 namespace PowerPoint
 {
@@ -14,6 +9,7 @@ namespace PowerPoint
         const int ONE = 1;
         const int TWO = 2;
         const int THREE = 3;
+
         const string LINE = "Line";
         const string RECTANGLE = "Rectangle";
         const string CIRCLE = "Circle";
@@ -28,7 +24,7 @@ namespace PowerPoint
                 case RECTANGLE:
                     return new Rectangle(position[ZERO], position[ONE], position[TWO], position[THREE]);
                 case CIRCLE:
-                    return new Rectangle(position[ZERO], position[ONE], position[TWO], position[THREE]);
+                    return new Circle(position[ZERO], position[ONE], position[TWO], position[THREE]);
             }
             return null;
         }
