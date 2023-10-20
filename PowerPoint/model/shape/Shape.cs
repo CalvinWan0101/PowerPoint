@@ -18,5 +18,8 @@ namespace PowerPoint.Properties
 
         // function to get the information of the shape
         public abstract string GetInformation();
+
+        // function to draw the shape
+        public abstract void Draw();
     }
 }

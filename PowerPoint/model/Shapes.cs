@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace PowerPoint
 {
@@ -14,8 +15,10 @@ namespace PowerPoint
         // add a new shape to the end of the list
         public Shape Add(string shapeName, params int[] position)
         {
-            _shapes.Add(Factory.CreateShape(shapeName, position));
-            return Factory.CreateShape(shapeName, position);
+            Shape shape = Factory.CreateShape(shapeName, position);
+            _shapes.Add(shape);
+            shape.Draw();
+            return shape;
         }
 
         // remove the shape depend on its index

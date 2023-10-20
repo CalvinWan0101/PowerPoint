@@ -1,6 +1,7 @@
 ﻿using PowerPoint.model;
 using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace PowerPoint
 {
@@ -57,6 +58,17 @@ namespace PowerPoint
             int selectedRowIndex = e.RowIndex;
             _model.Remove(selectedRowIndex);
             _shapesDataGridView.Rows.RemoveAt(selectedRowIndex);
+        }
+
+        // what show on panel
+        private void _panel_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics graphics = this._panel.CreateGraphics();
+            Pen pen = new Pen(Color.Black, 3);
+
+            PointF point1 = new PointF(100.0F, 100.0F);
+            PointF point2 = new PointF(500.0F, 200.0F);
+            e.Graphics.DrawLine(pen, point1, point2);
         }
     }
 }

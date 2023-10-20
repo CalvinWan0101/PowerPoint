@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace PowerPoint.model.shape
 {
@@ -45,6 +46,13 @@ namespace PowerPoint.model.shape
             const string RIGHT_BRACKET = ")";
             const string COMMA = ", ";
             return LEFT_BRACKET + _x1.ToString() + COMMA + _y1.ToString() + RIGHT_BRACKET + COMMA + LEFT_BRACKET + _x2.ToString() + COMMA + _y2.ToString() + RIGHT_BRACKET;
+        }
+
+        // function to draw the circle
+        public override void Draw()
+        {
+            Console.WriteLine("test");
+
         }
     }
 }
