@@ -1,7 +1,6 @@
 ﻿using PowerPoint.Properties;
 using System.Drawing;
 
-
 namespace PowerPoint
 {
     class Rectangle : Shape

@@ -185,120 +185,7 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews>
-            <Smell>
-              <Id>1</Id>
-              <SmellType>Literal constants(字面常數)-3</SmellType>
-              <HashCode>LiteralConstants._panelShow.3</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>64</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>2</Id>
-              <SmellType>Long method(過長函式)</SmellType>
-              <HashCode>LongMethod.Form1.CreateNewShapeButtonClick.21object sender;EventArgs e;</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>21</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>30</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>3</Id>
-              <SmellType>ICS(函式-1)</SmellType>
-              <HashCode>Method1.Form1._panelShow</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Form1.cs</File>
-              <Line>61</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(函式-1) 函式命名一律大寫開始，若由多個單字組成，每個單字的第一個字母大寫，其餘小寫。不以底線區隔單字</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>4</Id>
-              <SmellType>Literal constants(字面常數)-"test"</SmellType>
-              <HashCode>LiteralConstants.Draw."test"</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Circle.cs</File>
-              <Line>50</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>5</Id>
-              <SmellType>Literal constants(字面常數)-"test"</SmellType>
-              <HashCode>LiteralConstants.Draw."test"</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Line.cs</File>
-              <Line>50</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>6</Id>
-              <SmellType>ICS(空白與空行-17)</SmellType>
-              <HashCode>SpacingAndNewLine17.Rectangle.cs.2.using System.Drawing;.namespace PowerPoint</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Rectangle.cs</File>
-              <Line>8</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>ICS(空白與空行-17) 一次不加多個空行(若發生時，則指定在多個空行的第一行即可)</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>7</Id>
-              <SmellType>Literal constants(字面常數)-"test"</SmellType>
-              <HashCode>LiteralConstants.Draw."test"</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Rectangle.cs</File>
-              <Line>51</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-          </Reviews>
+          <Reviews />
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
@@ -375,7 +262,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>710</ProductionLoc>
+          <ProductionLoc>677</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

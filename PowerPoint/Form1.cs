@@ -55,13 +55,14 @@ namespace PowerPoint
         }
 
         // what show on panel
-        private void _panelShow(object sender, PaintEventArgs e)
+        private void Panel(object sender, PaintEventArgs e)
         {
             //Graphics graphics = this._panel.CreateGraphics();
-            Pen pen = new Pen(Color.Black, 3);
-            PointF point1 = new PointF(100.0F, 100.0F);
-            PointF point2 = new PointF(500.0F, 200.0F);
-            e.Graphics.DrawLine(pen, point1, point2);
+            
+            //Pen pen = new Pen(Color.Black, 3);
+            //PointF point1 = new PointF(100.0F, 100.0F);
+            //PointF point2 = new PointF(500.0F, 200.0F);
+            //e.Graphics.DrawLine(pen, point1, point2);
         }
     }
 }

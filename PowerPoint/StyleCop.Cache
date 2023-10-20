@@ -18,40 +18,18 @@
     <timestamps>
       <styleCop>2023/09/14 11:12:25.257</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/10/20 13:00:20.060</sourceFile>
+      <sourceFile>2023/10/20 13:35:55.140</sourceFile>
       <parser>2023/09/14 11:12:25.257</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/14 11:12:25.257</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LongMethod" ruleCheckId="LM0001">
-        <context>Long method(過長函式)</context>
-        <line>30</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
-        <context>Literal constants(字面常數)-3</context>
-        <line>64</line>
-        <index>2150</index>
-        <endIndex>2150</endIndex>
-        <startLine>64</startLine>
-        <startColumn>44</startColumn>
-        <endLine>64</endLine>
-        <endColumn>44</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="Method1" ruleCheckId="MT0001">
-        <context>ICS(函式-1)</context>
-        <line>61</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="Form1.Designer.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2023/09/14 11:12:25.257</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/10/20 12:46:36.777</sourceFile>
+      <sourceFile>2023/10/20 13:35:53.487</sourceFile>
       <parser>2023/09/14 11:12:25.257</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/14 11:12:25.257</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -62,7 +40,7 @@
     <timestamps>
       <styleCop>2023/09/14 11:12:25.257</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/10/20 11:53:37.518</sourceFile>
+      <sourceFile>2023/10/20 13:28:58.083</sourceFile>
       <parser>2023/09/14 11:12:25.257</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/14 11:12:25.257</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -95,87 +73,40 @@
     <timestamps>
       <styleCop>2023/09/14 11:12:25.257</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/10/20 11:50:42.196</sourceFile>
+      <sourceFile>2023/10/20 13:29:06.472</sourceFile>
       <parser>2023/09/14 11:12:25.257</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/14 11:12:25.257</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
-        <context>Literal constants(字面常數)-"test"</context>
-        <line>50</line>
-        <index>1501</index>
-        <endIndex>1506</endIndex>
-        <startLine>50</startLine>
-        <startColumn>31</startColumn>
-        <endLine>50</endLine>
-        <endColumn>36</endColumn>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="Line.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2023/09/14 11:12:25.257</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/10/20 11:48:30.529</sourceFile>
+      <sourceFile>2023/10/20 13:12:22.593</sourceFile>
       <parser>2023/09/14 11:12:25.257</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/14 11:12:25.257</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
-        <context>Literal constants(字面常數)-"test"</context>
-        <line>50</line>
-        <index>1474</index>
-        <endIndex>1479</endIndex>
-        <startLine>50</startLine>
-        <startColumn>31</startColumn>
-        <endLine>50</endLine>
-        <endColumn>36</endColumn>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="Rectangle.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2023/09/14 11:12:25.257</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/10/20 11:49:05.871</sourceFile>
+      <sourceFile>2023/10/20 13:36:08.497</sourceFile>
       <parser>2023/09/14 11:12:25.257</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/14 11:12:25.257</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="SpacingAndNewLine17" ruleCheckId="SN0017">
-        <context>ICS(空白與空行-17)</context>
-        <line>8</line>
-        <index>174</index>
-        <endIndex>175</endIndex>
-        <startLine>8</startLine>
-        <startColumn>1</startColumn>
-        <endLine>8</endLine>
-        <endColumn>2</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
-        <context>Literal constants(字面常數)-"test"</context>
-        <line>51</line>
-        <index>1533</index>
-        <endIndex>1538</endIndex>
-        <startLine>51</startLine>
-        <startColumn>31</startColumn>
-        <endLine>51</endLine>
-        <endColumn>36</endColumn>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="Shape.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2023/09/14 11:12:25.257</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/10/20 11:42:13.447</sourceFile>
+      <sourceFile>2023/10/20 13:12:42.796</sourceFile>
       <parser>2023/09/14 11:12:25.257</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/14 11:12:25.257</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
