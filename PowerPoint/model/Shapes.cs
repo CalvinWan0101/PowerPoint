@@ -17,7 +17,6 @@ namespace PowerPoint
         {
             Shape shape = Factory.CreateShape(shapeName, position);
             _shapes.Add(shape);
-            shape.Draw();
             return shape;
         }
 

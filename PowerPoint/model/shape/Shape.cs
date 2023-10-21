@@ -1,4 +1,6 @@
-﻿namespace PowerPoint.Properties
+﻿using System.Windows.Forms;
+
+namespace PowerPoint.Properties
 {
     public abstract class Shape
     {
@@ -15,6 +17,6 @@
         public abstract string GetInformation();
 
         // function to draw the shape
-        public abstract void Draw();
+        public abstract void Draw(Panel panel);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using PowerPoint.Properties;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace PowerPoint
 {
@@ -40,8 +41,13 @@ namespace PowerPoint
         }
 
         // function to draw the line
-        public override void Draw()
+        public override void Draw(Panel panel)
         {
+            Graphics graphics = panel.CreateGraphics();
+            Pen pen = new Pen(Color.Black, 2);
+            graphics.DrawLine(pen, _point1, _point2);
+            pen.Dispose();
+            graphics.Dispose();
         }
     }
 }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using PowerPoint.model;
+using System;
 using System.Windows.Forms;
 
 namespace PowerPoint
@@ -16,9 +14,7 @@ namespace PowerPoint
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new Form1());
-
-            Application.Run(new Form1(new Model()));
+            Application.Run(new Form1(new Model(), new PresentationModel()));
         }
     }
 }
