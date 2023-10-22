@@ -1,8 +1,7 @@
-﻿using PowerPoint.Properties;
-using PowerPoint.model;
+﻿using PowerPoint.model;
+using PowerPoint.Properties;
 using System;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace PowerPoint
 {
@@ -18,10 +17,10 @@ namespace PowerPoint
         const int RANDOM_NUMBER_MAX = 511;
 
         private Model _model;
-        private PresentationModel _presentationModel;
+        private FormPresentationModel _presentationModel;
         private Random _random = new Random();
 
-        public Form1(Model model, PresentationModel presentationModel)
+        public Form1(Model model, FormPresentationModel presentationModel)
         {
             InitializeComponent();
             _model = model;
@@ -44,9 +43,12 @@ namespace PowerPoint
                     name = CIRCLE;
                     break;
             }
-            Shape shapeTemp = _model.Add(name, _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX));
-            shapeTemp.Draw(this._panel);
-            _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
+            if (name != "")
+            {
+                Shape shapeTemp = _model.Add(name, _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX));
+                shapeTemp.Draw(this._panel);
+                _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
+            }
         }
 
         // delete shpae
@@ -57,15 +59,44 @@ namespace PowerPoint
             _shapesDataGridView.Rows.RemoveAt(selectedRowIndex);
         }
 
-        // what show on panel
-        private void Panel(object sender, PaintEventArgs e)
-        {
-            //Graphics graphics = this._panel.CreateGraphics();
+        private bool _lineButtonIsClick = false;
+        private bool _RectangleButtonIsClick = false;
+        private bool _CircleButtonIsClick = false;
 
-            //Pen pen = new Pen(Color.Black, 3);
-            //PointF point1 = new PointF(100.0F, 100.0F);
-            //PointF point2 = new PointF(500.0F, 200.0F);
-            //e.Graphics.DrawLine(pen, point1, point2);
+        // line button click
+        private void LineButtonClick(object sender, EventArgs e)
+        {
+            _lineButtonIsClick = true;
+        }
+
+        // rectangle button click
+        private void RectangleButtonClick(object sender, EventArgs e)
+        {
+            _RectangleButtonIsClick = true;
+        }
+
+        // circle button click
+        private void CircleButtonClick(object sender, EventArgs e)
+        {
+            _CircleButtonIsClick = true;
+        }
+
+        // mouse pressed
+        private void HandleMousePressed(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            _presentationModel.PointerPressed(e.X, e.Y);
+        }
+
+        // mouse moved
+        public void HandleMouseMoved(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            _presentationModel.PointerMoved(e.X, e.Y);
+        }
+
+        // mouse released
+        public void HandleMouseReleased(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            _presentationModel.PointerReleased(e.X, e.Y);
         }
     }
 }

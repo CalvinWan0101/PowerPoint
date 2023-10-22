@@ -138,18 +138,21 @@ namespace PowerPoint
             this._deleteColumn.ReadOnly = true;
             this._deleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this._deleteColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this._deleteColumn.Width = 90;
             // 
             // _shapeColumn
             // 
             this._shapeColumn.HeaderText = "形狀";
             this._shapeColumn.Name = "_shapeColumn";
             this._shapeColumn.ReadOnly = true;
+            this._shapeColumn.Width = 90;
             // 
             // _informationColumn
             // 
             this._informationColumn.HeaderText = "資訊";
             this._informationColumn.Name = "_informationColumn";
             this._informationColumn.ReadOnly = true;
+            this._informationColumn.Width = 120;
             // 
             // _headMenu
             // 
@@ -197,6 +200,7 @@ namespace PowerPoint
             this._lineButton.Name = "_lineButton";
             this._lineButton.Size = new System.Drawing.Size(23, 22);
             this._lineButton.Text = "線";
+            this._lineButton.Click += new System.EventHandler(this.LineButtonClick);
             // 
             // _rectangleButton
             // 
@@ -206,6 +210,7 @@ namespace PowerPoint
             this._rectangleButton.Name = "_rectangleButton";
             this._rectangleButton.Size = new System.Drawing.Size(23, 22);
             this._rectangleButton.Text = "矩形";
+            this._rectangleButton.Click += new System.EventHandler(this.RectangleButtonClick);
             // 
             // _circleButton
             // 
@@ -215,6 +220,7 @@ namespace PowerPoint
             this._circleButton.Name = "_circleButton";
             this._circleButton.Size = new System.Drawing.Size(23, 22);
             this._circleButton.Text = "圓形";
+            this._circleButton.Click += new System.EventHandler(this.CircleButtonClick);
             // 
             // _panel
             // 
@@ -222,7 +228,6 @@ namespace PowerPoint
             this._panel.Name = "_panel";
             this._panel.Size = new System.Drawing.Size(672, 512);
             this._panel.TabIndex = 7;
-            this._panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel);
             // 
             // Form1
             // 
@@ -261,14 +266,14 @@ namespace PowerPoint
         private System.Windows.Forms.ToolStripMenuItem _headMenuHelp;
         private System.Windows.Forms.ToolStripMenuItem _headMenuAbout;
         private System.Windows.Forms.DataGridView _shapesDataGridView;
-        private System.Windows.Forms.DataGridViewButtonColumn _deleteColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _shapeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _informationColumn;
         private System.Windows.Forms.ToolStrip _toolBar;
         private System.Windows.Forms.ToolStripButton _lineButton;
         private System.Windows.Forms.ToolStripButton _rectangleButton;
         private System.Windows.Forms.ToolStripButton _circleButton;
         private System.Windows.Forms.Panel _panel;
+        private System.Windows.Forms.DataGridViewButtonColumn _deleteColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _shapeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _informationColumn;
     }
 }
 

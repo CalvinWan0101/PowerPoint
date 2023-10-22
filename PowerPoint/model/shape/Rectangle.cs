@@ -35,10 +35,9 @@ namespace PowerPoint
         // get the position of rectangle
         public override string GetInformation()
         {
-            const string LEFT_BRACKET = "(";
-            const string RIGHT_BRACKET = ")";
             const string COMMA = ", ";
-            return LEFT_BRACKET + _point1.X.ToString() + COMMA + _point1.Y.ToString() + RIGHT_BRACKET + COMMA + LEFT_BRACKET + _point2.X.ToString() + COMMA + _point2.Y.ToString() + RIGHT_BRACKET;
+            const string TEMPLATE = "({0:D3}, {1:D3})";
+            return string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
         }
 
         // function to draw the rectangle
@@ -48,10 +47,8 @@ namespace PowerPoint
             Pen pen = new Pen(Color.Black, 3);
             float width = Math.Abs(_point2.X - _point1.X);
             float height = Math.Abs(_point2.Y - _point1.Y);
-            float x = Math.Min(_point1.X, _point2.X);
-            float y = Math.Min(_point1.Y, _point2.Y);
 
-            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle((int)x, (int)y, (int)width, (int)height);
+            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle((int)Math.Min(_point1.X, _point2.X), (int)Math.Min(_point1.Y, _point2.Y), (int)width, (int)height);
             graphics.DrawRectangle(pen, rectangle);
             pen.Dispose();
             graphics.Dispose();

@@ -35,10 +35,9 @@ namespace PowerPoint.model.shape
         // get the position of circle
         public override string GetInformation()
         {
-            const string LEFT_BRACKET = "(";
-            const string RIGHT_BRACKET = ")";
             const string COMMA = ", ";
-            return LEFT_BRACKET + _point1.X.ToString() + COMMA + _point1.Y.ToString() + RIGHT_BRACKET + COMMA + LEFT_BRACKET + _point2.X.ToString() + COMMA + _point2.Y.ToString() + RIGHT_BRACKET;
+            const string TEMPLATE = "({0:D3}, {1:D3})";
+            return string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
         }
 
         // function to draw the circle
@@ -49,8 +48,8 @@ namespace PowerPoint.model.shape
             float centerX = (_point1.X + _point2.X) / 2;
             float centerY = (_point1.Y + _point2.Y) / 2;
             float radius = (float)Math.Sqrt(Math.Pow(_point2.X - _point1.X, 2) + Math.Pow(_point2.Y - _point1.Y, 2)) / 2;
-            RectangleF boundingRect = new RectangleF(centerX - radius, centerY - radius, 2 * radius, 2 * radius);
-            graphics.DrawEllipse(pen, boundingRect);
+            RectangleF rectangle = new RectangleF(centerX - radius, centerY - radius, 2 * radius, 2 * radius);
+            graphics.DrawEllipse(pen, rectangle);
             pen.Dispose();
             graphics.Dispose();
         }
