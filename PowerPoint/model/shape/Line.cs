@@ -1,4 +1,5 @@
-﻿using PowerPoint.Properties;
+﻿using PowerPoint.model;
+using PowerPoint.Properties;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -43,14 +44,15 @@ namespace PowerPoint
         }
 
         // function to draw the line
-        public override void Draw(Panel panel)
+        public override void Draw(IGraphics graphics)
         {
-            const int PEN_SIZE = 2;
-            Graphics graphics = panel.CreateGraphics();
-            Pen pen = new Pen(Color.Black, PEN_SIZE);
-            graphics.DrawLine(pen, _point1, _point2);
-            pen.Dispose();
-            graphics.Dispose();
+            //const int PEN_SIZE = 2;
+            //Graphics graphics = panel.CreateGraphics();
+            //Pen pen = new Pen(Color.Black, PEN_SIZE);
+            //graphics.DrawLine(pen, _point1, _point2);
+            //pen.Dispose();
+            //graphics.Dispose();
+            graphics.DrawLine(_point1, _point2);
         }
     }
 }

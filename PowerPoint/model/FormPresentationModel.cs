@@ -36,7 +36,6 @@ namespace PowerPoint.model
             if (_isPressed)
             {
                 _point2 = new PointF(x, y);
-                //NotifyModelChanged();
             }
         }
 
@@ -57,18 +56,17 @@ namespace PowerPoint.model
         {
             _isPressed = false;
             //_lines.Clear();
-            //NotifyModelChanged();
         }
 
         // draw
-        //public void Draw(IGraphics graphics)
-        //{
-        //    graphics.ClearAll();
-        //    foreach (Line aLine in _lines)
-        //        aLine.Draw(graphics);
-        //    if (_isPressed)
-        //        _hint.Draw(graphics);
-        //}
+        public void Draw(IGraphics graphics)
+        {
+            graphics.ClearAll();
+            foreach (Shape shape in _model.Shapes())
+                shape.Draw(graphics);
+            //if (_isPressed)
+            //    shape.Draw(graphics);
+        }
 
         // notify
         void NotifyModelChanged()

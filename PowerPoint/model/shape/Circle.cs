@@ -41,17 +41,17 @@ namespace PowerPoint.model.shape
         }
 
         // function to draw the circle
-        public override void Draw(Panel panel)
+        public override void Draw(IGraphics graphics)
         {
-            Graphics graphics = panel.CreateGraphics();
-            Pen pen = new Pen(Color.Black, 3);
-            float centerX = (_point1.X + _point2.X) / 2;
-            float centerY = (_point1.Y + _point2.Y) / 2;
-            float radius = (float)Math.Sqrt(Math.Pow(_point2.X - _point1.X, 2) + Math.Pow(_point2.Y - _point1.Y, 2)) / 2;
-            RectangleF rectangle = new RectangleF(centerX - radius, centerY - radius, 2 * radius, 2 * radius);
-            graphics.DrawEllipse(pen, rectangle);
-            pen.Dispose();
-            graphics.Dispose();
+            //Graphics graphics = panel.CreateGraphics();
+            //Pen pen = new Pen(Color.Black, 3);
+            //float centerX = (_point1.X + _point2.X) / 2;
+            //float centerY = (_point1.Y + _point2.Y) / 2;
+            //float radius = (float)Math.Sqrt(Math.Pow(_point2.X - _point1.X, 2) + Math.Pow(_point2.Y - _point1.Y, 2)) / 2;
+            //RectangleF rectangle = new RectangleF(centerX - radius, centerY - radius, 2 * radius, 2 * radius);
+            //graphics.DrawEllipse(pen, rectangle);
+            //pen.Dispose();
+            //graphics.Dispose();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PowerPoint.Properties;
+﻿using PowerPoint.model;
+using PowerPoint.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -41,17 +42,17 @@ namespace PowerPoint
         }
 
         // function to draw the rectangle
-        public override void Draw(Panel panel)
+        public override void Draw(IGraphics graphics)
         {
-            Graphics graphics = panel.CreateGraphics();
-            Pen pen = new Pen(Color.Black, 3);
-            float width = Math.Abs(_point2.X - _point1.X);
-            float height = Math.Abs(_point2.Y - _point1.Y);
+            //Graphics graphics = panel.CreateGraphics();
+            //Pen pen = new Pen(Color.Black, 3);
+            //float width = Math.Abs(_point2.X - _point1.X);
+            //float height = Math.Abs(_point2.Y - _point1.Y);
 
-            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle((int)Math.Min(_point1.X, _point2.X), (int)Math.Min(_point1.Y, _point2.Y), (int)width, (int)height);
-            graphics.DrawRectangle(pen, rectangle);
-            pen.Dispose();
-            graphics.Dispose();
+            //System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle((int)Math.Min(_point1.X, _point2.X), (int)Math.Min(_point1.Y, _point2.Y), (int)width, (int)height);
+            //graphics.DrawRectangle(pen, rectangle);
+            //pen.Dispose();
+            //graphics.Dispose();
         }
     }
 }

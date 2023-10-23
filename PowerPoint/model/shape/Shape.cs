@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using PowerPoint.model;
+using System.Windows.Forms;
 
 namespace PowerPoint.Properties
 {
@@ -17,6 +18,6 @@ namespace PowerPoint.Properties
         public abstract string GetInformation();
 
         // function to draw the shape
-        public abstract void Draw(Panel panel);
+        public abstract void Draw(IGraphics graphics);
     }
 }

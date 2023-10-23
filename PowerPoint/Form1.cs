@@ -14,17 +14,17 @@ namespace PowerPoint
         const string RECTANGLE = "Rectangle";
         const string CIRCLE = "Circle";
         const string DELETE = "刪除";
-        const int RANDOM_NUMBER_MAX = 511;
 
         private Model _model;
         private FormPresentationModel _presentationModel;
-        private Random _random = new Random();
+        //private FormGraphicsAdaptor _formGraphicsAdaptor;
 
         public Form1(Model model, FormPresentationModel presentationModel)
         {
             InitializeComponent();
             _model = model;
             _presentationModel = presentationModel;
+
         }
 
         // function for create
@@ -45,8 +45,8 @@ namespace PowerPoint
             }
             if (name != "")
             {
-                Shape shapeTemp = _model.Add(name, _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX));
-                shapeTemp.Draw(this._panel);
+                Shape shapeTemp = _model.Add(name);
+                //shapeTemp.Draw(this._panel);
                 _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
             }
         }
@@ -59,26 +59,37 @@ namespace PowerPoint
             _shapesDataGridView.Rows.RemoveAt(selectedRowIndex);
         }
 
-        private bool _lineButtonIsClick = false;
-        private bool _RectangleButtonIsClick = false;
-        private bool _CircleButtonIsClick = false;
-
         // line button click
         private void LineButtonClick(object sender, EventArgs e)
         {
-            _lineButtonIsClick = true;
+            _lineButton.Checked = !_lineButton.Checked;
+            if (_lineButton.Checked)
+            {
+                _rectangleButton.Checked = false;
+                _circleButton.Checked = false;
+            }
         }
 
         // rectangle button click
         private void RectangleButtonClick(object sender, EventArgs e)
         {
-            _RectangleButtonIsClick = true;
+            _rectangleButton.Checked = !_rectangleButton.Checked;
+            if (_rectangleButton.Checked)
+            {
+                _lineButton.Checked = false;
+                _circleButton.Checked = false;
+            }
         }
 
         // circle button click
         private void CircleButtonClick(object sender, EventArgs e)
         {
-            _CircleButtonIsClick = true;
+            _circleButton.Checked = !_circleButton.Checked;
+            if (_circleButton.Checked)
+            {
+                _lineButton.Checked = false;
+                _rectangleButton.Checked = false;
+            }
         }
 
         // mouse pressed

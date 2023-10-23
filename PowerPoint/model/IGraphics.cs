@@ -2,7 +2,7 @@
 
 namespace PowerPoint.model
 {
-    interface IGraphics
+    public interface IGraphics
     {
         // clear all the paint
         void ClearAll();

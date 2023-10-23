@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Controls;
 
 namespace PowerPoint.model
 {
-    class FormGraphicsAdaptor : IGraphics
+    public class FormGraphicsAdaptor : IGraphics
     {
         Graphics _graphics;
 
@@ -27,13 +28,22 @@ namespace PowerPoint.model
         // draw a rectangle
         public void DrawRectangle(PointF point1, PointF point2)
         {
-            throw new NotImplementedException();
+            float width = Math.Abs(point2.X - point1.X);
+            float height = Math.Abs(point2.Y - point1.Y);
+
+            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle((int)Math.Min(point1.X, point2.X), (int)Math.Min(point1.Y, point2.Y), (int)width, (int)height);
+            _graphics.DrawRectangle(Pens.Black, rectangle);
         }
 
         // draw a circle
         public void DrawCircle(PointF point1, PointF point2)
         {
-            throw new NotImplementedException();
+            const int TWO = 2;
+            float centerX = (point1.X + point2.X) / TWO;
+            float centerY = (point1.Y + point2.Y) / TWO;
+            float radius = (float)Math.Sqrt(Math.Pow(point2.X - point1.X, TWO) + Math.Pow(point2.Y - point1.Y, TWO)) / TWO;
+            RectangleF rectangle = new RectangleF(centerX - radius, centerY - radius, TWO * radius, TWO * radius);
+            _graphics.DrawEllipse(Pens.Black, rectangle);
         }
     }
 }
