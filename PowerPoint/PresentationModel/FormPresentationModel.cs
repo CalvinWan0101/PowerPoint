@@ -4,7 +4,7 @@ namespace PowerPoint.model
 {
     public class FormPresentationModel
     {
-        public Model _model;
+        private Model _model;
 
         public FormPresentationModel(Model model, Control canvas)
         {

@@ -27,7 +27,6 @@ namespace PowerPoint
             _model = model;
             _presentationModel = new FormPresentationModel(_model, _panel);
             _model._modelChanged += HandleModelChanged;
-
             _panel.MouseDown += HandleMousePressed;
             _panel.MouseUp += HandleMouseReleased;
             _panel.MouseMove += HandleMouseMoved;
@@ -50,13 +49,11 @@ namespace PowerPoint
                 case CIRCLE_NUMBER:
                     name = CIRCLE;
                     break;
+                default:
+                    return;
             }
-            if (name != "")
-            {
-                Shape shapeTemp = _model.Add(name);
-                //shapeTemp.Draw(this._panel);
-                _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
-            }
+            Shape shapeTemp = _model.Add(name);
+            _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
         }
 
         // delete shpae
@@ -76,36 +73,36 @@ namespace PowerPoint
         }
 
         // line button click
-        private void LineButtonClick(object sender, EventArgs e)
+        private void ClickLineButton(object sender, EventArgs e)
         {
             _lineButton.Checked = !_lineButton.Checked;
             if (_lineButton.Checked)
             {
-                _selectedShape = "Line";
+                _selectedShape = LINE;
                 _rectangleButton.Checked = false;
                 _circleButton.Checked = false;
             }
         }
 
         // rectangle button click
-        private void RectangleButtonClick(object sender, EventArgs e)
+        private void ClickRectangleButton(object sender, EventArgs e)
         {
             _rectangleButton.Checked = !_rectangleButton.Checked;
             if (_rectangleButton.Checked)
             {
-                _selectedShape = "Rectangle";
+                _selectedShape = RECTANGLE;
                 _lineButton.Checked = false;
                 _circleButton.Checked = false;
             }
         }
 
         // circle button click
-        private void CircleButtonClick(object sender, EventArgs e)
+        private void ClickCircleButton(object sender, EventArgs e)
         {
             _circleButton.Checked = !_circleButton.Checked;
             if (_circleButton.Checked)
             {
-                _selectedShape = "Circle";
+                _selectedShape = CIRCLE;
                 _lineButton.Checked = false;
                 _rectangleButton.Checked = false;
             }
@@ -114,22 +111,24 @@ namespace PowerPoint
         // mouse pressed
         private void HandleMousePressed(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            _model.PointerPressed(e.X, e.Y);
+            _model.PressPointer(e.X, e.Y);
+            Cursor = Cursors.Cross;
         }
 
         // mouse moved
         public void HandleMouseMoved(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            _model.PointerMoved(_selectedShape, e.X, e.Y);
+            _model.MovePointer(_selectedShape, e.X, e.Y);
         }
 
         // mouse released
         public void HandleMouseReleased(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            Shape shapeTemp = _model.PointerReleased(_selectedShape, e.X, e.Y);
+            Shape shapeTemp = _model.ReleasePointer(_selectedShape, e.X, e.Y);
             if (shapeTemp != null)
             {
                 _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
+                Cursor = Cursors.Default;
             }
         }
 

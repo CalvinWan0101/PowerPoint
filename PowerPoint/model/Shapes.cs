@@ -6,12 +6,13 @@ namespace PowerPoint
 {
     public class Shapes
     {
+        private Factory _factory = new Factory();
         private List<Shape> _shapes = new List<Shape>();
 
         // add a new shape to the end of the list (with concrete number)
         public Shape Add(string shapeName, params PointF[] position)
         {
-            Shape shape = Factory.CreateShape(shapeName, position);
+            Shape shape = _factory.CreateShape(shapeName, position);
             _shapes.Add(shape);
             return shape;
         }
@@ -19,7 +20,7 @@ namespace PowerPoint
         // add a new shape to the end of the list (with random number)
         public Shape Add(string shapeName)
         {
-            Shape shape = Factory.CreateShape(shapeName);
+            Shape shape = _factory.CreateShape(shapeName);
             _shapes.Add(shape);
             return shape;
         }

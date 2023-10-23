@@ -16,11 +16,15 @@ namespace PowerPoint
         const string RECTANGLE = "Rectangle";
         const string CIRCLE = "Circle";
 
-        private static Random _random = new Random();
+        private Random _random = new Random();
         const int RANDOM_NUMBER_MAX = 511;
 
+        public Factory()
+        {
+        }
+
         // create the corresponding Shape, like Line or Rectangle (with concrete number)
-        public static Shape CreateShape(string shapeName, params PointF[] position)
+        public Shape CreateShape(string shapeName, params PointF[] position)
         {
             switch (shapeName)
             {
@@ -35,7 +39,7 @@ namespace PowerPoint
         }
 
         // create the corresponding Shape, like Line or Rectangle (with random number)
-        public static Shape CreateShape(string shapeName)
+        public Shape CreateShape(string shapeName)
         {
             PointF point1 = new PointF(_random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX));
             PointF point2 = new PointF(_random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX));

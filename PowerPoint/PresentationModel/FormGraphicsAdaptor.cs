@@ -38,9 +38,7 @@ namespace PowerPoint.model
         {
             float width = Math.Abs(point1.X - point2.X);
             float height = Math.Abs(point1.Y - point2.Y);
-            float x = Math.Min(point1.X, point2.X);
-            float y = Math.Min(point1.Y, point2.Y);
-            _graphics.DrawEllipse(Pens.Purple, x, y, width, height);
+            _graphics.DrawEllipse(Pens.Purple, Math.Min(point1.X, point2.X), Math.Min(point1.Y, point2.Y), width, height);
         }
     }
 }

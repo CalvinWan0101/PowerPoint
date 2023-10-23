@@ -200,7 +200,7 @@ namespace PowerPoint
             this._lineButton.Name = "_lineButton";
             this._lineButton.Size = new System.Drawing.Size(23, 22);
             this._lineButton.Text = "線";
-            this._lineButton.Click += new System.EventHandler(this.LineButtonClick);
+            this._lineButton.Click += new System.EventHandler(this.ClickLineButton);
             // 
             // _rectangleButton
             // 
@@ -210,7 +210,7 @@ namespace PowerPoint
             this._rectangleButton.Name = "_rectangleButton";
             this._rectangleButton.Size = new System.Drawing.Size(23, 22);
             this._rectangleButton.Text = "矩形";
-            this._rectangleButton.Click += new System.EventHandler(this.RectangleButtonClick);
+            this._rectangleButton.Click += new System.EventHandler(this.ClickRectangleButton);
             // 
             // _circleButton
             // 
@@ -220,7 +220,7 @@ namespace PowerPoint
             this._circleButton.Name = "_circleButton";
             this._circleButton.Size = new System.Drawing.Size(23, 22);
             this._circleButton.Text = "圓形";
-            this._circleButton.Click += new System.EventHandler(this.CircleButtonClick);
+            this._circleButton.Click += new System.EventHandler(this.ClickCircleButton);
             // 
             // _panel
             // 

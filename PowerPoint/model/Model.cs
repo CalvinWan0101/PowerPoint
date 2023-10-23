@@ -7,18 +7,19 @@ namespace PowerPoint
 {
     public class Model
     {
+        public event ModelChangedEventHandler _modelChanged;
+        public delegate void ModelChangedEventHandler();
+
         private Shapes _shapes;
+        private Factory _factory;
         private PointF _firstPoint;
         private bool _isPressed = false;
         private Shape _hint;
 
-        public event ModelChangedEventHandler _modelChanged;
-        public delegate void ModelChangedEventHandler();
-
-
         public Model()
         {
             _shapes = new Shapes();
+            _factory = new Factory();
         }
 
         // this function is to add the Shape into Shapes (with concrete number)
@@ -45,40 +46,40 @@ namespace PowerPoint
         }
 
         // get shapes
-        public List<Shape> Shapes()
+        public List<Shape> GetShapes()
         {
             return _shapes.GetListOfShape();
         }
 
         // press the mouse
-        public void PointerPressed(float x, float y)
+        public void PressPointer(float pointX, float pointY)
         {
-            if (x > 0 && y > 0)
+            if (pointX > 0 && pointY > 0)
             {
-                _firstPoint = new PointF(x, y);
+                _firstPoint = new PointF(pointX, pointY);
                 _isPressed = true;
             }
         }
 
         // move the mouse
-        public void PointerMoved(string name, float x, float y)
+        public void MovePointer(string name, float pointX, float pointY)
         {
             if (_isPressed)
             {
-                _hint = Factory.CreateShape(name, _firstPoint, new PointF(x, y));
+                _hint = _factory.CreateShape(name, _firstPoint, new PointF(pointX, pointY));
                 NotifyModelChanged();
             }
         }
 
         // release the mouse
-        public Shape PointerReleased(string name, float x, float y)
+        public Shape ReleasePointer(string name, float pointX, float pointY)
         {
             if (_isPressed)
             {
                 _isPressed = false;
                 if (_hint != null)
                 {
-                    _hint = Factory.CreateShape(name, _firstPoint, new PointF(x, y));
+                    _hint = _factory.CreateShape(name, _firstPoint, new PointF(pointX, pointY));
                     _shapes.Add(_hint);
                     NotifyModelChanged();
                 }
