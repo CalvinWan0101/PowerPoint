@@ -76,9 +76,12 @@ namespace PowerPoint
             if (_isPressed)
             {
                 _isPressed = false;
-                _hint = Factory.CreateShape(name, _firstPoint, new PointF(x, y));
-                _shapes.Add(_hint);
-                NotifyModelChanged();
+                if (_hint != null)
+                {
+                    _hint = Factory.CreateShape(name, _firstPoint, new PointF(x, y));
+                    _shapes.Add(_hint);
+                    NotifyModelChanged();
+                }
                 return _hint;
             }
             return null;
@@ -98,7 +101,7 @@ namespace PowerPoint
             graphics.ClearAll();
             foreach (Shape shape in _shapes.GetListOfShape())
                 shape.Draw(graphics);
-            if (_isPressed)
+            if (_isPressed && _hint != null)
                 _hint.Draw(graphics);
         }
 

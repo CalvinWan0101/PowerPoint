@@ -127,7 +127,10 @@ namespace PowerPoint
         public void HandleMouseReleased(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             Shape shapeTemp = _model.PointerReleased(_selectedShape, e.X, e.Y);
-            _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
+            if (shapeTemp != null)
+            {
+                _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
+            }
         }
 
         // function to handle paint
