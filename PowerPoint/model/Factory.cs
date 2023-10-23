@@ -1,6 +1,7 @@
 ﻿using PowerPoint.Properties;
 using PowerPoint.model.shape;
 using System;
+using System.Drawing;
 
 namespace PowerPoint
 {
@@ -17,17 +18,18 @@ namespace PowerPoint
 
         private static Random _random = new Random();
         const int RANDOM_NUMBER_MAX = 511;
+
         // create the corresponding Shape, like Line or Rectangle (with concrete number)
-        public static Shape CreateShape(string shapeName, params int[] position)
+        public static Shape CreateShape(string shapeName, params PointF[] position)
         {
             switch (shapeName)
             {
                 case LINE:
-                    return new Line(position[ZERO], position[ONE], position[TWO], position[THREE]);
+                    return new Line(position[ZERO], position[ONE]);
                 case RECTANGLE:
-                    return new Rectangle(position[ZERO], position[ONE], position[TWO], position[THREE]);
+                    return new Rectangle(position[ZERO], position[ONE]);
                 case CIRCLE:
-                    return new Circle(position[ZERO], position[ONE], position[TWO], position[THREE]);
+                    return new Circle(position[ZERO], position[ONE]);
             }
             return null;
         }
@@ -35,14 +37,17 @@ namespace PowerPoint
         // create the corresponding Shape, like Line or Rectangle (with random number)
         public static Shape CreateShape(string shapeName)
         {
+            PointF point1 = new PointF(_random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX));
+            PointF point2 = new PointF(_random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX));
+
             switch (shapeName)
             {
                 case LINE:
-                    return new Line(_random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX));
+                    return new Line(point1, point2);
                 case RECTANGLE:
-                    return new Rectangle(_random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX));
+                    return new Rectangle(point1, point2);
                 case CIRCLE:
-                    return new Circle(_random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX), _random.Next(RANDOM_NUMBER_MAX));
+                    return new Circle(point1, point2);
             }
             return null;
         }

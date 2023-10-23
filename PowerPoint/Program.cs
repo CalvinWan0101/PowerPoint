@@ -15,7 +15,7 @@ namespace PowerPoint
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Model model = new Model();
-            Application.Run(new Form1(model, new FormPresentationModel(model)));
+            Application.Run(new Form1(model));
         }
     }
 }

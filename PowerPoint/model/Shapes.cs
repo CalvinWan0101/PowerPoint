@@ -1,9 +1,5 @@
 ﻿using PowerPoint.Properties;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
 namespace PowerPoint
@@ -13,7 +9,7 @@ namespace PowerPoint
         private List<Shape> _shapes = new List<Shape>();
 
         // add a new shape to the end of the list (with concrete number)
-        public Shape Add(string shapeName, params int[] position)
+        public Shape Add(string shapeName, params PointF[] position)
         {
             Shape shape = Factory.CreateShape(shapeName, position);
             _shapes.Add(shape);
@@ -26,6 +22,12 @@ namespace PowerPoint
             Shape shape = Factory.CreateShape(shapeName);
             _shapes.Add(shape);
             return shape;
+        }
+
+        // add a new shape to the end of the list (with random number)
+        public void Add(Shape shape)
+        {
+            _shapes.Add(shape);
         }
 
         // remove the shape depend on its index
@@ -41,6 +43,12 @@ namespace PowerPoint
                 }
                 count++;
             }
+        }
+
+        // clear all the shape
+        public void Clear()
+        {
+            _shapes.Clear();
         }
 
         // get shapes

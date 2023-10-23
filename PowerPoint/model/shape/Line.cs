@@ -10,10 +10,10 @@ namespace PowerPoint
         private PointF _point1;
         private PointF _point2;
 
-        public Line(float x1, float y1, float x2, float y2)
+        public Line(PointF point1, PointF point2)
         {
-            _point1 = new PointF(x1, y1);
-            _point2 = new PointF(x2, y2);
+            _point1 = point1;
+            _point2 = point2;
             const string LINE = "Line";
             const string LINE_CHINESE = "線";
             _name = LINE;
@@ -46,12 +46,6 @@ namespace PowerPoint
         // function to draw the line
         public override void Draw(IGraphics graphics)
         {
-            //const int PEN_SIZE = 2;
-            //Graphics graphics = panel.CreateGraphics();
-            //Pen pen = new Pen(Color.Black, PEN_SIZE);
-            //graphics.DrawLine(pen, _point1, _point2);
-            //pen.Dispose();
-            //graphics.Dispose();
             graphics.DrawLine(_point1, _point2);
         }
     }
