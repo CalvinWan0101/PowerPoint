@@ -47,7 +47,7 @@ namespace PowerPoint
             this._lineButton = new System.Windows.Forms.ToolStripButton();
             this._rectangleButton = new System.Windows.Forms.ToolStripButton();
             this._circleButton = new System.Windows.Forms.ToolStripButton();
-            this._panel = new System.Windows.Forms.Panel();
+            this._panel = new DoubleBufferedPanel();
             this._slidePanel.SuspendLayout();
             this._slideDetailGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._shapesDataGridView)).BeginInit();

@@ -122,7 +122,7 @@ namespace PowerPoint
         // function to handle the change of model
         public void HandleModelChanged()
         {
-            Invalidate(true);
+            _panel.Invalidate(true);
         }
     }
 }
