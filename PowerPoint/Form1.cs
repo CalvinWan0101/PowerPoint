@@ -17,7 +17,6 @@ namespace PowerPoint
 
         private Model _model;
         private FormPresentationModel _presentationModel;
-        private FormGraphicsAdaptor _formGraphicsAdaptor;
 
         private string _selectedShape = "";
 
@@ -37,7 +36,7 @@ namespace PowerPoint
         // function for create
         private void CreateNewShapeButtonClick(object sender, EventArgs e)
         {
-            string name = "";
+            string name;
             switch (_addNewShapeSelector.SelectedIndex)
             {
                 case LINE_NUMBER:
