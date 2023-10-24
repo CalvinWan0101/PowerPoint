@@ -74,37 +74,22 @@ namespace PowerPoint
         // line button click
         private void ClickLineButton(object sender, EventArgs e)
         {
-            _lineButton.Checked = !_lineButton.Checked;
-            if (_lineButton.Checked)
-            {
-                _selectedShape = LINE;
-                _rectangleButton.Checked = false;
-                _circleButton.Checked = false;
-            }
+            _selectedShape = LINE;
+            _presentationModel.ClickLineButton(ref _lineButton, ref _rectangleButton, ref _circleButton);
         }
 
         // rectangle button click
         private void ClickRectangleButton(object sender, EventArgs e)
         {
-            _rectangleButton.Checked = !_rectangleButton.Checked;
-            if (_rectangleButton.Checked)
-            {
-                _selectedShape = RECTANGLE;
-                _lineButton.Checked = false;
-                _circleButton.Checked = false;
-            }
+            _selectedShape = RECTANGLE;
+            _presentationModel.ClickRectangleButton(ref _lineButton, ref _rectangleButton, ref _circleButton);
         }
 
         // circle button click
         private void ClickCircleButton(object sender, EventArgs e)
         {
-            _circleButton.Checked = !_circleButton.Checked;
-            if (_circleButton.Checked)
-            {
-                _selectedShape = CIRCLE;
-                _lineButton.Checked = false;
-                _rectangleButton.Checked = false;
-            }
+            _selectedShape = CIRCLE;
+            _presentationModel.ClickCircleButton(ref _lineButton, ref _rectangleButton, ref _circleButton);
         }
 
         // mouse pressed
