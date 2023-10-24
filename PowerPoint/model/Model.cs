@@ -11,15 +11,10 @@ namespace PowerPoint
         public delegate void ModelChangedEventHandler();
 
         private Shapes _shapes;
-        private Factory _factory;
-        private PointF _firstPoint;
-        private bool _isPressed = false;
-        private Shape _hint;
 
         public Model()
         {
             _shapes = new Shapes();
-            _factory = new Factory();
         }
 
         // this function is to add the Shape into Shapes (with concrete number)
@@ -38,6 +33,14 @@ namespace PowerPoint
             return shape;
         }
 
+        // this function is to add the Shape into Shapes (with exist shape)
+        public Shape Add(Shape shape)
+        {
+            _shapes.Add(shape);
+            NotifyModelChanged();
+            return shape;
+        }
+
         // this function is to remove the Shape into Shapes
         public void Remove(int targetIndex)
         {
@@ -51,63 +54,25 @@ namespace PowerPoint
             return _shapes.GetListOfShape();
         }
 
-        // press the mouse
-        public void PressPointer(float pointX, float pointY)
-        {
-            if (pointX > 0 && pointY > 0)
-            {
-                _firstPoint = new PointF(pointX, pointY);
-                _isPressed = true;
-            }
-        }
-
-        // move the mouse
-        public void MovePointer(string name, float pointX, float pointY)
-        {
-            if (_isPressed)
-            {
-                _hint = _factory.CreateShape(name, _firstPoint, new PointF(pointX, pointY));
-                NotifyModelChanged();
-            }
-        }
-
-        // release the mouse
-        public Shape ReleasePointer(string name, float pointX, float pointY)
-        {
-            if (_isPressed)
-            {
-                _isPressed = false;
-                if (_hint != null)
-                {
-                    _hint = _factory.CreateShape(name, _firstPoint, new PointF(pointX, pointY));
-                    _shapes.Add(_hint);
-                    NotifyModelChanged();
-                }
-                return _hint;
-            }
-            return null;
-        }
-
         // clear all the shape
         public void Clear()
         {
-            _isPressed = false;
             _shapes.Clear();
             NotifyModelChanged();
         }
 
         // draw all the shape
-        public void Draw(IGraphics graphics)
+        public void Draw(IGraphics graphics, bool isPressed, Shape hint)
         {
             graphics.ClearAll();
             foreach (Shape shape in _shapes.GetListOfShape())
                 shape.Draw(graphics);
-            if (_isPressed && _hint != null)
-                _hint.Draw(graphics);
+            if (isPressed && hint != null)
+                hint.Draw(graphics);
         }
 
         // notify model changed
-        void NotifyModelChanged()
+        public void NotifyModelChanged()
         {
             if (_modelChanged != null)
                 _modelChanged();

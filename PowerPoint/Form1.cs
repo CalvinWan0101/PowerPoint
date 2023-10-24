@@ -18,13 +18,11 @@ namespace PowerPoint
         private Model _model;
         private FormPresentationModel _presentationModel;
 
-        private string _selectedShape = "";
-
         public Form1(Model model)
         {
             InitializeComponent();
             _model = model;
-            _presentationModel = new FormPresentationModel(_model, _panel);
+            _presentationModel = new FormPresentationModel(model, _panel);
             _model._modelChanged += HandleModelChanged;
             _panel.MouseDown += HandleMousePressed;
             _panel.MouseUp += HandleMouseReleased;
@@ -74,41 +72,38 @@ namespace PowerPoint
         // line button click
         private void ClickLineButton(object sender, EventArgs e)
         {
-            _selectedShape = LINE;
             _presentationModel.ClickLineButton(ref _lineButton, ref _rectangleButton, ref _circleButton);
         }
 
         // rectangle button click
         private void ClickRectangleButton(object sender, EventArgs e)
         {
-            _selectedShape = RECTANGLE;
             _presentationModel.ClickRectangleButton(ref _lineButton, ref _rectangleButton, ref _circleButton);
         }
 
         // circle button click
         private void ClickCircleButton(object sender, EventArgs e)
         {
-            _selectedShape = CIRCLE;
             _presentationModel.ClickCircleButton(ref _lineButton, ref _rectangleButton, ref _circleButton);
         }
 
         // mouse pressed
-        private void HandleMousePressed(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void HandleMousePressed(object sender, MouseEventArgs e)
         {
-            _model.PressPointer(e.X, e.Y);
+            _presentationModel.PressPointer(e.X, e.Y);
             Cursor = Cursors.Cross;
         }
 
         // mouse moved
-        public void HandleMouseMoved(object sender, System.Windows.Forms.MouseEventArgs e)
+        public void HandleMouseMoved(object sender, MouseEventArgs e)
         {
-            _model.MovePointer(_selectedShape, e.X, e.Y);
+            _presentationModel.MovePointer(e.X, e.Y);
         }
 
         // mouse released
-        public void HandleMouseReleased(object sender, System.Windows.Forms.MouseEventArgs e)
+        public void HandleMouseReleased(object sender, MouseEventArgs e)
         {
-            Shape shapeTemp = _model.ReleasePointer(_selectedShape, e.X, e.Y);
+            Shape shapeTemp = _presentationModel.ReleasePointer(e.X, e.Y);
             if (shapeTemp != null)
             {
                 _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
@@ -117,7 +112,7 @@ namespace PowerPoint
         }
 
         // function to handle paint
-        public void HandleMousePaint(object sender, System.Windows.Forms.PaintEventArgs e)
+        public void HandleMousePaint(object sender, PaintEventArgs e)
         {
             _presentationModel.Draw(e.Graphics);
         }
