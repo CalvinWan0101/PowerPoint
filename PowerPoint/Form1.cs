@@ -21,8 +21,10 @@ namespace PowerPoint
         public Form1(Model model)
         {
             InitializeComponent();
+
             _model = model;
             _presentationModel = new FormPresentationModel(model, _panel);
+            
             _model._modelChanged += HandleModelChanged;
             _panel.MouseDown += HandleMousePressed;
             _panel.MouseUp += HandleMouseReleased;
@@ -103,11 +105,11 @@ namespace PowerPoint
         // mouse released
         public void HandleMouseReleased(object sender, MouseEventArgs e)
         {
+            Cursor = Cursors.Default;
             Shape shapeTemp = _presentationModel.ReleasePointer(e.X, e.Y);
             if (shapeTemp != null)
             {
                 _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
-                Cursor = Cursors.Default;
             }
         }
 
