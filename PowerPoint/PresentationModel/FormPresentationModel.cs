@@ -1,4 +1,5 @@
 ﻿using PowerPoint.Properties;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -99,22 +100,20 @@ namespace PowerPoint.model
         }
 
         // release the mouse
-        public Shape ReleasePointer(float pointX, float pointY, ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton)
+        public Shape ReleasePointer(PointF point, ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton)
         {
             if (_isPressed)
             {
                 _isPressed = false;
-                if (_hint != null)
+                if (_selectedShape != null)
                 {
-                    _hint = _factory.CreateShape(_selectedShape, _firstPoint, new PointF(pointX, pointY));
+                    lineButton.Checked = rectangleButton.Checked = circleButton.Checked = false;
+                    _hint = _factory.CreateShape(_selectedShape, _firstPoint, point);
                     _model.Add(_hint);
                     _model.NotifyModelChanged();
+                    _selectedShape = null;
+                    return _hint;
                 }
-                lineButton.Checked = false;
-                rectangleButton.Checked = false;
-                circleButton.Checked = false;
-                _selectedShape = null;
-                return _hint;
             }
             return null;
         }

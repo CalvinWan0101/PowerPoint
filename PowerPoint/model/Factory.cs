@@ -10,7 +10,6 @@ namespace PowerPoint
         const int ZERO = 0;
         const int ONE = 1;
         const int TWO = 2;
-        const int THREE = 3;
 
         const string LINE = "Line";
         const string RECTANGLE = "Rectangle";

@@ -1,6 +1,7 @@
 ﻿using PowerPoint.model;
 using PowerPoint.Properties;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PowerPoint
@@ -104,11 +105,11 @@ namespace PowerPoint
         // mouse released
         public void HandleMouseReleased(object sender, MouseEventArgs e)
         {
-            Shape shapeTemp = _presentationModel.ReleasePointer(e.X, e.Y, ref _lineButton, ref _rectangleButton, ref _circleButton);
             Cursor = Cursors.Default;
-            if (shapeTemp != null)
+            Shape shape = _presentationModel.ReleasePointer(new PointF(e.X, e.Y), ref _lineButton, ref _rectangleButton, ref _circleButton);
+            if (shape != null)
             {
-                _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
+                _shapesDataGridView.Rows.Add(DELETE, shape.GetShapeChineseName(), shape.GetInformation());
             }
         }
 
