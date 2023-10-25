@@ -99,7 +99,7 @@ namespace PowerPoint.model
         }
 
         // release the mouse
-        public Shape ReleasePointer(float pointX, float pointY)
+        public Shape ReleasePointer(float pointX, float pointY, ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton)
         {
             if (_isPressed)
             {
@@ -110,6 +110,10 @@ namespace PowerPoint.model
                     _model.Add(_hint);
                     _model.NotifyModelChanged();
                 }
+                lineButton.Checked = false;
+                rectangleButton.Checked = false;
+                circleButton.Checked = false;
+                _selectedShape = null;
                 return _hint;
             }
             return null;

@@ -24,7 +24,7 @@ namespace PowerPoint
 
             _model = model;
             _presentationModel = new FormPresentationModel(model, _panel);
-            
+
             _model._modelChanged += HandleModelChanged;
             _panel.MouseDown += HandleMousePressed;
             _panel.MouseUp += HandleMouseReleased;
@@ -93,7 +93,6 @@ namespace PowerPoint
         private void HandleMousePressed(object sender, MouseEventArgs e)
         {
             _presentationModel.PressPointer(e.X, e.Y);
-            Cursor = Cursors.Cross;
         }
 
         // mouse moved
@@ -105,8 +104,8 @@ namespace PowerPoint
         // mouse released
         public void HandleMouseReleased(object sender, MouseEventArgs e)
         {
+            Shape shapeTemp = _presentationModel.ReleasePointer(e.X, e.Y, ref _lineButton, ref _rectangleButton, ref _circleButton);
             Cursor = Cursors.Default;
-            Shape shapeTemp = _presentationModel.ReleasePointer(e.X, e.Y);
             if (shapeTemp != null)
             {
                 _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
@@ -123,6 +122,21 @@ namespace PowerPoint
         public void HandleModelChanged()
         {
             _panel.Invalidate(true);
+        }
+
+        // when mouse enter the panel
+        private void PanelMouseEnter(object sender, EventArgs e)
+        {
+            if (_lineButton.Checked || _rectangleButton.Checked || _circleButton.Checked)
+            {
+                Cursor = Cursors.Cross;
+            }
+        }
+
+        // when mouse leave the panel
+        private void PanelMouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
         }
     }
 }

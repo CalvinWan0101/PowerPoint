@@ -47,7 +47,7 @@ namespace PowerPoint
             this._lineButton = new System.Windows.Forms.ToolStripButton();
             this._rectangleButton = new System.Windows.Forms.ToolStripButton();
             this._circleButton = new System.Windows.Forms.ToolStripButton();
-            this._panel = new DoubleBufferedPanel();
+            this._panel = new PowerPoint.DoubleBufferedPanel();
             this._slidePanel.SuspendLayout();
             this._slideDetailGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._shapesDataGridView)).BeginInit();
@@ -228,6 +228,8 @@ namespace PowerPoint
             this._panel.Name = "_panel";
             this._panel.Size = new System.Drawing.Size(672, 512);
             this._panel.TabIndex = 7;
+            this._panel.MouseEnter += new System.EventHandler(this.PanelMouseEnter);
+            this._panel.MouseLeave += new System.EventHandler(this.PanelMouseLeave);
             // 
             // Form1
             // 
@@ -270,10 +272,10 @@ namespace PowerPoint
         private System.Windows.Forms.ToolStripButton _lineButton;
         private System.Windows.Forms.ToolStripButton _rectangleButton;
         private System.Windows.Forms.ToolStripButton _circleButton;
-        private System.Windows.Forms.Panel _panel;
         private System.Windows.Forms.DataGridViewButtonColumn _deleteColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _shapeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _informationColumn;
+        private DoubleBufferedPanel _panel;
     }
 }
 
