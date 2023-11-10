@@ -32,6 +32,8 @@ namespace PowerPoint
             _panel.MouseMove += HandleMouseMoved;
             _panel.Paint += HandleMousePaint;
             Controls.Add(_panel);
+
+            _mouseButton.Checked = true;
         }
 
         // function for create
@@ -75,19 +77,25 @@ namespace PowerPoint
         // line button click
         private void ClickLineButton(object sender, EventArgs e)
         {
-            _presentationModel.ClickLineButton(ref _lineButton, ref _rectangleButton, ref _circleButton);
+            _presentationModel.ClickLineButton(ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
         }
 
         // rectangle button click
         private void ClickRectangleButton(object sender, EventArgs e)
         {
-            _presentationModel.ClickRectangleButton(ref _lineButton, ref _rectangleButton, ref _circleButton);
+            _presentationModel.ClickRectangleButton(ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
         }
 
         // circle button click
         private void ClickCircleButton(object sender, EventArgs e)
         {
-            _presentationModel.ClickCircleButton(ref _lineButton, ref _rectangleButton, ref _circleButton);
+            _presentationModel.ClickCircleButton(ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
+        }
+
+        // mouse buttton click
+        private void ClickMouseButton(object sender, EventArgs e)
+        {
+            _presentationModel.ClickMouseButton(ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
         }
 
         // mouse pressed
@@ -106,7 +114,7 @@ namespace PowerPoint
         public void HandleMouseReleased(object sender, MouseEventArgs e)
         {
             Cursor = Cursors.Default;
-            Shape shape = _presentationModel.ReleasePointer(new PointF(e.X, e.Y), ref _lineButton, ref _rectangleButton, ref _circleButton);
+            Shape shape = _presentationModel.ReleasePointer(new PointF(e.X, e.Y), ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
             if (shape != null)
             {
                 _shapesDataGridView.Rows.Add(DELETE, shape.GetShapeChineseName(), shape.GetInformation());

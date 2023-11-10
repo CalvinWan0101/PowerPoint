@@ -32,7 +32,7 @@ namespace PowerPoint.model
         private string _selectedShape;
 
         // line button click
-        public void ClickLineButton(ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton)
+        public void ClickLineButton(ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
         {
             lineButton.Checked = !lineButton.Checked;
             if (lineButton.Checked)
@@ -40,15 +40,17 @@ namespace PowerPoint.model
                 _selectedShape = LINE;
                 rectangleButton.Checked = false;
                 circleButton.Checked = false;
+                mouseButton.Checked = false;
             }
             else
             {
                 _selectedShape = null;
+                mouseButton.Checked = true;
             }
         }
 
         // rectangle button click
-        public void ClickRectangleButton(ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton)
+        public void ClickRectangleButton(ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
         {
             rectangleButton.Checked = !rectangleButton.Checked;
             if (rectangleButton.Checked)
@@ -56,15 +58,17 @@ namespace PowerPoint.model
                 _selectedShape = RECTANGLE;
                 lineButton.Checked = false;
                 circleButton.Checked = false;
+                mouseButton.Checked = false;
             }
             else
             {
                 _selectedShape = null;
+                mouseButton.Checked = true;
             }
         }
 
         // circle button click
-        public void ClickCircleButton(ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton)
+        public void ClickCircleButton(ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
         {
             circleButton.Checked = !circleButton.Checked;
             if (circleButton.Checked)
@@ -72,11 +76,32 @@ namespace PowerPoint.model
                 _selectedShape = CIRCLE;
                 lineButton.Checked = false;
                 rectangleButton.Checked = false;
+                mouseButton.Checked = false;
+
             }
             else
             {
                 _selectedShape = null;
+                mouseButton.Checked = true;
             }
+        }
+
+        // click buutton mouse
+        public void ClickMouseButton(ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
+        {
+            mouseButton.Checked = !mouseButton.Checked;
+            if (mouseButton.Checked)
+            {
+                _selectedShape = null;
+                lineButton.Checked = false;
+                rectangleButton.Checked = false;
+                circleButton.Checked = false;
+            }
+            else
+            {
+
+            }
+
         }
 
         // press the mouse
@@ -100,7 +125,7 @@ namespace PowerPoint.model
         }
 
         // release the mouse
-        public Shape ReleasePointer(PointF point, ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton)
+        public Shape ReleasePointer(PointF point, ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
         {
             if (_isPressed)
             {
@@ -108,6 +133,7 @@ namespace PowerPoint.model
                 if (_selectedShape != null)
                 {
                     lineButton.Checked = rectangleButton.Checked = circleButton.Checked = false;
+                    mouseButton.Checked = true;
                     _hint = _factory.CreateShape(_selectedShape, _firstPoint, point);
                     _model.Add(_hint);
                     _model.NotifyModelChanged();

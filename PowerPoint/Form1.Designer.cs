@@ -31,7 +31,6 @@ namespace PowerPoint
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this._slidePanel = new System.Windows.Forms.Panel();
-            this._slide2 = new System.Windows.Forms.Button();
             this._slide1 = new System.Windows.Forms.Button();
             this._createNewShape = new System.Windows.Forms.Button();
             this._addNewShapeSelector = new System.Windows.Forms.ComboBox();
@@ -47,6 +46,7 @@ namespace PowerPoint
             this._lineButton = new System.Windows.Forms.ToolStripButton();
             this._rectangleButton = new System.Windows.Forms.ToolStripButton();
             this._circleButton = new System.Windows.Forms.ToolStripButton();
+            this._mouseButton = new System.Windows.Forms.ToolStripButton();
             this._panel = new PowerPoint.DoubleBufferedPanel();
             this._slidePanel.SuspendLayout();
             this._slideDetailGroupBox.SuspendLayout();
@@ -58,20 +58,11 @@ namespace PowerPoint
             // _slidePanel
             // 
             this._slidePanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this._slidePanel.Controls.Add(this._slide2);
             this._slidePanel.Controls.Add(this._slide1);
             this._slidePanel.Location = new System.Drawing.Point(0, 52);
             this._slidePanel.Name = "_slidePanel";
             this._slidePanel.Size = new System.Drawing.Size(200, 512);
             this._slidePanel.TabIndex = 0;
-            // 
-            // _slide2
-            // 
-            this._slide2.Location = new System.Drawing.Point(3, 109);
-            this._slide2.Name = "_slide2";
-            this._slide2.Size = new System.Drawing.Size(195, 100);
-            this._slide2.TabIndex = 1;
-            this._slide2.UseVisualStyleBackColor = true;
             // 
             // _slide1
             // 
@@ -185,7 +176,8 @@ namespace PowerPoint
             this._toolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._lineButton,
             this._rectangleButton,
-            this._circleButton});
+            this._circleButton,
+            this._mouseButton});
             this._toolBar.Location = new System.Drawing.Point(0, 24);
             this._toolBar.Name = "_toolBar";
             this._toolBar.Size = new System.Drawing.Size(1184, 25);
@@ -221,6 +213,16 @@ namespace PowerPoint
             this._circleButton.Size = new System.Drawing.Size(23, 22);
             this._circleButton.Text = "圓形";
             this._circleButton.Click += new System.EventHandler(this.ClickCircleButton);
+            // 
+            // _mouseButton
+            // 
+            this._mouseButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._mouseButton.Image = ((System.Drawing.Image)(resources.GetObject("_mouseButton.Image")));
+            this._mouseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._mouseButton.Name = "_mouseButton";
+            this._mouseButton.Size = new System.Drawing.Size(23, 22);
+            this._mouseButton.Text = "toolStripButton1";
+            this._mouseButton.Click += new System.EventHandler(this.ClickMouseButton);
             // 
             // _panel
             // 
@@ -263,7 +265,6 @@ namespace PowerPoint
         private System.Windows.Forms.ComboBox _addNewShapeSelector;
         private System.Windows.Forms.GroupBox _slideDetailGroupBox;
         private System.Windows.Forms.Button _slide1;
-        private System.Windows.Forms.Button _slide2;
         private System.Windows.Forms.MenuStrip _headMenu;
         private System.Windows.Forms.ToolStripMenuItem _headMenuHelp;
         private System.Windows.Forms.ToolStripMenuItem _headMenuAbout;
@@ -276,6 +277,7 @@ namespace PowerPoint
         private System.Windows.Forms.DataGridViewTextBoxColumn _shapeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _informationColumn;
         private DoubleBufferedPanel _panel;
+        private System.Windows.Forms.ToolStripButton _mouseButton;
     }
 }
 
