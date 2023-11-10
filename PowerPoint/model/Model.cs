@@ -48,17 +48,17 @@ namespace PowerPoint
             NotifyModelChanged();
         }
 
-        // get shapes
-        public List<Shape> GetShapes()
-        {
-            return _shapes.GetListOfShape();
-        }
-
         // clear all the shape
         public void Clear()
         {
             _shapes.Clear();
             NotifyModelChanged();
+        }
+
+        // get shapes
+        public List<Shape> GetShapes()
+        {
+            return _shapes.GetListOfShape();
         }
 
         // draw all the shape

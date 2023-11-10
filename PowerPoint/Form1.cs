@@ -31,8 +31,10 @@ namespace PowerPoint
             _panel.MouseUp += HandleMouseReleased;
             _panel.MouseMove += HandleMouseMoved;
             _panel.Paint += HandleMousePaint;
-            Controls.Add(_panel);
 
+            _shapesDataGridView+=
+
+            Controls.Add(_panel);
             _mouseButton.Checked = true;
         }
 

@@ -24,7 +24,7 @@ namespace PowerPoint.model
         }
 
         // draw all the shape
-        public void Draw(System.Drawing.Graphics graphics)
+        public void Draw(Graphics graphics)
         {
             _model.Draw(new FormGraphicsAdaptor(graphics), _isPressed, _hint);
         }
@@ -136,8 +136,8 @@ namespace PowerPoint.model
                     mouseButton.Checked = true;
                     _hint = _factory.CreateShape(_selectedShape, _firstPoint, point);
                     _model.Add(_hint);
-                    _model.NotifyModelChanged();
                     _selectedShape = null;
+                    _model.NotifyModelChanged();
                     return _hint;
                 }
             }
