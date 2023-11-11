@@ -1,9 +1,8 @@
-﻿using PowerPoint.Properties;
-using PowerPoint.model.shape;
+﻿using PowerPoint.model.shape;
 using System;
 using System.Drawing;
 
-namespace PowerPoint
+namespace PowerPoint.model
 {
     public class Factory
     {
@@ -31,7 +30,7 @@ namespace PowerPoint
                 case LINE:
                     return new Line(position[ZERO], position[ONE]);
                 case RECTANGLE:
-                    return new Rectangle(position[ZERO], position[ONE]);
+                    return new PowerPoint.model.shape.Rectangle(position[ZERO], position[ONE]);
                 case CIRCLE:
                     return new Circle(position[ZERO], position[ONE]);
             }
@@ -49,7 +48,7 @@ namespace PowerPoint
                 case LINE:
                     return new Line(point1, point2);
                 case RECTANGLE:
-                    return new Rectangle(point1, point2);
+                    return new PowerPoint.model.shape.Rectangle(point1, point2);
                 case CIRCLE:
                     return new Circle(point1, point2);
             }

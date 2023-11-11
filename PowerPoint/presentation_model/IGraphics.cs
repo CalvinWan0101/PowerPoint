@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace PowerPoint.model
+namespace PowerPoint.presentation_model
 {
     public interface IGraphics
     {

@@ -1,9 +1,8 @@
-﻿using PowerPoint.Properties;
-using System.Collections.Generic;
+﻿using PowerPoint.model.shape;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace PowerPoint
+namespace PowerPoint.model
 {
     public class Shapes
     {

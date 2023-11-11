@@ -1,8 +1,7 @@
-﻿using PowerPoint.model;
+﻿using PowerPoint.presentation_model;
 using System.ComponentModel;
-using System.Windows.Forms;
 
-namespace PowerPoint.Properties
+namespace PowerPoint.model.shape
 {
     public abstract class Shape : INotifyPropertyChanged
     {

@@ -1,9 +1,7 @@
-﻿using PowerPoint.model;
-using PowerPoint.Properties;
+﻿using PowerPoint.presentation_model;
 using System.Drawing;
-using System.Windows.Forms;
 
-namespace PowerPoint
+namespace PowerPoint.model.shape
 {
     public class Line : Shape
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace PowerPoint.model
+namespace PowerPoint.presentation_model
 {
     public class FormGraphicsAdaptor : IGraphics
     {

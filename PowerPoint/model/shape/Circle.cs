@@ -1,7 +1,5 @@
-﻿using PowerPoint.Properties;
-using System;
+﻿using PowerPoint.presentation_model;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace PowerPoint.model.shape
 {

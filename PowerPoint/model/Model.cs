@@ -1,19 +1,18 @@
-﻿using PowerPoint.model;
-using PowerPoint.Properties;
-using System.Collections.Generic;
+﻿using PowerPoint.model.shape;
+using PowerPoint.presentation_model;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace PowerPoint.Model
+namespace PowerPoint.model
 {
-    public class MyModel
+    public class Model
     {
         public event ModelChangedEventHandler _modelChanged;
         public delegate void ModelChangedEventHandler();
 
         private Shapes _shapes;
 
-        public MyModel()
+        public Model()
         {
             _shapes = new Shapes();
         }
