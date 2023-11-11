@@ -58,9 +58,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\state\DrawingState.cs" />
+    <Compile Include="Model\state\IState.cs" />
+    <Compile Include="Model\state\PointState.cs" />
     <Compile Include="PresentationModel\FormGraphicsAdaptor.cs" />
     <Compile Include="PresentationModel\FormPresentationModel.cs" />
-    <Compile Include="Model\IGraphics.cs" />
+    <Compile Include="PresentationModel\IGraphics.cs" />
     <Compile Include="Model\shape\Circle.cs" />
     <Compile Include="Model\shape\Line.cs" />
     <Compile Include="Model\Model.cs" />
