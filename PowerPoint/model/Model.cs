@@ -9,7 +9,7 @@ namespace PowerPoint
     {
         public event ModelChangedEventHandler _modelChanged;
         public delegate void ModelChangedEventHandler();
-        
+
         private Shapes _shapes;
 
         public Model()
@@ -18,7 +18,7 @@ namespace PowerPoint
         }
 
         // this function is to add the Shape into Shapes (with concrete number)
-        public  void Add(string shapeName, params PointF[] position)
+        public void Add(string shapeName, params PointF[] position)
         {
             _shapes.Add(shapeName, position);
             NotifyModelChanged();

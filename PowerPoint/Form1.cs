@@ -124,10 +124,8 @@ namespace PowerPoint
         // function to handle the change of model
         public void HandleModelChanged()
         {
-            // update the panel by invalidate the panel and redraw
             _panel.Invalidate(true);
 
-            // update the data grid view by delete all rows and add again
             _shapesDataGridView.Rows.Clear();
             foreach (Shape shape in _model.GetShapes())
             {
