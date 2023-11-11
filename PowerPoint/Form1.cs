@@ -1,8 +1,8 @@
 ﻿using PowerPoint.model;
-using PowerPoint.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using PowerPoint.Model;
 
 namespace PowerPoint
 {
@@ -18,10 +18,10 @@ namespace PowerPoint
         const string SHAPE = "形狀";
         const string INFORMATION = "資訊";
 
-        private Model _model;
+        private MyModel _model;
         private FormPresentationModel _presentationModel;
 
-        public Form1(Model model)
+        public Form1(MyModel model)
         {
             InitializeComponent();
 

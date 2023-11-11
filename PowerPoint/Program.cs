@@ -1,4 +1,4 @@
-﻿using PowerPoint.model;
+﻿using PowerPoint.Model;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +14,7 @@ namespace PowerPoint
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(new Model()));
+            Application.Run(new Form1(new MyModel()));
         }
     }
 }

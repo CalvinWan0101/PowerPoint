@@ -1,4 +1,5 @@
-﻿using PowerPoint.Properties;
+﻿using PowerPoint.Model;
+using PowerPoint.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Controls;
@@ -9,7 +10,7 @@ namespace PowerPoint.model
 {
     public class FormPresentationModel
     {
-        private Model _model;
+        private MyModel _model;
         private Factory _factory;
         private PointF _firstPoint;
         private bool _isPressed = false;
@@ -25,7 +26,7 @@ namespace PowerPoint.model
         const string RECTANGLE = "Rectangle";
         const string CIRCLE = "Circle";
 
-        public FormPresentationModel(Model model, Control canvas)
+        public FormPresentationModel(MyModel model, Control canvas)
         {
             this._model = model;
             _factory = new Factory();

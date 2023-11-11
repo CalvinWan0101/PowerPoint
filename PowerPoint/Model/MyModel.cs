@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace PowerPoint
+namespace PowerPoint.Model
 {
-    public class Model
+    public class MyModel
     {
         public event ModelChangedEventHandler _modelChanged;
         public delegate void ModelChangedEventHandler();
 
         private Shapes _shapes;
 
-        public Model()
+        public MyModel()
         {
             _shapes = new Shapes();
         }
