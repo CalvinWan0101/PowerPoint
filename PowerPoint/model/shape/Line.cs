@@ -9,15 +9,18 @@ namespace PowerPoint
     {
         private PointF _point1;
         private PointF _point2;
+        const string LINE = "Line";
+        const string LINE_CHINESE = "線";
+        const string COMMA = ", ";
+        const string TEMPLATE = "({0:D3}, {1:D3})";
 
         public Line(PointF point1, PointF point2)
         {
             _point1 = point1;
             _point2 = point2;
-            const string LINE = "Line";
-            const string LINE_CHINESE = "線";
             _name = LINE;
             _chineseName = LINE_CHINESE;
+            _information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
         }
 
         // get the name of line
@@ -35,9 +38,7 @@ namespace PowerPoint
         // get the position of line
         public override string GetInformation()
         {
-            const string COMMA = ", ";
-            const string TEMPLATE = "({0:D3}, {1:D3})";
-            return string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
+            return _information;
         }
 
         // function to draw the line

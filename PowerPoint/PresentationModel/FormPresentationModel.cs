@@ -13,6 +13,12 @@ namespace PowerPoint.model
         private bool _isPressed = false;
         private Shape _hint;
 
+        // button checked
+        private bool _lineButtonChecked = false;
+        private bool _rectangleButtonChecked = false;
+        private bool _circleButtonChecked = false;
+        private bool _mouseButtonChecked = true;
+
         const string LINE = "Line";
         const string RECTANGLE = "Rectangle";
         const string CIRCLE = "Circle";
@@ -23,79 +29,109 @@ namespace PowerPoint.model
             _factory = new Factory();
         }
 
+        // line button checked
+        public bool IsLineButtonChecked()
+        {
+            return _lineButtonChecked;
+        }
+
+        // rectangle button checked
+        public bool IsRectangleButtonChecked()
+        {
+            return _rectangleButtonChecked;
+        }
+
+        // circle button checked
+        public bool IsCircleButtonChecked()
+        {
+            return _circleButtonChecked;
+        }
+
+        // mouse button checked
+        public bool IsMouseButtonChecked()
+        {
+            return _mouseButtonChecked;
+        }
+
         // draw all the shape
         public void Draw(Graphics graphics)
         {
             _model.Draw(new FormGraphicsAdaptor(graphics), _isPressed, _hint);
         }
 
+        // copy the panel to slide
+        internal void CopyPanelToSlide()
+        {
+            throw new NotImplementedException();
+        }
+
         private string _selectedShape;
 
         // line button click
-        public void ClickLineButton(ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
+        public void ClickLineButton()
         {
-            lineButton.Checked = !lineButton.Checked;
-            if (lineButton.Checked)
+            _lineButtonChecked = !_lineButtonChecked;
+            if (_lineButtonChecked)
             {
                 _selectedShape = LINE;
-                rectangleButton.Checked = false;
-                circleButton.Checked = false;
-                mouseButton.Checked = false;
+                _rectangleButtonChecked = false;
+                _circleButtonChecked = false;
+                _mouseButtonChecked = false;
             }
             else
             {
                 _selectedShape = null;
-                mouseButton.Checked = true;
+                _mouseButtonChecked = true;
             }
         }
 
         // rectangle button click
-        public void ClickRectangleButton(ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
+        public void ClickRectangleButton()
         {
-            rectangleButton.Checked = !rectangleButton.Checked;
-            if (rectangleButton.Checked)
+            _lineButtonChecked = !_lineButtonChecked;
+            if (_lineButtonChecked)
             {
-                _selectedShape = RECTANGLE;
-                lineButton.Checked = false;
-                circleButton.Checked = false;
-                mouseButton.Checked = false;
+                _selectedShape = LINE;
+                _rectangleButtonChecked = false;
+                _circleButtonChecked = false;
+                _mouseButtonChecked = false;
             }
             else
             {
                 _selectedShape = null;
-                mouseButton.Checked = true;
+                _mouseButtonChecked = true;
             }
         }
 
         // circle button click
-        public void ClickCircleButton(ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
+        public void ClickCircleButton()
         {
-            circleButton.Checked = !circleButton.Checked;
-            if (circleButton.Checked)
+            _circleButtonChecked = !_circleButtonChecked;
+            if (_circleButtonChecked)
             {
                 _selectedShape = CIRCLE;
-                lineButton.Checked = false;
-                rectangleButton.Checked = false;
-                mouseButton.Checked = false;
-
+                _lineButtonChecked = false;
+                _rectangleButtonChecked = false;
+                _mouseButtonChecked = false;
             }
             else
             {
                 _selectedShape = null;
-                mouseButton.Checked = true;
+                _mouseButtonChecked = true;
             }
+
         }
 
         // click buutton mouse
-        public void ClickMouseButton(ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
+        public void ClickMouseButton()
         {
-            mouseButton.Checked = !mouseButton.Checked;
-            if (mouseButton.Checked)
+            _mouseButtonChecked = !_mouseButtonChecked;
+            if (_mouseButtonChecked)
             {
                 _selectedShape = null;
-                lineButton.Checked = false;
-                rectangleButton.Checked = false;
-                circleButton.Checked = false;
+                _lineButtonChecked = false;
+                _rectangleButtonChecked = false;
+                _circleButtonChecked = false;
             }
         }
 
@@ -120,19 +156,18 @@ namespace PowerPoint.model
         }
 
         // release the mouse
-        public void ReleasePointer(PointF point, ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
+        public void ReleasePointer(PointF point)
         {
             if (_isPressed)
             {
                 _isPressed = false;
                 if (_selectedShape != null)
                 {
-                    lineButton.Checked = rectangleButton.Checked = circleButton.Checked = false;
-                    mouseButton.Checked = true;
+                    _lineButtonChecked = _rectangleButtonChecked = _circleButtonChecked = false;
+                    _mouseButtonChecked = true;
                     _model.Add(_factory.CreateShape(_selectedShape, _firstPoint, point));
                     _selectedShape = null;
                     _model.NotifyModelChanged();
-                    _model.NotifyShapeChanged();
                 }
             }
         }

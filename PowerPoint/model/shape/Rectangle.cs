@@ -10,15 +10,18 @@ namespace PowerPoint
     {
         private PointF _point1;
         private PointF _point2;
+        const string RECTANGLE = "Rectangle";
+        const string RECTANGLE_CHINESE = "矩形";
+        const string COMMA = ", ";
+        const string TEMPLATE = "({0:D3}, {1:D3})";
 
         public Rectangle(PointF point1, PointF point2)
         {
             _point1 = point1;
             _point2 = point2;
-            const string RECTANGLE = "Rectangle";
-            const string RECTANGLE_CHINESE = "矩形";
             _name = RECTANGLE;
             _chineseName = RECTANGLE_CHINESE;
+            _information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
         }
 
         // get the name of rectangle
@@ -36,9 +39,7 @@ namespace PowerPoint
         // get the position of rectangle
         public override string GetInformation()
         {
-            const string COMMA = ", ";
-            const string TEMPLATE = "({0:D3}, {1:D3})";
-            return string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
+            return _information;
         }
 
         // function to draw the rectangle

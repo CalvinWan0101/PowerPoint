@@ -185,24 +185,7 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews>
-            <Smell>
-              <Id>1</Id>
-              <SmellType>Long parameter list(過長參數列)</SmellType>
-              <HashCode>LongParameterList.FormPresentationModel.ReleasePointer.PointF point;ToolStripButton lineButton;ToolStripButton rectangleButton;ToolStripButton circleButton;ToolStripButton mouseButton;</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>5</Weight>
-              <Project>PowerPoint</Project>
-              <File>FormPresentationModel.cs</File>
-              <Line>123</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-          </Reviews>
+          <Reviews />
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
@@ -294,7 +277,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1083</ProductionLoc>
+          <ProductionLoc>1159</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

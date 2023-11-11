@@ -15,6 +15,8 @@ namespace PowerPoint
         const string RECTANGLE = "Rectangle";
         const string CIRCLE = "Circle";
         const string DELETE = "刪除";
+        const string SHAPE = "形狀";
+        const string INFORMATION = "資訊";
 
         private Model _model;
         private FormPresentationModel _presentationModel;
@@ -26,16 +28,49 @@ namespace PowerPoint
             _model = model;
             _presentationModel = new FormPresentationModel(model, _panel);
 
+            // data grid view
+            _shapesDataGridView.AutoGenerateColumns = false;
+            _shapesDataGridView.DataSource = _model.GetShapes();
+
+            // add button column
+            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            buttonColumn.HeaderText = DELETE;
+            buttonColumn.Text = DELETE;
+            buttonColumn.Width = 50;
+            buttonColumn.UseColumnTextForButtonValue = true;
+            _shapesDataGridView.Columns.Insert(0, buttonColumn);
+            _shapesDataGridView.CellContentClick += DeleteShapeButtonClick;
+
+            // add shape column
+            DataGridViewTextBoxColumn chineseNameColumn = new DataGridViewTextBoxColumn();
+            chineseNameColumn.HeaderText = SHAPE;
+            chineseNameColumn.Width = 60;
+            chineseNameColumn.DataPropertyName = "_chineseName";
+            _shapesDataGridView.Columns.Insert(1, chineseNameColumn);
+
+            // add information column
+            DataGridViewTextBoxColumn informationColumn = new DataGridViewTextBoxColumn();
+            informationColumn.HeaderText = INFORMATION;
+            informationColumn.Width = 190;
+            informationColumn.DataPropertyName = "_information";
+            _shapesDataGridView.Columns.Insert(2, informationColumn);
+
             // handle event
             _model._modelChanged += HandleModelChanged;
-            _model._shapeChanged += HandleShapeChanged;
             _panel.MouseDown += HandleMousePressed;
             _panel.MouseUp += HandleMouseReleased;
             _panel.MouseMove += HandleMouseMoved;
             _panel.Paint += HandleMousePaint;
 
             Controls.Add(_panel);
-            _mouseButton.Checked = true;
+        }
+
+        private BindingManagerBase BindingManager
+        {
+            get
+            {
+                return _shapesDataGridView.BindingContext[_shapesDataGridView.DataSource, _shapesDataGridView.DataMember];
+            }
         }
 
         // function for create
@@ -73,28 +108,41 @@ namespace PowerPoint
             }
         }
 
+        // update button click status
+        private void UpdateButtonStatus()
+        {
+            _lineButton.Checked = _presentationModel.IsLineButtonChecked();
+            _rectangleButton.Checked = _presentationModel.IsRectangleButtonChecked();
+            _circleButton.Checked = _presentationModel.IsCircleButtonChecked();
+            _mouseButton.Checked = _presentationModel.IsMouseButtonChecked();
+        }
+
         // line button click
         private void ClickLineButton(object sender, EventArgs e)
         {
-            _presentationModel.ClickLineButton(ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
+            _presentationModel.ClickLineButton();
+            UpdateButtonStatus();
         }
 
         // rectangle button click
         private void ClickRectangleButton(object sender, EventArgs e)
         {
-            _presentationModel.ClickRectangleButton(ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
+            _presentationModel.ClickRectangleButton();
+            UpdateButtonStatus();
         }
 
         // circle button click
         private void ClickCircleButton(object sender, EventArgs e)
         {
-            _presentationModel.ClickCircleButton(ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
+            _presentationModel.ClickCircleButton();
+            UpdateButtonStatus();
         }
 
         // mouse buttton click
         private void ClickMouseButton(object sender, EventArgs e)
         {
-            _presentationModel.ClickMouseButton(ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
+            _presentationModel.ClickMouseButton();
+            UpdateButtonStatus();
         }
 
         // mouse pressed
@@ -113,7 +161,8 @@ namespace PowerPoint
         public void HandleMouseReleased(object sender, MouseEventArgs e)
         {
             Cursor = Cursors.Default;
-            _presentationModel.ReleasePointer(new PointF(e.X, e.Y), ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
+            _presentationModel.ReleasePointer(new PointF(e.X, e.Y));
+            UpdateButtonStatus();
         }
 
         // function to handle paint
@@ -128,14 +177,10 @@ namespace PowerPoint
             _panel.Invalidate(true);
         }
 
-        // function to updatate the data grid view
-        public void HandleShapeChanged()
+        // function to handle the change for copy the panel to slide
+        private void CopyPanelToSlide(object sender, EventArgs e)
         {
-            _shapesDataGridView.Rows.Clear();
-            foreach (Shape shape in _model.GetShapes())
-            {
-                _shapesDataGridView.Rows.Add(DELETE, shape.GetShapeChineseName(), shape.GetInformation());
-            }
+            _presentationModel.CopyPanelToSlide();
         }
 
         // when mouse enter the panel

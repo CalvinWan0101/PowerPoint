@@ -6,10 +6,25 @@ namespace PowerPoint.Properties
 {
     public abstract class Shape : INotifyPropertyChanged
     {
-        protected string _name;
-        protected string _chineseName;
-
         public event PropertyChangedEventHandler PropertyChanged;
+
+        protected string _name
+        {
+            get;
+            set;
+        }
+
+        public string _chineseName
+        {
+            get;
+            protected set;
+        }
+
+        public string _information
+        {
+            get;
+            protected set;
+        }
 
         // function to get the name of the shape
         public abstract string GetShapeName();
