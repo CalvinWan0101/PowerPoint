@@ -132,6 +132,7 @@ namespace PowerPoint.model
                     _model.Add(_factory.CreateShape(_selectedShape, _firstPoint, point));
                     _selectedShape = null;
                     _model.NotifyModelChanged();
+                    _model.NotifyShapeChanged();
                 }
             }
         }

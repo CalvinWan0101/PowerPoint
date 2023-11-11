@@ -61,14 +61,14 @@ namespace PowerPoint
             this._slidePanel.Controls.Add(this._slide1);
             this._slidePanel.Location = new System.Drawing.Point(0, 52);
             this._slidePanel.Name = "_slidePanel";
-            this._slidePanel.Size = new System.Drawing.Size(200, 512);
+            this._slidePanel.Size = new System.Drawing.Size(168, 360);
             this._slidePanel.TabIndex = 0;
             // 
             // _slide1
             // 
             this._slide1.Location = new System.Drawing.Point(3, 3);
             this._slide1.Name = "_slide1";
-            this._slide1.Size = new System.Drawing.Size(195, 100);
+            this._slide1.Size = new System.Drawing.Size(160, 90);
             this._slide1.TabIndex = 0;
             this._slide1.UseVisualStyleBackColor = true;
             // 
@@ -99,9 +99,9 @@ namespace PowerPoint
             this._slideDetailGroupBox.Controls.Add(this._shapesDataGridView);
             this._slideDetailGroupBox.Controls.Add(this._addNewShapeSelector);
             this._slideDetailGroupBox.Controls.Add(this._createNewShape);
-            this._slideDetailGroupBox.Location = new System.Drawing.Point(884, 55);
+            this._slideDetailGroupBox.Location = new System.Drawing.Point(820, 55);
             this._slideDetailGroupBox.Name = "_slideDetailGroupBox";
-            this._slideDetailGroupBox.Size = new System.Drawing.Size(300, 509);
+            this._slideDetailGroupBox.Size = new System.Drawing.Size(300, 357);
             this._slideDetailGroupBox.TabIndex = 4;
             this._slideDetailGroupBox.TabStop = false;
             this._slideDetailGroupBox.Text = "資料顯示";
@@ -118,7 +118,7 @@ namespace PowerPoint
             this._shapesDataGridView.Name = "_shapesDataGridView";
             this._shapesDataGridView.ReadOnly = true;
             this._shapesDataGridView.RowHeadersVisible = false;
-            this._shapesDataGridView.Size = new System.Drawing.Size(300, 481);
+            this._shapesDataGridView.Size = new System.Drawing.Size(300, 301);
             this._shapesDataGridView.TabIndex = 4;
             this._shapesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeleteShapeButtonClick);
             // 
@@ -152,7 +152,7 @@ namespace PowerPoint
             this._headMenuHelp});
             this._headMenu.Location = new System.Drawing.Point(0, 0);
             this._headMenu.Name = "_headMenu";
-            this._headMenu.Size = new System.Drawing.Size(1184, 24);
+            this._headMenu.Size = new System.Drawing.Size(1121, 24);
             this._headMenu.TabIndex = 5;
             this._headMenu.Text = "menuStrip1";
             // 
@@ -180,7 +180,7 @@ namespace PowerPoint
             this._mouseButton});
             this._toolBar.Location = new System.Drawing.Point(0, 24);
             this._toolBar.Name = "_toolBar";
-            this._toolBar.Size = new System.Drawing.Size(1184, 25);
+            this._toolBar.Size = new System.Drawing.Size(1121, 25);
             this._toolBar.TabIndex = 6;
             this._toolBar.Text = "toolStrip1";
             // 
@@ -226,9 +226,9 @@ namespace PowerPoint
             // 
             // _panel
             // 
-            this._panel.Location = new System.Drawing.Point(206, 52);
+            this._panel.Location = new System.Drawing.Point(174, 52);
             this._panel.Name = "_panel";
-            this._panel.Size = new System.Drawing.Size(672, 512);
+            this._panel.Size = new System.Drawing.Size(640, 360);
             this._panel.TabIndex = 7;
             this._panel.MouseEnter += new System.EventHandler(this.PanelMouseEnter);
             this._panel.MouseLeave += new System.EventHandler(this.PanelMouseLeave);
@@ -237,7 +237,7 @@ namespace PowerPoint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.ClientSize = new System.Drawing.Size(1121, 413);
             this.Controls.Add(this._panel);
             this.Controls.Add(this._toolBar);
             this.Controls.Add(this._slideDetailGroupBox);

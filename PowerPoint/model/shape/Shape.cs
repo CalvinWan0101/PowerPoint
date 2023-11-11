@@ -1,12 +1,15 @@
 ﻿using PowerPoint.model;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace PowerPoint.Properties
 {
-    public abstract class Shape
+    public abstract class Shape : INotifyPropertyChanged
     {
         protected string _name;
         protected string _chineseName;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         // function to get the name of the shape
         public abstract string GetShapeName();

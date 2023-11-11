@@ -1,5 +1,6 @@
 ﻿using PowerPoint.Properties;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 
 namespace PowerPoint
@@ -7,7 +8,7 @@ namespace PowerPoint
     public class Shapes
     {
         private Factory _factory = new Factory();
-        private List<Shape> _shapes = new List<Shape>();
+        private BindingList<Shape> _shapes = new BindingList<Shape>();
 
         // add a new shape to the end of the list (with concrete number)
         public Shape Add(string shapeName, params PointF[] position)
@@ -53,7 +54,7 @@ namespace PowerPoint
         }
 
         // get shapes
-        public List<Shape> GetListOfShape()
+        public BindingList<Shape> GetListOfShape()
         {
             return _shapes;
         }

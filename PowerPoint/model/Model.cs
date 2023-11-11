@@ -1,6 +1,7 @@
 ﻿using PowerPoint.model;
 using PowerPoint.Properties;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 
 namespace PowerPoint
@@ -9,6 +10,9 @@ namespace PowerPoint
     {
         public event ModelChangedEventHandler _modelChanged;
         public delegate void ModelChangedEventHandler();
+
+        public event ShapesChangedEventHandler _shapeChanged;
+        public delegate void ShapesChangedEventHandler();
 
         private Shapes _shapes;
 
@@ -22,6 +26,7 @@ namespace PowerPoint
         {
             _shapes.Add(shapeName, position);
             NotifyModelChanged();
+            NotifyShapeChanged();
         }
 
         // this function is to add the Shape into Shapes (with random number)
@@ -29,6 +34,7 @@ namespace PowerPoint
         {
             Shape shape = _shapes.Add(shapeName);
             NotifyModelChanged();
+            NotifyShapeChanged();
             return shape;
         }
 
@@ -37,6 +43,7 @@ namespace PowerPoint
         {
             _shapes.Add(shape);
             NotifyModelChanged();
+            NotifyShapeChanged();
             return shape;
         }
 
@@ -45,6 +52,7 @@ namespace PowerPoint
         {
             _shapes.Remove(targetIndex);
             NotifyModelChanged();
+            NotifyShapeChanged();
         }
 
         // clear all the shape
@@ -52,10 +60,11 @@ namespace PowerPoint
         {
             _shapes.Clear();
             NotifyModelChanged();
+            NotifyShapeChanged();
         }
 
         // get shapes
-        public List<Shape> GetShapes()
+        public BindingList<Shape> GetShapes()
         {
             return _shapes.GetListOfShape();
         }
@@ -75,6 +84,13 @@ namespace PowerPoint
         {
             if (_modelChanged != null)
                 _modelChanged();
+        }
+
+        // notify shape changed
+        public void NotifyShapeChanged()
+        {
+            if (_shapeChanged != null)
+                _shapeChanged();
         }
 
     }

@@ -28,6 +28,7 @@ namespace PowerPoint
 
             // handle event
             _model._modelChanged += HandleModelChanged;
+            _model._shapeChanged += HandleShapeChanged;
             _panel.MouseDown += HandleMousePressed;
             _panel.MouseUp += HandleMouseReleased;
             _panel.MouseMove += HandleMouseMoved;
@@ -125,7 +126,11 @@ namespace PowerPoint
         public void HandleModelChanged()
         {
             _panel.Invalidate(true);
+        }
 
+        // function to updatate the data grid view
+        public void HandleShapeChanged()
+        {
             _shapesDataGridView.Rows.Clear();
             foreach (Shape shape in _model.GetShapes())
             {
