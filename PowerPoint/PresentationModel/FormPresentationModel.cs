@@ -60,7 +60,7 @@ namespace PowerPoint.model
         }
 
         // copy the panel to slide
-        internal void CopyPanelToSlide()
+        public void CopyPanelToSlide()
         {
             throw new NotImplementedException();
         }
@@ -88,11 +88,11 @@ namespace PowerPoint.model
         // rectangle button click
         public void ClickRectangleButton()
         {
-            _lineButtonChecked = !_lineButtonChecked;
-            if (_lineButtonChecked)
+            _rectangleButtonChecked = !_rectangleButtonChecked;
+            if (_rectangleButtonChecked)
             {
-                _selectedShape = LINE;
-                _rectangleButtonChecked = false;
+                _selectedShape = RECTANGLE;
+                _lineButtonChecked = false;
                 _circleButtonChecked = false;
                 _mouseButtonChecked = false;
             }

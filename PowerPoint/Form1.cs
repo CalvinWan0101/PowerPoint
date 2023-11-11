@@ -39,7 +39,6 @@ namespace PowerPoint
             buttonColumn.Width = 50;
             buttonColumn.UseColumnTextForButtonValue = true;
             _shapesDataGridView.Columns.Insert(0, buttonColumn);
-            _shapesDataGridView.CellContentClick += DeleteShapeButtonClick;
 
             // add shape column
             DataGridViewTextBoxColumn chineseNameColumn = new DataGridViewTextBoxColumn();
@@ -63,14 +62,6 @@ namespace PowerPoint
             _panel.Paint += HandleMousePaint;
 
             Controls.Add(_panel);
-        }
-
-        private BindingManagerBase BindingManager
-        {
-            get
-            {
-                return _shapesDataGridView.BindingContext[_shapesDataGridView.DataSource, _shapesDataGridView.DataMember];
-            }
         }
 
         // function for create
@@ -98,14 +89,15 @@ namespace PowerPoint
         private void DeleteShapeButtonClick(object sender, DataGridViewCellEventArgs e)
         {
             int selectedRowIndex = e.RowIndex;
-            if (selectedRowIndex == -1)
-            {
-                _model.Clear();
-            }
-            else
-            {
-                _model.Remove(selectedRowIndex);
-            }
+            _model.Remove(selectedRowIndex);
+            //if (selectedRowIndex == -1)
+            //{
+            //    _model.Clear();
+            //}
+            //else
+            //{
+            //    _model.Remove(selectedRowIndex);
+            //}
         }
 
         // update button click status
@@ -175,12 +167,7 @@ namespace PowerPoint
         public void HandleModelChanged()
         {
             _panel.Invalidate(true);
-        }
-
-        // function to handle the change for copy the panel to slide
-        private void CopyPanelToSlide(object sender, EventArgs e)
-        {
-            _presentationModel.CopyPanelToSlide();
+            //_presentationModel.CopyPanelToSlide();
         }
 
         // when mouse enter the panel
