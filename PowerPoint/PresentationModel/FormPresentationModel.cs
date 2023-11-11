@@ -97,11 +97,6 @@ namespace PowerPoint.model
                 rectangleButton.Checked = false;
                 circleButton.Checked = false;
             }
-            else
-            {
-
-            }
-
         }
 
         // press the mouse
@@ -125,7 +120,7 @@ namespace PowerPoint.model
         }
 
         // release the mouse
-        public Shape ReleasePointer(PointF point, ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
+        public void ReleasePointer(PointF point, ref ToolStripButton lineButton, ref ToolStripButton rectangleButton, ref ToolStripButton circleButton, ref ToolStripButton mouseButton)
         {
             if (_isPressed)
             {
@@ -134,14 +129,11 @@ namespace PowerPoint.model
                 {
                     lineButton.Checked = rectangleButton.Checked = circleButton.Checked = false;
                     mouseButton.Checked = true;
-                    _hint = _factory.CreateShape(_selectedShape, _firstPoint, point);
-                    _model.Add(_hint);
+                    _model.Add(_factory.CreateShape(_selectedShape, _firstPoint, point));
                     _selectedShape = null;
                     _model.NotifyModelChanged();
-                    return _hint;
                 }
             }
-            return null;
         }
 
         // clear all the shape

@@ -26,6 +26,7 @@ namespace PowerPoint
             _model = model;
             _presentationModel = new FormPresentationModel(model, _panel);
 
+            // handle event
             _model._modelChanged += HandleModelChanged;
             _panel.MouseDown += HandleMousePressed;
             _panel.MouseUp += HandleMouseReleased;
@@ -54,8 +55,7 @@ namespace PowerPoint
                 default:
                     return;
             }
-            Shape shapeTemp = _model.Add(name);
-            _shapesDataGridView.Rows.Add(DELETE, shapeTemp.GetShapeChineseName(), shapeTemp.GetInformation());
+            _model.Add(name);
         }
 
         // delete shpae
@@ -65,12 +65,10 @@ namespace PowerPoint
             if (selectedRowIndex == -1)
             {
                 _model.Clear();
-                _shapesDataGridView.Rows.Clear();
             }
             else
             {
                 _model.Remove(selectedRowIndex);
-                _shapesDataGridView.Rows.RemoveAt(selectedRowIndex);
             }
         }
 
@@ -114,11 +112,7 @@ namespace PowerPoint
         public void HandleMouseReleased(object sender, MouseEventArgs e)
         {
             Cursor = Cursors.Default;
-            Shape shape = _presentationModel.ReleasePointer(new PointF(e.X, e.Y), ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
-            if (shape != null)
-            {
-                _shapesDataGridView.Rows.Add(DELETE, shape.GetShapeChineseName(), shape.GetInformation());
-            }
+            _presentationModel.ReleasePointer(new PointF(e.X, e.Y), ref _lineButton, ref _rectangleButton, ref _circleButton, ref _mouseButton);
         }
 
         // function to handle paint
@@ -130,7 +124,15 @@ namespace PowerPoint
         // function to handle the change of model
         public void HandleModelChanged()
         {
+            // update the panel by invalidate the panel and redraw
             _panel.Invalidate(true);
+
+            // update the data grid view by delete all rows and add again
+            _shapesDataGridView.Rows.Clear();
+            foreach (Shape shape in _model.GetShapes())
+            {
+                _shapesDataGridView.Rows.Add(DELETE, shape.GetShapeChineseName(), shape.GetInformation());
+            }
         }
 
         // when mouse enter the panel
