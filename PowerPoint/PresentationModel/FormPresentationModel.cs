@@ -1,7 +1,9 @@
 ﻿using PowerPoint.Properties;
 using System;
 using System.Drawing;
+using System.Windows.Controls;
 using System.Windows.Forms;
+using Control = System.Windows.Forms.Control;
 
 namespace PowerPoint.model
 {
@@ -60,9 +62,12 @@ namespace PowerPoint.model
         }
 
         // copy the panel to slide
-        public void CopyPanelToSlide()
+        public void CopyPanelToSlide(DoubleBufferedPanel panel, System.Windows.Forms.Button slide)
         {
-            throw new NotImplementedException();
+            Bitmap bitmap = new Bitmap(panel.Width, panel.Height);
+            panel.DrawToBitmap(bitmap, new System.Drawing.Rectangle(0, 0, panel.Width, panel.Height));
+            Graphics graphics = slide.CreateGraphics();
+            graphics.DrawImage(bitmap, new System.Drawing.Rectangle(0, 0, slide.Width, slide.Height));
         }
 
         private string _selectedShape;

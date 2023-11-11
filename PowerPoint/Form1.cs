@@ -90,14 +90,6 @@ namespace PowerPoint
         {
             int selectedRowIndex = e.RowIndex;
             _model.Remove(selectedRowIndex);
-            //if (selectedRowIndex == -1)
-            //{
-            //    _model.Clear();
-            //}
-            //else
-            //{
-            //    _model.Remove(selectedRowIndex);
-            //}
         }
 
         // update button click status
@@ -167,7 +159,7 @@ namespace PowerPoint
         public void HandleModelChanged()
         {
             _panel.Invalidate(true);
-            //_presentationModel.CopyPanelToSlide();
+            _presentationModel.CopyPanelToSlide(_panel, _slide1);
         }
 
         // when mouse enter the panel
