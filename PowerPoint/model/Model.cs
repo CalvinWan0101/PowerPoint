@@ -1,4 +1,5 @@
 ﻿using PowerPoint.model.shape;
+using PowerPoint.model.state;
 using PowerPoint.presentation_model;
 using System.ComponentModel;
 using System.Drawing;
@@ -11,10 +12,14 @@ namespace PowerPoint.model
         public delegate void ModelChangedEventHandler();
 
         private Shapes _shapes;
+        private DrawingState _drawingState;
+        private PointState _pointState;
 
         public Model()
         {
             _shapes = new Shapes();
+            _drawingState = new DrawingState(this);
+            _pointState = new PointState(this);
         }
 
         // this function is to add the Shape into Shapes (with concrete number)
@@ -25,11 +30,10 @@ namespace PowerPoint.model
         }
 
         // this function is to add the Shape into Shapes (with random number)
-        public Shape Add(string shapeName)
+        public void Add(string shapeName)
         {
             Shape shape = _shapes.Add(shapeName);
             NotifyModelChanged();
-            return shape;
         }
 
         // this function is to add the Shape into Shapes (with exist shape)
@@ -50,24 +54,49 @@ namespace PowerPoint.model
         // clear all the shape
         public void Clear()
         {
-            _shapes.Clear();
-            NotifyModelChanged();
+            _drawingState.Clear();
         }
 
-        // get shapes
-        public BindingList<Shape> GetShapes()
+        // set shape name
+        public void SetShapeName(string shapeName)
+        {
+            _drawingState.SetShapeName(shapeName);
+        }
+
+        // mouse press
+        public void MousePress(PointF point)
+        {
+            _drawingState.MousePress(point);
+        }
+
+        // mouse move
+        public void MouseMove(PointF point)
+        {
+            _drawingState.MouseMove(point);
+        }
+
+        // mouse release
+        public void MouseRelease(PointF point)
+        {
+            _drawingState.MouseRelease(point);
+        }
+
+        // get list of shape
+        public BindingList<Shape> GetListOfShape()
         {
             return _shapes.GetListOfShape();
         }
 
-        // draw all the shape
-        public void Draw(IGraphics graphics, bool isPressed, Shape hint)
+        // get shapes
+        public Shapes GetShapes()
         {
-            graphics.ClearAll();
-            foreach (Shape shape in _shapes.GetListOfShape())
-                shape.Draw(graphics);
-            if (isPressed && hint != null)
-                hint.Draw(graphics);
+            return _shapes;
+        }
+
+        // draw all the shape
+        public void Draw(IGraphics graphics)
+        {
+            _drawingState.Draw(graphics);
         }
 
         // notify model changed

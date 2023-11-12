@@ -1,11 +1,16 @@
-﻿namespace PowerPoint.model.state
+﻿using System.Drawing;
+
+namespace PowerPoint.model.state
 {
     public interface IState
     {
-        // this function is to handle mouse pressed
-        void MouseDown();
+        // mouse press
+        void MousePress(PointF point);
 
-        // this function is to handle mouse released
-        void MouseMove();
+        // mouse move
+        void MouseMove(PointF point);
+
+        // mouse release
+        void MouseRelease(PointF point);
     }
 }

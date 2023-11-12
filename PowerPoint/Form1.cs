@@ -30,7 +30,7 @@ namespace PowerPoint
 
             // data grid view
             _shapesDataGridView.AutoGenerateColumns = false;
-            _shapesDataGridView.DataSource = _model.GetShapes();
+            _shapesDataGridView.DataSource = _model.GetListOfShape();
 
             // add button column
             DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();

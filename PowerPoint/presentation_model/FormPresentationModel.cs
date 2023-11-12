@@ -8,10 +8,6 @@ namespace PowerPoint.presentation_model
     public class FormPresentationModel
     {
         private Model _model;
-        private Factory _factory;
-        private PointF _firstPoint;
-        private bool _isPressed = false;
-        private Shape _hint;
 
         // button checked
         private bool _lineButtonChecked = false;
@@ -26,7 +22,6 @@ namespace PowerPoint.presentation_model
         public FormPresentationModel(Model model, Control canvas)
         {
             this._model = model;
-            _factory = new Factory();
         }
 
         // line button checked
@@ -56,7 +51,7 @@ namespace PowerPoint.presentation_model
         // draw all the shape
         public void Draw(Graphics graphics)
         {
-            _model.Draw(new FormGraphicsAdaptor(graphics), _isPressed, _hint);
+            _model.Draw(new FormGraphicsAdaptor(graphics));
         }
 
         // copy the panel to slide
@@ -68,22 +63,18 @@ namespace PowerPoint.presentation_model
             graphics.DrawImage(bitmap, new System.Drawing.Rectangle(0, 0, slide.Width, slide.Height));
         }
 
-        private string _selectedShape;
-
         // line button click
         public void ClickLineButton()
         {
             _lineButtonChecked = !_lineButtonChecked;
             if (_lineButtonChecked)
             {
-                _selectedShape = LINE;
-                _rectangleButtonChecked = false;
-                _circleButtonChecked = false;
-                _mouseButtonChecked = false;
+                _model.SetShapeName(LINE);
+                _rectangleButtonChecked = _circleButtonChecked = _mouseButtonChecked = false;
             }
             else
             {
-                _selectedShape = null;
+                _model.SetShapeName(null);
                 _mouseButtonChecked = true;
             }
         }
@@ -94,14 +85,12 @@ namespace PowerPoint.presentation_model
             _rectangleButtonChecked = !_rectangleButtonChecked;
             if (_rectangleButtonChecked)
             {
-                _selectedShape = RECTANGLE;
-                _lineButtonChecked = false;
-                _circleButtonChecked = false;
-                _mouseButtonChecked = false;
+                _model.SetShapeName(RECTANGLE);
+                _lineButtonChecked = _circleButtonChecked = _mouseButtonChecked = false;
             }
             else
             {
-                _selectedShape = null;
+                _model.SetShapeName(null);
                 _mouseButtonChecked = true;
             }
         }
@@ -112,17 +101,14 @@ namespace PowerPoint.presentation_model
             _circleButtonChecked = !_circleButtonChecked;
             if (_circleButtonChecked)
             {
-                _selectedShape = CIRCLE;
-                _lineButtonChecked = false;
-                _rectangleButtonChecked = false;
-                _mouseButtonChecked = false;
+                _model.SetShapeName(CIRCLE);
+                _lineButtonChecked = _rectangleButtonChecked = _mouseButtonChecked = false;
             }
             else
             {
-                _selectedShape = null;
+                _model.SetShapeName(null);
                 _mouseButtonChecked = true;
             }
-
         }
 
         // click buutton mouse
@@ -131,54 +117,35 @@ namespace PowerPoint.presentation_model
             _mouseButtonChecked = !_mouseButtonChecked;
             if (_mouseButtonChecked)
             {
-                _selectedShape = null;
-                _lineButtonChecked = false;
-                _rectangleButtonChecked = false;
-                _circleButtonChecked = false;
+                //_selectedShape = null;
+                _model.SetShapeName(null);
+                _lineButtonChecked = _rectangleButtonChecked = _circleButtonChecked = false;
             }
         }
 
         // press the mouse
         public void PressPointer(float pointX, float pointY)
         {
-            if (pointX > 0 && pointY > 0)
-            {
-                _firstPoint = new PointF(pointX, pointY);
-                _isPressed = true;
-            }
+            _model.MousePress(new PointF(pointX, pointY));
         }
 
         // move the mouse
         public void MovePointer(float pointX, float pointY)
         {
-            if (_isPressed)
-            {
-                _hint = _factory.CreateShape(_selectedShape, _firstPoint, new PointF(pointX, pointY));
-                _model.NotifyModelChanged();
-            }
+            _model.MouseMove(new PointF(pointX, pointY));
         }
 
         // release the mouse
         public void ReleasePointer(PointF point)
         {
-            if (_isPressed)
-            {
-                _isPressed = false;
-                if (_selectedShape != null)
-                {
-                    _lineButtonChecked = _rectangleButtonChecked = _circleButtonChecked = false;
-                    _mouseButtonChecked = true;
-                    _model.Add(_factory.CreateShape(_selectedShape, _firstPoint, point));
-                    _selectedShape = null;
-                    _model.NotifyModelChanged();
-                }
-            }
+            _model.MouseRelease(point);
+            _lineButtonChecked = _rectangleButtonChecked = _circleButtonChecked = false;
+            _mouseButtonChecked = true;
         }
 
         // clear all the shape
         public void Clear()
         {
-            _isPressed = false;
             _model.Clear();
         }
     }
