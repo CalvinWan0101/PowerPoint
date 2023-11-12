@@ -32,16 +32,8 @@ namespace PowerPoint.model
         // this function is to add the Shape into Shapes (with random number)
         public void Add(string shapeName)
         {
-            Shape shape = _shapes.Add(shapeName);
+            _shapes.Add(shapeName);
             NotifyModelChanged();
-        }
-
-        // this function is to add the Shape into Shapes (with exist shape)
-        public Shape Add(Shape shape)
-        {
-            _shapes.Add(shape);
-            NotifyModelChanged();
-            return shape;
         }
 
         // this function is to remove the Shape into Shapes

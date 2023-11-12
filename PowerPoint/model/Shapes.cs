@@ -11,24 +11,16 @@ namespace PowerPoint.model
         private Shape _hint;
 
         // add a new shape to the end of the list (with concrete number)
-        public Shape Add(string shapeName, params PointF[] position)
+        public void Add(string shapeName, params PointF[] position)
         {
             Shape shape = _factory.CreateShape(shapeName, position);
             _shapes.Add(shape);
-            return shape;
         }
 
         // add a new shape to the end of the list (with random number)
-        public Shape Add(string shapeName)
+        public void Add(string shapeName)
         {
             Shape shape = _factory.CreateShape(shapeName);
-            _shapes.Add(shape);
-            return shape;
-        }
-
-        // add a new shape to the end of the list (with random number)
-        public void Add(Shape shape)
-        {
             _shapes.Add(shape);
         }
 

@@ -21,7 +21,7 @@ namespace PowerPoint.presentation_model
 
         public FormPresentationModel(Model model, Control canvas)
         {
-            this._model = model;
+            _model = model;
         }
 
         // line button checked
@@ -55,7 +55,7 @@ namespace PowerPoint.presentation_model
         }
 
         // copy the panel to slide
-        public void CopyPanelToSlide(DoubleBufferedPanel panel, System.Windows.Forms.Button slide)
+        public void CopyPanelToSlide(DoubleBufferedPanel panel, Button slide)
         {
             Bitmap bitmap = new Bitmap(panel.Width, panel.Height);
             panel.DrawToBitmap(bitmap, new System.Drawing.Rectangle(0, 0, panel.Width, panel.Height));
@@ -117,7 +117,6 @@ namespace PowerPoint.presentation_model
             _mouseButtonChecked = !_mouseButtonChecked;
             if (_mouseButtonChecked)
             {
-                //_selectedShape = null;
                 _model.SetShapeName(null);
                 _lineButtonChecked = _rectangleButtonChecked = _circleButtonChecked = false;
             }
