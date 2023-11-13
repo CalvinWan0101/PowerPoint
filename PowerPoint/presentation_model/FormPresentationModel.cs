@@ -8,9 +8,10 @@ namespace PowerPoint.presentation_model
 {
     public class FormPresentationModel : INotifyPropertyChanged
     {
-        private Model _model;
         public event PropertyChangedEventHandler PropertyChanged;
+        private Model _model;
 
+        // notify property changed
         public void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
@@ -25,17 +26,21 @@ namespace PowerPoint.presentation_model
         private bool _circleButtonChecked = false;
         private bool _mouseButtonChecked = true;
 
+        const string BUTTON_STATUS_NOTIFY = "ButtonChecked";
 
         // the getter and setter of line button checked
         public bool LineButtonChecked
         {
-            get { return _lineButtonChecked; }
+            get 
+            { 
+                return _lineButtonChecked; 
+            }
             set
             {
                 _lineButtonChecked = value;
                 if (PropertyChanged != null)
                 {
-                    NotifyPropertyChanged("LineButtonChecked");
+                    NotifyPropertyChanged(BUTTON_STATUS_NOTIFY);
                 }
             }
         }
@@ -43,13 +48,16 @@ namespace PowerPoint.presentation_model
         // the getter and setter of rectangle button checked
         public bool RectangleButtonChecked
         {
-            get { return _rectangleButtonChecked; }
+            get 
+            {
+                return _rectangleButtonChecked; 
+            }
             set
             {
                 _rectangleButtonChecked = value;
                 if (PropertyChanged != null)
                 {
-                    NotifyPropertyChanged("RectangleButtonChecked");
+                    NotifyPropertyChanged(BUTTON_STATUS_NOTIFY);
                 }
             }
         }
@@ -57,13 +65,16 @@ namespace PowerPoint.presentation_model
         // the getter and setter of circle button checked
         public bool CircleButtonChecked
         {
-            get { return _circleButtonChecked; }
+            get 
+            {
+                return _circleButtonChecked; 
+            }
             set
             {
                 _circleButtonChecked = value;
                 if (PropertyChanged != null)
                 {
-                    NotifyPropertyChanged("CircleButtonChecked");
+                    NotifyPropertyChanged(BUTTON_STATUS_NOTIFY);
                 }
             }
         }
@@ -71,13 +82,16 @@ namespace PowerPoint.presentation_model
         // the getter and setter of mouse button checked
         public bool MouseButtonChecked
         {
-            get { return _mouseButtonChecked; }
+            get 
+            {
+                return _mouseButtonChecked; 
+            }
             set
             {
                 _mouseButtonChecked = value;
                 if (PropertyChanged != null)
                 {
-                    NotifyPropertyChanged("MouseButtonChecked");
+                    NotifyPropertyChanged(BUTTON_STATUS_NOTIFY);
                 }
             }
         }

@@ -1,5 +1,5 @@
 ﻿using PowerPoint.model.shape;
-using System;
+using System.ComponentModel;
 using System.Drawing;
 
 namespace PowerPoint.model.state
@@ -11,12 +11,12 @@ namespace PowerPoint.model.state
         private bool _isPressed = false;
         private int _targetIndex = -1;
 
-
         public PointState(Model model)
         {
             _model = model;
         }
 
+        // get target index
         public int GetTargetIndex()
         {
             return _targetIndex;
@@ -32,12 +32,10 @@ namespace PowerPoint.model.state
                 if (_model.GetListOfShape()[i].Contains(point))
                 {
                     _targetIndex = i;
-                    Console.WriteLine("point is in the shape.");
                     return;
                 }
             }
             _targetIndex = -1;
-            Console.WriteLine("point is in the shape.");
             _model.NotifyModelChanged();
         }
 

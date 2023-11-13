@@ -9,7 +9,6 @@ namespace PowerPoint.model
         private Factory _factory = new Factory();
         private BindingList<Shape> _shapes = new BindingList<Shape>();
         private Shape _hint;
-        private Shape _selectedShape;
 
         // add a new shape to the end of the list (with concrete number)
         public void Add(string shapeName, params PointF[] position)
@@ -26,9 +25,9 @@ namespace PowerPoint.model
         }
 
         // update hint
-        public void SetHint(string shapeName, PointF pointA, PointF pointB)
+        public void SetHint(string shapeName, PointF firstPoint, PointF secondPoint)
         {
-            _hint = _factory.CreateShape(shapeName, pointA, pointB);
+            _hint = _factory.CreateShape(shapeName, firstPoint, secondPoint);
         }
 
         // get hint

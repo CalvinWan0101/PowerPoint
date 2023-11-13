@@ -185,7 +185,40 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews />
+          <Reviews>
+            <Smell>
+              <Id>1</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>31 目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs</File>
+              <Line>31</Line>
+              <StartLine>31</StartLine>
+              <StartCol>20</StartCol>
+              <EndLine>31</EndLine>
+              <EndCol>62</EndCol>
+              <Comment>目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>2</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>34 目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs</File>
+              <Line>34</Line>
+              <StartLine>33</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>34</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+          </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
@@ -206,52 +239,67 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\Factory.cs</RelativePath>
+                <RelativePath>model\Factory.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\IGraphics.cs</RelativePath>
+                <RelativePath>model\Model.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\Model.cs</RelativePath>
+                <RelativePath>model\shape\Circle.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\shape\Circle.cs</RelativePath>
+                <RelativePath>model\shape\Line.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\shape\Line.cs</RelativePath>
+                <RelativePath>model\shape\Rectangle.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\shape\Rectangle.cs</RelativePath>
+                <RelativePath>model\shape\Shape.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\shape\Shape.cs</RelativePath>
+                <RelativePath>model\Shapes.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\Shapes.cs</RelativePath>
+                <RelativePath>model\state\DrawingState.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PresentationModel\FormGraphicsAdaptor.cs</RelativePath>
+                <RelativePath>model\state\IState.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>PresentationModel\FormPresentationModel.cs</RelativePath>
+                <RelativePath>model\state\PointState.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>presentation_model\FormGraphicsAdaptor.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>presentation_model\FormPresentationModel.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>presentation_model\IGraphics.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -277,7 +325,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1143</ProductionLoc>
+          <ProductionLoc>1553</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

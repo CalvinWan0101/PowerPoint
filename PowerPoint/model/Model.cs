@@ -1,6 +1,7 @@
 ﻿using PowerPoint.model.shape;
 using PowerPoint.model.state;
 using PowerPoint.presentation_model;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -123,7 +124,7 @@ namespace PowerPoint.model
                 }
             }
 
-            if (_drawingState.MouseIsPressed() && GetShapes().GetHint() != null)
+            if (_drawingState.IsPressed() && GetShapes().GetHint() != null)
                 GetShapes().GetHint().Draw(graphics);
         }
 
@@ -132,6 +133,12 @@ namespace PowerPoint.model
         {
             if (_modelChanged != null)
                 _modelChanged();
+        }
+        
+        // press delete key
+        public void PressDeleteKey()
+        {
+            _pointState.ClickDeleteButton();
         }
     }
 }

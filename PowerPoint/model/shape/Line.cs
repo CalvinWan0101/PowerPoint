@@ -59,10 +59,11 @@ namespace PowerPoint.model.shape
         }
 
         // function to move the line
-        public override void Move(PointF pointA, PointF pointB)
+        public override void Move(PointF firstPoint, PointF secondPoint)
         {
-            _point1 += new SizeF(pointB.X - pointA.X, pointB.Y - pointA.Y);
-            _point2 += new SizeF(pointB.X - pointA.X, pointB.Y - pointA.Y);
+            _point1 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
+            _point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
+            _information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
         }
 
         // function to draw the line

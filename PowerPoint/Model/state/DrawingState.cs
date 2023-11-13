@@ -18,7 +18,8 @@ namespace PowerPoint.model.state
             _model = model;
         }
 
-        public bool MouseIsPressed()
+        // mouse is press
+        public bool IsPressed()
         {
             return _mouseIsPressed;
         }
@@ -60,16 +61,6 @@ namespace PowerPoint.model.state
                     _shapeName = null;
                 }
             }
-        }
-
-        // draw all the shape
-        public void Draw(IGraphics graphics)
-        {
-            graphics.ClearAll();
-            foreach (Shape shape in _model.GetListOfShape())
-                shape.Draw(graphics);
-            if (_mouseIsPressed && _model.GetShapes().GetHint() != null)
-                _model.GetShapes().GetHint().Draw(graphics);
         }
 
         // clear all the shape

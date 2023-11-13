@@ -8,6 +8,11 @@ namespace PowerPoint.model.shape
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         protected string _name
         {
             get;
@@ -39,7 +44,7 @@ namespace PowerPoint.model.shape
         public abstract bool Contains(PointF point);
 
         // function to move the shape
-        public abstract void Move(PointF pointA, PointF pointB);
+        public abstract void Move(PointF firstPoint, PointF secondPoint);
 
         // function to draw the shape
         public abstract void Draw(IGraphics graphics);

@@ -30,8 +30,16 @@ namespace PowerPoint
             _presentationModel = new FormPresentationModel(model, _panel);
 
             // data grid view
+            //_shapesDataGridView.AutoGenerateColumns = false;
+            //_shapesDataGridView.DataSource = _model.GetListOfShape();
+
             _shapesDataGridView.AutoGenerateColumns = false;
             _shapesDataGridView.DataSource = _model.GetListOfShape();
+            BindingSource _bindingSource = new BindingSource();
+            _bindingSource.DataSource = _model.GetListOfShape();
+            _shapesDataGridView.DataSource = _bindingSource;
+
+
 
             // add button column
             DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
@@ -64,6 +72,10 @@ namespace PowerPoint
 
             // button click
             _presentationModel.PropertyChanged += UpdateButtonStatus;
+
+            // delete the shape
+            this.KeyPreview = true;
+            this.KeyDown += PressDeleteKey;
 
             Controls.Add(_panel);
         }
@@ -104,33 +116,28 @@ namespace PowerPoint
             _mouseButton.Checked = _presentationModel.MouseButtonChecked;
         }
 
-
         // line button click
         private void ClickLineButton(object sender, EventArgs e)
         {
             _presentationModel.ClickLineButton();
-            //UpdateButtonStatus();
         }
 
         // rectangle button click
         private void ClickRectangleButton(object sender, EventArgs e)
         {
             _presentationModel.ClickRectangleButton();
-            //UpdateButtonStatus();
         }
 
         // circle button click
         private void ClickCircleButton(object sender, EventArgs e)
         {
             _presentationModel.ClickCircleButton();
-            //UpdateButtonStatus();
         }
 
         // mouse buttton click
         private void ClickMouseButton(object sender, EventArgs e)
         {
             _presentationModel.ClickMouseButton();
-            //UpdateButtonStatus();
         }
 
         // mouse pressed
@@ -150,7 +157,6 @@ namespace PowerPoint
         {
             Cursor = Cursors.Default;
             _presentationModel.MouseRelease(new PointF(e.X, e.Y));
-            //UpdateButtonStatus();
         }
 
         // function to handle paint
@@ -180,5 +186,16 @@ namespace PowerPoint
         {
             Cursor = Cursors.Default;
         }
+
+        // press delete key
+        private void PressDeleteKey(object sender, KeyEventArgs e)
+        {
+            Console.WriteLine("delete");
+            if (e.KeyCode == Keys.Delete)
+            {
+                _model.PressDeleteKey();
+            }
+        }
+
     }
 }
