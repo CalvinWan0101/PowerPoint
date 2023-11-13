@@ -57,5 +57,12 @@ namespace PowerPoint.model.shape
         {
             graphics.DrawRectangle(_point1, _point2);
         }
+
+        // function to draw the selected rectangle
+        public override void DrawSelected(IGraphics graphics)
+        {
+            graphics.DrawRectangle(_point1, _point2);
+            graphics.DrawSelectedShape(_point1, _point2);
+        }
     }
 }

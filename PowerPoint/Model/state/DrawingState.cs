@@ -18,6 +18,11 @@ namespace PowerPoint.model.state
             _model = model;
         }
 
+        public bool MouseIsPressed()
+        {
+            return _mouseIsPressed;
+        }
+
         // set shape name
         public void SetShapeName(string shapeName)
         {

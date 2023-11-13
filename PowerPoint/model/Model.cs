@@ -3,6 +3,7 @@ using PowerPoint.model.state;
 using PowerPoint.presentation_model;
 using System.ComponentModel;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 namespace PowerPoint.model
 {
@@ -71,7 +72,7 @@ namespace PowerPoint.model
         // mouse move
         public void MouseMove(bool mouseButtonChecked, PointF point)
         {
-            if(mouseButtonChecked)
+            if (mouseButtonChecked)
             {
                 _pointState.MouseMove(point);
             }
@@ -109,7 +110,21 @@ namespace PowerPoint.model
         // draw all the shape
         public void Draw(IGraphics graphics)
         {
-            _drawingState.Draw(graphics);
+            graphics.ClearAll();
+            for (int i = 0; i < GetListOfShape().Count; i++)
+            {
+                if (i == _pointState.GetTargetIndex())
+                {
+                    GetListOfShape()[i].DrawSelected(graphics);
+                }
+                else
+                {
+                    GetListOfShape()[i].Draw(graphics);
+                }
+            }
+
+            if (_drawingState.MouseIsPressed() && GetShapes().GetHint() != null)
+                GetShapes().GetHint().Draw(graphics);
         }
 
         // notify model changed

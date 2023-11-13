@@ -15,5 +15,8 @@ namespace PowerPoint.presentation_model
 
         // draw a circle
         void DrawCircle(PointF point1, PointF point2);
+
+        // draw selected shape
+        void DrawSelectedShape(PointF point1, PointF point2);
     }
 }

@@ -43,5 +43,8 @@ namespace PowerPoint.model.shape
 
         // function to draw the shape
         public abstract void Draw(IGraphics graphics);
+
+        // function to draw the selected shape
+        public abstract void DrawSelected(IGraphics graphics);
     }
 }

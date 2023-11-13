@@ -43,7 +43,20 @@ namespace PowerPoint.model.shape
         // function to check if the circle contains the point
         public override bool Contains(PointF point)
         {
-            return (point.X - _point1.X) * (point.X - _point1.X) + (point.Y - _point1.Y) * (point.Y - _point1.Y) <= (_point2.X - _point1.X) * (_point2.X - _point1.X);
+            PointF temp1;
+            PointF temp2;
+            if (_point1.X > _point2.X)
+            {
+                temp1 = _point1;
+                temp2 = _point2;
+            }
+            else
+            {
+                temp1 = _point2;
+                temp2 = _point1;
+            }
+
+            return point.X <= temp1.X && point.X >= temp2.X && point.Y <= temp1.Y && point.Y >= temp2.Y;
         }
 
         // function to move the circle
@@ -57,6 +70,13 @@ namespace PowerPoint.model.shape
         public override void Draw(IGraphics graphics)
         {
             graphics.DrawCircle(_point1, _point2);
+        }
+
+        // function to draw the selected circle
+        public override void DrawSelected(IGraphics graphics)
+        {
+            graphics.DrawCircle(_point1, _point2);
+            graphics.DrawSelectedShape(_point1, _point2);
         }
     }
 }
