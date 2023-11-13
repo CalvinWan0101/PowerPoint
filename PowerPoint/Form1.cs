@@ -22,12 +22,6 @@ namespace PowerPoint
         private Model _model;
         private FormPresentationModel _presentationModel;
 
-        //DataBindings.Add("Checked", _presentationModel, "IsLineButtonChecked");
-        //_lineButton.DataBindings.Add("Checked", _presentationModel, "IsLineButtonChecked");
-        //_rectangleButton.DataBindings.Add("Checked", _presentationModel, "IsRectangleButtonChecked");
-        //_circleButton.DataBindings.Add("Checked", _presentationModel, "IsCircleButtonChecked");
-        //_mouseButton.DataBindings.Add("Checked", _presentationModel, "IsMouseButtonChecked");
-
         public Form1(Model model)
         {
             InitializeComponent();

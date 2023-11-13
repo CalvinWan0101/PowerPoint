@@ -56,21 +56,42 @@ namespace PowerPoint.model
         }
 
         // mouse press
-        public void MousePress(PointF point)
+        public void MousePress(bool mouseButtonChecked, PointF point)
         {
-            _drawingState.MousePress(point);
+            if (mouseButtonChecked)
+            {
+                _pointState.MousePress(point);
+            }
+            else
+            {
+                _drawingState.MousePress(point);
+            }
         }
 
         // mouse move
-        public void MouseMove(PointF point)
+        public void MouseMove(bool mouseButtonChecked, PointF point)
         {
-            _drawingState.MouseMove(point);
+            if(mouseButtonChecked)
+            {
+                _pointState.MouseMove(point);
+            }
+            else
+            {
+                _drawingState.MouseMove(point);
+            }
         }
 
         // mouse release
-        public void MouseRelease(PointF point)
+        public void MouseRelease(bool mouseButtonChecked, PointF point)
         {
-            _drawingState.MouseRelease(point);
+            if (mouseButtonChecked)
+            {
+                _pointState.MouseRelease(point);
+            }
+            else
+            {
+                _drawingState.MouseRelease(point);
+            }
         }
 
         // get list of shape

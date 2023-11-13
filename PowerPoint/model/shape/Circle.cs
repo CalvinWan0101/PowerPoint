@@ -49,8 +49,8 @@ namespace PowerPoint.model.shape
         // function to move the circle
         public override void Move(PointF pointA, PointF pointB)
         {
-            _point1 = pointA;
-            _point2 = pointB;
+            _point1 += new SizeF(pointB.X - pointA.X, pointB.Y - pointA.Y);
+            _point2 += new SizeF(pointB.X - pointA.X, pointB.Y - pointA.Y);
         }
 
         // function to draw the circle

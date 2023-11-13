@@ -25,6 +25,8 @@ namespace PowerPoint.presentation_model
         private bool _circleButtonChecked = false;
         private bool _mouseButtonChecked = true;
 
+
+        // the getter and setter of line button checked
         public bool LineButtonChecked
         {
             get { return _lineButtonChecked; }
@@ -38,6 +40,7 @@ namespace PowerPoint.presentation_model
             }
         }
 
+        // the getter and setter of rectangle button checked
         public bool RectangleButtonChecked
         {
             get { return _rectangleButtonChecked; }
@@ -51,7 +54,7 @@ namespace PowerPoint.presentation_model
             }
         }
 
-
+        // the getter and setter of circle button checked
         public bool CircleButtonChecked
         {
             get { return _circleButtonChecked; }
@@ -65,6 +68,7 @@ namespace PowerPoint.presentation_model
             }
         }
 
+        // the getter and setter of mouse button checked
         public bool MouseButtonChecked
         {
             get { return _mouseButtonChecked; }
@@ -189,19 +193,19 @@ namespace PowerPoint.presentation_model
         // press the mouse
         public void MousePress(float pointX, float pointY)
         {
-            _model.MousePress(new PointF(pointX, pointY));
+            _model.MousePress(MouseButtonChecked, new PointF(pointX, pointY));
         }
 
         // move the mouse
         public void MouseMove(float pointX, float pointY)
         {
-            _model.MouseMove(new PointF(pointX, pointY));
+            _model.MouseMove(MouseButtonChecked, new PointF(pointX, pointY));
         }
 
         // release the mouse
         public void MouseRelease(PointF point)
         {
-            _model.MouseRelease(point);
+            _model.MouseRelease(MouseButtonChecked, point);
             LineButtonChecked = RectangleButtonChecked = CircleButtonChecked = false;
             MouseButtonChecked = true;
         }
