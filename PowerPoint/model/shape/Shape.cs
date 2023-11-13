@@ -8,27 +8,56 @@ namespace PowerPoint.model.shape
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName)
+        // notify property change
+        protected virtual void NotifyPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
-        protected string _name
+        private string _name;
+        private string _chineseName;
+        private string _information;
+
+        public string Name
         {
-            get;
-            set;
+            get 
+            { 
+                return _name; 
+            }
+            set
+            {
+                _name = value;
+                NotifyPropertyChanged(nameof(Name));
+            }
         }
 
-        public string _chineseName
+        public string ChineseName
         {
-            get;
-            protected set;
+            get 
+            { 
+                return _chineseName; 
+            }
+            set
+            {
+                _chineseName = value;
+                NotifyPropertyChanged(nameof(ChineseName));
+            }
         }
 
-        public string _information
+        public string Information
         {
-            get;
-            protected set;
+            get 
+            { 
+                return _information; 
+            }
+            set
+            {
+                _information = value;
+                NotifyPropertyChanged(nameof(Information));
+            }
         }
 
         // function to get the name of the shape

@@ -185,40 +185,7 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews>
-            <Smell>
-              <Id>1</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>31 目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs</File>
-              <Line>31</Line>
-              <StartLine>31</StartLine>
-              <StartCol>20</StartCol>
-              <EndLine>31</EndLine>
-              <EndCol>62</EndCol>
-              <Comment>目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>2</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>34 目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs</File>
-              <Line>34</Line>
-              <StartLine>33</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>34</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-          </Reviews>
+          <Reviews />
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
@@ -325,7 +292,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1553</ProductionLoc>
+          <ProductionLoc>1595</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

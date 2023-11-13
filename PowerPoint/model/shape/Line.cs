@@ -16,27 +16,27 @@ namespace PowerPoint.model.shape
         {
             _point1 = point1;
             _point2 = point2;
-            _name = LINE;
-            _chineseName = LINE_CHINESE;
-            _information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
+            Name = LINE;
+            ChineseName = LINE_CHINESE;
+            Information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
         }
 
         // get the name of line
         public override string GetShapeName()
         {
-            return _name;
+            return Name;
         }
 
         // get the chinese name of line
         public override string GetShapeChineseName()
         {
-            return _chineseName;
+            return ChineseName;
         }
 
         // get the position of line
         public override string GetInformation()
         {
-            return _information;
+            return Information;
         }
 
         // function to check if the line contains the point
@@ -63,7 +63,7 @@ namespace PowerPoint.model.shape
         {
             _point1 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
             _point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
-            _information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
+            Information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
         }
 
         // function to draw the line

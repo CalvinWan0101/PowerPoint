@@ -27,16 +27,7 @@ namespace PowerPoint.model.state
         {
             _isPressed = !_isPressed;
             _pointA = point;
-            for (int i = _model.GetListOfShape().Count - 1; i >= 0; i--)
-            {
-                if (_model.GetListOfShape()[i].Contains(point))
-                {
-                    _targetIndex = i;
-                    return;
-                }
-            }
-            _targetIndex = -1;
-            _model.NotifyModelChanged();
+            _targetIndex = _model.FindTargetIndex(point);
         }
 
         // mouse move

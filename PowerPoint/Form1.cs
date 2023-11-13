@@ -30,16 +30,8 @@ namespace PowerPoint
             _presentationModel = new FormPresentationModel(model, _panel);
 
             // data grid view
-            //_shapesDataGridView.AutoGenerateColumns = false;
-            //_shapesDataGridView.DataSource = _model.GetListOfShape();
-
             _shapesDataGridView.AutoGenerateColumns = false;
             _shapesDataGridView.DataSource = _model.GetListOfShape();
-            BindingSource _bindingSource = new BindingSource();
-            _bindingSource.DataSource = _model.GetListOfShape();
-            _shapesDataGridView.DataSource = _bindingSource;
-
-
 
             // add button column
             DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
@@ -53,14 +45,14 @@ namespace PowerPoint
             DataGridViewTextBoxColumn chineseNameColumn = new DataGridViewTextBoxColumn();
             chineseNameColumn.HeaderText = SHAPE;
             chineseNameColumn.Width = 60;
-            chineseNameColumn.DataPropertyName = "_chineseName";
+            chineseNameColumn.DataPropertyName = "ChineseName";
             _shapesDataGridView.Columns.Insert(1, chineseNameColumn);
 
             // add information column
             DataGridViewTextBoxColumn informationColumn = new DataGridViewTextBoxColumn();
             informationColumn.HeaderText = INFORMATION;
             informationColumn.Width = 190;
-            informationColumn.DataPropertyName = "_information";
+            informationColumn.DataPropertyName = "Information";
             _shapesDataGridView.Columns.Insert(2, informationColumn);
 
             // handle event

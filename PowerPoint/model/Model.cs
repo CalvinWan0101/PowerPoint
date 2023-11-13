@@ -95,6 +95,20 @@ namespace PowerPoint.model
                 _drawingState.MouseRelease(point);
             }
         }
+        
+        // find target index
+        public int FindTargetIndex(PointF point)
+        {
+            for (int i = GetListOfShape().Count - 1; i >= 0; i--)
+            {
+                if (GetListOfShape()[i].Contains(point))
+                {
+                    return i;
+                }
+            }
+            NotifyModelChanged();
+            return -1;
+        }
 
         // get list of shape
         public BindingList<Shape> GetListOfShape()
