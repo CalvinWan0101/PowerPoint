@@ -1,6 +1,7 @@
 ﻿using PowerPoint.model;
 using PowerPoint.presentation_model;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -20,6 +21,12 @@ namespace PowerPoint
 
         private Model _model;
         private FormPresentationModel _presentationModel;
+
+        //DataBindings.Add("Checked", _presentationModel, "IsLineButtonChecked");
+        //_lineButton.DataBindings.Add("Checked", _presentationModel, "IsLineButtonChecked");
+        //_rectangleButton.DataBindings.Add("Checked", _presentationModel, "IsRectangleButtonChecked");
+        //_circleButton.DataBindings.Add("Checked", _presentationModel, "IsCircleButtonChecked");
+        //_mouseButton.DataBindings.Add("Checked", _presentationModel, "IsMouseButtonChecked");
 
         public Form1(Model model)
         {
@@ -61,9 +68,11 @@ namespace PowerPoint
             _panel.MouseMove += HandleMouseMoved;
             _panel.Paint += HandleMousePaint;
 
+            // button click
+            _presentationModel.PropertyChanged += UpdateButtonStatus;
+
             Controls.Add(_panel);
         }
-
         // function for create
         private void CreateNewShapeButtonClick(object sender, EventArgs e)
         {
@@ -93,60 +102,61 @@ namespace PowerPoint
         }
 
         // update button click status
-        private void UpdateButtonStatus()
+        private void UpdateButtonStatus(object sender, PropertyChangedEventArgs e)
         {
-            _lineButton.Checked = _presentationModel.IsLineButtonChecked();
-            _rectangleButton.Checked = _presentationModel.IsRectangleButtonChecked();
-            _circleButton.Checked = _presentationModel.IsCircleButtonChecked();
-            _mouseButton.Checked = _presentationModel.IsMouseButtonChecked();
+            _lineButton.Checked = _presentationModel.LineButtonChecked;
+            _rectangleButton.Checked = _presentationModel.RectangleButtonChecked;
+            _circleButton.Checked = _presentationModel.CircleButtonChecked;
+            _mouseButton.Checked = _presentationModel.MouseButtonChecked;
         }
+
 
         // line button click
         private void ClickLineButton(object sender, EventArgs e)
         {
             _presentationModel.ClickLineButton();
-            UpdateButtonStatus();
+            //UpdateButtonStatus();
         }
 
         // rectangle button click
         private void ClickRectangleButton(object sender, EventArgs e)
         {
             _presentationModel.ClickRectangleButton();
-            UpdateButtonStatus();
+            //UpdateButtonStatus();
         }
 
         // circle button click
         private void ClickCircleButton(object sender, EventArgs e)
         {
             _presentationModel.ClickCircleButton();
-            UpdateButtonStatus();
+            //UpdateButtonStatus();
         }
 
         // mouse buttton click
         private void ClickMouseButton(object sender, EventArgs e)
         {
             _presentationModel.ClickMouseButton();
-            UpdateButtonStatus();
+            //UpdateButtonStatus();
         }
 
         // mouse pressed
         private void HandleMousePressed(object sender, MouseEventArgs e)
         {
-            _presentationModel.PressPointer(e.X, e.Y);
+            _presentationModel.MousePress(e.X, e.Y);
         }
 
         // mouse moved
         public void HandleMouseMoved(object sender, MouseEventArgs e)
         {
-            _presentationModel.MovePointer(e.X, e.Y);
+            _presentationModel.MouseMove(e.X, e.Y);
         }
 
         // mouse released
         public void HandleMouseReleased(object sender, MouseEventArgs e)
         {
             Cursor = Cursors.Default;
-            _presentationModel.ReleasePointer(new PointF(e.X, e.Y));
-            UpdateButtonStatus();
+            _presentationModel.MouseRelease(new PointF(e.X, e.Y));
+            //UpdateButtonStatus();
         }
 
         // function to handle paint

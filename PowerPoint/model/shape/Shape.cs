@@ -1,5 +1,6 @@
 ﻿using PowerPoint.presentation_model;
 using System.ComponentModel;
+using System.Drawing;
 
 namespace PowerPoint.model.shape
 {
@@ -33,6 +34,12 @@ namespace PowerPoint.model.shape
 
         // function to get the information of the shape
         public abstract string GetInformation();
+
+        // function to check if the shape contains the point
+        public abstract bool Contains(PointF point);
+
+        // function to move the shape
+        public abstract void Move(PointF pointA, PointF pointB);
 
         // function to draw the shape
         public abstract void Draw(IGraphics graphics);

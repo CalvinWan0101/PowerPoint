@@ -39,6 +39,19 @@ namespace PowerPoint.model.shape
             return _information;
         }
 
+        // function to check if the line contains the point
+        public override bool Contains(PointF point)
+        {
+            return (point.X - _point1.X) * (point.X - _point1.X) + (point.Y - _point1.Y) * (point.Y - _point1.Y) <= (_point2.X - _point1.X) * (_point2.X - _point1.X);
+        }
+
+        // function to move the line
+        public override void Move(PointF pointA, PointF pointB)
+        {
+            _point1 = pointA;
+            _point2 = pointB;
+        }
+
         // function to draw the line
         public override void Draw(IGraphics graphics)
         {

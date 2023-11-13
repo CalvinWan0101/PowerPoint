@@ -29,7 +29,6 @@ namespace PowerPoint.model.state
         {
             _mouseIsPressed = true;
             _pointA = point;
-            Console.WriteLine("MousePress");
         }
 
         // mouse move
@@ -39,8 +38,6 @@ namespace PowerPoint.model.state
             {
                 _model.GetShapes().SetHint(_shapeName, _pointA, point);
                 _model.NotifyModelChanged();
-                Console.WriteLine("MouseMove");
-                Console.WriteLine(_model.GetShapes().GetHint().GetShapeName());
             }
         }
 
@@ -57,7 +54,6 @@ namespace PowerPoint.model.state
                     _model.NotifyModelChanged();
                     _shapeName = null;
                 }
-                Console.WriteLine("MouseRelease");
             }
         }
 

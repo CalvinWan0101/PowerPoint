@@ -1,19 +1,82 @@
 ﻿using PowerPoint.model;
 using PowerPoint.model.shape;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace PowerPoint.presentation_model
 {
-    public class FormPresentationModel
+    public class FormPresentationModel : INotifyPropertyChanged
     {
         private Model _model;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
 
         // button checked
         private bool _lineButtonChecked = false;
         private bool _rectangleButtonChecked = false;
         private bool _circleButtonChecked = false;
         private bool _mouseButtonChecked = true;
+
+        public bool LineButtonChecked
+        {
+            get { return _lineButtonChecked; }
+            set
+            {
+                _lineButtonChecked = value;
+                if (PropertyChanged != null)
+                {
+                    NotifyPropertyChanged("LineButtonChecked");
+                }
+            }
+        }
+
+        public bool RectangleButtonChecked
+        {
+            get { return _rectangleButtonChecked; }
+            set
+            {
+                _rectangleButtonChecked = value;
+                if (PropertyChanged != null)
+                {
+                    NotifyPropertyChanged("RectangleButtonChecked");
+                }
+            }
+        }
+
+
+        public bool CircleButtonChecked
+        {
+            get { return _circleButtonChecked; }
+            set
+            {
+                _circleButtonChecked = value;
+                if (PropertyChanged != null)
+                {
+                    NotifyPropertyChanged("CircleButtonChecked");
+                }
+            }
+        }
+
+        public bool MouseButtonChecked
+        {
+            get { return _mouseButtonChecked; }
+            set
+            {
+                _mouseButtonChecked = value;
+                if (PropertyChanged != null)
+                {
+                    NotifyPropertyChanged("MouseButtonChecked");
+                }
+            }
+        }
 
         const string LINE = "Line";
         const string RECTANGLE = "Rectangle";
@@ -66,80 +129,81 @@ namespace PowerPoint.presentation_model
         // line button click
         public void ClickLineButton()
         {
-            _lineButtonChecked = !_lineButtonChecked;
-            if (_lineButtonChecked)
+            LineButtonChecked = !LineButtonChecked;
+
+            if (LineButtonChecked)
             {
                 _model.SetShapeName(LINE);
-                _rectangleButtonChecked = _circleButtonChecked = _mouseButtonChecked = false;
+                RectangleButtonChecked = CircleButtonChecked = MouseButtonChecked = false;
             }
             else
             {
                 _model.SetShapeName(null);
-                _mouseButtonChecked = true;
+                MouseButtonChecked = true;
             }
         }
 
         // rectangle button click
         public void ClickRectangleButton()
         {
-            _rectangleButtonChecked = !_rectangleButtonChecked;
-            if (_rectangleButtonChecked)
+            RectangleButtonChecked = !RectangleButtonChecked;
+            if (RectangleButtonChecked)
             {
                 _model.SetShapeName(RECTANGLE);
-                _lineButtonChecked = _circleButtonChecked = _mouseButtonChecked = false;
+                LineButtonChecked = CircleButtonChecked = MouseButtonChecked = false;
             }
             else
             {
                 _model.SetShapeName(null);
-                _mouseButtonChecked = true;
+                MouseButtonChecked = true;
             }
         }
 
         // circle button click
         public void ClickCircleButton()
         {
-            _circleButtonChecked = !_circleButtonChecked;
+            CircleButtonChecked = !CircleButtonChecked;
             if (_circleButtonChecked)
             {
                 _model.SetShapeName(CIRCLE);
-                _lineButtonChecked = _rectangleButtonChecked = _mouseButtonChecked = false;
+                LineButtonChecked = RectangleButtonChecked = MouseButtonChecked = false;
             }
             else
             {
                 _model.SetShapeName(null);
-                _mouseButtonChecked = true;
+                MouseButtonChecked = true;
             }
         }
 
         // click buutton mouse
         public void ClickMouseButton()
         {
-            _mouseButtonChecked = !_mouseButtonChecked;
-            if (_mouseButtonChecked)
+            MouseButtonChecked = !MouseButtonChecked;
+            if (MouseButtonChecked)
             {
                 _model.SetShapeName(null);
-                _lineButtonChecked = _rectangleButtonChecked = _circleButtonChecked = false;
+                LineButtonChecked = RectangleButtonChecked = CircleButtonChecked = false;
             }
         }
 
         // press the mouse
-        public void PressPointer(float pointX, float pointY)
+        public void MousePress(float pointX, float pointY)
         {
             _model.MousePress(new PointF(pointX, pointY));
         }
 
         // move the mouse
-        public void MovePointer(float pointX, float pointY)
+        public void MouseMove(float pointX, float pointY)
         {
             _model.MouseMove(new PointF(pointX, pointY));
         }
 
         // release the mouse
-        public void ReleasePointer(PointF point)
+        public void MouseRelease(PointF point)
         {
             _model.MouseRelease(point);
-            _lineButtonChecked = _rectangleButtonChecked = _circleButtonChecked = false;
-            _mouseButtonChecked = true;
+            LineButtonChecked = RectangleButtonChecked = CircleButtonChecked = false;
+            MouseButtonChecked = true;
         }
 
         // clear all the shape
