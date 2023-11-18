@@ -5,10 +5,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace PowerPoint
-{
-    public partial class Form1 : Form
-    {
+namespace PowerPoint {
+    public partial class Form1 : Form {
         const int LINE_NUMBER = 0;
         const int RECTANGLE_NUMBER = 1;
         const int CIRCLE_NUMBER = 2;
@@ -22,8 +20,7 @@ namespace PowerPoint
         private Model _model;
         private FormPresentationModel _presentationModel;
 
-        public Form1(Model model)
-        {
+        public Form1(Model model) {
             InitializeComponent();
 
             _model = model;
@@ -72,11 +69,9 @@ namespace PowerPoint
             Controls.Add(_panel);
         }
         // function for create
-        private void CreateNewShapeButtonClick(object sender, EventArgs e)
-        {
+        private void CreateNewShapeButtonClick(object sender, EventArgs e) {
             string name;
-            switch (_addNewShapeSelector.SelectedIndex)
-            {
+            switch (_addNewShapeSelector.SelectedIndex) {
                 case LINE_NUMBER:
                     name = LINE;
                     break;
@@ -93,15 +88,15 @@ namespace PowerPoint
         }
 
         // delete shpae
-        private void DeleteShapeButtonClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int selectedRowIndex = e.RowIndex;
-            _model.Remove(selectedRowIndex);
+        private void DeleteShapeButtonClick(object sender, DataGridViewCellEventArgs e) {
+            if (_shapesDataGridView.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0) {
+                int selectedRowIndex = e.RowIndex;
+                _model.Remove(selectedRowIndex);
+            }
         }
 
         // update button click status
-        private void UpdateButtonStatus(object sender, PropertyChangedEventArgs e)
-        {
+        private void UpdateButtonStatus(object sender, PropertyChangedEventArgs e) {
             _lineButton.Checked = _presentationModel.LineButtonChecked;
             _rectangleButton.Checked = _presentationModel.RectangleButtonChecked;
             _circleButton.Checked = _presentationModel.CircleButtonChecked;
@@ -109,82 +104,68 @@ namespace PowerPoint
         }
 
         // line button click
-        private void ClickLineButton(object sender, EventArgs e)
-        {
+        private void ClickLineButton(object sender, EventArgs e) {
             _presentationModel.ClickLineButton();
         }
 
         // rectangle button click
-        private void ClickRectangleButton(object sender, EventArgs e)
-        {
+        private void ClickRectangleButton(object sender, EventArgs e) {
             _presentationModel.ClickRectangleButton();
         }
 
         // circle button click
-        private void ClickCircleButton(object sender, EventArgs e)
-        {
+        private void ClickCircleButton(object sender, EventArgs e) {
             _presentationModel.ClickCircleButton();
         }
 
         // mouse buttton click
-        private void ClickMouseButton(object sender, EventArgs e)
-        {
+        private void ClickMouseButton(object sender, EventArgs e) {
             _presentationModel.ClickMouseButton();
         }
 
         // mouse pressed
-        private void HandleMousePressed(object sender, MouseEventArgs e)
-        {
+        private void HandleMousePressed(object sender, MouseEventArgs e) {
             _presentationModel.MousePress(e.X, e.Y);
         }
 
         // mouse moved
-        public void HandleMouseMoved(object sender, MouseEventArgs e)
-        {
+        public void HandleMouseMoved(object sender, MouseEventArgs e) {
             _presentationModel.MouseMove(e.X, e.Y);
         }
 
         // mouse released
-        public void HandleMouseReleased(object sender, MouseEventArgs e)
-        {
+        public void HandleMouseReleased(object sender, MouseEventArgs e) {
             Cursor = Cursors.Default;
             _presentationModel.MouseRelease(new PointF(e.X, e.Y));
         }
 
         // function to handle paint
-        public void HandleMousePaint(object sender, PaintEventArgs e)
-        {
+        public void HandleMousePaint(object sender, PaintEventArgs e) {
             _presentationModel.Draw(e.Graphics);
         }
 
         // function to handle the change of model
-        public void HandleModelChanged()
-        {
+        public void HandleModelChanged() {
             _panel.Invalidate(true);
             _presentationModel.CopyPanelToSlide(_panel, _slide1);
         }
 
         // when mouse enter the panel
-        private void PanelMouseEnter(object sender, EventArgs e)
-        {
-            if (_lineButton.Checked || _rectangleButton.Checked || _circleButton.Checked)
-            {
+        private void PanelMouseEnter(object sender, EventArgs e) {
+            if (_lineButton.Checked || _rectangleButton.Checked || _circleButton.Checked) {
                 Cursor = Cursors.Cross;
             }
         }
 
         // when mouse leave the panel
-        private void PanelMouseLeave(object sender, EventArgs e)
-        {
+        private void PanelMouseLeave(object sender, EventArgs e) {
             Cursor = Cursors.Default;
         }
 
         // press delete key
-        private void PressDeleteKey(object sender, KeyEventArgs e)
-        {
+        private void PressDeleteKey(object sender, KeyEventArgs e) {
             Console.WriteLine("delete");
-            if (e.KeyCode == Keys.Delete)
-            {
+            if (e.KeyCode == Keys.Delete) {
                 _model.PressDeleteKey();
             }
         }

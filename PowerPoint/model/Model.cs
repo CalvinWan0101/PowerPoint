@@ -63,6 +63,7 @@ namespace PowerPoint.model
             if (mouseButtonChecked)
             {
                 _pointState.MousePress(point);
+
             }
             else
             {
@@ -106,7 +107,6 @@ namespace PowerPoint.model
                     return i;
                 }
             }
-            NotifyModelChanged();
             return -1;
         }
 
