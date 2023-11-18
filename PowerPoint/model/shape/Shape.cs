@@ -1,4 +1,5 @@
 ﻿using PowerPoint.presentation_model;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 
@@ -16,6 +17,12 @@ namespace PowerPoint.model.shape
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        // get point 1
+        public abstract PointF GetPoint1();
+
+        // get point 2
+        public abstract PointF GetPoint2();
 
         private string _name;
         private string _chineseName;
@@ -60,6 +67,9 @@ namespace PowerPoint.model.shape
             }
         }
 
+        // make sure the point
+        public abstract void UpdatePoint();
+
         // function to get the name of the shape
         public abstract string GetShapeName();
 
@@ -74,6 +84,9 @@ namespace PowerPoint.model.shape
 
         // function to move the shape
         public abstract void Move(PointF firstPoint, PointF secondPoint);
+
+        // function to zoom the shape
+        public abstract void Zoom(PointF firstPoint, PointF secondPoint);
 
         // function to draw the shape
         public abstract void Draw(IGraphics graphics);

@@ -1,4 +1,5 @@
 ﻿using PowerPoint.presentation_model;
+using System;
 using System.Drawing;
 
 namespace PowerPoint.model.shape
@@ -16,9 +17,22 @@ namespace PowerPoint.model.shape
         {
             _point1 = point1;
             _point2 = point2;
+            UpdatePoint();
             Name = LINE;
             ChineseName = LINE_CHINESE;
             Information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
+        }
+
+        // get point 1
+        public override PointF GetPoint1()
+        {
+            return _point1;
+        }
+
+        // get point 2
+        public override PointF GetPoint2()
+        {
+            return _point2;
         }
 
         // get the name of line
@@ -39,29 +53,30 @@ namespace PowerPoint.model.shape
             return Information;
         }
 
+        // make sure the point
+        public override void UpdatePoint() {
+            PointF temp1 = _point1;
+            PointF temp2 = _point2;
+
+            _point1 = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
+            _point2 = new PointF(Math.Max(temp1.X, temp2.X), Math.Max(temp1.Y, temp2.Y));
+        }
+
         // function to check if the line contains the point
         public override bool Contains(PointF point)
         {
-            PointF temp1;
-            PointF temp2;
-            if (_point1.X > _point2.X)
-            {
-                temp1 = _point1;
-                temp2 = _point2;
-            }
-            else
-            {
-                temp1 = _point2;
-                temp2 = _point1;
-            }
-
-            return point.X <= temp1.X && point.X >= temp2.X && point.Y <= temp1.Y && point.Y >= temp2.Y;
+            return _point1.X <= point.X && point.X <= _point2.X && _point1.Y <= point.Y && point.Y <= _point2.Y;
         }
 
         // function to move the line
-        public override void Move(PointF firstPoint, PointF secondPoint)
-        {
+        public override void Move(PointF firstPoint, PointF secondPoint) {
             _point1 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
+            _point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
+            Information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
+        }
+
+        // function to zoom the line
+        public override void Zoom(PointF firstPoint, PointF secondPoint) {
             _point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
             Information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
         }

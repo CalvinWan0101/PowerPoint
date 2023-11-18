@@ -20,24 +20,43 @@ namespace PowerPoint.presentation_model
         // draw a line
         public void DrawLine(PointF point1, PointF point2)
         {
+            PointF temp1 = point1;
+            PointF temp2 = point2;
+
+            point1 = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
+            point2 = new PointF(Math.Max(temp1.X, temp2.X), Math.Max(temp1.Y, temp2.Y));
+
             _graphics.DrawLine(Pens.Black, (float)point1.X, (float)point1.Y, (float)point2.X, (float)point2.Y);
         }
 
         // draw a rectangle
         public void DrawRectangle(PointF point1, PointF point2)
         {
+            PointF temp1 = point1;
+            PointF temp2 = point2;
+
+            point1 = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
+            point2 = new PointF(Math.Max(temp1.X, temp2.X), Math.Max(temp1.Y, temp2.Y));
+
             float width = Math.Abs(point2.X - point1.X);
             float height = Math.Abs(point2.Y - point1.Y);
 
-            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle((int)Math.Min(point1.X, point2.X), (int)Math.Min(point1.Y, point2.Y), (int)width, (int)height);
+            System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle((int)point1.X, (int)point1.Y, (int)width, (int)height);
             _graphics.DrawRectangle(Pens.Black, rectangle);
         }
 
         // draw a circle
         public void DrawCircle(PointF point1, PointF point2)
         {
+            PointF temp1 = point1;
+            PointF temp2 = point2;
+
+            point1 = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
+            point2 = new PointF(Math.Max(temp1.X, temp2.X), Math.Max(temp1.Y, temp2.Y));
+
             float width = Math.Abs(point1.X - point2.X);
             float height = Math.Abs(point1.Y - point2.Y);
+
             _graphics.DrawEllipse(Pens.Black, Math.Min(point1.X, point2.X), Math.Min(point1.Y, point2.Y), width, height);
         }
 
@@ -48,6 +67,12 @@ namespace PowerPoint.presentation_model
         // draw the selected shape
         public void DrawSelectedShape(PointF point1, PointF point2)
         {
+            PointF temp1 = point1;
+            PointF temp2 = point2;
+
+            point1 = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
+            point2 = new PointF(Math.Max(temp1.X, temp2.X), Math.Max(temp1.Y, temp2.Y));
+
             // draw a rectangle
             float width = Math.Abs(point2.X - point1.X);
             float height = Math.Abs(point2.Y - point1.Y);

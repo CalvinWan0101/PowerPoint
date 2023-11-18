@@ -1,4 +1,5 @@
 ﻿using PowerPoint.model.shape;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 
@@ -10,6 +11,7 @@ namespace PowerPoint.model.state
         private PointF _pointA;
         private bool _isPressed = false;
         private int _targetIndex = -1;
+        private bool _isZoom = false;
 
         public PointState(Model model)
         {
@@ -28,6 +30,16 @@ namespace PowerPoint.model.state
             _isPressed = !_isPressed;
             _pointA = point;
             _targetIndex = _model.FindTargetIndex(point);
+
+            if (_targetIndex != -1 &&
+                _model.GetListOfShape()[_targetIndex].GetPoint2().X + 50 >= point.X &&
+                _model.GetListOfShape()[_targetIndex].GetPoint2().X - 50 <= point.X &&
+                _model.GetListOfShape()[_targetIndex].GetPoint2().Y + 50 >= point.Y &&
+                _model.GetListOfShape()[_targetIndex].GetPoint2().Y - 50 <= point.Y)
+            {
+                _isZoom = true;
+                Console.WriteLine("in");
+            }
         }
 
         // mouse move
@@ -36,9 +48,17 @@ namespace PowerPoint.model.state
             // move the shape
             if (_targetIndex != -1 && _isPressed)
             {
-                _model.GetListOfShape()[_targetIndex].Move(_pointA, point);
-                _pointA = point;
-                _model.NotifyModelChanged();
+                if (_isZoom)
+                {
+                    _model.GetListOfShape()[_targetIndex].Zoom(_pointA, point);
+                    _pointA = point;
+                    _model.NotifyModelChanged();
+                } else
+                {
+                    _model.GetListOfShape()[_targetIndex].Move(_pointA, point);
+                    _pointA = point;
+                    _model.NotifyModelChanged();
+                }
             }
         }
 
@@ -47,10 +67,27 @@ namespace PowerPoint.model.state
         {
             if (_targetIndex != -1 && _isPressed)
             {
-                _model.GetListOfShape()[_targetIndex].Move(_pointA, point);
-                _model.NotifyModelChanged();
+                if (_isZoom)
+                {
+                    _isZoom = false;
+                    _model.GetListOfShape()[_targetIndex].Zoom(_pointA, point);
+                    _model.GetListOfShape()[_targetIndex].UpdatePoint();
+                    _pointA = point;
+                    _model.NotifyModelChanged();
+                } else
+                {
+                    _model.GetListOfShape()[_targetIndex].Move(_pointA, point);
+                    _model.GetListOfShape()[_targetIndex].UpdatePoint();
+                    _pointA = point;
+                    _model.NotifyModelChanged();
+                }
             }
             _isPressed = false;
+            Console.WriteLine(_targetIndex);
+            if (_model.FindTargetIndex(point) == -1)
+            {
+                _model.NotifyModelChanged();
+            }
         }
 
         // user click delete button
