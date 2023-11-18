@@ -185,55 +185,7 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews>
-            <Smell>
-              <Id>1</Id>
-              <SmellType>A syntax error has been discovered in file C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs on line 33.</SmellType>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>PointState.cs</File>
-              <Line>33</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>2</Id>
-              <SmellType>Unresolved warnings(忽視警告)-Identifier expected</SmellType>
-              <HashCode>PowerPoint\PowerPoint.PointState.cs.Unresolved warnings(忽視警告)-Identifier expected.33</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint\PowerPoint</Project>
-              <File>PointState.cs</File>
-              <Line>33</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>3</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>32 目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs</File>
-              <Line>32</Line>
-              <StartLine>32</StartLine>
-              <StartCol>16</StartCol>
-              <EndLine>32</EndLine>
-              <EndCol>76</EndCol>
-              <Comment>目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-          </Reviews>
+          <Reviews />
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
@@ -340,7 +292,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1567</ProductionLoc>
+          <ProductionLoc>1748</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

@@ -64,8 +64,7 @@ namespace PowerPoint.model
             {
                 _pointState.MousePress(point);
 
-            }
-            else
+            } else
             {
                 _drawingState.MousePress(point);
             }
@@ -77,8 +76,7 @@ namespace PowerPoint.model
             if (mouseButtonChecked)
             {
                 _pointState.MouseMove(point);
-            }
-            else
+            } else
             {
                 _drawingState.MouseMove(point);
             }
@@ -90,13 +88,16 @@ namespace PowerPoint.model
             if (mouseButtonChecked)
             {
                 _pointState.MouseRelease(point);
-            }
-            else
+                if (FindTargetIndex(point) == -1)
+                {
+                    NotifyModelChanged();
+                }
+            } else
             {
                 _drawingState.MouseRelease(point);
             }
         }
-        
+
         // find target index
         public int FindTargetIndex(PointF point)
         {
@@ -131,8 +132,7 @@ namespace PowerPoint.model
                 if (i == _pointState.GetTargetIndex())
                 {
                     GetListOfShape()[i].DrawSelected(graphics);
-                }
-                else
+                } else
                 {
                     GetListOfShape()[i].Draw(graphics);
                 }
@@ -148,7 +148,7 @@ namespace PowerPoint.model
             if (_modelChanged != null)
                 _modelChanged();
         }
-        
+
         // press delete key
         public void PressDeleteKey()
         {

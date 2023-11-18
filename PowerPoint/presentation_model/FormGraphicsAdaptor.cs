@@ -69,17 +69,12 @@ namespace PowerPoint.presentation_model
         {
             PointF temp1 = point1;
             PointF temp2 = point2;
-
             point1 = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
             point2 = new PointF(Math.Max(temp1.X, temp2.X), Math.Max(temp1.Y, temp2.Y));
-
-            // draw a rectangle
             float width = Math.Abs(point2.X - point1.X);
             float height = Math.Abs(point2.Y - point1.Y);
             System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle((int)Math.Min(point1.X, point2.X), (int)Math.Min(point1.Y, point2.Y), (int)width, (int)height);
             _graphics.DrawRectangle(Pens.Red, rectangle);
-
-            // draw eight circles on the rectangle
             _graphics.DrawEllipse(Pens.Gray, rectangle.X - FIVE, rectangle.Y - FIVE, TEN, TEN);
             _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width / TWO - FIVE, rectangle.Y - FIVE, TEN, TEN);
             _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width - FIVE, rectangle.Y - FIVE, TEN, TEN);

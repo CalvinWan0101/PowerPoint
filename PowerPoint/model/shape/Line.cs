@@ -54,7 +54,8 @@ namespace PowerPoint.model.shape
         }
 
         // make sure the point
-        public override void UpdatePoint() {
+        public override void UpdatePoint()
+        {
             PointF temp1 = _point1;
             PointF temp2 = _point2;
 
@@ -69,14 +70,16 @@ namespace PowerPoint.model.shape
         }
 
         // function to move the line
-        public override void Move(PointF firstPoint, PointF secondPoint) {
+        public override void Move(PointF firstPoint, PointF secondPoint)
+        {
             _point1 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
             _point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
             Information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
         }
 
         // function to zoom the line
-        public override void Zoom(PointF firstPoint, PointF secondPoint) {
+        public override void Zoom(PointF firstPoint, PointF secondPoint)
+        {
             _point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
             Information = string.Format(TEMPLATE, (int)_point1.X, (int)_point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
         }
