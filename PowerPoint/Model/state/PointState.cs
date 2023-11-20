@@ -1,7 +1,4 @@
-﻿using PowerPoint.model.shape;
-using System;
-using System.ComponentModel;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace PowerPoint.model.state
 {

@@ -1,7 +1,4 @@
-﻿using PowerPoint.model.shape;
-using PowerPoint.presentation_model;
-using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace PowerPoint.model.state
 {
@@ -13,15 +10,16 @@ namespace PowerPoint.model.state
         private string _shapeName;
         private bool _mouseIsPressed = false;
 
+        // for the test
+        public bool MouseIsPressed
+        {
+            get { return _mouseIsPressed; }
+            set { _mouseIsPressed = value; }
+        }
+
         public DrawingState(Model model)
         {
             _model = model;
-        }
-
-        // mouse is press
-        public bool IsPressed()
-        {
-            return _mouseIsPressed;
         }
 
         // set shape name

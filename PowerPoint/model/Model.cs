@@ -1,10 +1,8 @@
 ﻿using PowerPoint.model.shape;
 using PowerPoint.model.state;
 using PowerPoint.presentation_model;
-using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Runtime.InteropServices;
 
 namespace PowerPoint.model
 {
@@ -22,6 +20,13 @@ namespace PowerPoint.model
             _shapes = new Shapes();
             _drawingState = new DrawingState(this);
             _pointState = new PointState(this);
+        }
+
+        // for the test
+        public void SetState(DrawingState drawingState, PointState pointState)
+        {
+            _drawingState = drawingState;
+            _pointState = pointState;
         }
 
         // this function is to add the Shape into Shapes (with concrete number)
@@ -138,7 +143,7 @@ namespace PowerPoint.model
                 }
             }
 
-            if (_drawingState.IsPressed() && GetShapes().GetHint() != null)
+            if (_drawingState.MouseIsPressed && GetShapes().GetHint() != null)
                 GetShapes().GetHint().Draw(graphics);
         }
 

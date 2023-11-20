@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.34031.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPoint", "PowerPoint\PowerPoint.csproj", "{90A655B9-AF13-4F99-B6D8-44D5CAB293BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPointTests", "PowerPointTests\PowerPointTests.csproj", "{981A0BFD-7456-4E48-B19D-A1810CFD3479}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{90A655B9-AF13-4F99-B6D8-44D5CAB293BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90A655B9-AF13-4F99-B6D8-44D5CAB293BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90A655B9-AF13-4F99-B6D8-44D5CAB293BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{981A0BFD-7456-4E48-B19D-A1810CFD3479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{981A0BFD-7456-4E48-B19D-A1810CFD3479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{981A0BFD-7456-4E48-B19D-A1810CFD3479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{981A0BFD-7456-4E48-B19D-A1810CFD3479}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,4 @@
 ﻿using PowerPoint.presentation_model;
-using System;
 using System.ComponentModel;
 using System.Drawing;
 
