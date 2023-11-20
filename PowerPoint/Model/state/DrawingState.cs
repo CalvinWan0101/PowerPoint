@@ -17,15 +17,16 @@ namespace PowerPoint.model.state
             set { _mouseIsPressed = value; }
         }
 
+        // for the test
+        public string ShapeName
+        {
+            get { return _shapeName; }
+            set { _shapeName = value; }
+        }
+
         public DrawingState(Model model)
         {
             _model = model;
-        }
-
-        // set shape name
-        public void SetShapeName(string shapeName)
-        {
-            _shapeName = shapeName;
         }
 
         // mouse press

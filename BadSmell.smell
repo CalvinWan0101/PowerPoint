@@ -296,11 +296,6 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>model\shape\CircleTests.cs</RelativePath>
-                <ProjectName>PowerPointTests</ProjectName>
-                <AnalysisFileType>Test</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
                 <RelativePath>model\state\DrawingStateTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>

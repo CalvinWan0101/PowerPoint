@@ -6,9 +6,16 @@ namespace PowerPoint.model.state
     {
         private Model _model;
         private PointF _pointA;
-        private bool _isPressed = false;
+        private bool _mouseIsPressed = false;
         private int _targetIndex = -1;
         private bool _isZoom = false;
+
+        // for the test
+        public bool MouseIsPressed
+        {
+            get { return _mouseIsPressed; }
+            set { _mouseIsPressed = value; }
+        }
 
         public PointState(Model model)
         {
@@ -24,7 +31,7 @@ namespace PowerPoint.model.state
         // mouse press
         public void MousePress(PointF point)
         {
-            _isPressed = !_isPressed;
+            _mouseIsPressed = !_mouseIsPressed;
             _pointA = point;
             _targetIndex = _model.FindTargetIndex(point);
             _isZoom = IsZoom(point);
@@ -49,7 +56,7 @@ namespace PowerPoint.model.state
         public void MouseMove(PointF point)
         {
             // move the shape
-            if (_targetIndex != -1 && _isPressed)
+            if (_targetIndex != -1 && _mouseIsPressed)
             {
                 if (_isZoom)
                 {
@@ -68,7 +75,7 @@ namespace PowerPoint.model.state
         // mouse release
         public void MouseRelease(PointF point)
         {
-            if (_targetIndex != -1 && _isPressed)
+            if (_targetIndex != -1 && _mouseIsPressed)
             {
                 if (_isZoom)
                 {
@@ -78,7 +85,7 @@ namespace PowerPoint.model.state
                     IsNotZoomMouseRelease(point);
                 }
             }
-            _isPressed = false;
+            _mouseIsPressed = false;
         }
 
         // mouse release when mouse release

@@ -59,7 +59,7 @@ namespace PowerPoint.model
         // set shape name
         public void SetShapeName(string shapeName)
         {
-            _drawingState.SetShapeName(shapeName);
+            _drawingState.ShapeName = shapeName;
         }
 
         // mouse press
