@@ -185,7 +185,392 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews />
+          <Reviews>
+            <Smell>
+              <Id>1</Id>
+              <SmellType>ICS(縮排與換行-1)</SmellType>
+              <HashCode>IndentAndNewLine1.get.            get { return _mouseIsPressed; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>16</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>2</Id>
+              <SmellType>ICS(縮排與換行-1)</SmellType>
+              <HashCode>IndentAndNewLine1.set.            set { _mouseIsPressed = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>17</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>3</Id>
+              <SmellType>ICS(縮排與換行-1)</SmellType>
+              <HashCode>IndentAndNewLine1.get.            get { return _shapeName; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>23</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
+              <SmellType>ICS(縮排與換行-1)</SmellType>
+              <HashCode>IndentAndNewLine1.set.            set { _shapeName = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>24</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>5</Id>
+              <SmellType>ICS(縮排與換行-2)</SmellType>
+              <HashCode>IndentAndNewLine2.get.            get { return _mouseIsPressed; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>16</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-2) 右大括號一律換行-並與左大括號對齊</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>6</Id>
+              <SmellType>ICS(縮排與換行-2)</SmellType>
+              <HashCode>IndentAndNewLine2.set.            set { _mouseIsPressed = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>17</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-2) 右大括號一律換行-並與左大括號對齊</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>7</Id>
+              <SmellType>ICS(縮排與換行-2)</SmellType>
+              <HashCode>IndentAndNewLine2.get.            get { return _shapeName; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>23</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-2) 右大括號一律換行-並與左大括號對齊</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>8</Id>
+              <SmellType>ICS(縮排與換行-2)</SmellType>
+              <HashCode>IndentAndNewLine2.set.            set { _shapeName = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>24</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-2) 右大括號一律換行-並與左大括號對齊</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>9</Id>
+              <SmellType>ICS(縮排與換行-3)</SmellType>
+              <HashCode>IndentAndNewLine3.get.            get { return _mouseIsPressed; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>16</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>10</Id>
+              <SmellType>ICS(縮排與換行-3)</SmellType>
+              <HashCode>IndentAndNewLine3.set.            set { _mouseIsPressed = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>17</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>11</Id>
+              <SmellType>ICS(縮排與換行-3)</SmellType>
+              <HashCode>IndentAndNewLine3.get.            get { return _shapeName; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>23</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>12</Id>
+              <SmellType>ICS(縮排與換行-3)</SmellType>
+              <HashCode>IndentAndNewLine3.set.            set { _shapeName = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>DrawingState.cs</File>
+              <Line>24</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>13</Id>
+              <SmellType>ICS(縮排與換行-1)</SmellType>
+              <HashCode>IndentAndNewLine1.get.            get { return _mouseIsPressed; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>16</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>14</Id>
+              <SmellType>ICS(縮排與換行-1)</SmellType>
+              <HashCode>IndentAndNewLine1.set.            set { _mouseIsPressed = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>17</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>15</Id>
+              <SmellType>ICS(縮排與換行-1)</SmellType>
+              <HashCode>IndentAndNewLine1.get.            get { return _targetIndex; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>23</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>16</Id>
+              <SmellType>ICS(縮排與換行-1)</SmellType>
+              <HashCode>IndentAndNewLine1.set.            set { _targetIndex = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>24</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-1) 左大括號一律換行</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>17</Id>
+              <SmellType>ICS(縮排與換行-2)</SmellType>
+              <HashCode>IndentAndNewLine2.get.            get { return _mouseIsPressed; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>16</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-2) 右大括號一律換行-並與左大括號對齊</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>18</Id>
+              <SmellType>ICS(縮排與換行-2)</SmellType>
+              <HashCode>IndentAndNewLine2.set.            set { _mouseIsPressed = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>17</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-2) 右大括號一律換行-並與左大括號對齊</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>19</Id>
+              <SmellType>ICS(縮排與換行-2)</SmellType>
+              <HashCode>IndentAndNewLine2.get.            get { return _targetIndex; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>23</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-2) 右大括號一律換行-並與左大括號對齊</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>20</Id>
+              <SmellType>ICS(縮排與換行-2)</SmellType>
+              <HashCode>IndentAndNewLine2.set.            set { _targetIndex = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>24</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-2) 右大括號一律換行-並與左大括號對齊</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>21</Id>
+              <SmellType>ICS(縮排與換行-3)</SmellType>
+              <HashCode>IndentAndNewLine3.get.            get { return _mouseIsPressed; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>16</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>22</Id>
+              <SmellType>ICS(縮排與換行-3)</SmellType>
+              <HashCode>IndentAndNewLine3.set.            set { _mouseIsPressed = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>17</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>23</Id>
+              <SmellType>ICS(縮排與換行-3)</SmellType>
+              <HashCode>IndentAndNewLine3.get.            get { return _targetIndex; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>23</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>24</Id>
+              <SmellType>ICS(縮排與換行-3)</SmellType>
+              <HashCode>IndentAndNewLine3.set.            set { _targetIndex = value; }</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>PointState.cs</File>
+              <Line>24</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>ICS(縮排與換行-3) 左大括號後，一律換行撰寫程式碼</Comment>
+              <Auto>false</Auto>
+            </Smell>
+          </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
@@ -318,7 +703,7 @@
             </AnalysisFiles>
           </AnalysisFileManager>
           <ProductionLoc>1797</ProductionLoc>
-          <TestLoc>242</TestLoc>
+          <TestLoc>442</TestLoc>
         </CodeReview>
       </Data>
     </div>

@@ -263,5 +263,7 @@ namespace PowerPoint.model.state.test
             Assert.AreEqual(startPoint, shapes[0].GetPoint1());
             Assert.AreEqual(endPoint, shapes[0].GetPoint2());
         }
+
+        //
     }
 }

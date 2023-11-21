@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace PowerPoint.model.state
 {
@@ -17,15 +18,23 @@ namespace PowerPoint.model.state
             set { _mouseIsPressed = value; }
         }
 
+        // for the test
+        public int TargetIndex
+        {
+            get { return _targetIndex; }
+            set { _targetIndex = value; }
+        }
+
+        // for the test
+        public bool IsZoom
+        {
+            get { return _isZoom; }
+            set { _isZoom = value; }
+        }
+
         public PointState(Model model)
         {
             _model = model;
-        }
-
-        // get target index
-        public int GetTargetIndex()
-        {
-            return _targetIndex;
         }
 
         // mouse press
@@ -34,20 +43,21 @@ namespace PowerPoint.model.state
             _mouseIsPressed = !_mouseIsPressed;
             _pointA = point;
             _targetIndex = _model.FindTargetIndex(point);
-            _isZoom = IsZoom(point);
+            _isZoom = IsClickTheRightBottomCorner(point);
         }
 
         // is zoom
-        public bool IsZoom(PointF point)
+        public bool IsClickTheRightBottomCorner(PointF point)
         {
             const int RADIUS = 50;
             if (_targetIndex != -1)
             {
                 PointF temp = _model.GetListOfShape()[_targetIndex].GetPoint2();
-                if (_targetIndex != -1 && temp.X + RADIUS >= point.X && temp.X - RADIUS <= point.X && temp.Y + RADIUS >= point.Y && temp.Y - RADIUS <= point.Y)
-                {
-                    return true;
-                }
+                if (_targetIndex != -1)
+                    if (temp.X + RADIUS >= point.X && temp.X - RADIUS <= point.X && temp.Y + RADIUS >= point.Y && temp.Y - RADIUS <= point.Y)
+                    {
+                        return true;
+                    }
             }
             return false;
         }

@@ -134,7 +134,7 @@ namespace PowerPoint.model
             graphics.ClearAll();
             for (int i = 0; i < GetListOfShape().Count; i++)
             {
-                if (i == _pointState.GetTargetIndex())
+                if (i == _pointState.TargetIndex)
                 {
                     GetListOfShape()[i].DrawSelected(graphics);
                 } else
