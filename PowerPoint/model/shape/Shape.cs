@@ -2,65 +2,66 @@
 using System.ComponentModel;
 using System.Drawing;
 
-namespace PowerPoint.model.shape
-{
-    public abstract class Shape : INotifyPropertyChanged
-    {
+namespace PowerPoint.model.shape {
+    public abstract class Shape : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
 
         // notify property change
-        protected virtual void NotifyPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
+        protected virtual void NotifyPropertyChanged(string propertyName) {
+            if (PropertyChanged != null) {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
-        // get point 1
-        public abstract PointF GetPoint1();
-
-        // get point 2
-        public abstract PointF GetPoint2();
-
+        private PointF _point1;
+        private PointF _point2;
         private string _name;
         private string _chineseName;
         private string _information;
 
-        public string Name
-        {
-            get 
-            { 
-                return _name; 
+        public PointF Point1 {
+            get {
+                return _point1;
             }
-            set
-            {
+            set {
+                _point1 = value;
+            }
+        }
+
+        public PointF Point2 {
+            get {
+                return _point2;
+            }
+            set {
+                _point2 = value;
+            }
+        }
+
+        public string Name {
+            get {
+                return _name;
+            }
+            set {
                 _name = value;
                 NotifyPropertyChanged(nameof(Name));
             }
         }
 
-        public string ChineseName
-        {
-            get 
-            { 
-                return _chineseName; 
+        public string ChineseName {
+            get {
+                return _chineseName;
             }
-            set
-            {
+            set {
                 _chineseName = value;
                 NotifyPropertyChanged(nameof(ChineseName));
             }
         }
 
-        public string Information
-        {
-            get 
-            { 
-                return _information; 
+        public string Information {
+            get {
+                return _information;
             }
-            set
-            {
+            set {
                 _information = value;
                 NotifyPropertyChanged(nameof(Information));
             }
@@ -68,15 +69,6 @@ namespace PowerPoint.model.shape
 
         // make sure the point
         public abstract void UpdatePoint();
-
-        // function to get the name of the shape
-        public abstract string GetShapeName();
-
-        // function to get the chinese name of the shape
-        public abstract string GetShapeChineseName();
-
-        // function to get the information of the shape
-        public abstract string GetInformation();
 
         // function to check if the shape contains the point
         public abstract bool Contains(PointF point);

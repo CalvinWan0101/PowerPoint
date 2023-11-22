@@ -60,13 +60,13 @@ namespace PowerPoint.model.state.test {
 
             BindingList<Shape> shapes = _model.GetListOfShape();
             Assert.AreEqual(3, shapes.Count);
-            Assert.AreEqual("Circle", shapes[0].GetShapeName());
-            Assert.AreEqual("Line", shapes[1].GetShapeName());
-            Assert.AreEqual("Rectangle", shapes[2].GetShapeName());
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual("Line", shapes[1].Name);
+            Assert.AreEqual("Rectangle", shapes[2].Name);
 
             _pointState.TargetIndex = 1;
 
-            PointF answer = shapes[_pointState.TargetIndex].GetPoint2();
+            PointF answer = shapes[_pointState.TargetIndex].Point2;
             int radius = 50;
 
             // shape found
@@ -126,23 +126,23 @@ namespace PowerPoint.model.state.test {
 
             BindingList<Shape> shapes = _model.GetListOfShape();
             Assert.AreEqual(3, shapes.Count);
-            Assert.AreEqual("Circle", shapes[0].GetShapeName());
-            Assert.AreEqual("Line", shapes[1].GetShapeName());
-            Assert.AreEqual("Rectangle", shapes[2].GetShapeName());
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual("Line", shapes[1].Name);
+            Assert.AreEqual("Rectangle", shapes[2].Name);
 
             _pointState.TargetIndex = 1;
             _pointState.ClickDeleteButton();
 
             Assert.AreEqual(2, shapes.Count);
-            Assert.AreEqual("Circle", shapes[0].GetShapeName());
-            Assert.AreEqual("Rectangle", shapes[1].GetShapeName());
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual("Rectangle", shapes[1].Name);
 
             _pointState.TargetIndex = -1;
             _pointState.ClickDeleteButton();
 
             Assert.AreEqual(2, shapes.Count);
-            Assert.AreEqual("Circle", shapes[0].GetShapeName());
-            Assert.AreEqual("Rectangle", shapes[1].GetShapeName());
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual("Rectangle", shapes[1].Name);
         }
 
         // zoom a shape
@@ -150,26 +150,26 @@ namespace PowerPoint.model.state.test {
         public void zoom_a_shape() {
             _model.Add("Rectangle");
 
-            PointF temp1 = _model.GetListOfShape()[0].GetPoint1();
-            PointF temp2 = _model.GetListOfShape()[0].GetPoint2();
+            PointF temp1 = _model.GetListOfShape()[0].Point1;
+            PointF temp2 = _model.GetListOfShape()[0].Point2;
 
             _pointState.MousePress(temp2);
             temp2 += new SizeF(100, 100);
 
             _pointState.MouseMove(temp2 + new SizeF(100, 100));
-            Assert.AreEqual(temp2 + new SizeF(100, 100), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 + new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseRelease(temp2);
-            Assert.AreEqual(temp2, _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2, _model.GetListOfShape()[0].Point2);
 
             _pointState.MousePress(temp2);
             temp2 = temp1 - new SizeF(100, 100);
 
             _pointState.MouseMove(temp2 - new SizeF(100, 100));
-            Assert.AreEqual(temp2 - new SizeF(100, 100), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 - new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseRelease(temp2);
-            Assert.AreEqual(temp1, _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1, _model.GetListOfShape()[0].Point2);
         }
 
         // zoom a shape but didn't select any shape when move or release
@@ -177,8 +177,8 @@ namespace PowerPoint.model.state.test {
         public void zoom_a_shape_but_didnt_select_any_shape_when_move() {
             _model.Add("Rectangle");
 
-            PointF temp1 = _model.GetListOfShape()[0].GetPoint1();
-            PointF temp2 = _model.GetListOfShape()[0].GetPoint2();
+            PointF temp1 = _model.GetListOfShape()[0].Point1;
+            PointF temp2 = _model.GetListOfShape()[0].Point2;
 
 
             // move the shape to right buttom
@@ -187,41 +187,41 @@ namespace PowerPoint.model.state.test {
 
 
             _pointState.MouseMove(temp2 + new SizeF(1, 1));
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.TargetIndex = -1;
             _pointState.MouseMove(temp2 + new SizeF(2, 2));
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseRelease(temp2 + new SizeF(2, 2));
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.TargetIndex = 0;
             _pointState.MouseIsPressed = true;
 
             _pointState.MouseRelease(temp2);
 
-            Assert.AreEqual(temp2, _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2, _model.GetListOfShape()[0].Point2);
 
             // move the shape to left up
             _pointState.MousePress(temp2);
             temp2 = temp1 - new SizeF(1, 1);
 
             _pointState.MouseMove(temp2 - new SizeF(1, 1));
-            Assert.AreEqual(temp2 - new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 - new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.TargetIndex = -1;
             _pointState.MouseMove(temp2 - new SizeF(2, 2));
-            Assert.AreEqual(temp2 - new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 - new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseRelease(temp2 + new SizeF(2, 2));
-            Assert.AreEqual(temp2 - new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 - new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.TargetIndex = 0;
             _pointState.MouseIsPressed = true;
 
             _pointState.MouseRelease(temp2);
-            Assert.AreEqual(temp1, _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1, _model.GetListOfShape()[0].Point2);
         }
 
         // zoom a shape but move with mouse not pressed
@@ -229,38 +229,38 @@ namespace PowerPoint.model.state.test {
         public void zoom_a_shape_but_move_with_mouse_not_pressed() {
             _model.Add("Rectangle");
 
-            PointF temp1 = _model.GetListOfShape()[0].GetPoint1();
-            PointF temp2 = _model.GetListOfShape()[0].GetPoint2();
+            PointF temp1 = _model.GetListOfShape()[0].Point1;
+            PointF temp2 = _model.GetListOfShape()[0].Point2;
 
             _pointState.MousePress(temp2);
             temp2 += new SizeF(100, 100);
 
             _pointState.MouseMove(temp2 + new SizeF(100, 100));
-            Assert.AreEqual(temp2 + new SizeF(100, 100), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 + new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseIsPressed = false;
             _pointState.MouseMove(temp2 + new SizeF(200, 200));
-            Assert.AreEqual(temp2 + new SizeF(100, 100), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 + new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseIsPressed = true;
 
             _pointState.MouseRelease(temp2);
-            Assert.AreEqual(temp2, _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2, _model.GetListOfShape()[0].Point2);
 
             _pointState.MousePress(temp2);
             temp2 = temp1 - new SizeF(100, 100);
 
             _pointState.MouseMove(temp2 - new SizeF(100, 100));
-            Assert.AreEqual(temp2 - new SizeF(100, 100), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 - new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseIsPressed = false;
             _pointState.MouseMove(temp2 - new SizeF(200, 200));
-            Assert.AreEqual(temp2 - new SizeF(100, 100), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp2 - new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseIsPressed = true;
 
             _pointState.MouseRelease(temp2);
-            Assert.AreEqual(temp1, _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1, _model.GetListOfShape()[0].Point2);
         }
 
         // move a shape
@@ -268,20 +268,20 @@ namespace PowerPoint.model.state.test {
         public void move_a_shape() {
             _model.Add("Rectangle");
 
-            PointF temp1 = _model.GetListOfShape()[0].GetPoint1();
-            PointF temp2 = _model.GetListOfShape()[0].GetPoint2();
+            PointF temp1 = _model.GetListOfShape()[0].Point1;
+            PointF temp2 = _model.GetListOfShape()[0].Point2;
 
             _pointState.MousePress(temp2);
 
             _pointState.IsZoom = false;
 
             _pointState.MouseMove(temp2 + new SizeF(1, 1));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint1());
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseRelease(temp2 + new SizeF(2, 2));
-            Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].GetPoint1());
-            Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
         }
 
         // move a shape but didn't select any shape when move or release
@@ -289,32 +289,32 @@ namespace PowerPoint.model.state.test {
         public void move_a_shape_but_didnt_select_any_shape_when_move_or_release() {
             _model.Add("Rectangle");
 
-            PointF temp1 = _model.GetListOfShape()[0].GetPoint1();
-            PointF temp2 = _model.GetListOfShape()[0].GetPoint2();
+            PointF temp1 = _model.GetListOfShape()[0].Point1;
+            PointF temp2 = _model.GetListOfShape()[0].Point2;
 
             _pointState.MousePress(temp2);
 
             _pointState.IsZoom = false;
 
             _pointState.MouseMove(temp2 + new SizeF(1, 1));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint1());
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.TargetIndex = -1;
             _pointState.MouseMove(temp2 + new SizeF(3, 3));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint1());
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseRelease(temp2 + new SizeF(3, 3));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint1());
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.TargetIndex = 0;
             _pointState.MouseIsPressed = true;
 
             _pointState.MouseRelease(temp2 + new SizeF(2, 2));
-            Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].GetPoint1());
-            Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
         }
 
         // move a shape but move with mouse not pressed
@@ -322,32 +322,32 @@ namespace PowerPoint.model.state.test {
         public void move_a_shape_but_move_with_mouse_not_pressed() {
             _model.Add("Rectangle");
 
-            PointF temp1 = _model.GetListOfShape()[0].GetPoint1();
-            PointF temp2 = _model.GetListOfShape()[0].GetPoint2();
+            PointF temp1 = _model.GetListOfShape()[0].Point1;
+            PointF temp2 = _model.GetListOfShape()[0].Point2;
 
             _pointState.MousePress(temp2);
 
             _pointState.IsZoom = false;
 
             _pointState.MouseMove(temp2 + new SizeF(1, 1));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint1());
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseIsPressed = false;
 
             _pointState.MouseMove(temp2 + new SizeF(3, 3));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint1());
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseRelease(temp2 + new SizeF(3, 3));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint1());
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseIsPressed = true;
 
             _pointState.MouseRelease(temp2 + new SizeF(2, 2));
-            Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].GetPoint1());
-            Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].GetPoint2());
+            Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
         }
     }
 }

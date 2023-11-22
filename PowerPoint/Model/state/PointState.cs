@@ -43,7 +43,7 @@ namespace PowerPoint.model.state {
         public bool IsClickTheRightBottomCorner(PointF point) {
             const int RADIUS = 50;
             if (_targetIndex != -1) {
-                PointF temp = _model.GetListOfShape()[_targetIndex].GetPoint2();
+                PointF temp = _model.GetListOfShape()[_targetIndex].Point2;
                 if (temp.X + RADIUS >= point.X && temp.X - RADIUS <= point.X && temp.Y + RADIUS >= point.Y && temp.Y - RADIUS <= point.Y) {
                     return true;
                 }

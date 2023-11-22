@@ -85,9 +85,9 @@ namespace PowerPoint.model.state.test
             BindingList<Shape> shapes = _model.GetListOfShape();
 
             Assert.AreEqual(1, shapes.Count);
-            Assert.AreEqual("Circle", shapes[0].GetShapeName());
-            Assert.AreEqual(startPoint, shapes[0].GetPoint1());
-            Assert.AreEqual(endPoint, shapes[0].GetPoint2());
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual(startPoint, shapes[0].Point1);
+            Assert.AreEqual(endPoint, shapes[0].Point2);
         }
 
         // draw many shapes by using mouse
@@ -119,17 +119,17 @@ namespace PowerPoint.model.state.test
 
             Assert.AreEqual(3, shapes.Count);
 
-            Assert.AreEqual("Circle", shapes[0].GetShapeName());
-            Assert.AreEqual(startPoint, shapes[0].GetPoint1());
-            Assert.AreEqual(endPoint, shapes[0].GetPoint2());
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual(startPoint, shapes[0].Point1);
+            Assert.AreEqual(endPoint, shapes[0].Point2);
 
-            Assert.AreEqual("Line", shapes[1].GetShapeName());
-            Assert.AreEqual(startPoint, shapes[1].GetPoint1());
-            Assert.AreEqual(endPoint, shapes[1].GetPoint2()); 
+            Assert.AreEqual("Line", shapes[1].Name);
+            Assert.AreEqual(startPoint, shapes[1].Point1);
+            Assert.AreEqual(endPoint, shapes[1].Point2); 
 
-            Assert.AreEqual("Rectangle", shapes[2].GetShapeName());
-            Assert.AreEqual(startPoint, shapes[2].GetPoint1());
-            Assert.AreEqual(endPoint, shapes[2].GetPoint2());
+            Assert.AreEqual("Rectangle", shapes[2].Name);
+            Assert.AreEqual(startPoint, shapes[2].Point1);
+            Assert.AreEqual(endPoint, shapes[2].Point2);
         }
 
         // draw many shapes by using mouse and clear
@@ -194,9 +194,9 @@ namespace PowerPoint.model.state.test
             BindingList<Shape> shapes = _model.GetListOfShape();
 
             Assert.AreEqual(1, shapes.Count);
-            Assert.AreEqual("Circle", shapes[0].GetShapeName());
-            Assert.AreEqual(startPoint, shapes[0].GetPoint1());
-            Assert.AreEqual(endPoint, shapes[0].GetPoint2());
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual(startPoint, shapes[0].Point1);
+            Assert.AreEqual(endPoint, shapes[0].Point2);
         }
 
         // draw a shape with mouse unpressed release
@@ -230,9 +230,9 @@ namespace PowerPoint.model.state.test
 
             Assert.AreEqual(1, shapes.Count);
 
-            Assert.AreEqual("Line", shapes[0].GetShapeName());
-            Assert.AreEqual(startPoint, shapes[0].GetPoint1());
-            Assert.AreEqual(endPoint, shapes[0].GetPoint2());
+            Assert.AreEqual("Line", shapes[0].Name);
+            Assert.AreEqual(startPoint, shapes[0].Point1);
+            Assert.AreEqual(endPoint, shapes[0].Point2);
         }
 
         // draw single shape by using mouse with null name
@@ -259,9 +259,9 @@ namespace PowerPoint.model.state.test
             BindingList<Shape> shapes = _model.GetListOfShape();
 
             Assert.AreEqual(1, shapes.Count);
-            Assert.AreEqual("Circle", shapes[0].GetShapeName());
-            Assert.AreEqual(startPoint, shapes[0].GetPoint1());
-            Assert.AreEqual(endPoint, shapes[0].GetPoint2());
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual(startPoint, shapes[0].Point1);
+            Assert.AreEqual(endPoint, shapes[0].Point2);
         }
 
         //
