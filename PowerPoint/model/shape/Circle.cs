@@ -51,7 +51,7 @@ namespace PowerPoint.model.shape
         // get the position of circle
         public override string GetInformation()
         {
-            return ChineseName;
+            return Information;
         }
 
         // make sure the point
