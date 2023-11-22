@@ -8,21 +8,13 @@ namespace PowerPoint.model.state
 
         private PointF _pointA;
         private string _shapeName;
-        private bool _mouseIsPressed = false;
+        private bool _isMousePressed = false;
 
         // for the test
-        public bool MouseIsPressed
-        {
-            get { return _mouseIsPressed; }
-            set { _mouseIsPressed = value; }
-        }
+        public bool IsMousePressed { get => _isMousePressed; set => _isMousePressed = value; }
 
         // for the test
-        public string ShapeName
-        {
-            get { return _shapeName; }
-            set { _shapeName = value; }
-        }
+        public string ShapeName { get => _shapeName; set => _shapeName = value; }
 
         public DrawingState(Model model)
         {
@@ -32,14 +24,14 @@ namespace PowerPoint.model.state
         // mouse press
         public void MousePress(PointF point)
         {
-            _mouseIsPressed = true;
+            _isMousePressed = true;
             _pointA = point;
         }
 
         // mouse move
         public void MouseMove(PointF point)
         {
-            if (_mouseIsPressed)
+            if (_isMousePressed)
             {
                 _model.GetShapes().SetHint(_shapeName, _pointA, point);
                 _model.NotifyModelChanged();
@@ -49,9 +41,9 @@ namespace PowerPoint.model.state
         // mouse release
         public void MouseRelease(PointF point)
         {
-            if (_mouseIsPressed)
+            if (_isMousePressed)
             {
-                _mouseIsPressed = false;
+                _isMousePressed = false;
                 if (_shapeName != null)
                 {
                     _model.GetShapes().SetHint(_shapeName, _pointA, point);

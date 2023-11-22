@@ -47,10 +47,10 @@ namespace PowerPoint.model.state.test
         [TestMethod]
         public void get_and_set_mouse_is_pressed()
         {
-            _drawingState.MouseIsPressed = true;
-            Assert.IsTrue(_drawingState.MouseIsPressed);
-            _drawingState.MouseIsPressed = false;
-            Assert.IsFalse(_drawingState.MouseIsPressed);
+            _drawingState.IsMousePressed = true;
+            Assert.IsTrue(_drawingState.IsMousePressed);
+            _drawingState.IsMousePressed = false;
+            Assert.IsFalse(_drawingState.IsMousePressed);
         }
 
         // get and set shape name
@@ -74,13 +74,13 @@ namespace PowerPoint.model.state.test
             Assert.AreEqual("Circle", _drawingState.ShapeName);
 
             _drawingState.MousePress(startPoint);
-            Assert.IsTrue(_drawingState.MouseIsPressed);
+            Assert.IsTrue(_drawingState.IsMousePressed);
 
             _drawingState.MouseMove(new PointF(_random.Next(X_MAX), _random.Next(Y_MAX)));
-            Assert.IsTrue(_drawingState.MouseIsPressed);
+            Assert.IsTrue(_drawingState.IsMousePressed);
 
             _drawingState.MouseRelease(endPoint);
-            Assert.IsFalse(_drawingState.MouseIsPressed);
+            Assert.IsFalse(_drawingState.IsMousePressed);
 
             BindingList<Shape> shapes = _model.GetListOfShape();
 
@@ -178,18 +178,18 @@ namespace PowerPoint.model.state.test
             Assert.AreEqual("Circle", _drawingState.ShapeName);
 
             _drawingState.MousePress(startPoint);
-            Assert.IsTrue(_drawingState.MouseIsPressed);
+            Assert.IsTrue(_drawingState.IsMousePressed);
 
             _drawingState.MouseMove(new PointF(_random.Next(X_MAX), _random.Next(Y_MAX)));
-            Assert.IsTrue(_drawingState.MouseIsPressed);
+            Assert.IsTrue(_drawingState.IsMousePressed);
 
-            _drawingState.MouseIsPressed = false;
+            _drawingState.IsMousePressed = false;
             _drawingState.MouseMove(new PointF(_random.Next(X_MAX), _random.Next(Y_MAX)));
-            Assert.IsFalse(_drawingState.MouseIsPressed);
+            Assert.IsFalse(_drawingState.IsMousePressed);
 
-            _drawingState.MouseIsPressed = true;
+            _drawingState.IsMousePressed = true;
             _drawingState.MouseRelease(endPoint);
-            Assert.IsFalse(_drawingState.MouseIsPressed);
+            Assert.IsFalse(_drawingState.IsMousePressed);
 
             BindingList<Shape> shapes = _model.GetListOfShape();
 
@@ -211,7 +211,7 @@ namespace PowerPoint.model.state.test
             _drawingState.ShapeName = "Circle";
             _drawingState.MousePress(startPoint);
             _drawingState.MouseMove(new PointF(_random.Next(X_MAX), _random.Next(Y_MAX)));
-            _drawingState.MouseIsPressed = false;
+            _drawingState.IsMousePressed = false;
             _drawingState.MouseRelease(endPoint);
 
             _drawingState.ShapeName = "Line";
@@ -222,7 +222,7 @@ namespace PowerPoint.model.state.test
             _drawingState.ShapeName = "Rectangle";
             _drawingState.MousePress(startPoint);
             _drawingState.MouseMove(new PointF(_random.Next(X_MAX), _random.Next(Y_MAX)));
-            _drawingState.MouseIsPressed = false;
+            _drawingState.IsMousePressed = false;
             _drawingState.MouseRelease(endPoint);
 
 

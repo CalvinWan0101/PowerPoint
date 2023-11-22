@@ -143,7 +143,7 @@ namespace PowerPoint.model
                 }
             }
 
-            if (_drawingState.MouseIsPressed && GetShapes().GetHint() != null)
+            if (_drawingState.IsMousePressed && GetShapes().GetHint() != null)
                 GetShapes().GetHint().Draw(graphics);
         }
 
