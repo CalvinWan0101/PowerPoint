@@ -65,7 +65,7 @@ namespace PowerPoint.model.state
             {
                 if (_isZoom)
                 {
-                    _model.GetListOfShape()[_targetIndex].Zoom(_pointA, point);
+                    _model.GetListOfShape()[_targetIndex].Zoom(point);
                     _pointA = point;
                     _model.NotifyModelChanged();
                 } else
@@ -97,7 +97,7 @@ namespace PowerPoint.model.state
         private void IsZoomMouseRelease(PointF point)
         {
             _isZoom = false;
-            _model.GetListOfShape()[_targetIndex].Zoom(_pointA, point);
+            _model.GetListOfShape()[_targetIndex].Zoom(point);
             _model.GetListOfShape()[_targetIndex].UpdatePoint();
             _pointA = point;
             _model.NotifyModelChanged();

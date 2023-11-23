@@ -73,7 +73,7 @@ namespace PowerPoint.model.shape
         public abstract void Move(PointF firstPoint, PointF secondPoint);
 
         // function to zoom the shape
-        public abstract void Zoom(PointF firstPoint, PointF secondPoint);
+        public abstract void Zoom(PointF secondPoint);
 
         // function to draw the shape
         public abstract void Draw(IGraphics graphics);

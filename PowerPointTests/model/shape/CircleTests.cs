@@ -91,8 +91,8 @@ namespace PowerPoint.model.shape.test {
 
             PointF firstPoint = new PointF(50, 50);
             PointF secondPoint = new PointF(150, 150);
-            point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
-            shape.Zoom(firstPoint, secondPoint);
+            point2 = new PointF(secondPoint.X, secondPoint.Y);
+            shape.Zoom(secondPoint);
 
             Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
         }

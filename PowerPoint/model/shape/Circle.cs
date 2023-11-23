@@ -46,9 +46,9 @@ namespace PowerPoint.model.shape
         }
 
         // function to zoom the circle
-        public override void Zoom(PointF firstPoint, PointF secondPoint)
+        public override void Zoom(PointF secondPoint)
         {
-            Point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
+            Point2 = new PointF(secondPoint.X, secondPoint.Y);
             Information = string.Format(TEMPLATE, (int)Point1.X, (int)Point1.Y) + COMMA + string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
         }
 
