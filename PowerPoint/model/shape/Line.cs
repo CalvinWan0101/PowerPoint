@@ -31,10 +31,10 @@ namespace PowerPoint.model.shape {
         }
 
         public Line(PointF point1, PointF point2) {
+            DrawPoint1 = point1;
+            DrawPoint2 = point2;
             Point1 = point1;
             Point2 = point2;
-            DrawPoint1 = new PointF(Point1.X, Point1.Y);
-            DrawPoint2 = new PointF(Point2.X, Point2.Y);
             UpdatePoint();
             Name = LINE;
             ChineseName = LINE_CHINESE;
@@ -66,20 +66,37 @@ namespace PowerPoint.model.shape {
 
         // function to zoom the line
         public override void Zoom(PointF secondPoint) {
-            Point2 = new PointF(secondPoint.X, secondPoint.Y);
-            Information = string.Format(TEMPLATE, (int)DrawPoint1.X, (int)DrawPoint1.Y) + COMMA + string.Format(TEMPLATE, (int)DrawPoint2.X, (int)DrawPoint2.Y);
 
+            if (DrawPoint1.X == Point1.X && DrawPoint1.Y == Point2.Y) {
+                DrawPoint1 = new PointF(Point1.X, secondPoint.Y);
+            } else if (DrawPoint1.X == Point2.X && DrawPoint1.Y == Point1.Y) {
+                DrawPoint1 = new PointF(secondPoint.X, Point1.Y);
+            } else if (DrawPoint1.X == Point2.X && DrawPoint1.Y == Point2.Y) {
+                DrawPoint1 = new PointF(secondPoint.X, secondPoint.Y);
+            }
+
+            if (DrawPoint2.X == Point1.X && DrawPoint2.Y == Point2.Y) {
+                DrawPoint2 = new PointF(Point1.X, secondPoint.Y);
+            } else if (DrawPoint2.X == Point2.X && DrawPoint2.Y == Point1.Y) {
+                DrawPoint2 = new PointF(secondPoint.X, Point1.Y);
+            } else if (DrawPoint2.X == Point2.X && DrawPoint2.Y == Point2.Y) {
+                DrawPoint2 = new PointF(secondPoint.X, secondPoint.Y);
+            }
+
+            Point2 = new PointF(secondPoint.X, secondPoint.Y);
+
+            Information = string.Format(TEMPLATE, (int)DrawPoint1.X, (int)DrawPoint1.Y) + COMMA + string.Format(TEMPLATE, (int)DrawPoint2.X, (int)DrawPoint2.Y);
         }
 
         // function to draw the line
         public override void Draw(IGraphics graphics) {
-            graphics.DrawLine(Point1, Point2);
+            graphics.DrawLine(DrawPoint1, DrawPoint2);
         }
 
         // function to draw the selected line
         public override void DrawSelected(IGraphics graphics) {
-            graphics.DrawLine(Point1, Point2);
-            graphics.DrawSelectedShape(Point1, Point2);
+            graphics.DrawLine(DrawPoint1, DrawPoint2);
+            graphics.DrawSelectedShape(DrawPoint1, DrawPoint2);
         }
     }
 }

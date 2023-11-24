@@ -30,7 +30,7 @@ namespace PowerPoint.model
                 case LINE:
                     return new Line(position[ZERO], position[ONE]);
                 case RECTANGLE:
-                    return new PowerPoint.model.shape.Rectangle(position[ZERO], position[ONE]);
+                    return new shape.Rectangle(position[ZERO], position[ONE]);
                 case CIRCLE:
                     return new Circle(position[ZERO], position[ONE]);
             }
@@ -48,7 +48,7 @@ namespace PowerPoint.model
                 case LINE:
                     return new Line(point1, point2);
                 case RECTANGLE:
-                    return new PowerPoint.model.shape.Rectangle(point1, point2);
+                    return new shape.Rectangle(point1, point2);
                 case CIRCLE:
                     return new Circle(point1, point2);
             }

@@ -6,9 +6,14 @@ namespace PowerPoint.model
 {
     public class Shapes
     {
-        private Factory _factory = new Factory();
-        private BindingList<Shape> _shapes = new BindingList<Shape>();
+        private Factory _factory;
+        private BindingList<Shape> _shapes;
         private Shape _hint;
+
+        public Shapes() {
+            _factory = new Factory();
+            _shapes = new BindingList<Shape>();
+        }
 
         // add a new shape to the end of the list (with concrete number)
         public void Add(string shapeName, params PointF[] position)

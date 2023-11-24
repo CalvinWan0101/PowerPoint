@@ -58,9 +58,12 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="model\FactoryTests.cs" />
     <Compile Include="model\ModelTests.cs" />
+    <Compile Include="model\ShapesTests.cs" />
     <Compile Include="model\shape\CircleTests.cs" />
-    <Compile Include="model\shape\ShapeTests.cs" />
+    <Compile Include="model\shape\LineTests.cs" />
+    <Compile Include="model\shape\RectangleTests.cs" />
     <Compile Include="model\state\DrawingStateTests.cs" />
     <Compile Include="model\state\PointStateTests.cs" />
     <Compile Include="presentation_model\FormPresentationModelTests.cs" />

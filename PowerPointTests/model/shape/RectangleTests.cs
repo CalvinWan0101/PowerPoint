@@ -1,9 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
+using System;
 
 namespace PowerPoint.model.shape.test {
     [TestClass]
-    public class CircleTests {
+    public class RectangleTests {
         const string COMMA = ", ";
         const string TEMPLATE = "({0:D3}, {1:D3})";
 
@@ -14,38 +15,52 @@ namespace PowerPoint.model.shape.test {
             _factory = new Factory();
         }
 
-        // make sure constructor work
         [TestMethod]
         public void make_sure_constructor_work() {
         }
 
         [TestMethod]
-        public void create_circle_by_random_point() {
-            Shape shapeRandom = _factory.CreateShape("Circle");
-            PointF point1 = shapeRandom.Point1;
-            PointF point2 = shapeRandom.Point2;
+        public void create_rectangle_by_random_point() {
+            Shape shapeRandom = _factory.CreateShape("Rectangle");
 
-            Assert.AreEqual("Circle", shapeRandom.Name);
-            Assert.AreEqual("圓", shapeRandom.ChineseName);
+            PointF point1 = new PointF();
+            PointF point2 = new PointF();
+            if (shapeRandom is Rectangle rectangle) {
+                point1 = rectangle.Point1;
+                point2 = rectangle.Point2;
+            }
+
+            Assert.AreEqual("Rectangle", shapeRandom.Name);
+            Assert.AreEqual("矩形", shapeRandom.ChineseName);
             Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shapeRandom.Information);
+
+            PointF point1_ = new PointF(Math.Min(point1.X, point2.X), Math.Min(point1.Y, point2.Y));
+            PointF point2_ = new PointF(Math.Max(point1.X, point2.X), Math.Max(point1.Y, point2.Y));
+            Assert.AreEqual(point1_, shapeRandom.Point1);
+            Assert.AreEqual(point2_, shapeRandom.Point2);
         }
 
         [TestMethod]
-        public void create_circle() {
+        public void create_rectangle() {
             PointF point1 = new PointF(0, 0);
             PointF point2 = new PointF(100, 100);
-            Shape shape = _factory.CreateShape("Circle", point1, point2);
+            Shape shape = _factory.CreateShape("Rectangle", point1, point2);
 
-            Assert.AreEqual("Circle", shape.Name);
-            Assert.AreEqual("圓", shape.ChineseName);
+            Assert.AreEqual("Rectangle", shape.Name);
+            Assert.AreEqual("矩形", shape.ChineseName);
             Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
+
+            PointF point1_ = new PointF(Math.Min(point1.X, point2.X), Math.Min(point1.Y, point2.Y));
+            PointF point2_ = new PointF(Math.Max(point1.X, point2.X), Math.Max(point1.Y, point2.Y));
+            Assert.AreEqual(point1_, shape.Point1);
+            Assert.AreEqual(point2_, shape.Point2);
         }
 
         [TestMethod]
-        public void check_if_the_circle_contains_point() {
+        public void check_if_the_rectangle_contains_point() {
             PointF point1 = new PointF(0, 0);
             PointF point2 = new PointF(100, 100);
-            Shape shape = _factory.CreateShape("Circle", point1, point2);
+            Shape shape = _factory.CreateShape("Rectangle", point1, point2);
 
             Assert.IsTrue(shape.Contains(new PointF(50, 50)));
             Assert.IsTrue(shape.Contains(new PointF(0, 0)));
@@ -60,10 +75,10 @@ namespace PowerPoint.model.shape.test {
         }
 
         [TestMethod]
-        public void move_circle() {
+        public void move_rectangle() {
             PointF point1 = new PointF(0, 0);
             PointF point2 = new PointF(100, 100);
-            Shape shape = _factory.CreateShape("Circle", point1, point2);
+            Shape shape = _factory.CreateShape("Rectangle", point1, point2);
 
             Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
 
@@ -77,10 +92,10 @@ namespace PowerPoint.model.shape.test {
         }
 
         [TestMethod]
-        public void zoom_circle_to_right_down() {
+        public void zoom_rectangle_to_right_down() {
             PointF point1 = new PointF(0, 0);
             PointF point2 = new PointF(100, 100);
-            Shape shape = _factory.CreateShape("Circle", point1, point2);
+            Shape shape = _factory.CreateShape("Rectangle", point1, point2);
 
             Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
 
@@ -92,10 +107,10 @@ namespace PowerPoint.model.shape.test {
         }
 
         [TestMethod]
-        public void zoom_circle_to_left_up() {
+        public void zoom_rectangle_to_left_high() {
             PointF point1 = new PointF(50, 50);
             PointF point2 = new PointF(100, 100);
-            Shape shape = _factory.CreateShape("Circle", point1, point2);
+            Shape shape = _factory.CreateShape("Rectangle", point1, point2);
 
             Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
 
