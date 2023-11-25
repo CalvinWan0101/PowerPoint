@@ -62,6 +62,7 @@
     <Compile Include="model\ModelTests.cs" />
     <Compile Include="model\ShapesTests.cs" />
     <Compile Include="model\shape\CircleTests.cs" />
+    <Compile Include="model\shape\FakeGraphicsAdaptor.cs" />
     <Compile Include="model\shape\LineTests.cs" />
     <Compile Include="model\shape\RectangleTests.cs" />
     <Compile Include="model\state\DrawingStateTests.cs" />

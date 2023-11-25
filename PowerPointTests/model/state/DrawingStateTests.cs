@@ -125,7 +125,7 @@ namespace PowerPoint.model.state.test
 
             Assert.AreEqual("Line", shapes[1].Name);
             Assert.AreEqual(startPoint, shapes[1].Point1);
-            Assert.AreEqual(endPoint, shapes[1].Point2); 
+            Assert.AreEqual(endPoint, shapes[1].Point2);
 
             Assert.AreEqual("Rectangle", shapes[2].Name);
             Assert.AreEqual(startPoint, shapes[2].Point1);
@@ -164,7 +164,7 @@ namespace PowerPoint.model.state.test
             _drawingState.Clear();
             Assert.AreEqual(0, shapes.Count);
         }
-    
+
         // draw a shape with mouse unpressed move
         [TestMethod]
         public void draw_a_shape_with_mouse_unpressed_move()

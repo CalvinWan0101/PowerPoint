@@ -1,109 +1,113 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PowerPointTests.model.shape;
 using System.Drawing;
 
-namespace PowerPoint.model.shape.test {
+namespace PowerPoint.model.shape.test
+{
     [TestClass]
-    public class CircleTests {
+    public class CircleTests
+    {
         const string COMMA = ", ";
         const string TEMPLATE = "({0:D3}, {1:D3})";
 
         Factory _factory;
 
         [TestInitialize]
-        public void Initialize() {
+        public void Initialize()
+        {
             _factory = new Factory();
         }
 
-        // make sure constructor work
         [TestMethod]
-        public void make_sure_constructor_work() {
+        public void make_sure_constructor_work()
+        {
         }
 
         [TestMethod]
-        public void create_circle_by_random_point() {
-            Shape shapeRandom = _factory.CreateShape("Circle");
-            PointF point1 = shapeRandom.Point1;
-            PointF point2 = shapeRandom.Point2;
+        public void create_circle()
+        {
+            Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
 
-            Assert.AreEqual("Circle", shapeRandom.Name);
-            Assert.AreEqual("圓", shapeRandom.ChineseName);
-            Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shapeRandom.Information);
+            Assert.AreEqual("Circle", circle.Name);
+            Assert.AreEqual("圓", circle.ChineseName);
+            Assert.AreEqual("(000, 000), (100, 100)", circle.Information);
+            Assert.AreEqual(new PointF(0, 0), circle.Point1);
+            Assert.AreEqual(new PointF(100, 100), circle.Point2);
         }
 
         [TestMethod]
-        public void create_circle() {
-            PointF point1 = new PointF(0, 0);
-            PointF point2 = new PointF(100, 100);
-            Shape shape = _factory.CreateShape("Circle", point1, point2);
+        public void check_if_the_circle_contains_point()
+        {
+            Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
 
-            Assert.AreEqual("Circle", shape.Name);
-            Assert.AreEqual("圓", shape.ChineseName);
-            Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
+            Assert.IsTrue(circle.Contains(new PointF(50, 50)));
+            Assert.IsTrue(circle.Contains(new PointF(0, 0)));
+            Assert.IsTrue(circle.Contains(new PointF(100, 100)));
+            Assert.IsFalse(circle.Contains(new PointF(50, -1)));
+            Assert.IsFalse(circle.Contains(new PointF(50, 101)));
+            Assert.IsFalse(circle.Contains(new PointF(-1, 50)));
+            Assert.IsFalse(circle.Contains(new PointF(101, 50)));
+            Assert.IsFalse(circle.Contains(new PointF(101, 101)));
+            Assert.IsFalse(circle.Contains(new PointF(-1, -1)));
         }
 
         [TestMethod]
-        public void check_if_the_circle_contains_point() {
-            PointF point1 = new PointF(0, 0);
-            PointF point2 = new PointF(100, 100);
-            Shape shape = _factory.CreateShape("Circle", point1, point2);
+        public void move_circle()
+        {
+            Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
+            Assert.AreEqual(new PointF(0, 0), circle.Point1);
+            Assert.AreEqual(new PointF(100, 100), circle.Point2);
 
-            Assert.IsTrue(shape.Contains(new PointF(50, 50)));
-            Assert.IsTrue(shape.Contains(new PointF(0, 0)));
-            Assert.IsTrue(shape.Contains(new PointF(100, 100)));
+            circle.Move(new PointF(50, 50), new PointF(150, 150));
 
-            Assert.IsFalse(shape.Contains(new PointF(50, -1)));
-            Assert.IsFalse(shape.Contains(new PointF(50, 101)));
-            Assert.IsFalse(shape.Contains(new PointF(-1, 50)));
-            Assert.IsFalse(shape.Contains(new PointF(101, 50)));
-            Assert.IsFalse(shape.Contains(new PointF(101, 101)));
-            Assert.IsFalse(shape.Contains(new PointF(-1, -1)));
+            Assert.AreEqual(new PointF(100, 100), circle.Point1);
+            Assert.AreEqual(new PointF(200, 200), circle.Point2);
         }
 
         [TestMethod]
-        public void move_circle() {
-            PointF point1 = new PointF(0, 0);
-            PointF point2 = new PointF(100, 100);
-            Shape shape = _factory.CreateShape("Circle", point1, point2);
+        public void zoom_circle_to_right_down()
+        {
+            Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
+            Assert.AreEqual(new PointF(0, 0), circle.Point1);
+            Assert.AreEqual(new PointF(100, 100), circle.Point2);
 
-            Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
+            circle.Zoom(new PointF(150, 150));
 
-            PointF firstPoint = new PointF(50, 50);
-            PointF secondPoint = new PointF(150, 150);
-            point1 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
-            point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
-            shape.Move(firstPoint, secondPoint);
-
-            Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
+            Assert.AreEqual(new PointF(0, 0), circle.Point1);
+            Assert.AreEqual(new PointF(150, 150), circle.Point2);
         }
 
         [TestMethod]
-        public void zoom_circle_to_right_down() {
-            PointF point1 = new PointF(0, 0);
-            PointF point2 = new PointF(100, 100);
-            Shape shape = _factory.CreateShape("Circle", point1, point2);
+        public void zoom_circle_to_left_high()
+        {
+            Circle circle = new Circle(new PointF(50, 50), new PointF(100, 100));
+            Assert.AreEqual(new PointF(50, 50), circle.Point1);
+            Assert.AreEqual(new PointF(100, 100), circle.Point2);
 
-            Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
+            circle.Zoom(new PointF(0, 0));
 
-            PointF secondPoint = new PointF(150, 150);
-            point2 = new PointF(secondPoint.X, secondPoint.Y);
-            shape.Zoom(secondPoint);
-
-            Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
+            Assert.AreEqual(new PointF(0, 0), circle.Point1);
+            Assert.AreEqual(new PointF(50, 50), circle.Point2);
         }
 
         [TestMethod]
-        public void zoom_circle_to_left_up() {
-            PointF point1 = new PointF(50, 50);
-            PointF point2 = new PointF(100, 100);
-            Shape shape = _factory.CreateShape("Circle", point1, point2);
+        public void draw_circle()
+        {
+            Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
+            FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
+            circle.Draw(graphic);
 
-            Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
+            Assert.IsTrue(graphic.IsCircle);
+        }
 
-            PointF secondPoint = new PointF(0, 0);
-            point2 = new PointF(secondPoint.X, secondPoint.Y);
-            shape.Zoom(secondPoint);
+        [TestMethod]
+        public void draw_selected_circle()
+        {
+            Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
+            FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
+            circle.DrawSelected(graphic);
 
-            Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), shape.Information);
+            Assert.IsTrue(graphic.IsCircle);
         }
     }
 }
