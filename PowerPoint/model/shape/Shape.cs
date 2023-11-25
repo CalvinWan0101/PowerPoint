@@ -39,10 +39,7 @@ namespace PowerPoint.model.shape
 
         public string ChineseName
         {
-            get
-            {
-                return _chineseName;
-            }
+            get => _chineseName;
             set
             {
                 _chineseName = value;
@@ -52,10 +49,7 @@ namespace PowerPoint.model.shape
 
         public string Information
         {
-            get
-            {
-                return _information;
-            }
+            get => _information;
             set
             {
                 _information = value;

@@ -10,7 +10,8 @@ namespace PowerPoint.model
         private BindingList<Shape> _shapes;
         private Shape _hint;
 
-        public Shapes() {
+        public Shapes()
+        {
             _factory = new Factory();
             _shapes = new BindingList<Shape>();
         }
