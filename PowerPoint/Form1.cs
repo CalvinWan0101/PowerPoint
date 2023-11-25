@@ -185,7 +185,6 @@ namespace PowerPoint
         // press delete key
         private void PressDeleteKey(object sender, KeyEventArgs e)
         {
-            Console.WriteLine("delete");
             if (e.KeyCode == Keys.Delete)
             {
                 _model.PressDeleteKey();
