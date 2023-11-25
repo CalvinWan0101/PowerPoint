@@ -15,19 +15,19 @@ namespace PowerPoint.model.shape
         private PointF _drawPoint2;
 
 
-        private PointF _point1Record = new PointF(-1, -1);
-        private PointF _point2Record = new PointF(-1, -1);
+        private PointF _drawPoint1Record;
+        private PointF _drawPoint2Record;
 
-        public PointF Point1Record
+        public PointF DrawPoint1Record
         {
-            get => _point1Record;
-            set => _point1Record = value;
+            get => _drawPoint1Record;
+            set => _drawPoint1Record = value;
         }
 
-        public PointF Point2Record
+        public PointF DrawPoint2Record
         {
-            get => _point2Record;
-            set => _point2Record = value;
+            get => _drawPoint2Record;
+            set => _drawPoint2Record = value;
         }
 
         public PointF DrawPoint1
@@ -47,6 +47,8 @@ namespace PowerPoint.model.shape
             DrawPoint1 = point1;
             DrawPoint2 = point2;
             UpdatePoint();
+            DrawPoint1Record = Point1;
+            DrawPoint2Record = Point2;
             Name = LINE;
             ChineseName = LINE_CHINESE;
             Information = string.Format(TEMPLATE, (int)DrawPoint1.X, (int)DrawPoint1.Y) + COMMA + string.Format(TEMPLATE, (int)DrawPoint2.X, (int)DrawPoint2.Y);
@@ -78,56 +80,6 @@ namespace PowerPoint.model.shape
         // function to zoom the line
         public override void Zoom(PointF secondPoint)
         {
-            //if (Point1Record == new PointF(-1, -1) && Point2Record == new PointF(-1, -1))
-            //{
-            //    Point1Record = Point1;
-            //    Point2Record = Point2;
-            //}
-            //// left bottom
-            //if (DrawPoint1.X == Point1Record.X && DrawPoint1.Y == Point2Record.Y)
-            //{
-            //    DrawPoint1 = new PointF(Point1Record.X, secondPoint.Y);
-            //}
-            //// right top
-            //else if (DrawPoint1.X == Point2Record.X && DrawPoint1.Y == Point1Record.Y)
-            //{
-            //    DrawPoint1 = new PointF(secondPoint.X, Point1Record.Y);
-            //}
-            //// right bottom
-            //else if (DrawPoint1.X == Point2Record.X && DrawPoint1.Y == Point2Record.Y)
-            //{
-            //    DrawPoint1 = secondPoint;
-            //}
-            //else
-            //{
-            //    Console.WriteLine("DrawPoint1 Error");
-            //    Console.WriteLine("Point1Record" + Point1Record);
-            //    Console.WriteLine("Point1" + Point1);
-            //}
-
-            //// left bottom
-            //if (DrawPoint2.X == Point1Record.X && DrawPoint2.Y == Point2Record.Y)
-            //{
-            //    DrawPoint2 = new PointF(Point1Record.X, secondPoint.Y);
-            //}
-            //// right top
-            //else if (DrawPoint2.X == Point2Record.X && DrawPoint2.Y == Point1Record.Y)
-            //{
-            //    DrawPoint2 = new PointF(secondPoint.X, Point1Record.Y);
-            //}
-            //// right bottom
-            //else if (DrawPoint2.X == Point2Record.X && DrawPoint2.Y == Point2Record.Y)
-            //{
-            //    DrawPoint2 = secondPoint;
-            //}
-            //else
-            //{
-            //    Console.WriteLine("DrawPoint2 Error");
-            //    Console.WriteLine("Point2Record" + Point2Record);
-            //    Console.WriteLine("Point2" + Point2);
-            //}
-
-            // ----------------------------------------------------------
 
             if (DrawPoint1.X == Point1.X && DrawPoint1.Y == Point2.Y)
             {
@@ -155,7 +107,8 @@ namespace PowerPoint.model.shape
                 DrawPoint2 = new PointF(secondPoint.X, secondPoint.Y);
             }
 
-            UpdatePoint();
+            Point2 = secondPoint;
+            //UpdatePoint();
 
             Information = string.Format(TEMPLATE, (int)DrawPoint1.X, (int)DrawPoint1.Y) + COMMA + string.Format(TEMPLATE, (int)DrawPoint2.X, (int)DrawPoint2.Y);
         }
