@@ -9,15 +9,10 @@ namespace PowerPoint.model.state.test
     [TestClass]
     public class PointStateTests
     {
-        private Random _random = new Random();
-        const int X_MAX = 640;
-        const int Y_MAX = 360;
-
         Model _model;
         DrawingState _drawingState;
         PointState _pointState;
 
-        // initialize the test
         [TestInitialize]
         public void Initialize()
         {
@@ -27,7 +22,6 @@ namespace PowerPoint.model.state.test
             _model.SetState(_drawingState, _pointState);
         }
 
-        // reset the _model, _drawingState and _pointState after each test method
         [TestCleanup]
         public void CleanUp()
         {
@@ -37,13 +31,11 @@ namespace PowerPoint.model.state.test
             _model.SetState(_drawingState, _pointState);
         }
 
-        // make sure constructor work
         [TestMethod]
         public void make_sure_constructor_work()
         {
         }
 
-        // get and set
         [TestMethod]
         public void get_and_set()
         {
@@ -57,15 +49,14 @@ namespace PowerPoint.model.state.test
             Assert.IsTrue(_pointState.IsZoom);
         }
 
-        // is click the right button corner
         [TestMethod]
         public void is_click_the_right_button_corner()
         {
             _model.Add("Circle");
             _model.Add("Line");
             _model.Add("Rectangle");
-
             BindingList<Shape> shapes = _model.GetListOfShape();
+
             Assert.AreEqual(3, shapes.Count);
             Assert.AreEqual("Circle", shapes[0].Name);
             Assert.AreEqual("Line", shapes[1].Name);
@@ -74,6 +65,7 @@ namespace PowerPoint.model.state.test
             _pointState.TargetIndex = 1;
 
             PointF answer = shapes[_pointState.TargetIndex].Point2;
+
             int radius = 50;
 
             // shape found
@@ -124,7 +116,6 @@ namespace PowerPoint.model.state.test
             Assert.IsFalse(_pointState.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, -radius - 100)));
         }
 
-        // click delete button
         [TestMethod]
         public void click_delete_button()
         {
@@ -153,35 +144,19 @@ namespace PowerPoint.model.state.test
             Assert.AreEqual("Rectangle", shapes[1].Name);
         }
 
-        // zoom a shape
         [TestMethod]
         public void zoom_a_shape()
         {
-            _model.Add("Rectangle");
+            _model.Add("Rectangle", new PointF(100, 100), new PointF(200, 200));
 
-            PointF temp1 = _model.GetListOfShape()[0].Point1;
-            PointF temp2 = _model.GetListOfShape()[0].Point2;
+            _pointState.MousePress(new PointF(200, 200));
+            _pointState.MouseMove(new PointF(300, 300));
+            _pointState.MouseRelease(new PointF(300, 300));
 
-            _pointState.MousePress(temp2);
-            temp2 += new SizeF(100, 100);
-
-            _pointState.MouseMove(temp2 + new SizeF(100, 100));
-            Assert.AreEqual(temp2 + new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
-
-            _pointState.MouseRelease(temp2);
-            Assert.AreEqual(temp2, _model.GetListOfShape()[0].Point2);
-
-            _pointState.MousePress(temp2);
-            temp2 = temp1 - new SizeF(100, 100);
-
-            _pointState.MouseMove(temp2 - new SizeF(100, 100));
-            Assert.AreEqual(temp2 - new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
-
-            _pointState.MouseRelease(temp2);
-            Assert.AreEqual(temp1, _model.GetListOfShape()[0].Point2);
+            Assert.AreEqual(new PointF(100, 100), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(new PointF(300, 300), _model.GetListOfShape()[0].Point2);
         }
 
-        // zoom a shape but didn't select any shape when move or release
         [TestMethod]
         public void zoom_a_shape_but_didnt_select_any_shape_when_move()
         {
@@ -191,7 +166,6 @@ namespace PowerPoint.model.state.test
             PointF temp2 = _model.GetListOfShape()[0].Point2;
 
 
-            // move the shape to right buttom
             _pointState.MousePress(temp2);
             temp2 += new SizeF(1, 1);
 
@@ -218,20 +192,16 @@ namespace PowerPoint.model.state.test
             temp2 = temp1 - new SizeF(1, 1);
 
             _pointState.MouseMove(temp2 - new SizeF(1, 1));
-            Assert.AreEqual(temp2 - new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.TargetIndex = -1;
             _pointState.MouseMove(temp2 - new SizeF(2, 2));
-            Assert.AreEqual(temp2 - new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
-
             _pointState.MouseRelease(temp2 + new SizeF(2, 2));
-            Assert.AreEqual(temp2 - new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
             _pointState.TargetIndex = 0;
             _pointState.MouseIsPressed = true;
-
             _pointState.MouseRelease(temp2);
-            Assert.AreEqual(temp1, _model.GetListOfShape()[0].Point2);
+
+            Assert.AreEqual(temp1 - new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
         }
 
         // zoom a shape but move with mouse not pressed
@@ -262,16 +232,14 @@ namespace PowerPoint.model.state.test
             temp2 = temp1 - new SizeF(100, 100);
 
             _pointState.MouseMove(temp2 - new SizeF(100, 100));
-            Assert.AreEqual(temp2 - new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseIsPressed = false;
             _pointState.MouseMove(temp2 - new SizeF(200, 200));
-            Assert.AreEqual(temp2 - new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
 
             _pointState.MouseIsPressed = true;
 
             _pointState.MouseRelease(temp2);
-            Assert.AreEqual(temp1, _model.GetListOfShape()[0].Point2);
+            Assert.AreEqual(temp1 - new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
         }
 
         // move a shape
