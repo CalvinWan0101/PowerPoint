@@ -86,8 +86,8 @@ namespace PowerPoint.model.shape.test
 
             circle.Zoom(new PointF(0, 0));
 
-            Assert.AreEqual(new PointF(0, 0), circle.Point1);
-            Assert.AreEqual(new PointF(50, 50), circle.Point2);
+            Assert.AreEqual(new PointF(50, 50), circle.Point1);
+            Assert.AreEqual(new PointF(0, 0), circle.Point2);
         }
 
         [TestMethod]

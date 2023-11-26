@@ -8,7 +8,6 @@ namespace PowerPoint.model.test {
 
 
         [TestMethod]
-        // make sure constructor work
         public void make_sure_constructor_work() {
         }
     }

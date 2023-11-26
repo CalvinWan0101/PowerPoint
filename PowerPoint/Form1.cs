@@ -182,6 +182,15 @@ namespace PowerPoint
             Cursor = Cursors.Default;
         }
 
+        // mouse zoom
+        private void MouseZoom(object sender, MouseEventArgs e)
+        {
+            if (_model.GetIsZoom())
+            {
+                Cursor = Cursors.SizeNESW;
+            }
+        }
+
         // press delete key
         private void PressDeleteKey(object sender, KeyEventArgs e)
         {

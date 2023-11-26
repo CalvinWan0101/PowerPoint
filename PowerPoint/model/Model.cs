@@ -22,6 +22,12 @@ namespace PowerPoint.model
             _pointState = new PointState(this);
         }
 
+        // get isZoom
+        public bool GetIsZoom()
+        {
+            return _pointState.IsZoom;
+        }
+
         // for the test
         public void SetState(DrawingState drawingState, PointState pointState)
         {

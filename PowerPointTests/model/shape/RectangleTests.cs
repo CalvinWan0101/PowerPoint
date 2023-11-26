@@ -86,8 +86,8 @@ namespace PowerPoint.model.shape.test
 
             rectangle.Zoom(new PointF(0, 0));
 
-            Assert.AreEqual(new PointF(0, 0), rectangle.Point1);
-            Assert.AreEqual(new PointF(50, 50), rectangle.Point2);
+            Assert.AreEqual(new PointF(50, 50), rectangle.Point1);
+            Assert.AreEqual(new PointF(0, 0), rectangle.Point2);
         }
 
         [TestMethod]

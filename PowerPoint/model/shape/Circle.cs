@@ -49,7 +49,6 @@ namespace PowerPoint.model.shape
         public override void Zoom(PointF secondPoint)
         {
             Point2 = new PointF(secondPoint.X, secondPoint.Y);
-            UpdatePoint();
             Information = string.Format(TEMPLATE, (int)Point1.X, (int)Point1.Y) + COMMA + string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
         }
 

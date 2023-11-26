@@ -201,7 +201,7 @@ namespace PowerPoint.model.state.test
             _pointState.MouseIsPressed = true;
             _pointState.MouseRelease(temp2);
 
-            Assert.AreEqual(temp1 - new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
+            Assert.AreEqual(temp1, _model.GetListOfShape()[0].Point2);
         }
 
         // zoom a shape but move with mouse not pressed
@@ -239,7 +239,7 @@ namespace PowerPoint.model.state.test
             _pointState.MouseIsPressed = true;
 
             _pointState.MouseRelease(temp2);
-            Assert.AreEqual(temp1 - new SizeF(100, 100), _model.GetListOfShape()[0].Point2);
+            Assert.AreEqual(temp1, _model.GetListOfShape()[0].Point2);
         }
 
         // move a shape

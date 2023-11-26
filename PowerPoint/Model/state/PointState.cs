@@ -68,7 +68,8 @@ namespace PowerPoint.model.state
                     _model.GetListOfShape()[_targetIndex].Zoom(point);
                     _pointA = point;
                     _model.NotifyModelChanged();
-                } else
+                }
+                else
                 {
                     _model.GetListOfShape()[_targetIndex].Move(_pointA, point);
                     _pointA = point;
@@ -85,7 +86,8 @@ namespace PowerPoint.model.state
                 if (_isZoom)
                 {
                     IsZoomMouseRelease(point);
-                } else
+                }
+                else
                 {
                     IsNotZoomMouseRelease(point);
                 }
@@ -99,10 +101,10 @@ namespace PowerPoint.model.state
             _isZoom = false;
             _model.GetListOfShape()[_targetIndex].Zoom(point);
             _model.GetListOfShape()[_targetIndex].UpdatePoint();
-            PointF temp1 = _model.GetListOfShape()[_targetIndex].Point1;
-            PointF temp2 = _model.GetListOfShape()[_targetIndex].Point2;
-            _model.GetListOfShape()[_targetIndex].Point1 = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
-            _model.GetListOfShape()[_targetIndex].Point2 = new PointF(Math.Max(temp1.X, temp2.X), Math.Max(temp1.Y, temp2.Y)); 
+            //PointF temp1 = _model.GetListOfShape()[_targetIndex].Point1;
+            //PointF temp2 = _model.GetListOfShape()[_targetIndex].Point2;
+            //_model.GetListOfShape()[_targetIndex].Point1 = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
+            //_model.GetListOfShape()[_targetIndex].Point2 = new PointF(Math.Max(temp1.X, temp2.X), Math.Max(temp1.Y, temp2.Y)); 
             _pointA = point;
             _model.NotifyModelChanged();
         }
