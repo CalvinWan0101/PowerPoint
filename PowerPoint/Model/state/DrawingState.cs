@@ -53,12 +53,5 @@ namespace PowerPoint.model.state
                 }
             }
         }
-
-        // clear all the shape
-        public void Clear()
-        {
-            _model.GetShapes().Clear();
-            _model.NotifyModelChanged();
-        }
     }
 }

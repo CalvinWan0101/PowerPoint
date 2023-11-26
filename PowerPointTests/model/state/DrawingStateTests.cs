@@ -161,7 +161,7 @@ namespace PowerPoint.model.state.test
 
             Assert.AreEqual(3, shapes.Count);
 
-            _drawingState.Clear();
+            _model.Clear();
             Assert.AreEqual(0, shapes.Count);
         }
 

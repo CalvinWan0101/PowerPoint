@@ -59,7 +59,8 @@ namespace PowerPoint.model
         // clear all the shape
         public void Clear()
         {
-            _drawingState.Clear();
+            _shapes.Clear();
+            NotifyModelChanged();
         }
 
         // set shape name
