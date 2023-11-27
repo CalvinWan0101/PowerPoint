@@ -76,7 +76,8 @@ namespace PowerPoint.model
             {
                 _pointState.MousePress(point);
 
-            } else
+            }
+            else
             {
                 _drawingState.MousePress(point);
             }
@@ -88,7 +89,8 @@ namespace PowerPoint.model
             if (mouseButtonChecked)
             {
                 _pointState.MouseMove(point);
-            } else
+            }
+            else
             {
                 _drawingState.MouseMove(point);
             }
@@ -104,7 +106,8 @@ namespace PowerPoint.model
                 {
                     NotifyModelChanged();
                 }
-            } else
+            }
+            else
             {
                 _drawingState.MouseRelease(point);
             }
@@ -144,7 +147,8 @@ namespace PowerPoint.model
                 if (i == _pointState.TargetIndex)
                 {
                     GetListOfShape()[i].DrawSelected(graphics);
-                } else
+                }
+                else
                 {
                     GetListOfShape()[i].Draw(graphics);
                 }

@@ -67,6 +67,7 @@
     <Compile Include="model\shape\Circle.cs" />
     <Compile Include="model\shape\Line.cs" />
     <Compile Include="model\Model.cs" />
+    <Compile Include="presentation_model\PreviewGraphicsAdaptor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="model\shape\Rectangle.cs" />
