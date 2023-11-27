@@ -48,7 +48,7 @@ namespace PowerPoint.model.shape
         // function to zoom the rectangle
         public override void Zoom(PointF secondPoint)
         {
-            Point2 = new PointF(secondPoint.X, secondPoint.Y);
+            Point2 = secondPoint;
             Information = string.Format(TEMPLATE, (int)Point1.X, (int)Point1.Y) + COMMA + string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
         }
 
