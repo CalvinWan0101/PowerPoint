@@ -134,13 +134,10 @@ namespace PowerPoint.presentation_model
             _model.Draw(new FormGraphicsAdaptor(graphics));
         }
 
-        // copy the panel to slide
-        public void CopyPanelToSlide(DoubleBufferedPanel panel, Button slide)
+        // preview draw
+        public void PreviewDraw(Graphics graphics)
         {
-            Bitmap bitmap = new Bitmap(panel.Width, panel.Height);
-            panel.DrawToBitmap(bitmap, new System.Drawing.Rectangle(0, 0, panel.Width, panel.Height));
-            Graphics graphics = slide.CreateGraphics();
-            graphics.DrawImage(bitmap, new System.Drawing.Rectangle(0, 0, slide.Width, slide.Height));
+            _model.Draw(new PreviewGraphicsAdaptor(graphics));
         }
 
         // line button click

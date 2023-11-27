@@ -61,6 +61,7 @@ namespace PowerPoint
             _panel.MouseUp += HandleMouseReleased;
             _panel.MouseMove += HandleMouseMoved;
             _panel.Paint += HandleMousePaint;
+            _slide1.Paint += HandlePreivewPaint;
 
             // button click
             _presentationModel.PropertyChanged += UpdateButtonStatus;
@@ -160,11 +161,17 @@ namespace PowerPoint
             _presentationModel.Draw(e.Graphics);
         }
 
+        // function to handle preview paint
+        public void HandlePreivewPaint(object sender, PaintEventArgs e)
+        {
+            _presentationModel.PreviewDraw(e.Graphics);
+        }
+
         // function to handle the change of model
         public void HandleModelChanged()
         {
             _panel.Invalidate(true);
-            _presentationModel.CopyPanelToSlide(_panel, _slide1);
+            _slide1.Invalidate(true);
         }
 
         // when mouse enter the panel
