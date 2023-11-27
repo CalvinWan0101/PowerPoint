@@ -14,10 +14,6 @@ namespace PowerPoint.model.shape
         private PointF _drawPoint1;
         private PointF _drawPoint2;
 
-
-        private PointF _drawPoint1Record;
-        private PointF _drawPoint2Record;
-
         public PointF DrawPoint1
         {
             get => _drawPoint1;
@@ -66,7 +62,6 @@ namespace PowerPoint.model.shape
         // function to zoom the line
         public override void Zoom(PointF secondPoint)
         {
-
             // left bottom
             if (DrawPoint1.X == Point1.X && DrawPoint1.Y == Point2.Y)
             {
