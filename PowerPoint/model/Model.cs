@@ -22,10 +22,10 @@ namespace PowerPoint.model
             _pointState = new PointState(this);
         }
 
-        // get isZoom
-        public bool GetIsZoom()
+        // for the test
+        public bool IsClickTheRightBottomCorner(PointF point)
         {
-            return _pointState.IsZoom;
+            return _pointState.IsClickTheRightBottomCorner(point);
         }
 
         // for the test

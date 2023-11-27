@@ -60,6 +60,7 @@ namespace PowerPoint
             _panel.MouseDown += HandleMousePressed;
             _panel.MouseUp += HandleMouseReleased;
             _panel.MouseMove += HandleMouseMoved;
+            _panel.MouseMove += MouseZoom;
             _panel.Paint += HandleMousePaint;
             _slide1.Paint += HandlePreivewPaint;
 
@@ -192,9 +193,13 @@ namespace PowerPoint
         // mouse zoom
         private void MouseZoom(object sender, MouseEventArgs e)
         {
-            if (_model.GetIsZoom())
+            if (_model.IsClickTheRightBottomCorner(new PointF(e.X, e.Y)))
             {
-                Cursor = Cursors.SizeNESW;
+                Cursor = Cursors.SizeNWSE;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
             }
         }
 

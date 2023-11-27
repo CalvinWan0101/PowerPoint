@@ -45,7 +45,7 @@ namespace PowerPoint.model.state
         // is zoom
         public bool IsClickTheRightBottomCorner(PointF point)
         {
-            const int RADIUS = 50;
+            const int RADIUS = 10;
             if (_targetIndex != -1)
             {
                 PointF temp = _model.GetListOfShape()[_targetIndex].Point2;
