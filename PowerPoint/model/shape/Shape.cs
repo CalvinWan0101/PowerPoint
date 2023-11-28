@@ -90,7 +90,10 @@ namespace PowerPoint.model.shape
         public abstract void UpdatePoint();
 
         // function to check if the shape contains the point
-        public abstract bool Contains(PointF point);
+        public bool Contains(PointF point)
+        {
+            return Point1.X <= point.X && point.X <= Point2.X && Point1.Y <= point.Y && point.Y <= Point2.Y;
+        }
 
         // function to move the shape
         public abstract void Move(PointF firstPoint, PointF secondPoint);

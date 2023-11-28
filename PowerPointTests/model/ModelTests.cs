@@ -114,6 +114,7 @@ namespace PowerPoint.model.test
 
             BindingList<Shape> shapes = _model.GetListOfShape();
 
+            Assert.IsFalse(_model.MouseButtonChecked);
             Assert.AreEqual(1, shapes.Count);
             Assert.AreEqual("Rectangle", shapes[0].Name);
             Assert.AreEqual(new PointF(100, 100), shapes[0].Point1);

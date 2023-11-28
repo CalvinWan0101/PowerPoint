@@ -194,7 +194,7 @@
               <Weight>29</Weight>
               <Project>PowerPoint</Project>
               <File>Line.cs</File>
-              <Line>75</Line>
+              <Line>69</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -205,111 +205,63 @@
             <Smell>
               <Id>2</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>37 目前物件 PowerPoint.model.shape.Circle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
+              <HashCode>73 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
-              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Circle.cs</File>
-              <Line>37</Line>
-              <StartLine>36</StartLine>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs</File>
+              <Line>73</Line>
+              <StartLine>72</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>37</EndLine>
+              <EndLine>73</EndLine>
               <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.model.shape.Circle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
+              <Comment>目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
               <Id>3</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>37 目前物件 PowerPoint.model.shape.Rectangle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Rectangle.cs</File>
-              <Line>37</Line>
-              <StartLine>36</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>37</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.model.shape.Rectangle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>4</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>61 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
+              <HashCode>77 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs</File>
-              <Line>61</Line>
-              <StartLine>60</StartLine>
+              <Line>77</Line>
+              <StartLine>76</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>61</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>5</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>79 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs</File>
-              <Line>79</Line>
-              <StartLine>78</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>79</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>6</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>83 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs</File>
-              <Line>83</Line>
-              <StartLine>82</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>83</EndLine>
+              <EndLine>77</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>7</Id>
+              <Id>4</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>91 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
+              <HashCode>85 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs</File>
-              <Line>91</Line>
-              <StartLine>90</StartLine>
+              <Line>85</Line>
+              <StartLine>84</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>91</EndLine>
+              <EndLine>85</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>8</Id>
+              <Id>5</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>95 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
+              <HashCode>89 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs</File>
-              <Line>95</Line>
-              <StartLine>94</StartLine>
+              <Line>89</Line>
+              <StartLine>88</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>95</EndLine>
+              <EndLine>89</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
               <Auto>false</Auto>
@@ -486,8 +438,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>2150</ProductionLoc>
-          <TestLoc>2029</TestLoc>
+          <ProductionLoc>2135</ProductionLoc>
+          <TestLoc>2030</TestLoc>
         </CodeReview>
       </Data>
     </div>

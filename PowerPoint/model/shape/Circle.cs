@@ -31,12 +31,6 @@ namespace PowerPoint.model.shape
             Point2 = new PointF(Math.Max(temp1.X, temp2.X), Math.Max(temp1.Y, temp2.Y));
         }
 
-        // function to check if the circle contains the point
-        public override bool Contains(PointF point)
-        {
-            return Point1.X <= point.X && point.X <= Point2.X && Point1.Y <= point.Y && point.Y <= Point2.Y;
-        }
-
         // function to move the circle
         public override void Move(PointF firstPoint, PointF secondPoint)
         {

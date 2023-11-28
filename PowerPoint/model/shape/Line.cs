@@ -55,12 +55,6 @@ namespace PowerPoint.model.shape
             Point2 = new PointF(Math.Max(DrawPoint1.X, DrawPoint2.X), Math.Max(DrawPoint1.Y, DrawPoint2.Y));
         }
 
-        // function to check if the line contains the point
-        public override bool Contains(PointF point)
-        {
-            return Point1.X <= point.X && point.X <= Point2.X && Point1.Y <= point.Y && point.Y <= Point2.Y;
-        }
-
         // function to move the line
         public override void Move(PointF firstPoint, PointF secondPoint)
         {
