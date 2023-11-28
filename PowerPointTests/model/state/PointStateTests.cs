@@ -66,7 +66,7 @@ namespace PowerPoint.model.state.test
 
             PointF answer = shapes[_pointState.TargetIndex].Point2;
 
-            int radius = 50;
+            int radius = 10;
 
             // shape found
             Assert.IsTrue(_pointState.IsClickTheRightBottomCorner(answer));

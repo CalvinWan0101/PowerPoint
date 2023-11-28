@@ -159,15 +159,5 @@ namespace PowerPoint.model.test
             Assert.IsTrue(graphic.IsSelectedShape);
         }
 
-        //[TestMethod]
-        //public void draw_selected_circle()
-        //{
-        //    Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
-        //    FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
-        //    circle.DrawSelected(graphic);
-
-        //    Assert.IsTrue(graphic.IsCircle);
-        //}
-
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.735638027452974" branch-rate="0.69620253164557" lines-covered="1447" lines-valid="1967" branches-covered="110" branches-valid="158" complexity="297" version="0" timestamp="1701141468">
+<coverage line-rate="0.734145104008118" branch-rate="0.69620253164557" lines-covered="1447" lines-valid="1971" branches-covered="110" branches-valid="158" complexity="297" version="0" timestamp="1701168123">
   <sources />
   <packages>
-    <package name="PowerPoint" line-rate="0.440258342303552" branch-rate="0.706666666666667" complexity="190">
+    <package name="PowerPoint" line-rate="0.438370846730975" branch-rate="0.706666666666667" complexity="190">
       <classes>
         <class name="PowerPoint.DoubleBufferedPanel" filename="C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\DoubleBufferedPanel.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
@@ -27,147 +27,150 @@
           <methods>
             <method name="CreateNewShapeButtonClick" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="77" hits="0" branch="false" />
-                <line number="79" hits="0" branch="true" condition-coverage="0% (0/4)" />
-                <line number="82" hits="0" branch="false" />
+                <line number="78" hits="0" branch="false" />
+                <line number="80" hits="0" branch="true" condition-coverage="0% (0/4)" />
                 <line number="83" hits="0" branch="false" />
-                <line number="85" hits="0" branch="false" />
+                <line number="84" hits="0" branch="false" />
                 <line number="86" hits="0" branch="false" />
-                <line number="88" hits="0" branch="false" />
+                <line number="87" hits="0" branch="false" />
                 <line number="89" hits="0" branch="false" />
-                <line number="91" hits="0" branch="false" />
-                <line number="93" hits="0" branch="false" />
+                <line number="90" hits="0" branch="false" />
+                <line number="92" hits="0" branch="false" />
                 <line number="94" hits="0" branch="false" />
+                <line number="95" hits="0" branch="false" />
               </lines>
             </method>
             <method name="DeleteShapeButtonClick" signature="(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="98" hits="0" branch="false" />
-                <line number="99" hits="0" branch="true" condition-coverage="0% (0/4)" />
-                <line number="100" hits="0" branch="false" />
+                <line number="99" hits="0" branch="false" />
+                <line number="100" hits="0" branch="true" condition-coverage="0% (0/4)" />
                 <line number="101" hits="0" branch="false" />
                 <line number="102" hits="0" branch="false" />
                 <line number="103" hits="0" branch="false" />
                 <line number="104" hits="0" branch="false" />
+                <line number="105" hits="0" branch="false" />
               </lines>
             </method>
             <method name="UpdateButtonStatus" signature="(System.Object,System.ComponentModel.PropertyChangedEventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="108" hits="0" branch="false" />
                 <line number="109" hits="0" branch="false" />
                 <line number="110" hits="0" branch="false" />
                 <line number="111" hits="0" branch="false" />
                 <line number="112" hits="0" branch="false" />
                 <line number="113" hits="0" branch="false" />
+                <line number="114" hits="0" branch="false" />
               </lines>
             </method>
             <method name="ClickLineButton" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="117" hits="0" branch="false" />
                 <line number="118" hits="0" branch="false" />
                 <line number="119" hits="0" branch="false" />
+                <line number="120" hits="0" branch="false" />
               </lines>
             </method>
             <method name="ClickRectangleButton" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="123" hits="0" branch="false" />
                 <line number="124" hits="0" branch="false" />
                 <line number="125" hits="0" branch="false" />
+                <line number="126" hits="0" branch="false" />
               </lines>
             </method>
             <method name="ClickCircleButton" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="129" hits="0" branch="false" />
                 <line number="130" hits="0" branch="false" />
                 <line number="131" hits="0" branch="false" />
+                <line number="132" hits="0" branch="false" />
               </lines>
             </method>
             <method name="ClickMouseButton" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="135" hits="0" branch="false" />
                 <line number="136" hits="0" branch="false" />
                 <line number="137" hits="0" branch="false" />
+                <line number="138" hits="0" branch="false" />
               </lines>
             </method>
             <method name="HandleMousePressed" signature="(System.Object,System.Windows.Forms.MouseEventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="141" hits="0" branch="false" />
                 <line number="142" hits="0" branch="false" />
                 <line number="143" hits="0" branch="false" />
+                <line number="144" hits="0" branch="false" />
               </lines>
             </method>
             <method name="HandleMouseMoved" signature="(System.Object,System.Windows.Forms.MouseEventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="147" hits="0" branch="false" />
                 <line number="148" hits="0" branch="false" />
                 <line number="149" hits="0" branch="false" />
+                <line number="150" hits="0" branch="false" />
               </lines>
             </method>
             <method name="HandleMouseReleased" signature="(System.Object,System.Windows.Forms.MouseEventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="153" hits="0" branch="false" />
                 <line number="154" hits="0" branch="false" />
                 <line number="155" hits="0" branch="false" />
                 <line number="156" hits="0" branch="false" />
+                <line number="157" hits="0" branch="false" />
               </lines>
             </method>
             <method name="HandleMousePaint" signature="(System.Object,System.Windows.Forms.PaintEventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="160" hits="0" branch="false" />
                 <line number="161" hits="0" branch="false" />
                 <line number="162" hits="0" branch="false" />
+                <line number="163" hits="0" branch="false" />
               </lines>
             </method>
             <method name="HandlePreivewPaint" signature="(System.Object,System.Windows.Forms.PaintEventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="166" hits="0" branch="false" />
                 <line number="167" hits="0" branch="false" />
                 <line number="168" hits="0" branch="false" />
+                <line number="169" hits="0" branch="false" />
               </lines>
             </method>
             <method name="HandleModelChanged" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
-                <line number="172" hits="0" branch="false" />
                 <line number="173" hits="0" branch="false" />
                 <line number="174" hits="0" branch="false" />
                 <line number="175" hits="0" branch="false" />
+                <line number="176" hits="0" branch="false" />
               </lines>
             </method>
             <method name="PanelMouseEnter" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="179" hits="0" branch="false" />
-                <line number="180" hits="0" branch="true" condition-coverage="0% (0/6)" />
-                <line number="181" hits="0" branch="false" />
+                <line number="180" hits="0" branch="false" />
+                <line number="181" hits="0" branch="true" condition-coverage="0% (0/6)" />
                 <line number="182" hits="0" branch="false" />
                 <line number="183" hits="0" branch="false" />
                 <line number="184" hits="0" branch="false" />
+                <line number="185" hits="0" branch="false" />
               </lines>
             </method>
             <method name="PanelMouseLeave" signature="(System.Object,System.EventArgs)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="188" hits="0" branch="false" />
                 <line number="189" hits="0" branch="false" />
                 <line number="190" hits="0" branch="false" />
+                <line number="191" hits="0" branch="false" />
               </lines>
             </method>
             <method name="MouseZoom" signature="(System.Object,System.Windows.Forms.MouseEventArgs)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="194" hits="0" branch="false" />
-                <line number="195" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="196" hits="0" branch="false" />
+                <line number="195" hits="0" branch="false" />
+                <line number="196" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="197" hits="0" branch="false" />
                 <line number="198" hits="0" branch="false" />
                 <line number="199" hits="0" branch="false" />
+                <line number="201" hits="0" branch="false" />
+                <line number="202" hits="0" branch="false" />
+                <line number="203" hits="0" branch="false" />
+                <line number="204" hits="0" branch="false" />
               </lines>
             </method>
             <method name="PressDeleteKey" signature="(System.Object,System.Windows.Forms.KeyEventArgs)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="203" hits="0" branch="false" />
-                <line number="204" hits="0" branch="true" condition-coverage="0% (0/2)" />
-                <line number="205" hits="0" branch="false" />
-                <line number="206" hits="0" branch="false" />
-                <line number="207" hits="0" branch="false" />
                 <line number="208" hits="0" branch="false" />
+                <line number="209" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="210" hits="0" branch="false" />
+                <line number="211" hits="0" branch="false" />
+                <line number="212" hits="0" branch="false" />
+                <line number="213" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
@@ -201,88 +204,92 @@
             <line number="62" hits="0" branch="false" />
             <line number="63" hits="0" branch="false" />
             <line number="64" hits="0" branch="false" />
-            <line number="67" hits="0" branch="false" />
-            <line number="70" hits="0" branch="false" />
+            <line number="65" hits="0" branch="false" />
+            <line number="68" hits="0" branch="false" />
             <line number="71" hits="0" branch="false" />
-            <line number="73" hits="0" branch="false" />
+            <line number="72" hits="0" branch="false" />
             <line number="74" hits="0" branch="false" />
-            <line number="77" hits="0" branch="false" />
-            <line number="79" hits="0" branch="true" condition-coverage="0% (0/4)" />
-            <line number="82" hits="0" branch="false" />
+            <line number="75" hits="0" branch="false" />
+            <line number="78" hits="0" branch="false" />
+            <line number="80" hits="0" branch="true" condition-coverage="0% (0/4)" />
             <line number="83" hits="0" branch="false" />
-            <line number="85" hits="0" branch="false" />
+            <line number="84" hits="0" branch="false" />
             <line number="86" hits="0" branch="false" />
-            <line number="88" hits="0" branch="false" />
+            <line number="87" hits="0" branch="false" />
             <line number="89" hits="0" branch="false" />
-            <line number="91" hits="0" branch="false" />
-            <line number="93" hits="0" branch="false" />
+            <line number="90" hits="0" branch="false" />
+            <line number="92" hits="0" branch="false" />
             <line number="94" hits="0" branch="false" />
-            <line number="98" hits="0" branch="false" />
-            <line number="99" hits="0" branch="true" condition-coverage="0% (0/4)" />
-            <line number="100" hits="0" branch="false" />
+            <line number="95" hits="0" branch="false" />
+            <line number="99" hits="0" branch="false" />
+            <line number="100" hits="0" branch="true" condition-coverage="0% (0/4)" />
             <line number="101" hits="0" branch="false" />
             <line number="102" hits="0" branch="false" />
             <line number="103" hits="0" branch="false" />
             <line number="104" hits="0" branch="false" />
-            <line number="108" hits="0" branch="false" />
+            <line number="105" hits="0" branch="false" />
             <line number="109" hits="0" branch="false" />
             <line number="110" hits="0" branch="false" />
             <line number="111" hits="0" branch="false" />
             <line number="112" hits="0" branch="false" />
             <line number="113" hits="0" branch="false" />
-            <line number="117" hits="0" branch="false" />
+            <line number="114" hits="0" branch="false" />
             <line number="118" hits="0" branch="false" />
             <line number="119" hits="0" branch="false" />
-            <line number="123" hits="0" branch="false" />
+            <line number="120" hits="0" branch="false" />
             <line number="124" hits="0" branch="false" />
             <line number="125" hits="0" branch="false" />
-            <line number="129" hits="0" branch="false" />
+            <line number="126" hits="0" branch="false" />
             <line number="130" hits="0" branch="false" />
             <line number="131" hits="0" branch="false" />
-            <line number="135" hits="0" branch="false" />
+            <line number="132" hits="0" branch="false" />
             <line number="136" hits="0" branch="false" />
             <line number="137" hits="0" branch="false" />
-            <line number="141" hits="0" branch="false" />
+            <line number="138" hits="0" branch="false" />
             <line number="142" hits="0" branch="false" />
             <line number="143" hits="0" branch="false" />
-            <line number="147" hits="0" branch="false" />
+            <line number="144" hits="0" branch="false" />
             <line number="148" hits="0" branch="false" />
             <line number="149" hits="0" branch="false" />
-            <line number="153" hits="0" branch="false" />
+            <line number="150" hits="0" branch="false" />
             <line number="154" hits="0" branch="false" />
             <line number="155" hits="0" branch="false" />
             <line number="156" hits="0" branch="false" />
-            <line number="160" hits="0" branch="false" />
+            <line number="157" hits="0" branch="false" />
             <line number="161" hits="0" branch="false" />
             <line number="162" hits="0" branch="false" />
-            <line number="166" hits="0" branch="false" />
+            <line number="163" hits="0" branch="false" />
             <line number="167" hits="0" branch="false" />
             <line number="168" hits="0" branch="false" />
-            <line number="172" hits="0" branch="false" />
+            <line number="169" hits="0" branch="false" />
             <line number="173" hits="0" branch="false" />
             <line number="174" hits="0" branch="false" />
             <line number="175" hits="0" branch="false" />
-            <line number="179" hits="0" branch="false" />
-            <line number="180" hits="0" branch="true" condition-coverage="0% (0/6)" />
-            <line number="181" hits="0" branch="false" />
+            <line number="176" hits="0" branch="false" />
+            <line number="180" hits="0" branch="false" />
+            <line number="181" hits="0" branch="true" condition-coverage="0% (0/6)" />
             <line number="182" hits="0" branch="false" />
             <line number="183" hits="0" branch="false" />
             <line number="184" hits="0" branch="false" />
-            <line number="188" hits="0" branch="false" />
+            <line number="185" hits="0" branch="false" />
             <line number="189" hits="0" branch="false" />
             <line number="190" hits="0" branch="false" />
-            <line number="194" hits="0" branch="false" />
-            <line number="195" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="196" hits="0" branch="false" />
+            <line number="191" hits="0" branch="false" />
+            <line number="195" hits="0" branch="false" />
+            <line number="196" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="197" hits="0" branch="false" />
             <line number="198" hits="0" branch="false" />
             <line number="199" hits="0" branch="false" />
+            <line number="201" hits="0" branch="false" />
+            <line number="202" hits="0" branch="false" />
             <line number="203" hits="0" branch="false" />
-            <line number="204" hits="0" branch="true" condition-coverage="0% (0/2)" />
-            <line number="205" hits="0" branch="false" />
-            <line number="206" hits="0" branch="false" />
-            <line number="207" hits="0" branch="false" />
+            <line number="204" hits="0" branch="false" />
             <line number="208" hits="0" branch="false" />
+            <line number="209" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="210" hits="0" branch="false" />
+            <line number="211" hits="0" branch="false" />
+            <line number="212" hits="0" branch="false" />
+            <line number="213" hits="0" branch="false" />
           </lines>
         </class>
         <class name="PowerPoint.Form1" filename="C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\Form1.Designer.cs" line-rate="0" branch-rate="0" complexity="1">
@@ -332,6 +339,7 @@
                 <line number="69" hits="0" branch="false" />
                 <line number="70" hits="0" branch="false" />
                 <line number="74" hits="0" branch="false" />
+                <line number="75" hits="0" branch="false" />
               </lines>
             </method>
             <method name="Dispose" signature="(System.Boolean)" line-rate="0" branch-rate="0" complexity="NaN">
@@ -719,7 +727,7 @@
             <line number="56" hits="34" branch="false" />
           </lines>
         </class>
-        <class name="PowerPoint.model.Model" filename="C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\Model.cs" line-rate="0.89" branch-rate="0.818181818181818" complexity="8">
+        <class name="PowerPoint.model.Model" filename="C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\Model.cs" line-rate="0.89" branch-rate="0.818181818181818" complexity="7">
           <methods>
             <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -731,7 +739,7 @@
                 <line number="23" hits="47" branch="false" />
               </lines>
             </method>
-            <method name="GetIsZoom" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="IsClickTheRightBottomCorner" signature="(System.Drawing.PointF)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
                 <line number="27" hits="0" branch="false" />
                 <line number="28" hits="0" branch="false" />
