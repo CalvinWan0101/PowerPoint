@@ -33,8 +33,6 @@ namespace PowerPoint.presentation_model
         private bool _circleButtonChecked = false;
         private bool _mouseButtonChecked = true;
 
-        const string BUTTON_STATUS_NOTIFY = "ButtonChecked";
-
         // the getter and setter of line button checked
         public bool LineButtonChecked
         {
