@@ -10,11 +10,29 @@ namespace PowerPoint.model.state
         private string _shapeName;
         private bool _isMousePressed = false;
 
-        // for the test
-        public bool IsMousePressed { get => _isMousePressed; set => _isMousePressed = value; }
+        public bool IsMousePressed
+        {
+            get
+            {
+                return _isMousePressed;
+            }
+            set
+            {
+                _isMousePressed = value;
+            }
+        }
 
-        // for the test
-        public string ShapeName { get => _shapeName; set => _shapeName = value; }
+        public string ShapeName
+        {
+            get
+            {
+                return _shapeName;
+            }
+            set
+            {
+                _shapeName = value;
+            }
+        }
 
         public DrawingState(Model model)
         {

@@ -13,7 +13,7 @@ namespace PowerPoint.model
         public delegate void ModelChangedEventHandler();
 
         private Shapes _shapes;
-        private IState _istate;
+        private IState _state;
         private DrawingState _drawingState;
         private PointState _pointState;
 
@@ -24,24 +24,27 @@ namespace PowerPoint.model
             _shapes = new Shapes();
             _drawingState = new DrawingState(this);
             _pointState = new PointState(this);
-            _istate = _drawingState;
+            _state = _drawingState;
             _mouseButtonChecked = false;
         }
 
         // mouse button checked
         public bool MouseButtonChecked
         {
-            get => _mouseButtonChecked;
+            get 
+            {
+                return _mouseButtonChecked;
+            }
             set 
             {
                 _mouseButtonChecked = value;
                 if (_mouseButtonChecked)
                 {
-                    _istate = _pointState;
+                    _state = _pointState;
                 }
                 else
                 {
-                    _istate = _drawingState;
+                    _state = _drawingState;
                 }
             } 
         }
@@ -96,19 +99,19 @@ namespace PowerPoint.model
         // mouse press
         public virtual void MousePress(PointF point)
         {
-            _istate.MousePress(point);
+            _state.MousePress(point);
         }
 
         // mouse move
         public virtual void MouseMove(PointF point)
         {
-            _istate.MouseMove(point);
+            _state.MouseMove(point);
         }
 
         // mouse release
         public virtual void MouseRelease(PointF point)
         {
-            _istate.MouseRelease(point);
+            _state.MouseRelease(point);
         }
 
         // find target index
@@ -139,8 +142,6 @@ namespace PowerPoint.model
         // draw all the shape
         public virtual void Draw(IGraphics graphics)
         {
-            Console.WriteLine("In the real model.");
-
             graphics.ClearAll();
             for (int i = 0; i < GetListOfShape().Count; i++)
             {

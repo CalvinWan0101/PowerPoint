@@ -62,7 +62,7 @@ namespace PowerPoint
             _panel.MouseMove += HandleMouseMoved;
             _panel.MouseMove += MouseZoom;
             _panel.Paint += HandleMousePaint;
-            _slide1.Paint += HandlePreivewPaint;
+            _slide1.Paint += HandleSlidePaint;
 
             // button click
             _presentationModel.PropertyChanged += UpdateButtonStatus;
@@ -163,7 +163,7 @@ namespace PowerPoint
         }
 
         // function to handle preview paint
-        public void HandlePreivewPaint(object sender, PaintEventArgs e)
+        public void HandleSlidePaint(object sender, PaintEventArgs e)
         {
             _presentationModel.PreviewDraw(e.Graphics);
         }

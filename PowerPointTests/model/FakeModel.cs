@@ -14,14 +14,89 @@ namespace PowerPointTests.model
         int _mouseReleaseUsed;
         int _clearUsed;
 
-        public string ShapeName { get => _shapeName; set => _shapeName = value; }
-        public int DrawUsed { get => _drawUsed; set => _drawUsed = value; }
-        public int SetShapeNameUsed { get => _setShapeNameUsed; set => _setShapeNameUsed = value; }
-        public int MousePressUsed { get => _mousePressUsed; set => _mousePressUsed = value; }
-        public int MouseMoveUsed { get => _mouseMoveUsed; set => _mouseMoveUsed = value; }
-        public int MouseReleaseUsed { get => _mouseReleaseUsed; set => _mouseReleaseUsed = value; }
-        public int ClearUsed { get => _clearUsed; set => _clearUsed = value; }
+        public string ShapeName
+        {
+            get
+            {
+                return _shapeName;
+            }
+            set
+            {
+                _shapeName = value;
+            }
+        }
 
+        public int DrawUsed
+        {
+            get
+            {
+                return _drawUsed;
+            }
+            set
+            {
+                _drawUsed = value;
+            }
+        }
+
+        public int SetShapeNameUsed
+        {
+            get
+            {
+                return _setShapeNameUsed;
+            }
+            set
+            {
+                _setShapeNameUsed = value;
+            }
+        }
+
+        public int MousePressUsed
+        {
+            get
+            {
+                return _mousePressUsed;
+            }
+            set
+            {
+                _mousePressUsed = value;
+            }
+        }
+
+        public int MouseMoveUsed
+        {
+            get
+            {
+                return _mouseMoveUsed;
+            }
+            set
+            {
+                _mouseMoveUsed = value;
+            }
+        }
+
+        public int MouseReleaseUsed
+        {
+            get
+            {
+                return _mouseReleaseUsed;
+            }
+            set
+            {
+                _mouseReleaseUsed = value;
+            }
+        }
+
+        public int ClearUsed
+        {
+            get
+            {
+                return _clearUsed;
+            }
+            set
+            {
+                _clearUsed = value;
+            }
+        }
 
         public FakeModel()
         {

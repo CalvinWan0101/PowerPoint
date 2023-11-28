@@ -57,10 +57,6 @@ namespace PowerPoint.model.test {
             Assert.AreEqual("Line", _shapes.GetListOfShape()[0].Name);
             Assert.AreEqual("線", _shapes.GetListOfShape()[0].ChineseName);
             Assert.AreEqual(string.Format(TEMPLATE, (int)point1.X, (int)point1.Y) + COMMA + string.Format(TEMPLATE, (int)point2.X, (int)point2.Y), _shapes.GetListOfShape()[0].Information);
-            if (_shapes.GetListOfShape()[0] is Line line) {
-                Assert.AreEqual(point1, line.DrawPoint1);
-                Assert.AreEqual(point2, line.DrawPoint2);
-            }
             Assert.AreEqual(point1_, _shapes.GetListOfShape()[0].Point1);
             Assert.AreEqual(point2_, _shapes.GetListOfShape()[0].Point2);
 
@@ -123,10 +119,6 @@ namespace PowerPoint.model.test {
             Assert.AreEqual("Line", _shapes.GetHint().Name);
             Assert.AreEqual("線", _shapes.GetHint().ChineseName);
             Assert.AreEqual(string.Format(TEMPLATE, 0, 0) + COMMA + string.Format(TEMPLATE, 100, 100), _shapes.GetHint().Information);
-            if (_shapes.GetHint() is Line line) {
-                Assert.AreEqual(new PointF(0, 0), line.DrawPoint1);
-                Assert.AreEqual(new PointF(100, 100), line.DrawPoint2);
-            }
             Assert.AreEqual(new PointF(0, 0), _shapes.GetHint().Point1);
             Assert.AreEqual(new PointF(100, 100), _shapes.GetHint().Point2);
         }

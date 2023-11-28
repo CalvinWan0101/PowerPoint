@@ -23,13 +23,36 @@ namespace PowerPoint.model.shape
         private string _chineseName;
         private string _information;
 
-        public PointF Point1 { get => _point1; set => _point1 = value; }
+        public PointF Point1
+        {
+            get
+            {
+                return _point1;
+            }
+            set
+            {
+                _point1 = value;
+            }
+        }
 
-        public PointF Point2 { get => _point2; set => _point2 = value; }
+        public PointF Point2
+        {
+            get
+            {
+                return _point2;
+            }
+            set
+            {
+                _point2 = value;
+            }
+        }
 
         public string Name
         {
-            get => _name;
+            get
+            {
+                return _name;
+            }
             set
             {
                 _name = value;
@@ -39,7 +62,10 @@ namespace PowerPoint.model.shape
 
         public string ChineseName
         {
-            get => _chineseName;
+            get
+            {
+                return _chineseName;
+            }
             set
             {
                 _chineseName = value;
@@ -49,7 +75,10 @@ namespace PowerPoint.model.shape
 
         public string Information
         {
-            get => _information;
+            get
+            {
+                return _information;
+            }
             set
             {
                 _information = value;

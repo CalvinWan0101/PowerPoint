@@ -12,20 +12,42 @@ namespace PowerPoint.model.state
         private bool _isZoom = false;
 
         // for the test
-        public bool MouseIsPressed { get => _mouseIsPressed; set => _mouseIsPressed = value; }
+        public bool MouseIsPressed
+        {
+            get
+            {
+                return _mouseIsPressed;
+            }
+            set
+            {
+                _mouseIsPressed = value;
+            }
+        }
 
         // for the test
         public int TargetIndex
         {
-            get { return _targetIndex; }
-            set { _targetIndex = value; }
+            get
+            {
+                return _targetIndex;
+            }
+            set
+            {
+                _targetIndex = value;
+            }
         }
 
         // for the test
         public bool IsZoom
         {
-            get { return _isZoom; }
-            set { _isZoom = value; }
+            get
+            {
+                return _isZoom;
+            }
+            set
+            {
+                _isZoom = value;
+            }
         }
 
         public PointState(Model model)

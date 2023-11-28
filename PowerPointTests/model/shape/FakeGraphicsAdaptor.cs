@@ -1,22 +1,74 @@
 ﻿using PowerPoint.presentation_model;
 using System.Drawing;
 
-
 namespace PowerPointTests.model.shape
 {
     public class FakeGraphicsAdaptor : IGraphics
     {
         private int _isClearAll;
-        private int _IsCircle;
-        private int _IsLine;
-        private int _IsRectangle;
-        private int _IsSelectedShape;
+        private int _isCircle;
+        private int _isLine;
+        private int _isRectangle;
+        private int _isSelectedShape;
 
-        public int IsClearAll { get => _isClearAll; set => _isClearAll = value; }
-        public int IsCircle { get => _IsCircle; set => _IsCircle = value; }
-        public int IsLine { get => _IsLine; set => _IsLine = value; }
-        public int IsRectangle { get => _IsRectangle; set => _IsRectangle = value; }
-        public int IsSelectedShape { get => _IsSelectedShape; set => _IsSelectedShape = value; }
+        public int IsClearAll
+        {
+            get
+            {
+                return _isClearAll;
+            }
+            set
+            {
+                _isClearAll = value;
+            }
+        }
+        public int IsCircle
+        {
+            get
+            {
+                return _isCircle;
+            }
+            set
+            {
+                _isCircle = value;
+            }
+        }
+
+        public int IsLine
+        {
+            get
+            {
+                return _isLine;
+            }
+            set
+            {
+                _isLine = value;
+            }
+        }
+
+        public int IsRectangle
+        {
+            get
+            {
+                return _isRectangle;
+            }
+            set
+            {
+                _isRectangle = value;
+            }
+        }
+
+        public int IsSelectedShape
+        {
+            get
+            {
+                return _isSelectedShape;
+            }
+            set
+            {
+                _isSelectedShape = value;
+            }
+        }
 
         public FakeGraphicsAdaptor()
         {
@@ -27,26 +79,31 @@ namespace PowerPointTests.model.shape
             IsSelectedShape = 0;
         }
 
+        // clear all
         public void ClearAll()
         {
             IsClearAll++;
         }
 
+        // draw circle
         public void DrawCircle(PointF point1, PointF point2)
         {
             IsCircle++;
         }
 
+        // draw line
         public void DrawLine(PointF point1, PointF point2)
         {
             IsLine++;
         }
 
+        // draw rectangle
         public void DrawRectangle(PointF point1, PointF point2)
         {
             IsRectangle++;
         }
 
+        // draw selected shape
         public void DrawSelectedShape(PointF point1, PointF point2)
         {
             IsSelectedShape++;

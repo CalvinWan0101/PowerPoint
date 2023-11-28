@@ -16,14 +16,26 @@ namespace PowerPoint.model.shape
 
         public PointF DrawPoint1
         {
-            get => _drawPoint1;
-            set => _drawPoint1 = value;
+            get
+            {
+                return _drawPoint1;
+            }
+            set
+            {
+                _drawPoint1 = value;
+            }
         }
 
         public PointF DrawPoint2
         {
-            get => _drawPoint2;
-            set => _drawPoint2 = value;
+            get
+            {
+                return _drawPoint2;
+            }
+            set
+            {
+                _drawPoint2 = value;
+            }
         }
 
         public Line(PointF point1, PointF point2)
@@ -62,41 +74,31 @@ namespace PowerPoint.model.shape
         // function to zoom the line
         public override void Zoom(PointF secondPoint)
         {
-            // left bottom
             if (DrawPoint1.X == Point1.X && DrawPoint1.Y == Point2.Y)
             {
                 DrawPoint1 = new PointF(Point1.X, secondPoint.Y);
             }
-            // right top
             else if (DrawPoint1.X == Point2.X && DrawPoint1.Y == Point1.Y)
             {
                 DrawPoint1 = new PointF(secondPoint.X, Point1.Y);
             }
-            // right bottom
             else if (DrawPoint1.X == Point2.X && DrawPoint1.Y == Point2.Y)
             {
                 DrawPoint1 = new PointF(secondPoint.X, secondPoint.Y);
             }
-
-            // left bottom
             if (DrawPoint2.X == Point1.X && DrawPoint2.Y == Point2.Y)
             {
                 DrawPoint2 = new PointF(Point1.X, secondPoint.Y);
             }
-            // right top
             else if (DrawPoint2.X == Point2.X && DrawPoint2.Y == Point1.Y)
             {
                 DrawPoint2 = new PointF(secondPoint.X, Point1.Y);
             }
-            // right bottom
             else if (DrawPoint2.X == Point2.X && DrawPoint2.Y == Point2.Y)
             {
                 DrawPoint2 = new PointF(secondPoint.X, secondPoint.Y);
             }
-
             Point2 = secondPoint;
-            //UpdatePoint();
-
             Information = string.Format(TEMPLATE, (int)DrawPoint1.X, (int)DrawPoint1.Y) + COMMA + string.Format(TEMPLATE, (int)DrawPoint2.X, (int)DrawPoint2.Y);
         }
 

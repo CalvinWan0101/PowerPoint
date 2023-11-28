@@ -10,9 +10,9 @@ namespace PowerPoint.presentation_model
 {
     public class PreviewGraphicsAdaptor : IGraphics
     {
-        const float SetStoryboardSpeedRatio = 0.25f;
+        const float RATIO = 0.25f;
 
-        private float _ratio = SetStoryboardSpeedRatio;
+        private float _ratio = RATIO;
         Graphics _graphics;
 
         public PreviewGraphicsAdaptor(Graphics graphics)
@@ -78,11 +78,8 @@ namespace PowerPoint.presentation_model
         // draw the selected shape
         public void DrawSelectedShape(PointF point1, PointF point2)
         {
-            point1 = new PointF(point1.X * _ratio, point1.Y * _ratio);
-            point2 = new PointF(point2.X * _ratio, point2.Y * _ratio);
-
-            PointF temp1 = point1;
-            PointF temp2 = point2;
+            PointF temp1 = new PointF(point1.X * _ratio, point1.Y * _ratio);
+            PointF temp2 = new PointF(point2.X * _ratio, point2.Y * _ratio);
             point1 = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
             point2 = new PointF(Math.Max(temp1.X, temp2.X), Math.Max(temp1.Y, temp2.Y));
             float width = Math.Abs(point2.X - point1.X);

@@ -99,7 +99,6 @@ namespace PowerPoint.presentation_model
         // draw all the shape
         public void Draw(Graphics graphics)
         {
-            Console.WriteLine("In the pr model.");
             _model.Draw(new FormGraphicsAdaptor(graphics));
         }
 

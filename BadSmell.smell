@@ -188,12 +188,13 @@
           <Reviews>
             <Smell>
               <Id>1</Id>
-              <SmellType>A syntax error has been discovered in file C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs on line 23.</SmellType>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
+              <SmellType>Long method(過長函式)</SmellType>
+              <HashCode>LongMethod.Line.Zoom.29PointF secondPoint;</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>29</Weight>
               <Project>PowerPoint</Project>
               <File>Line.cs</File>
-              <Line>23</Line>
+              <Line>75</Line>
               <StartLine>0</StartLine>
               <StartCol>0</StartCol>
               <EndLine>0</EndLine>
@@ -203,112 +204,6 @@
             </Smell>
             <Smell>
               <Id>2</Id>
-              <SmellType>A syntax error has been discovered in file C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Shape.cs on line 26.</SmellType>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Shape.cs</File>
-              <Line>26</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>3</Id>
-              <SmellType>A syntax error has been discovered in file C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\DrawingState.cs on line 14.</SmellType>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>DrawingState.cs</File>
-              <Line>14</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>4</Id>
-              <SmellType>A syntax error has been discovered in file C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs on line 18.</SmellType>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>PointState.cs</File>
-              <Line>18</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>5</Id>
-              <SmellType>A syntax error has been discovered in file C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPointTests\model\FactoryTests.cs on line 29.</SmellType>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPointTests</Project>
-              <File>FactoryTests.cs</File>
-              <Line>29</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>6</Id>
-              <SmellType>A syntax error has been discovered in file C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPointTests\model\shape\RectangleTests.cs on line 28.</SmellType>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPointTests</Project>
-              <File>RectangleTests.cs</File>
-              <Line>28</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>7</Id>
-              <SmellType>A syntax error has been discovered in file C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPointTests\model\ShapesTests.cs on line 60.</SmellType>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPointTests</Project>
-              <File>ShapesTests.cs</File>
-              <Line>60</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment />
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>8</Id>
-              <SmellType>Lack of comments(缺乏註解)</SmellType>
-              <HashCode>51 PowerPoint.model.shape.Line.RecordPoint()</HashCode>
-              <Severity>Red</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>Line.cs</File>
-              <Line>51</Line>
-              <StartLine>0</StartLine>
-              <StartCol>0</StartCol>
-              <EndLine>0</EndLine>
-              <EndCol>0</EndCol>
-              <Comment>PowerPoint.model.shape.Line.RecordPoint()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>9</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>37 目前物件 PowerPoint.model.shape.Circle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
               <Severity>Red</Severity>
@@ -324,7 +219,7 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>10</Id>
+              <Id>3</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
               <HashCode>37 目前物件 PowerPoint.model.shape.Rectangle，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
               <Severity>Red</Severity>
@@ -340,35 +235,83 @@
               <Auto>false</Auto>
             </Smell>
             <Smell>
-              <Id>11</Id>
+              <Id>4</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>47 目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape()</HashCode>
-              <Severity>Warning</Severity>
-              <Weight>1</Weight>
-              <Project>PowerPoint</Project>
-              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs</File>
-              <Line>47</Line>
-              <StartLine>47</StartLine>
-              <StartCol>16</StartCol>
-              <EndLine>47</EndLine>
-              <EndCol>72</EndCol>
-              <Comment>目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape()</Comment>
-              <Auto>false</Auto>
-            </Smell>
-            <Smell>
-              <Id>12</Id>
-              <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>78 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
+              <HashCode>61 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>PowerPoint</Project>
               <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs</File>
-              <Line>78</Line>
-              <StartLine>77</StartLine>
+              <Line>61</Line>
+              <StartLine>60</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>78</EndLine>
+              <EndLine>61</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：4次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>5</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>79 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs</File>
+              <Line>79</Line>
+              <StartLine>78</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>79</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>6</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>83 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs</File>
+              <Line>83</Line>
+              <StartLine>82</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>83</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>7</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>91 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs</File>
+              <Line>91</Line>
+              <StartLine>90</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>91</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>8</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>95 目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\shape\Line.cs</File>
+              <Line>95</Line>
+              <StartLine>94</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>95</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 PowerPoint.model.shape.Line，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.shape.Shape，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point1 以及 PowerPoint.model.shape.Shape.Point2</Comment>
               <Auto>false</Auto>
             </Smell>
           </Reviews>
@@ -457,6 +400,11 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>presentation_model\PreviewGraphicsAdaptor.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Program.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>ViewOrController</AnalysisFileType>
@@ -482,6 +430,11 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>model\FakeModel.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>model\ModelTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
@@ -490,6 +443,11 @@
                 <RelativePath>model\shape\CircleTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>model\shape\FakeGraphicsAdaptor.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>model\shape\LineTests.cs</RelativePath>
@@ -528,8 +486,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1336</ProductionLoc>
-          <TestLoc>954</TestLoc>
+          <ProductionLoc>2150</ProductionLoc>
+          <TestLoc>2029</TestLoc>
         </CodeReview>
       </Data>
     </div>

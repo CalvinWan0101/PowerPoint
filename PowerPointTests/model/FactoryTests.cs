@@ -3,33 +3,36 @@ using PowerPoint.model.shape;
 using System;
 using System.Drawing;
 
-namespace PowerPoint.model.test {
+namespace PowerPoint.model.test
+{
     [TestClass]
-    public class FactoryTests {
+    public class FactoryTests
+    {
         const string COMMA = ", ";
         const string TEMPLATE = "({0:D3}, {1:D3})";
 
         Factory _factory;
 
         [TestInitialize]
-        public void Initialize() {
+        public void Initialize()
+        {
             _factory = new Factory();
         }
 
         [TestMethod]
-        public void make_sure_constructor_work() {
+        public void make_sure_constructor_work()
+        {
         }
 
         [TestMethod]
-        public void create_line_by_random_point() {
-            Shape shapeRandom = _factory.CreateShape("Line");
+        public void create_line_by_random_point()
+        {
+            Line shapeRandom = (Line)_factory.CreateShape("Line");
 
             PointF drawPoint1 = new PointF();
             PointF drawPoint2 = new PointF();
-            if (shapeRandom is Line line) {
-                drawPoint1 = line.DrawPoint1;
-                drawPoint2 = line.DrawPoint2;
-            }
+            drawPoint1 = shapeRandom.DrawPoint1;
+            drawPoint2 = shapeRandom.DrawPoint2;
 
             Assert.AreEqual("Line", shapeRandom.Name);
             Assert.AreEqual("線", shapeRandom.ChineseName);
@@ -37,20 +40,17 @@ namespace PowerPoint.model.test {
 
             PointF point1 = new PointF(Math.Min(drawPoint1.X, drawPoint2.X), Math.Min(drawPoint1.Y, drawPoint2.Y));
             PointF point2 = new PointF(Math.Max(drawPoint1.X, drawPoint2.X), Math.Max(drawPoint1.Y, drawPoint2.Y));
+            
             Assert.AreEqual(point1, shapeRandom.Point1);
             Assert.AreEqual(point2, shapeRandom.Point2);
         }
 
         [TestMethod]
-        public void create_rectangle_by_random_point() {
-            Shape shapeRandom = _factory.CreateShape("Rectangle");
-
-            PointF point1 = new PointF();
-            PointF point2 = new PointF();
-            if (shapeRandom is shape.Rectangle rectangle) {
-                point1 = rectangle.Point1;
-                point2 = rectangle.Point2;
-            }
+        public void create_rectangle_by_random_point()
+        {
+            shape.Rectangle shapeRandom = (shape.Rectangle)_factory.CreateShape("Rectangle");
+            PointF point1 = shapeRandom.Point1;
+            PointF point2 = shapeRandom.Point2;
 
             Assert.AreEqual("Rectangle", shapeRandom.Name);
             Assert.AreEqual("矩形", shapeRandom.ChineseName);
@@ -63,7 +63,8 @@ namespace PowerPoint.model.test {
         }
 
         [TestMethod]
-        public void create_circle_by_random_point() {
+        public void create_circle_by_random_point()
+        {
             Shape shapeRandom = _factory.CreateShape("Circle");
             PointF point1 = shapeRandom.Point1;
             PointF point2 = shapeRandom.Point2;
@@ -74,14 +75,16 @@ namespace PowerPoint.model.test {
         }
 
         [TestMethod]
-        public void create_shape_by_random_point_with_invalid_name() {
+        public void create_shape_by_random_point_with_invalid_name()
+        {
             Shape shapeRandom = _factory.CreateShape("Invalid");
 
             Assert.IsNull(shapeRandom);
         }
 
         [TestMethod]
-        public void create_line() {
+        public void create_line()
+        {
             PointF drawPoint1 = new PointF(0, 0);
             PointF drawPoint2 = new PointF(100, 100);
             Shape shape = _factory.CreateShape("Line", drawPoint1, drawPoint2);
@@ -97,7 +100,8 @@ namespace PowerPoint.model.test {
         }
 
         [TestMethod]
-        public void create_rectangle() {
+        public void create_rectangle()
+        {
             PointF point1 = new PointF(0, 0);
             PointF point2 = new PointF(100, 100);
             Shape shape = _factory.CreateShape("Rectangle", point1, point2);
@@ -113,7 +117,8 @@ namespace PowerPoint.model.test {
         }
 
         [TestMethod]
-        public void create_circle() {
+        public void create_circle()
+        {
             PointF point1 = new PointF(0, 0);
             PointF point2 = new PointF(100, 100);
             Shape shape = _factory.CreateShape("Circle", point1, point2);
@@ -124,7 +129,8 @@ namespace PowerPoint.model.test {
         }
 
         [TestMethod]
-        public void create_shape_with_invalid_name() {
+        public void create_shape_with_invalid_name()
+        {
             PointF point1 = new PointF(0, 0);
             PointF point2 = new PointF(100, 100);
             Shape shapeRandom = _factory.CreateShape("Invalid", point1, point2);
