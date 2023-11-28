@@ -99,31 +99,43 @@ namespace PowerPoint.model.shape
             Point2 = secondPoint;
             if (LineReverse)
             {
-                if(DrawPoint1.X > DrawPoint2.X)
-                {
-                    DrawPoint1 = new PointF(Point2.X, Point1.Y);
-                    DrawPoint2 = new PointF(Point1.X, Point2.Y);
-                }
-                else
-                {
-                    DrawPoint2 = new PointF(Point2.X, Point1.Y);
-                    DrawPoint1 = new PointF(Point1.X, Point2.Y);
-                }
+                ReverseZoom();
             }
             else
             {
-                if(DrawPoint1.X > DrawPoint2.X)
-                {
-                    DrawPoint1 = Point2;
-                    DrawPoint2 = Point1;
-                }
-                else
-                {
-                    DrawPoint2 = Point2;
-                    DrawPoint1 = Point1;
-                }
+                ReverseNotZoom();
             }
             Information = string.Format(TEMPLATE, (int)DrawPoint1.X, (int)DrawPoint1.Y) + COMMA + string.Format(TEMPLATE, (int)DrawPoint2.X, (int)DrawPoint2.Y);
+        }
+
+        // zoom a reverse line
+        private void ReverseZoom()
+        {
+            if (DrawPoint1.X > DrawPoint2.X)
+            {
+                DrawPoint1 = new PointF(Point2.X, Point1.Y);
+                DrawPoint2 = new PointF(Point1.X, Point2.Y);
+            }
+            else
+            {
+                DrawPoint2 = new PointF(Point2.X, Point1.Y);
+                DrawPoint1 = new PointF(Point1.X, Point2.Y);
+            }
+        }
+
+        // zoom a not reverse line
+        private void ReverseNotZoom()
+        {
+            if (DrawPoint1.X > DrawPoint2.X)
+            {
+                _drawPoint1 = _point2;
+                _drawPoint2 = _point1;
+            }
+            else
+            {
+                _drawPoint2 = _point2;
+                _drawPoint1 = _point1;
+            }
         }
 
         // function to draw the line

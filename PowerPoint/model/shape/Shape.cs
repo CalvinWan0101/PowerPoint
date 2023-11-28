@@ -17,8 +17,8 @@ namespace PowerPoint.model.shape
             }
         }
 
-        private PointF _point1;
-        private PointF _point2;
+        protected PointF _point1;
+        protected PointF _point2;
         private string _name;
         private string _chineseName;
         private string _information;

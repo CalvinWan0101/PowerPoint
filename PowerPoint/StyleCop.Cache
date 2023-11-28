@@ -192,18 +192,12 @@
     <timestamps>
       <styleCop>2023/09/14 11:12:25.257</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/11/29 01:06:53.265</sourceFile>
+      <sourceFile>2023/11/29 01:48:47.038</sourceFile>
       <parser>2023/09/14 11:12:25.257</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/14 11:12:25.257</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
-    <violations>
-      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LongMethod" ruleCheckId="LM0001">
-        <context>Long method(過長函式)</context>
-        <line>69</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <violations />
   </sourcecode>
   <sourcecode name="Rectangle.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
@@ -220,7 +214,7 @@
     <timestamps>
       <styleCop>2023/09/14 11:12:25.257</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2023/11/29 01:06:27.988</sourceFile>
+      <sourceFile>2023/11/29 01:48:13.174</sourceFile>
       <parser>2023/09/14 11:12:25.257</parser>
       <KellyPalRules.KellyPalAnalyzer>2023/09/14 11:12:25.257</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
