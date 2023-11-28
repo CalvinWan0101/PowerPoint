@@ -14,13 +14,21 @@ namespace PowerPoint.model.test
         PointState _pointState;
         Model _model;
 
+        private int _modelChangedCount = 0;
+
+        private void TestModelChanged()
+        {
+            _modelChangedCount++;
+        }
+
         [TestInitialize]
-        public void init()
+        public void initialize()
         {
             _model = new Model();
             _drawingState = new DrawingState(_model);
             _pointState = new PointState(_model);
             _model.SetState(_drawingState, _pointState);
+            _model._modelChanged += TestModelChanged;
         }
 
         [TestMethod]
@@ -119,6 +127,8 @@ namespace PowerPoint.model.test
             _model.MouseMove(true, new PointF(300, 300));
             _model.MouseRelease(true, new PointF(300, 300));
 
+            Assert.AreEqual(1, _model.GetListOfShape().Count);
+
             BindingList<Shape> shapes = _model.GetListOfShape();
 
             Assert.AreEqual(1, shapes.Count);
@@ -159,5 +169,124 @@ namespace PowerPoint.model.test
             Assert.IsTrue(graphic.IsSelectedShape);
         }
 
+        [TestMethod]
+        public void draw_while_mouse_moving()
+        {
+            FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
+            _model.SetShapeName("Rectangle");
+            _model.MousePress(false, new PointF(100, 200));
+            _model.MouseMove(false, new PointF(200, 100));
+            _pointState.TargetIndex = -1;
+            _model.Draw(graphic);
+
+            Assert.IsTrue(graphic.IsClearAll);
+            Assert.IsFalse(graphic.IsLine);
+            Assert.IsTrue(graphic.IsRectangle);
+            Assert.IsFalse(graphic.IsCircle);
+            Assert.IsFalse(graphic.IsSelectedShape);
+        }
+
+        [TestMethod]
+        public void press_dlete_key()
+        {
+            _model.Add("Circle");
+            _model.Add("Line");
+            _model.Add("Rectangle");
+
+            BindingList<Shape> shapes = _model.GetListOfShape();
+            Assert.AreEqual(3, shapes.Count);
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual("Line", shapes[1].Name);
+            Assert.AreEqual("Rectangle", shapes[2].Name);
+
+            _pointState.TargetIndex = 1;
+            _model.PressDeleteKey();
+
+            Assert.AreEqual(2, shapes.Count);
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual("Rectangle", shapes[1].Name);
+
+            _pointState.TargetIndex = -1;
+            _model.PressDeleteKey();
+
+            Assert.AreEqual(2, shapes.Count);
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual("Rectangle", shapes[1].Name);
+        }
+
+        [TestMethod]
+        public void is_click_the_right_button_corner()
+        {
+            _model.Add("Circle");
+            _model.Add("Line");
+            _model.Add("Rectangle");
+            BindingList<Shape> shapes = _model.GetListOfShape();
+
+            Assert.AreEqual(3, shapes.Count);
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual("Line", shapes[1].Name);
+            Assert.AreEqual("Rectangle", shapes[2].Name);
+
+            _pointState.TargetIndex = 1;
+
+            PointF answer = shapes[_pointState.TargetIndex].Point2;
+
+            int radius = 10;
+
+            // shape found
+            Assert.IsTrue(_model.IsClickTheRightBottomCorner(answer));
+
+            Assert.IsTrue(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius, radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius, radius + 100)));
+            Assert.IsTrue(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius, -radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius, -radius - 100)));
+
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius + 100, radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius + 100, radius + 100)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius + 100, -radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius + 100, -radius - 100)));
+
+            Assert.IsTrue(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius, radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius, radius + 100)));
+            Assert.IsTrue(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius, -radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius, -radius - 100)));
+
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, radius + 100)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, -radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, -radius - 100)));
+
+            // shape not found
+            _pointState.TargetIndex = -1;
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer));
+
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius, radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius, radius + 100)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius, -radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius, -radius - 100)));
+
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius + 100, radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius + 100, radius + 100)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius + 100, -radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(radius + 100, -radius - 100)));
+
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius, radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius, radius + 100)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius, -radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius, -radius - 100)));
+
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, radius + 100)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, -radius)));
+            Assert.IsFalse(_model.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, -radius - 100)));
+        }
+
+        [TestMethod]
+        public void notify_model_changed()
+        {
+            _model.NotifyModelChanged();
+            _model.NotifyModelChanged();
+            Assert.AreEqual(2, _modelChangedCount);
+        }
     }
 }

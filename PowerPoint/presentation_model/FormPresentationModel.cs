@@ -8,6 +8,7 @@ namespace PowerPoint.presentation_model
     public class FormPresentationModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         private Model _model;
 
         // notify property changed

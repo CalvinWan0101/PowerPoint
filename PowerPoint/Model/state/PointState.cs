@@ -40,6 +40,7 @@ namespace PowerPoint.model.state
             _pointA = point;
             _targetIndex = _model.FindTargetIndex(point);
             _isZoom = IsClickTheRightBottomCorner(point);
+            _model.NotifyModelChanged();
         }
 
         // is zoom
@@ -48,10 +49,13 @@ namespace PowerPoint.model.state
             const int RADIUS = 10;
             if (_targetIndex != -1)
             {
-                PointF temp = _model.GetListOfShape()[_targetIndex].Point2;
-                if (temp.X + RADIUS >= point.X && temp.X - RADIUS <= point.X && temp.Y + RADIUS >= point.Y && temp.Y - RADIUS <= point.Y)
+                if (_targetIndex < _model.GetListOfShape().Count)
                 {
-                    return true;
+                    PointF temp = _model.GetListOfShape()[_targetIndex].Point2;
+                    if (temp.X + RADIUS >= point.X && temp.X - RADIUS <= point.X && temp.Y + RADIUS >= point.Y && temp.Y - RADIUS <= point.Y)
+                    {
+                        return true;
+                    }
                 }
             }
             return false;

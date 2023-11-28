@@ -102,10 +102,6 @@ namespace PowerPoint.model
             if (mouseButtonChecked)
             {
                 _pointState.MouseRelease(point);
-                if (FindTargetIndex(point) == -1)
-                {
-                    NotifyModelChanged();
-                }
             }
             else
             {
