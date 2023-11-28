@@ -11,8 +11,21 @@ namespace PowerPoint.model.shape
         const string COMMA = ", ";
         const string TEMPLATE = "({0:D3}, {1:D3})";
 
+        private bool _lineReverse;
         private PointF _drawPoint1;
         private PointF _drawPoint2;
+
+        public bool LineReverse
+        {
+            get
+            {
+                return _lineReverse;
+            }
+            set
+            {
+                _lineReverse = value;
+            }
+        }
 
         public PointF DrawPoint1
         {
@@ -40,12 +53,27 @@ namespace PowerPoint.model.shape
 
         public Line(PointF point1, PointF point2)
         {
+            _lineReverse = false;
             DrawPoint1 = point1;
             DrawPoint2 = point2;
             UpdatePoint();
+            CheckReverse();
             Name = LINE;
             ChineseName = LINE_CHINESE;
             Information = string.Format(TEMPLATE, (int)DrawPoint1.X, (int)DrawPoint1.Y) + COMMA + string.Format(TEMPLATE, (int)DrawPoint2.X, (int)DrawPoint2.Y);
+        }
+
+        // check the line is reverse or not;
+        public void CheckReverse()
+        {
+            if (DrawPoint1 == Point2 || DrawPoint2 == Point2)
+            {
+                LineReverse = false;
+            }
+            else
+            {
+                LineReverse = true;
+            }
         }
 
         // make sure the point
@@ -68,31 +96,33 @@ namespace PowerPoint.model.shape
         // function to zoom the line
         public override void Zoom(PointF secondPoint)
         {
-            if (DrawPoint1.X == Point1.X && DrawPoint1.Y == Point2.Y)
-            {
-                DrawPoint1 = new PointF(Point1.X, secondPoint.Y);
-            }
-            else if (DrawPoint1.X == Point2.X && DrawPoint1.Y == Point1.Y)
-            {
-                DrawPoint1 = new PointF(secondPoint.X, Point1.Y);
-            }
-            else if (DrawPoint1.X == Point2.X && DrawPoint1.Y == Point2.Y)
-            {
-                DrawPoint1 = new PointF(secondPoint.X, secondPoint.Y);
-            }
-            if (DrawPoint2.X == Point1.X && DrawPoint2.Y == Point2.Y)
-            {
-                DrawPoint2 = new PointF(Point1.X, secondPoint.Y);
-            }
-            else if (DrawPoint2.X == Point2.X && DrawPoint2.Y == Point1.Y)
-            {
-                DrawPoint2 = new PointF(secondPoint.X, Point1.Y);
-            }
-            else if (DrawPoint2.X == Point2.X && DrawPoint2.Y == Point2.Y)
-            {
-                DrawPoint2 = new PointF(secondPoint.X, secondPoint.Y);
-            }
             Point2 = secondPoint;
+            if (LineReverse)
+            {
+                if(DrawPoint1.X > DrawPoint2.X)
+                {
+                    DrawPoint1 = new PointF(Point2.X, Point1.Y);
+                    DrawPoint2 = new PointF(Point1.X, Point2.Y);
+                }
+                else
+                {
+                    DrawPoint2 = new PointF(Point2.X, Point1.Y);
+                    DrawPoint1 = new PointF(Point1.X, Point2.Y);
+                }
+            }
+            else
+            {
+                if(DrawPoint1.X > DrawPoint2.X)
+                {
+                    DrawPoint1 = Point2;
+                    DrawPoint2 = Point1;
+                }
+                else
+                {
+                    DrawPoint2 = Point2;
+                    DrawPoint1 = Point1;
+                }
+            }
             Information = string.Format(TEMPLATE, (int)DrawPoint1.X, (int)DrawPoint1.Y) + COMMA + string.Format(TEMPLATE, (int)DrawPoint2.X, (int)DrawPoint2.Y);
         }
 
