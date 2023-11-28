@@ -13,14 +13,37 @@ namespace PowerPoint.model
         public delegate void ModelChangedEventHandler();
 
         private Shapes _shapes;
+        private IState _istate;
         private DrawingState _drawingState;
         private PointState _pointState;
+
+        private bool _mouseButtonChecked = true;
 
         public Model()
         {
             _shapes = new Shapes();
             _drawingState = new DrawingState(this);
             _pointState = new PointState(this);
+            _istate = _drawingState;
+            _mouseButtonChecked = false;
+        }
+
+        // mouse button checked
+        public bool MouseButtonChecked
+        {
+            get => _mouseButtonChecked;
+            set 
+            {
+                _mouseButtonChecked = value;
+                if (_mouseButtonChecked)
+                {
+                    _istate = _pointState;
+                }
+                else
+                {
+                    _istate = _drawingState;
+                }
+            } 
         }
 
         // for the test
@@ -71,43 +94,21 @@ namespace PowerPoint.model
         }
 
         // mouse press
-        public virtual void MousePress(bool mouseButtonChecked, PointF point)
+        public virtual void MousePress(PointF point)
         {
-            if (mouseButtonChecked)
-            {
-                _pointState.MousePress(point);
-
-            }
-            else
-            {
-                _drawingState.MousePress(point);
-            }
+            _istate.MousePress(point);
         }
 
         // mouse move
-        public virtual void MouseMove(bool mouseButtonChecked, PointF point)
+        public virtual void MouseMove(PointF point)
         {
-            if (mouseButtonChecked)
-            {
-                _pointState.MouseMove(point);
-            }
-            else
-            {
-                _drawingState.MouseMove(point);
-            }
+            _istate.MouseMove(point);
         }
 
         // mouse release
-        public virtual void MouseRelease(bool mouseButtonChecked, PointF point)
+        public virtual void MouseRelease(PointF point)
         {
-            if (mouseButtonChecked)
-            {
-                _pointState.MouseRelease(point);
-            }
-            else
-            {
-                _drawingState.MouseRelease(point);
-            }
+            _istate.MouseRelease(point);
         }
 
         // find target index

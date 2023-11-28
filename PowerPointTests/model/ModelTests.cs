@@ -106,10 +106,11 @@ namespace PowerPoint.model.test
         [TestMethod]
         public void create_shape_with_mouse()
         {
+            _model.MouseButtonChecked = false;
             _model.SetShapeName("Rectangle");
-            _model.MousePress(false, new PointF(100, 200));
-            _model.MouseMove(false, new PointF(200, 100));
-            _model.MouseRelease(false, new PointF(200, 100));
+            _model.MousePress(new PointF(100, 200));
+            _model.MouseMove(new PointF(200, 100));
+            _model.MouseRelease(new PointF(200, 100));
 
             BindingList<Shape> shapes = _model.GetListOfShape();
 
@@ -122,10 +123,11 @@ namespace PowerPoint.model.test
         [TestMethod]
         public void zoom_shape()
         {
+            _model.MouseButtonChecked = true;
             _model.Add("Rectangle", new PointF(100, 200), new PointF(200, 100));
-            _model.MousePress(true, new PointF(200, 200));
-            _model.MouseMove(true, new PointF(300, 300));
-            _model.MouseRelease(true, new PointF(300, 300));
+            _model.MousePress(new PointF(200, 200));
+            _model.MouseMove(new PointF(300, 300));
+            _model.MouseRelease(new PointF(300, 300));
 
             Assert.AreEqual(1, _model.GetListOfShape().Count);
 
@@ -174,13 +176,14 @@ namespace PowerPoint.model.test
         [TestMethod]
         public void draw_while_mouse_moving()
         {
+            _model.MouseButtonChecked = false;
             FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
             _model.SetShapeName("Rectangle");
-            _model.MousePress(false, new PointF(100, 200));
-            _model.MouseMove(false, new PointF(200, 100));
+            _model.MousePress(new PointF(100, 200));
+            _model.MouseMove(new PointF(200, 100));
             _pointState.TargetIndex = -1;
             _model.Draw(graphic);
-        
+
             Assert.AreEqual(1, graphic.IsClearAll);
             Assert.AreEqual(0, graphic.IsLine);
             Assert.AreEqual(1, graphic.IsRectangle);

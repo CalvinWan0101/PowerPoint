@@ -87,6 +87,7 @@ namespace PowerPoint.presentation_model
             set
             {
                 _mouseButtonChecked = value;
+                _model.MouseButtonChecked = value;
                 NotifyPropertyChanged();
             }
         }
@@ -171,19 +172,19 @@ namespace PowerPoint.presentation_model
         // press the mouse
         public void MousePress(float pointX, float pointY)
         {
-            _model.MousePress(MouseButtonChecked, new PointF(pointX, pointY));
+            _model.MousePress(new PointF(pointX, pointY));
         }
 
         // move the mouse
         public void MouseMove(float pointX, float pointY)
         {
-            _model.MouseMove(MouseButtonChecked, new PointF(pointX, pointY));
+            _model.MouseMove(new PointF(pointX, pointY));
         }
 
         // release the mouse
         public void MouseRelease(PointF point)
         {
-            _model.MouseRelease(MouseButtonChecked, point);
+            _model.MouseRelease(point);
             LineButtonChecked = RectangleButtonChecked = CircleButtonChecked = false;
             MouseButtonChecked = true;
         }

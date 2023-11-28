@@ -47,19 +47,19 @@ namespace PowerPointTests.model
         }
 
         // mouse press
-        public override void MousePress(bool mouseButtonChecked, PointF point)
+        public override void MousePress(PointF point)
         {
             MousePressUsed++;
         }
 
         // mouse move
-        public override void MouseMove(bool mouseButtonChecked, PointF point)
+        public override void MouseMove(PointF point)
         {
             MouseMoveUsed++;
         }
 
         // mouse release
-        public override void MouseRelease(bool mouseButtonChecked, PointF point)
+        public override void MouseRelease(PointF point)
         {
             MouseReleaseUsed++;
         }
