@@ -156,17 +156,19 @@ namespace PowerPoint.model.test
             FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
             _model.Add("Circle");
             _model.Add("Line");
+            _model.Add("Line");
+            _model.Add("Line");
             _model.GetShapes().SetHint("Rectangle", new PointF(100, 200), new PointF(200, 100));
             _model.GetShapes().AddHint();
 
             _pointState.TargetIndex = 1;
             _model.Draw(graphic);
 
-            Assert.IsTrue(graphic.IsClearAll);
-            Assert.IsTrue(graphic.IsLine);
-            Assert.IsTrue(graphic.IsRectangle);
-            Assert.IsTrue(graphic.IsCircle);
-            Assert.IsTrue(graphic.IsSelectedShape);
+            Assert.AreEqual(1, graphic.IsClearAll);
+            Assert.AreEqual(3, graphic.IsLine);
+            Assert.AreEqual(1, graphic.IsRectangle);
+            Assert.AreEqual(1, graphic.IsCircle);
+            Assert.AreEqual(1, graphic.IsSelectedShape);
         }
 
         [TestMethod]
@@ -178,12 +180,12 @@ namespace PowerPoint.model.test
             _model.MouseMove(false, new PointF(200, 100));
             _pointState.TargetIndex = -1;
             _model.Draw(graphic);
-
-            Assert.IsTrue(graphic.IsClearAll);
-            Assert.IsFalse(graphic.IsLine);
-            Assert.IsTrue(graphic.IsRectangle);
-            Assert.IsFalse(graphic.IsCircle);
-            Assert.IsFalse(graphic.IsSelectedShape);
+        
+            Assert.AreEqual(1, graphic.IsClearAll);
+            Assert.AreEqual(0, graphic.IsLine);
+            Assert.AreEqual(1, graphic.IsRectangle);
+            Assert.AreEqual(0, graphic.IsCircle);
+            Assert.AreEqual(0, graphic.IsSelectedShape);
         }
 
         [TestMethod]

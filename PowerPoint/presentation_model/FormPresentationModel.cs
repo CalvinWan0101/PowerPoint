@@ -1,22 +1,29 @@
 ﻿using PowerPoint.model;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace PowerPoint.presentation_model
 {
-    public class FormPresentationModel : INotifyPropertyChanged
+    public class FormPresentationModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        public delegate void PropertyChangedEventHandler();
 
         private Model _model;
 
+        public FormPresentationModel(Model model)
+        {
+            _model = model;
+        }
+
         // notify property changed
-        public void NotifyPropertyChanged(string propertyName)
+        public void NotifyPropertyChanged()
         {
             if (PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged();
             }
         }
 
@@ -31,68 +38,56 @@ namespace PowerPoint.presentation_model
         // the getter and setter of line button checked
         public bool LineButtonChecked
         {
-            get 
-            { 
-                return _lineButtonChecked; 
+            get
+            {
+                return _lineButtonChecked;
             }
             set
             {
                 _lineButtonChecked = value;
-                if (PropertyChanged != null)
-                {
-                    NotifyPropertyChanged(BUTTON_STATUS_NOTIFY);
-                }
+                NotifyPropertyChanged();
             }
         }
 
         // the getter and setter of rectangle button checked
         public bool RectangleButtonChecked
         {
-            get 
+            get
             {
-                return _rectangleButtonChecked; 
+                return _rectangleButtonChecked;
             }
             set
             {
                 _rectangleButtonChecked = value;
-                if (PropertyChanged != null)
-                {
-                    NotifyPropertyChanged(BUTTON_STATUS_NOTIFY);
-                }
+                NotifyPropertyChanged();
             }
         }
 
         // the getter and setter of circle button checked
         public bool CircleButtonChecked
         {
-            get 
+            get
             {
-                return _circleButtonChecked; 
+                return _circleButtonChecked;
             }
             set
             {
                 _circleButtonChecked = value;
-                if (PropertyChanged != null)
-                {
-                    NotifyPropertyChanged(BUTTON_STATUS_NOTIFY);
-                }
+                NotifyPropertyChanged();
             }
         }
 
         // the getter and setter of mouse button checked
         public bool MouseButtonChecked
         {
-            get 
+            get
             {
-                return _mouseButtonChecked; 
+                return _mouseButtonChecked;
             }
             set
             {
                 _mouseButtonChecked = value;
-                if (PropertyChanged != null)
-                {
-                    NotifyPropertyChanged(BUTTON_STATUS_NOTIFY);
-                }
+                NotifyPropertyChanged();
             }
         }
 
@@ -100,38 +95,10 @@ namespace PowerPoint.presentation_model
         const string RECTANGLE = "Rectangle";
         const string CIRCLE = "Circle";
 
-        public FormPresentationModel(Model model, Control canvas)
-        {
-            _model = model;
-        }
-
-        // line button checked
-        public bool IsLineButtonChecked()
-        {
-            return _lineButtonChecked;
-        }
-
-        // rectangle button checked
-        public bool IsRectangleButtonChecked()
-        {
-            return _rectangleButtonChecked;
-        }
-
-        // circle button checked
-        public bool IsCircleButtonChecked()
-        {
-            return _circleButtonChecked;
-        }
-
-        // mouse button checked
-        public bool IsMouseButtonChecked()
-        {
-            return _mouseButtonChecked;
-        }
-
         // draw all the shape
         public void Draw(Graphics graphics)
         {
+            Console.WriteLine("In the pr model.");
             _model.Draw(new FormGraphicsAdaptor(graphics));
         }
 

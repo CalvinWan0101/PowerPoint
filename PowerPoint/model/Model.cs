@@ -1,6 +1,7 @@
 ﻿using PowerPoint.model.shape;
 using PowerPoint.model.state;
 using PowerPoint.presentation_model;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 
@@ -57,20 +58,20 @@ namespace PowerPoint.model
         }
 
         // clear all the shape
-        public void Clear()
+        public virtual void Clear()
         {
             _shapes.Clear();
             NotifyModelChanged();
         }
 
         // set shape name
-        public void SetShapeName(string shapeName)
+        public virtual void SetShapeName(string shapeName)
         {
             _drawingState.ShapeName = shapeName;
         }
 
         // mouse press
-        public void MousePress(bool mouseButtonChecked, PointF point)
+        public virtual void MousePress(bool mouseButtonChecked, PointF point)
         {
             if (mouseButtonChecked)
             {
@@ -84,7 +85,7 @@ namespace PowerPoint.model
         }
 
         // mouse move
-        public void MouseMove(bool mouseButtonChecked, PointF point)
+        public virtual void MouseMove(bool mouseButtonChecked, PointF point)
         {
             if (mouseButtonChecked)
             {
@@ -97,7 +98,7 @@ namespace PowerPoint.model
         }
 
         // mouse release
-        public void MouseRelease(bool mouseButtonChecked, PointF point)
+        public virtual void MouseRelease(bool mouseButtonChecked, PointF point)
         {
             if (mouseButtonChecked)
             {
@@ -135,8 +136,10 @@ namespace PowerPoint.model
         }
 
         // draw all the shape
-        public void Draw(IGraphics graphics)
+        public virtual void Draw(IGraphics graphics)
         {
+            Console.WriteLine("In the real model.");
+
             graphics.ClearAll();
             for (int i = 0; i < GetListOfShape().Count; i++)
             {

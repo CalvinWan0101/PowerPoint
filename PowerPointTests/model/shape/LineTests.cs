@@ -385,7 +385,12 @@ namespace PowerPoint.model.shape.test
             FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
             line.Draw(graphic);
 
-            Assert.IsTrue(graphic.IsLine);
+            Assert.AreEqual(1, graphic.IsLine);
+            Assert.AreEqual(0, graphic.IsCircle);
+            Assert.AreEqual(0, graphic.IsRectangle);
+            Assert.AreEqual(0, graphic.IsClearAll);
+            Assert.AreEqual(0, graphic.IsSelectedShape);
+
         }
 
         [TestMethod]
@@ -395,7 +400,11 @@ namespace PowerPoint.model.shape.test
             FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
             line.DrawSelected(graphic);
 
-            Assert.IsTrue(graphic.IsSelectedShape);
+            Assert.AreEqual(1, graphic.IsLine);
+            Assert.AreEqual(0, graphic.IsCircle);
+            Assert.AreEqual(0, graphic.IsRectangle);
+            Assert.AreEqual(0, graphic.IsClearAll);
+            Assert.AreEqual(1, graphic.IsSelectedShape);
         }
     }
 }

@@ -114,6 +114,10 @@ namespace PowerPoint.model.state.test
             Assert.IsFalse(_pointState.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, radius + 100)));
             Assert.IsFalse(_pointState.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, -radius)));
             Assert.IsFalse(_pointState.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, -radius - 100)));
+        
+            // index out of range
+            _pointState.TargetIndex = 3;
+            Assert.IsFalse(_pointState.IsClickTheRightBottomCorner(answer));
         }
 
         [TestMethod]

@@ -27,7 +27,7 @@ namespace PowerPoint
             InitializeComponent();
 
             _model = model;
-            _presentationModel = new FormPresentationModel(model, _panel);
+            _presentationModel = new FormPresentationModel(model);
 
             // data grid view
             _shapesDataGridView.AutoGenerateColumns = false;
@@ -105,7 +105,7 @@ namespace PowerPoint
         }
 
         // update button click status
-        private void UpdateButtonStatus(object sender, PropertyChangedEventArgs e)
+        private void UpdateButtonStatus()
         {
             _lineButton.Checked = _presentationModel.LineButtonChecked;
             _rectangleButton.Checked = _presentationModel.RectangleButtonChecked;
