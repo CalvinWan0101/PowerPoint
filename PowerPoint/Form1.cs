@@ -199,7 +199,7 @@ namespace PowerPoint
             }
             else
             {
-                Cursor = Cursors.Default;
+                Cursor = Cursors.Cross;
             }
         }
 
