@@ -20,7 +20,7 @@ namespace PowerPoint.presentation_model
         // draw a line
         public void DrawLine(PointF point1, PointF point2)
         {
-            _graphics.DrawLine(Pens.Black, (float)point1.X, (float)point1.Y, (float)point2.X, (float)point2.Y);
+            _graphics.DrawLine(Pens.Purple, (float)point1.X, (float)point1.Y, (float)point2.X, (float)point2.Y);
         }
 
         // draw a rectangle
@@ -36,7 +36,7 @@ namespace PowerPoint.presentation_model
             float height = Math.Abs(point2.Y - point1.Y);
 
             System.Drawing.Rectangle rectangle = new System.Drawing.Rectangle((int)point1.X, (int)point1.Y, (int)width, (int)height);
-            _graphics.DrawRectangle(Pens.Black, rectangle);
+            _graphics.DrawRectangle(Pens.Purple, rectangle);
         }
 
         // draw a circle
@@ -51,7 +51,7 @@ namespace PowerPoint.presentation_model
             float width = Math.Abs(point1.X - point2.X);
             float height = Math.Abs(point1.Y - point2.Y);
 
-            _graphics.DrawEllipse(Pens.Black, Math.Min(point1.X, point2.X), Math.Min(point1.Y, point2.Y), width, height);
+            _graphics.DrawEllipse(Pens.Purple, Math.Min(point1.X, point2.X), Math.Min(point1.Y, point2.Y), width, height);
         }
 
         const int FIVE = 5;

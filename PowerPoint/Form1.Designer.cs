@@ -54,6 +54,9 @@ namespace PowerPoint
             // 
             // _slidePanel
             // 
+            this._slidePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this._slidePanel.AutoSize = true;
             this._slidePanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this._slidePanel.Controls.Add(this._slide1);
             this._slidePanel.Location = new System.Drawing.Point(0, 52);
@@ -93,6 +96,8 @@ namespace PowerPoint
             // 
             // _slideDetailGroupBox
             // 
+            this._slideDetailGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._slideDetailGroupBox.Controls.Add(this._shapesDataGridView);
             this._slideDetailGroupBox.Controls.Add(this._addNewShapeSelector);
             this._slideDetailGroupBox.Controls.Add(this._createNewShape);
@@ -106,8 +111,10 @@ namespace PowerPoint
             // _shapesDataGridView
             // 
             this._shapesDataGridView.AllowUserToAddRows = false;
+            this._shapesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._shapesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._shapesDataGridView.Location = new System.Drawing.Point(-1, 56);
+            this._shapesDataGridView.Location = new System.Drawing.Point(0, 56);
             this._shapesDataGridView.Name = "_shapesDataGridView";
             this._shapesDataGridView.ReadOnly = true;
             this._shapesDataGridView.RowHeadersVisible = false;
@@ -196,6 +203,10 @@ namespace PowerPoint
             // 
             // _panel
             // 
+            this._panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._panel.Location = new System.Drawing.Point(174, 52);
             this._panel.Name = "_panel";
             this._panel.Size = new System.Drawing.Size(640, 360);
