@@ -167,15 +167,15 @@ namespace PowerPoint.presentation_model
         }
 
         // press the mouse
-        public void MousePress(float pointX, float pointY)
+        public void MousePress(PointF point)
         {
-            _model.MousePress(new PointF(pointX, pointY));
+            _model.MousePress(point);
         }
 
         // move the mouse
-        public void MouseMove(float pointX, float pointY)
+        public void MouseMove(PointF point)
         {
-            _model.MouseMove(new PointF(pointX, pointY));
+            _model.MouseMove(point);
         }
 
         // release the mouse

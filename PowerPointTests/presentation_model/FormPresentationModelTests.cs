@@ -80,7 +80,7 @@ namespace PowerPoint.presentation_model.Tests
         {
             _prModel.LineButtonChecked = false;
             _prModel.ClickLineButton();
-            
+
             Assert.AreEqual(1, _fakeModel.SetShapeNameUsed);
             Assert.AreEqual("Line", _fakeModel.ShapeName);
             Assert.IsTrue(_prModel.LineButtonChecked);
@@ -156,7 +156,7 @@ namespace PowerPoint.presentation_model.Tests
         [TestMethod]
         public void mouse_press()
         {
-            _prModel.MousePress(0, 0);
+            _prModel.MousePress(new PointF(0, 0));
 
             Assert.AreEqual(1, _fakeModel.MousePressUsed);
         }
@@ -164,15 +164,15 @@ namespace PowerPoint.presentation_model.Tests
         [TestMethod]
         public void mouse_move()
         {
-            _prModel.MouseMove(0, 0);
-            
+            _prModel.MouseMove(new PointF(0, 0));
+
             Assert.AreEqual(1, _fakeModel.MouseMoveUsed);
         }
 
         [TestMethod]
         public void mouse_release()
         {
-            _prModel.MouseRelease(new PointF(0,0));
+            _prModel.MouseRelease(new PointF(0, 0));
 
             Assert.AreEqual(1, _fakeModel.MouseReleaseUsed);
             Assert.IsTrue(_prModel.MouseButtonChecked);

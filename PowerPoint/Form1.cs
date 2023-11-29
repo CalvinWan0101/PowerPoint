@@ -140,13 +140,13 @@ namespace PowerPoint
         // mouse pressed
         private void HandleMousePressed(object sender, MouseEventArgs e)
         {
-            _presentationModel.MousePress(e.X, e.Y);
+            _presentationModel.MousePress(new PointF(e.X, e.Y));
         }
 
         // mouse moved
         public void HandleMouseMoved(object sender, MouseEventArgs e)
         {
-            _presentationModel.MouseMove(e.X, e.Y);
+            _presentationModel.MouseMove(new PointF(e.X, e.Y));
         }
 
         // mouse released
