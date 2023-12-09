@@ -237,6 +237,14 @@ namespace PowerPoint
             _panel.Size = new Size(targetWidth, targetHeight);
         }
 
+        private void PressUndoButton(object sender, EventArgs e)
+        {
 
+        }
+
+        private void PressRedoButton(object sender, EventArgs e)
+        {
+
+        }
     }
 }

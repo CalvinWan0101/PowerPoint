@@ -44,6 +44,8 @@ namespace PowerPoint
             this._rectangleButton = new System.Windows.Forms.ToolStripButton();
             this._circleButton = new System.Windows.Forms.ToolStripButton();
             this._mouseButton = new System.Windows.Forms.ToolStripButton();
+            this._undoButton = new System.Windows.Forms.ToolStripButton();
+            this._redoButton = new System.Windows.Forms.ToolStripButton();
             this._panel = new PowerPoint.DoubleBufferedPanel();
             this._slidePanel.SuspendLayout();
             this._slideDetailGroupBox.SuspendLayout();
@@ -154,7 +156,9 @@ namespace PowerPoint
             this._lineButton,
             this._rectangleButton,
             this._circleButton,
-            this._mouseButton});
+            this._mouseButton,
+            this._undoButton,
+            this._redoButton});
             this._toolBar.Location = new System.Drawing.Point(0, 24);
             this._toolBar.Name = "_toolBar";
             this._toolBar.Size = new System.Drawing.Size(1094, 25);
@@ -200,6 +204,26 @@ namespace PowerPoint
             this._mouseButton.Size = new System.Drawing.Size(23, 22);
             this._mouseButton.Text = "toolStripButton1";
             this._mouseButton.Click += new System.EventHandler(this.ClickMouseButton);
+            // 
+            // _undoButton
+            // 
+            this._undoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._undoButton.Image = ((System.Drawing.Image)(resources.GetObject("_undoButton.Image")));
+            this._undoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._undoButton.Name = "_undoButton";
+            this._undoButton.Size = new System.Drawing.Size(23, 22);
+            this._undoButton.Text = "toolStripButton1";
+            this._undoButton.Click += new System.EventHandler(this.PressUndoButton);
+            // 
+            // _redoButton
+            // 
+            this._redoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._redoButton.Image = ((System.Drawing.Image)(resources.GetObject("_redoButton.Image")));
+            this._redoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._redoButton.Name = "_redoButton";
+            this._redoButton.Size = new System.Drawing.Size(23, 22);
+            this._redoButton.Text = "toolStripButton2";
+            this._redoButton.Click += new System.EventHandler(this.PressRedoButton);
             // 
             // _panel
             // 
@@ -254,6 +278,8 @@ namespace PowerPoint
         private System.Windows.Forms.ToolStripButton _circleButton;
         private DoubleBufferedPanel _panel;
         private System.Windows.Forms.ToolStripButton _mouseButton;
+        private System.Windows.Forms.ToolStripButton _undoButton;
+        private System.Windows.Forms.ToolStripButton _redoButton;
     }
 }
 
