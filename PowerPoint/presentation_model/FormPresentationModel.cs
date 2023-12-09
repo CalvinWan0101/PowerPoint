@@ -1,5 +1,6 @@
 ﻿using PowerPoint.model;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -191,5 +192,13 @@ namespace PowerPoint.presentation_model
         {
             _model.Clear();
         }
+
+        private int _width = -1;
+        private int _height = -1;
+
+        // auto size of the panel
+        //public List<int> AutoSize(int panelWidth, int panelHeight)
+        //{
+        //}
     }
 }

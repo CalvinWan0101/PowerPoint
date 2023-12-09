@@ -63,6 +63,7 @@ namespace PowerPoint
             _panel.MouseMove += MouseZoom;
             _panel.Paint += HandleMousePaint;
             _slide1.Paint += HandleSlidePaint;
+            this.SizeChanged += AutoSize;
 
             // button click
             _presentationModel.PropertyChanged += UpdateButtonStatus;
@@ -211,6 +212,31 @@ namespace PowerPoint
                 _model.PressDeleteKey();
             }
         }
+
+        // auto size
+        private void AutoSize(object sender, EventArgs e)
+        {
+            int panelWidth = this.Width - _slidePanel.Width - _slideDetailGroupBox.Width - 30;
+            int panelHeight = this.Height - _headMenu.Height - _toolBar.Height;
+
+            // Calculate the width and height for a 16:9 aspect ratio
+            int targetWidth = panelHeight * 16 / 9;
+            int targetHeight = panelWidth * 9 / 16;
+
+            // Use whichever dimension is smaller
+            if (targetWidth > panelWidth)
+            {
+                targetWidth = panelWidth;
+                targetHeight = targetWidth * 9 / 16;
+            }
+            else
+            {
+                targetHeight = panelHeight;
+                targetWidth = targetHeight * 16 / 9;
+            }
+            _panel.Size = new Size(targetWidth, targetHeight);
+        }
+
 
     }
 }
