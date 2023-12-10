@@ -139,8 +139,6 @@ namespace PowerPoint.model.state
         private void IsNotZoomMouseRelease(PointF point)
         {
             _model.GetListOfShape()[_targetIndex].Move(_pointA, point);
-            _model.GetListOfShape()[_targetIndex].UpdatePoint();
-            _pointA = point;
             _model.NotifyModelChanged();
         }
 
