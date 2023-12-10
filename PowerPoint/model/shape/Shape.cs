@@ -1,4 +1,5 @@
 ﻿using PowerPoint.presentation_model;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 
@@ -17,11 +18,20 @@ namespace PowerPoint.model.shape
             }
         }
 
+        protected string _id = Guid.NewGuid().ToString();
         protected PointF _point1;
         protected PointF _point2;
         private string _name;
         private string _chineseName;
         private string _information;
+
+        public string Id
+        {
+            get
+            {
+                return _id;
+            }
+        }
 
         public PointF Point1
         {

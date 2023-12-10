@@ -51,6 +51,10 @@
     <Compile Include="DoubleBufferedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="model\CommandManager.cs" />
+    <Compile Include="model\command\AddCommand.cs" />
+    <Compile Include="model\command\DeleteCommand.cs" />
+    <Compile Include="model\command\MoveCommand.cs" />
     <Compile Include="model\Factory.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -58,6 +62,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\command\ICommand.cs" />
     <Compile Include="model\state\DrawingState.cs" />
     <Compile Include="model\state\IState.cs" />
     <Compile Include="model\state\PointState.cs" />

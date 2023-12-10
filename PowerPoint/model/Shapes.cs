@@ -30,6 +30,12 @@ namespace PowerPoint.model
             _shapes.Add(shape);
         }
 
+        // add a new shape by existing shape
+        public void Add(Shape shape)
+        {
+            _shapes.Add(shape);
+        }
+
         // update hint
         public void SetHint(string shapeName, PointF firstPoint, PointF secondPoint)
         {

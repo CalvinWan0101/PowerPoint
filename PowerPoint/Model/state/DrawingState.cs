@@ -65,7 +65,8 @@ namespace PowerPoint.model.state
                 if (_shapeName != null)
                 {
                     _model.GetShapes().SetHint(_shapeName, _pointA, point);
-                    _model.GetShapes().AddHint();
+                    _model.Add(_shapeName, _pointA, point);
+                    //_model.GetShapes().AddHint();
                     _model.NotifyModelChanged();
                     _shapeName = null;
                 }

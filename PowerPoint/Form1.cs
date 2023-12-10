@@ -239,12 +239,12 @@ namespace PowerPoint
 
         private void PressUndoButton(object sender, EventArgs e)
         {
-
+            _model.Undo();
         }
 
         private void PressRedoButton(object sender, EventArgs e)
         {
-
+            _model.Redo();
         }
     }
 }
