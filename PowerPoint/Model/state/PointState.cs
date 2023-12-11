@@ -7,6 +7,9 @@ namespace PowerPoint.model.state
     {
         private Model _model;
         private PointF _pointA;
+        private PointF _pointRecord1;
+        private PointF _pointRecord2;
+        private PointF _startPointRecord;
         private bool _mouseIsPressed = false;
         private int _targetIndex = -1;
         private bool _isZoom = false;
@@ -60,9 +63,16 @@ namespace PowerPoint.model.state
         {
             _mouseIsPressed = !_mouseIsPressed;
             _pointA = point;
+            _startPointRecord = point;
             _targetIndex = _model.FindTargetIndex(point);
             _isZoom = IsClickTheRightBottomCorner(point);
             _model.NotifyModelChanged();
+            if (_targetIndex != -1) 
+            {
+                _pointRecord1 = _model.GetListOfShape()[_targetIndex].Point1;
+                _pointRecord2 = _model.GetListOfShape()[_targetIndex].Point2;
+            
+            }
         }
 
         // is zoom
@@ -134,8 +144,9 @@ namespace PowerPoint.model.state
         // mouse release when mouse not release
         private void IsNotZoomMouseRelease(PointF point)
         {
-            _model.GetListOfShape()[_targetIndex].Move(_pointA, point);
-            _model.NotifyModelChanged();
+            //_model.GetListOfShape()[_targetIndex].Move(_pointA, point);
+            //_model.NotifyModelChanged();
+            _model.MoveCommand(_targetIndex, _startPointRecord, point, _pointRecord1, _pointRecord2);
         }
 
         // user click delete button
