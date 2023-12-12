@@ -198,9 +198,13 @@ namespace PowerPoint
             {
                 Cursor = Cursors.SizeNWSE;
             }
-            else
+            else if (_presentationModel.LineButtonChecked || _presentationModel.RectangleButtonChecked || _presentationModel.CircleButtonChecked)
             {
                 Cursor = Cursors.Cross;
+            }
+            else
+            {
+                Cursor = Cursors.Default;
             }
         }
 
