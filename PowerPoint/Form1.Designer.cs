@@ -63,11 +63,13 @@ namespace PowerPoint
             this._slidePanel.Controls.Add(this._slide1);
             this._slidePanel.Location = new System.Drawing.Point(0, 52);
             this._slidePanel.Name = "_slidePanel";
-            this._slidePanel.Size = new System.Drawing.Size(170, 360);
+            this._slidePanel.Size = new System.Drawing.Size(166, 360);
             this._slidePanel.TabIndex = 0;
             // 
             // _slide1
             // 
+            this._slide1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._slide1.Location = new System.Drawing.Point(3, 3);
             this._slide1.Name = "_slide1";
             this._slide1.Size = new System.Drawing.Size(160, 90);
@@ -103,9 +105,9 @@ namespace PowerPoint
             this._slideDetailGroupBox.Controls.Add(this._shapesDataGridView);
             this._slideDetailGroupBox.Controls.Add(this._addNewShapeSelector);
             this._slideDetailGroupBox.Controls.Add(this._createNewShape);
-            this._slideDetailGroupBox.Location = new System.Drawing.Point(824, 52);
+            this._slideDetailGroupBox.Location = new System.Drawing.Point(818, 52);
             this._slideDetailGroupBox.Name = "_slideDetailGroupBox";
-            this._slideDetailGroupBox.Size = new System.Drawing.Size(270, 360);
+            this._slideDetailGroupBox.Size = new System.Drawing.Size(276, 360);
             this._slideDetailGroupBox.TabIndex = 4;
             this._slideDetailGroupBox.TabStop = false;
             this._slideDetailGroupBox.Text = "資料顯示";
@@ -116,11 +118,11 @@ namespace PowerPoint
             this._shapesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._shapesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._shapesDataGridView.Location = new System.Drawing.Point(-1, 56);
+            this._shapesDataGridView.Location = new System.Drawing.Point(0, 56);
             this._shapesDataGridView.Name = "_shapesDataGridView";
             this._shapesDataGridView.ReadOnly = true;
             this._shapesDataGridView.RowHeadersVisible = false;
-            this._shapesDataGridView.Size = new System.Drawing.Size(286, 304);
+            this._shapesDataGridView.Size = new System.Drawing.Size(291, 304);
             this._shapesDataGridView.TabIndex = 4;
             this._shapesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeleteShapeButtonClick);
             // 
@@ -229,7 +231,7 @@ namespace PowerPoint
             // 
             this._panel.AutoScroll = true;
             this._panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this._panel.Location = new System.Drawing.Point(176, 55);
+            this._panel.Location = new System.Drawing.Point(172, 52);
             this._panel.Name = "_panel";
             this._panel.Size = new System.Drawing.Size(640, 360);
             this._panel.TabIndex = 7;
