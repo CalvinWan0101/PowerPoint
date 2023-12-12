@@ -7,6 +7,8 @@ PowerPoint/bin/
 PowerPoint/obj/
 PowerPointTests/bin/
 PowerPointTests/obj/
+.vs/
+
 
 # User-specific files
 *.rsuser
