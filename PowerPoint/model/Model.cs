@@ -201,9 +201,9 @@ namespace PowerPoint.model
         }
 
         // move command
-        public void MoveCommand(int targetIndex, PointF point1, PointF point2, PointF pointRecord1, PointF pointRecord2)
+        public void MoveCommand(int targetIndex, PointF point1, PointF point2, PointF pointRecord1, PointF pointRecord2, PointF originDrawPoint1, PointF originDrawPoint2)
         {
-            _commandManager.ExecuteCommand(new MoveCommand(this, targetIndex, point1, point2, pointRecord1, pointRecord2));
+            _commandManager.ExecuteCommand(new MoveCommand(this, targetIndex, point1, point2, pointRecord1, pointRecord2, originDrawPoint1, originDrawPoint2));
         }
 
     }

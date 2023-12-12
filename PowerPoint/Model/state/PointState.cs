@@ -1,4 +1,4 @@
-﻿using System;
+﻿using PowerPoint.model.shape;
 using System.Drawing;
 
 namespace PowerPoint.model.state
@@ -9,6 +9,8 @@ namespace PowerPoint.model.state
         private PointF _pointA;
         private PointF _pointRecord1;
         private PointF _pointRecord2;
+        private PointF _drawPointRecord1;
+        private PointF _drawPointRecord2;
         private PointF _startPointRecord;
         private bool _mouseIsPressed = false;
         private int _targetIndex = -1;
@@ -71,7 +73,11 @@ namespace PowerPoint.model.state
             {
                 _pointRecord1 = _model.GetListOfShape()[_targetIndex].Point1;
                 _pointRecord2 = _model.GetListOfShape()[_targetIndex].Point2;
-            
+                if (_model.GetListOfShape()[_targetIndex] is Line line)
+                {
+                    _drawPointRecord1 = line.DrawPoint1;
+                    _drawPointRecord2 = line.DrawPoint2;
+                }
             }
         }
 
@@ -146,7 +152,7 @@ namespace PowerPoint.model.state
         {
             //_model.GetListOfShape()[_targetIndex].Move(_pointA, point);
             //_model.NotifyModelChanged();
-            _model.MoveCommand(_targetIndex, _startPointRecord, point, _pointRecord1, _pointRecord2);
+            _model.MoveCommand(_targetIndex, _startPointRecord, point, _pointRecord1, _pointRecord2, _drawPointRecord1, _drawPointRecord2);
         }
 
         // user click delete button
