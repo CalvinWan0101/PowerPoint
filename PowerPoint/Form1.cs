@@ -51,7 +51,7 @@ namespace PowerPoint
             // add information column
             DataGridViewTextBoxColumn informationColumn = new DataGridViewTextBoxColumn();
             informationColumn.HeaderText = INFORMATION;
-            informationColumn.Width = 190;
+            informationColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             informationColumn.DataPropertyName = "Information";
             _shapesDataGridView.Columns.Insert(2, informationColumn);
 
@@ -73,6 +73,10 @@ namespace PowerPoint
             this.KeyDown += PressDeleteKey;
 
             Controls.Add(_panel);
+
+            _splitContainer2.Panel1.Controls.Add(_panel);
+            _panel.BringToFront();
+            _splitContainer1.Panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
         }
         // function for create
         private void CreateNewShapeButtonClick(object sender, EventArgs e)
@@ -220,25 +224,25 @@ namespace PowerPoint
         // auto size
         private void AutoSize(object sender, EventArgs e)
         {
-            int panelWidth = this.Width - _slidePanel.Width - _slideDetailGroupBox.Width - 30;
-            int panelHeight = this.Height - _headMenu.Height - _toolBar.Height;
+            //int panelWidth = this.Width - _slidePanel.Width - _slideDetailGroupBox.Width - 30;
+            //int panelHeight = this.Height - _headMenu.Height - _toolBar.Height;
 
-            // Calculate the width and height for a 16:9 aspect ratio
-            int targetWidth = panelHeight * 16 / 9;
-            int targetHeight = panelWidth * 9 / 16;
+            //// Calculate the width and height for a 16:9 aspect ratio
+            //int targetWidth = panelHeight * 16 / 9;
+            //int targetHeight = panelWidth * 9 / 16;
 
-            // Use whichever dimension is smaller
-            if (targetWidth > panelWidth)
-            {
-                targetWidth = panelWidth;
-                targetHeight = targetWidth * 9 / 16;
-            }
-            else
-            {
-                targetHeight = panelHeight;
-                targetWidth = targetHeight * 16 / 9;
-            }
-            _panel.Size = new Size(targetWidth, targetHeight);
+            //// Use whichever dimension is smaller
+            //if (targetWidth > panelWidth)
+            //{
+            //    targetWidth = panelWidth;
+            //    targetHeight = targetWidth * 9 / 16;
+            //}
+            //else
+            //{
+            //    targetHeight = panelHeight;
+            //    targetWidth = targetHeight * 16 / 9;
+            //}
+            //_panel.Size = new Size(targetWidth, targetHeight);
         }
 
         private void PressUndoButton(object sender, EventArgs e)

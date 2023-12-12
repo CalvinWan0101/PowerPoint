@@ -46,24 +46,32 @@ namespace PowerPoint
             this._mouseButton = new System.Windows.Forms.ToolStripButton();
             this._undoButton = new System.Windows.Forms.ToolStripButton();
             this._redoButton = new System.Windows.Forms.ToolStripButton();
+            this._splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this._splitContainer2 = new System.Windows.Forms.SplitContainer();
             this._panel = new PowerPoint.DoubleBufferedPanel();
             this._slidePanel.SuspendLayout();
             this._slideDetailGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._shapesDataGridView)).BeginInit();
             this._headMenu.SuspendLayout();
             this._toolBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer1)).BeginInit();
+            this._splitContainer1.Panel1.SuspendLayout();
+            this._splitContainer1.Panel2.SuspendLayout();
+            this._splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer2)).BeginInit();
+            this._splitContainer2.Panel1.SuspendLayout();
+            this._splitContainer2.Panel2.SuspendLayout();
+            this._splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // _slidePanel
             // 
-            this._slidePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this._slidePanel.AutoSize = true;
             this._slidePanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this._slidePanel.Controls.Add(this._slide1);
-            this._slidePanel.Location = new System.Drawing.Point(0, 52);
+            this._slidePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._slidePanel.Location = new System.Drawing.Point(0, 0);
             this._slidePanel.Name = "_slidePanel";
-            this._slidePanel.Size = new System.Drawing.Size(166, 360);
+            this._slidePanel.Size = new System.Drawing.Size(167, 361);
             this._slidePanel.TabIndex = 0;
             // 
             // _slide1
@@ -72,7 +80,7 @@ namespace PowerPoint
             | System.Windows.Forms.AnchorStyles.Right)));
             this._slide1.Location = new System.Drawing.Point(3, 3);
             this._slide1.Name = "_slide1";
-            this._slide1.Size = new System.Drawing.Size(160, 90);
+            this._slide1.Size = new System.Drawing.Size(161, 90);
             this._slide1.TabIndex = 0;
             this._slide1.UseVisualStyleBackColor = true;
             // 
@@ -100,14 +108,13 @@ namespace PowerPoint
             // 
             // _slideDetailGroupBox
             // 
-            this._slideDetailGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this._slideDetailGroupBox.Controls.Add(this._shapesDataGridView);
             this._slideDetailGroupBox.Controls.Add(this._addNewShapeSelector);
             this._slideDetailGroupBox.Controls.Add(this._createNewShape);
-            this._slideDetailGroupBox.Location = new System.Drawing.Point(818, 52);
+            this._slideDetailGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._slideDetailGroupBox.Location = new System.Drawing.Point(0, 0);
             this._slideDetailGroupBox.Name = "_slideDetailGroupBox";
-            this._slideDetailGroupBox.Size = new System.Drawing.Size(276, 360);
+            this._slideDetailGroupBox.Size = new System.Drawing.Size(273, 361);
             this._slideDetailGroupBox.TabIndex = 4;
             this._slideDetailGroupBox.TabStop = false;
             this._slideDetailGroupBox.Text = "資料顯示";
@@ -115,14 +122,15 @@ namespace PowerPoint
             // _shapesDataGridView
             // 
             this._shapesDataGridView.AllowUserToAddRows = false;
-            this._shapesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._shapesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._shapesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._shapesDataGridView.Location = new System.Drawing.Point(0, 56);
+            this._shapesDataGridView.Location = new System.Drawing.Point(-2, 56);
             this._shapesDataGridView.Name = "_shapesDataGridView";
             this._shapesDataGridView.ReadOnly = true;
             this._shapesDataGridView.RowHeadersVisible = false;
-            this._shapesDataGridView.Size = new System.Drawing.Size(291, 304);
+            this._shapesDataGridView.Size = new System.Drawing.Size(275, 357);
             this._shapesDataGridView.TabIndex = 4;
             this._shapesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeleteShapeButtonClick);
             // 
@@ -227,11 +235,50 @@ namespace PowerPoint
             this._redoButton.Text = "toolStripButton2";
             this._redoButton.Click += new System.EventHandler(this.PressRedoButton);
             // 
+            // _splitContainer1
+            // 
+            this._splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._splitContainer1.Location = new System.Drawing.Point(0, 52);
+            this._splitContainer1.Name = "_splitContainer1";
+            // 
+            // _splitContainer1.Panel1
+            // 
+            this._splitContainer1.Panel1.Controls.Add(this._slidePanel);
+            // 
+            // _splitContainer1.Panel2
+            // 
+            this._splitContainer1.Panel2.Controls.Add(this._splitContainer2);
+            this._splitContainer1.Size = new System.Drawing.Size(1094, 361);
+            this._splitContainer1.SplitterDistance = 167;
+            this._splitContainer1.TabIndex = 8;
+            // 
+            // _splitContainer2
+            // 
+            this._splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this._splitContainer2.Name = "_splitContainer2";
+            // 
+            // _splitContainer2.Panel1
+            // 
+            this._splitContainer2.Panel1.Controls.Add(this._panel);
+            // 
+            // _splitContainer2.Panel2
+            // 
+            this._splitContainer2.Panel2.Controls.Add(this._slideDetailGroupBox);
+            this._splitContainer2.Size = new System.Drawing.Size(923, 361);
+            this._splitContainer2.SplitterDistance = 646;
+            this._splitContainer2.TabIndex = 0;
+            // 
             // _panel
             // 
+            this._panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this._panel.AutoScroll = true;
-            this._panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this._panel.Location = new System.Drawing.Point(172, 52);
+            this._panel.AutoSize = true;
+            this._panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this._panel.Location = new System.Drawing.Point(2, 1);
             this._panel.Name = "_panel";
             this._panel.Size = new System.Drawing.Size(640, 360);
             this._panel.TabIndex = 7;
@@ -243,11 +290,9 @@ namespace PowerPoint
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1094, 413);
-            this.Controls.Add(this._panel);
             this.Controls.Add(this._toolBar);
-            this.Controls.Add(this._slideDetailGroupBox);
-            this.Controls.Add(this._slidePanel);
             this.Controls.Add(this._headMenu);
+            this.Controls.Add(this._splitContainer1);
             this.MainMenuStrip = this._headMenu;
             this.Name = "Form1";
             this.Text = "PowerPoint";
@@ -258,6 +303,15 @@ namespace PowerPoint
             this._headMenu.PerformLayout();
             this._toolBar.ResumeLayout(false);
             this._toolBar.PerformLayout();
+            this._splitContainer1.Panel1.ResumeLayout(false);
+            this._splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer1)).EndInit();
+            this._splitContainer1.ResumeLayout(false);
+            this._splitContainer2.Panel1.ResumeLayout(false);
+            this._splitContainer2.Panel1.PerformLayout();
+            this._splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._splitContainer2)).EndInit();
+            this._splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,6 +336,8 @@ namespace PowerPoint
         private System.Windows.Forms.ToolStripButton _mouseButton;
         private System.Windows.Forms.ToolStripButton _undoButton;
         private System.Windows.Forms.ToolStripButton _redoButton;
+        private System.Windows.Forms.SplitContainer _splitContainer1;
+        private System.Windows.Forms.SplitContainer _splitContainer2;
     }
 }
 
