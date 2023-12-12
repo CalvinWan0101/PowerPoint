@@ -3,6 +3,9 @@ using System.Drawing;
 
 namespace PowerPoint.model.command {
     public class MoveCommand : ICommand {
+        const string COMMA = ", ";
+        const string TEMPLATE = "({0:D3}, {1:D3})";
+
         private int _targetIndex;
         private PointF _originPoint1;
         private PointF _originPoint2;
@@ -27,17 +30,16 @@ namespace PowerPoint.model.command {
             _point1 = _originPoint1 + new SizeF(_endPoint.X - _startPoint.X, _endPoint.Y - _startPoint.Y);
             _point2 = _originPoint2 + new SizeF(_endPoint.X - _startPoint.X, _endPoint.Y - _startPoint.Y);
 
-            //_model.GetListOfShape()[_targetIndex].Move(_startPoint, _endPoint);
             _model.GetListOfShape()[_targetIndex].Point1 = _point1;
             _model.GetListOfShape()[_targetIndex].Point2 = _point2;
-
-
+            _model.GetListOfShape()[_targetIndex].Information = string.Format(TEMPLATE, (int)this._point1.X, (int)this._point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
             _model.NotifyModelChanged();
         }
 
         public override void Unexcute() {
             _model.GetListOfShape()[_targetIndex].Point1 = _originPoint1;
             _model.GetListOfShape()[_targetIndex].Point2 = _originPoint2;
+            _model.GetListOfShape()[_targetIndex].Information = string.Format(TEMPLATE, (int)this._originPoint1.X, (int)this._originPoint1.Y) + COMMA + string.Format(TEMPLATE, (int)_originPoint2.X, (int)_originPoint2.Y);
             _model.NotifyModelChanged();
         }
     }
