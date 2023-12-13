@@ -36,10 +36,22 @@ namespace PowerPoint.model
             _shapes.Add(shape);
         }
 
+        // get shape by index
+        public Shape GetShapeByIndex(int index)
+        {
+            return _shapes[index];
+        }
+
         // update hint
         public void SetHint(string shapeName, PointF firstPoint, PointF secondPoint)
         {
             _hint = _factory.CreateShape(shapeName, firstPoint, secondPoint);
+        }
+
+        // length
+        public int GetLength()
+        {
+            return _shapes.Count;
         }
 
         // get hint

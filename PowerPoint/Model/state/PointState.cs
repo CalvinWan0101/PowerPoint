@@ -13,7 +13,6 @@ namespace PowerPoint.model.state
         private PointF _drawPointRecord2;
         private PointF _startPointRecord;
         private bool _mouseIsPressed = false;
-        private int _targetIndex = -1;
         private bool _isZoom = false;
 
         // for the test
@@ -30,19 +29,6 @@ namespace PowerPoint.model.state
         }
 
         // for the test
-        public int TargetIndex
-        {
-            get
-            {
-                return _targetIndex;
-            }
-            set
-            {
-                _targetIndex = value;
-            }
-        }
-
-        // for the test
         public bool IsZoom
         {
             get
@@ -55,9 +41,71 @@ namespace PowerPoint.model.state
             }
         }
 
+        public PointF PointRecord1
+        {
+            get
+            {
+                return _pointRecord1;
+            }
+            set
+            {
+                _pointRecord1 = value;
+            }
+        }
+
+        public PointF PointRecord2
+        {
+            get
+            {
+                return _pointRecord2;
+            }
+            set
+            {
+                _pointRecord2 = value;
+            }
+        }
+
+        public PointF DrawPointRecord1
+        {
+            get
+            {
+                return _drawPointRecord1;
+            }
+            set
+            {
+                _drawPointRecord1 = value;
+            }
+        }
+
+        public PointF DrawPointRecord2
+        {
+            get
+            {
+                return _drawPointRecord2;
+            }
+            set
+            {
+                _drawPointRecord2 = value;
+            }
+        }
+
         public PointState(Model model)
         {
             _model = model;
+        }
+
+        private int _targetIndex = -1;
+
+        public int TargetIndex
+        {
+            get
+            {
+                return _targetIndex;
+            }
+            set
+            {
+                _targetIndex = value;
+            }
         }
 
         // mouse press
@@ -69,17 +117,17 @@ namespace PowerPoint.model.state
             _targetIndex = _model.FindTargetIndex(point);
             _isZoom = IsClickTheRightBottomCorner(point);
             _model.NotifyModelChanged();
-            if (_targetIndex != -1) 
-            {
-                _pointRecord1 = _model.GetListOfShape()[_targetIndex].Point1;
-                _pointRecord2 = _model.GetListOfShape()[_targetIndex].Point2;
-                if (_model.GetListOfShape()[_targetIndex] is Line)
-                {
-                    Line line = (Line)_model.GetListOfShape()[_targetIndex];
-                    _drawPointRecord1 = line.DrawPoint1;
-                    _drawPointRecord2 = line.DrawPoint2;
-                }
-            }
+            //if (_targetIndex != -1) 
+            //{
+            //    _pointRecord1 = _model.GetShapeByIndex(_targetIndex).Point1;
+            //    _pointRecord2 = _model.GetShapeByIndex(_targetIndex).Point2;
+            //    if (_model.GetShapeByIndex(_targetIndex) is Line)
+            //    {
+            //        Line line = (Line)_model.GetShapeByIndex(_targetIndex);
+            //        _drawPointRecord1 = line.DrawPoint1;
+            //        _drawPointRecord2 = line.DrawPoint2;
+            //    }
+            //}
         }
 
         // is zoom
@@ -153,7 +201,7 @@ namespace PowerPoint.model.state
         {
             //_model.GetListOfShape()[_targetIndex].Move(_pointA, point);
             //_model.NotifyModelChanged();
-            _model.MoveCommand(_targetIndex, _startPointRecord, point, _pointRecord1, _pointRecord2, _drawPointRecord1, _drawPointRecord2);
+            _model.MoveCommand(_targetIndex, _startPointRecord, point);
         }
 
         // user click delete button
@@ -163,6 +211,7 @@ namespace PowerPoint.model.state
             {
                 _model.Remove(_targetIndex);
                 _targetIndex = -1;
+                _model.TargetIndex = -1;
             }
         }
     }

@@ -32,22 +32,14 @@ namespace PowerPoint.model.command
         public override void Execute()
         {
             _model.GetShapes().Add(_shapeName, _position);
-            _id = _model.GetListOfShape()[_model.GetListOfShape().Count - 1].Id;
+            _id = _model.GetLastShape().Id;
             _model.NotifyModelChanged();
         }
 
         // unexecute
         public override void ExecuteBack()
         {
-            for (int i = 0; i < _model.GetListOfShape().Count; i++)
-            {
-                if (_model.GetListOfShape()[i].Id == _id)
-                {
-                    _model.GetShapes().Remove(i);
-                    break;
-                }
-            }
-            _model.NotifyModelChanged();
+            _model.RemoveShapeById(_id);
         }
     }
 }

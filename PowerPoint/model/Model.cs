@@ -39,11 +39,11 @@ namespace PowerPoint.model
         // mouse button checked
         public bool MouseButtonChecked
         {
-            get 
+            get
             {
                 return _mouseButtonChecked;
             }
-            set 
+            set
             {
                 _mouseButtonChecked = value;
                 if (_mouseButtonChecked)
@@ -54,7 +54,7 @@ namespace PowerPoint.model
                 {
                     _state = _drawingState;
                 }
-            } 
+            }
         }
 
         // for the test
@@ -115,6 +115,17 @@ namespace PowerPoint.model
         public virtual void MousePress(PointF point)
         {
             _state.MousePress(point);
+            if (TargetIndex != -1)
+            {
+                _pointState.PointRecord1 = GetShapeByIndex(TargetIndex).Point1;
+                _pointState.PointRecord2 = GetShapeByIndex(TargetIndex).Point2;
+                if (GetShapeByIndex(TargetIndex) is Line)
+                {
+                    Line line = (Line)GetShapeByIndex(TargetIndex);
+                    _pointState.DrawPointRecord1 = line.DrawPoint1;
+                    _pointState.DrawPointRecord2 = line.DrawPoint2;
+                }
+            }
         }
 
         // mouse move
@@ -129,6 +140,20 @@ namespace PowerPoint.model
             _state.MouseRelease(point);
         }
 
+        private int _targetIndex = -1;
+
+        public int TargetIndex
+        {
+            get
+            {
+                return _targetIndex;
+            }
+            set
+            {
+                _targetIndex = value;
+            }
+        }
+
         // find target index
         public int FindTargetIndex(PointF point)
         {
@@ -136,9 +161,11 @@ namespace PowerPoint.model
             {
                 if (GetListOfShape()[i].Contains(point))
                 {
+                    _targetIndex = i;
                     return i;
                 }
             }
+            _targetIndex = -1;
             return -1;
         }
 
@@ -152,6 +179,38 @@ namespace PowerPoint.model
         public Shapes GetShapes()
         {
             return _shapes;
+        }
+
+        // get last shape
+        public Shape GetLastShape()
+        {
+            return GetShapeByIndex(_shapes.GetLength() - 1);
+        }
+
+        // get shape by index
+        public Shape GetShapeByIndex(int index)
+        {
+            return _shapes.GetShapeByIndex(index);
+        }
+
+        // remove shape by index
+        public void RemoveShapeByIndex(int index)
+        {
+            _shapes.Remove(index);
+        }
+
+        // remove shape by id
+        public void RemoveShapeById(string id)
+        {
+            for (int i = 0; i < GetListOfShape().Count; i++)
+            {
+                if (GetShapeByIndex(i).Id == id)
+                {
+                    RemoveShapeByIndex(i);
+                    break;
+                }
+            }
+            NotifyModelChanged();
         }
 
         // draw all the shape
@@ -210,10 +269,9 @@ namespace PowerPoint.model
         }
 
         // move command
-        public void MoveCommand(int targetIndex, PointF point1, PointF point2, PointF pointRecord1, PointF pointRecord2, PointF originDrawPoint1, PointF originDrawPoint2)
+        public void MoveCommand(int targetIndex, PointF point1, PointF point2)
         {
-            _commandManager.ExecuteCommand(new MoveCommand(this, targetIndex, point1, point2, pointRecord1, pointRecord2, originDrawPoint1, originDrawPoint2));
+            _commandManager.ExecuteCommand(new MoveCommand(this, targetIndex, point1, point2, _pointState.PointRecord1, _pointState.PointRecord2, _pointState.DrawPointRecord1, _pointState.DrawPointRecord2));
         }
-
     }
 }
