@@ -64,6 +64,9 @@ namespace PowerPoint
             _panel.Paint += HandleMousePaint;
             _slide1.Paint += HandleSlidePaint;
             this.SizeChanged += AutoSize;
+            _slide1.SizeChanged += PreviewSlideAutoSize;
+            _splitContainer1.SplitterMoved += AutoSize;
+            _splitContainer2.SplitterMoved += AutoSize;
 
             // button click
             _presentationModel.PropertyChanged += UpdateButtonStatus;
@@ -76,7 +79,9 @@ namespace PowerPoint
 
             _splitContainer2.Panel1.Controls.Add(_panel);
             _panel.BringToFront();
-            _splitContainer1.Panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+
+            _splitContainer1.FixedPanel = FixedPanel.Panel1;
+            _splitContainer2.FixedPanel = FixedPanel.Panel2;
         }
         // function for create
         private void CreateNewShapeButtonClick(object sender, EventArgs e)
@@ -224,25 +229,14 @@ namespace PowerPoint
         // auto size
         private void AutoSize(object sender, EventArgs e)
         {
-            //int panelWidth = this.Width - _slidePanel.Width - _slideDetailGroupBox.Width - 30;
-            //int panelHeight = this.Height - _headMenu.Height - _toolBar.Height;
+            _panel.Size = new Size(_panel.Width, _panel.Width * 9 / 16);
+        }
 
-            //// Calculate the width and height for a 16:9 aspect ratio
-            //int targetWidth = panelHeight * 16 / 9;
-            //int targetHeight = panelWidth * 9 / 16;
+        // slide preview auto size
+        private void PreviewSlideAutoSize(object sender, EventArgs e)
+        {
+            _slide1.Size = new Size(_slide1.Width, _slide1.Width * 9 / 16);
 
-            //// Use whichever dimension is smaller
-            //if (targetWidth > panelWidth)
-            //{
-            //    targetWidth = panelWidth;
-            //    targetHeight = targetWidth * 9 / 16;
-            //}
-            //else
-            //{
-            //    targetHeight = panelHeight;
-            //    targetWidth = targetHeight * 16 / 9;
-            //}
-            //_panel.Size = new Size(targetWidth, targetHeight);
         }
 
         private void PressUndoButton(object sender, EventArgs e)

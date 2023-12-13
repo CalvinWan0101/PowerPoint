@@ -256,13 +256,13 @@ namespace PowerPoint
             // 
             // _splitContainer2
             // 
-            this._splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this._splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this._splitContainer2.Location = new System.Drawing.Point(0, 0);
             this._splitContainer2.Name = "_splitContainer2";
             // 
             // _splitContainer2.Panel1
             // 
+            this._splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.ControlDark;
             this._splitContainer2.Panel1.Controls.Add(this._panel);
             // 
             // _splitContainer2.Panel2
@@ -274,9 +274,10 @@ namespace PowerPoint
             // 
             // _panel
             // 
-            this._panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this._panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._panel.AutoScroll = true;
-            this._panel.AutoSize = true;
+            this._panel.BackColor = System.Drawing.SystemColors.Control;
             this._panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this._panel.Location = new System.Drawing.Point(2, 1);
             this._panel.Name = "_panel";
@@ -308,7 +309,6 @@ namespace PowerPoint
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer1)).EndInit();
             this._splitContainer1.ResumeLayout(false);
             this._splitContainer2.Panel1.ResumeLayout(false);
-            this._splitContainer2.Panel1.PerformLayout();
             this._splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._splitContainer2)).EndInit();
             this._splitContainer2.ResumeLayout(false);
