@@ -96,6 +96,9 @@ namespace PowerPoint.model.shape
             }
         }
 
+        // adjust point
+        public abstract void AdjustPoint(float ratio);
+
         // make sure the point
         public abstract void UpdatePoint();
 

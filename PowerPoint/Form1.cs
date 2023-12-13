@@ -66,7 +66,9 @@ namespace PowerPoint
             this.SizeChanged += AutoSize;
             _slide1.SizeChanged += PreviewSlideAutoSize;
             _splitContainer1.SplitterMoved += AutoSize;
+            _splitContainer1.SplitterMoved += PreviewSlideAutoSize;
             _splitContainer2.SplitterMoved += AutoSize;
+            _splitContainer2.SplitterMoved += PreviewSlideAutoSize;
 
             _slide1.SizeChanged += HandleModelChangedDraw;
             _panel.SizeChanged += HandleModelChangedDraw;
@@ -85,6 +87,8 @@ namespace PowerPoint
 
             _splitContainer1.FixedPanel = FixedPanel.Panel1;
             _splitContainer2.FixedPanel = FixedPanel.Panel2;
+
+            _panelWidthRecord = _panel.Width;
         }
         // function for create
         private void CreateNewShapeButtonClick(object sender, EventArgs e)
@@ -236,18 +240,22 @@ namespace PowerPoint
             }
         }
 
+        private int _panelWidthRecord = -1;
+
+
         // auto size
         private void AutoSize(object sender, EventArgs e)
         {
+            _presentationModel.DrawRatio = (float)_panel.Width / (float)_panelWidthRecord;
+            _panelWidthRecord = _panel.Width;
             _panel.Size = new Size(_panel.Width, _panel.Width * 9 / 16);
-            _presentationModel.DrawRatio = (float)_panel.Width / 640;
         }
 
         // slide preview auto size
         private void PreviewSlideAutoSize(object sender, EventArgs e)
         {
             _slide1.Size = new Size(_slide1.Width, _slide1.Width * 9 / 16);
-            _presentationModel.PreviewDrawRatio = (float)_slide1.Width / 640;
+            _presentationModel.PreviewDrawRatio = (float)_slide1.Width / (float)_panel.Width;
         }
 
         private void PressUndoButton(object sender, EventArgs e)

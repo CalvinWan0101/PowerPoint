@@ -175,6 +175,16 @@ namespace PowerPoint.model
                 GetShapes().GetHint().Draw(graphics);
         }
 
+        // update all the shape
+        public void Update(float ratio)
+        {
+            foreach (Shape shape in GetListOfShape())
+            {
+                shape.AdjustPoint(ratio);
+            }
+            NotifyModelChanged();
+        }
+
         // notify model changed
         public void NotifyModelChanged()
         {

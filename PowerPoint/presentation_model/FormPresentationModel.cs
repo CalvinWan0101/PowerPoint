@@ -107,6 +107,9 @@ namespace PowerPoint.presentation_model
             set
             {
                 _drawRatio = value;
+                _model.Update(_drawRatio);
+                _model.NotifyModelChanged();
+
             }
         }
 
@@ -125,9 +128,7 @@ namespace PowerPoint.presentation_model
         // draw all the shape
         public void Draw(Graphics graphics)
         {
-            //_model.Draw(new FormGraphicsAdaptor(graphics));
-            _model.Draw(new PreviewGraphicsAdaptor(graphics, DrawRatio));
-
+            _model.Draw(new FormGraphicsAdaptor(graphics));
         }
 
         // preview draw

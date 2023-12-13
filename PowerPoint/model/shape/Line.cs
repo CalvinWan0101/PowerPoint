@@ -76,6 +76,16 @@ namespace PowerPoint.model.shape
             }
         }
 
+        // adjust point
+        public override void AdjustPoint(float ratio)
+        {
+            Point1 = new PointF(Point1.X * ratio, Point1.Y * ratio);
+            Point2 = new PointF(Point2.X * ratio, Point2.Y * ratio);
+            DrawPoint1 = new PointF(DrawPoint1.X * ratio, DrawPoint1.Y * ratio);
+            DrawPoint2 = new PointF(DrawPoint2.X * ratio, DrawPoint2.Y * ratio);
+            UpdatePoint();
+        }
+
         // make sure the point
         public override void UpdatePoint()
         {
