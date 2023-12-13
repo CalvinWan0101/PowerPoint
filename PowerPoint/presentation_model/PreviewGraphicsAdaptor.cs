@@ -10,14 +10,13 @@ namespace PowerPoint.presentation_model
 {
     public class PreviewGraphicsAdaptor : IGraphics
     {
-        const float RATIO = 0.25f;
-
-        private float _ratio = RATIO;
+        private float _ratio;
         Graphics _graphics;
 
-        public PreviewGraphicsAdaptor(Graphics graphics)
+        public PreviewGraphicsAdaptor(Graphics graphics, float ratio)
         {
             this._graphics = graphics;
+            this._ratio = ratio;
         }
 
         // clear all the paint

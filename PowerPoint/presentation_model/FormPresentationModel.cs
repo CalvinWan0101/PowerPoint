@@ -95,16 +95,45 @@ namespace PowerPoint.presentation_model
         const string RECTANGLE = "Rectangle";
         const string CIRCLE = "Circle";
 
+        private float _drawRatio = 1.0f;
+        private float _previewDrawRatio = 0.25f;
+
+        public float DrawRatio
+        {
+            get
+            {
+                return _drawRatio;
+            }
+            set
+            {
+                _drawRatio = value;
+            }
+        }
+
+        public float PreviewDrawRatio
+        {
+            get
+            {
+                return _previewDrawRatio;
+            }
+            set
+            {
+                _previewDrawRatio = value;
+            }
+        }
+
         // draw all the shape
         public void Draw(Graphics graphics)
         {
-            _model.Draw(new FormGraphicsAdaptor(graphics));
+            //_model.Draw(new FormGraphicsAdaptor(graphics));
+            _model.Draw(new PreviewGraphicsAdaptor(graphics, DrawRatio));
+
         }
 
         // preview draw
         public void PreviewDraw(Graphics graphics)
         {
-            _model.Draw(new PreviewGraphicsAdaptor(graphics));
+            _model.Draw(new PreviewGraphicsAdaptor(graphics, PreviewDrawRatio));
         }
 
         // line button click

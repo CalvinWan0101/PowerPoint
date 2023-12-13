@@ -68,6 +68,9 @@ namespace PowerPoint
             _splitContainer1.SplitterMoved += AutoSize;
             _splitContainer2.SplitterMoved += AutoSize;
 
+            _slide1.SizeChanged += HandleModelChangedDraw;
+            _panel.SizeChanged += HandleModelChangedDraw;
+
             // button click
             _presentationModel.PropertyChanged += UpdateButtonStatus;
 
@@ -185,6 +188,13 @@ namespace PowerPoint
             _slide1.Invalidate(true);
         }
 
+        // function to handle the change of model
+        public void HandleModelChangedDraw(object sender, EventArgs e)
+        {
+            _panel.Invalidate(true);
+            _slide1.Invalidate(true);
+        }
+
         // when mouse enter the panel
         private void PanelMouseEnter(object sender, EventArgs e)
         {
@@ -230,13 +240,14 @@ namespace PowerPoint
         private void AutoSize(object sender, EventArgs e)
         {
             _panel.Size = new Size(_panel.Width, _panel.Width * 9 / 16);
+            _presentationModel.DrawRatio = (float)_panel.Width / 640;
         }
 
         // slide preview auto size
         private void PreviewSlideAutoSize(object sender, EventArgs e)
         {
             _slide1.Size = new Size(_slide1.Width, _slide1.Width * 9 / 16);
-
+            _presentationModel.PreviewDrawRatio = (float)_slide1.Width / 640;
         }
 
         private void PressUndoButton(object sender, EventArgs e)
