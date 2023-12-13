@@ -326,6 +326,16 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>model\command\CommandManagerTest.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>model\command\DeleteCommandTest.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>model\command\MoveCommandTest.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
@@ -392,8 +402,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>2788</ProductionLoc>
-          <TestLoc>2309</TestLoc>
+          <ProductionLoc>2777</ProductionLoc>
+          <TestLoc>2485</TestLoc>
         </CodeReview>
       </Data>
     </div>

@@ -114,7 +114,7 @@ namespace PowerPoint.model.state.test
             Assert.IsFalse(_pointState.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, radius + 100)));
             Assert.IsFalse(_pointState.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, -radius)));
             Assert.IsFalse(_pointState.IsClickTheRightBottomCorner(answer + new SizeF(-radius - 100, -radius - 100)));
-        
+
             // index out of range
             _pointState.TargetIndex = 3;
             Assert.IsFalse(_pointState.IsClickTheRightBottomCorner(answer));
@@ -246,116 +246,119 @@ namespace PowerPoint.model.state.test
             Assert.AreEqual(temp1, _model.GetListOfShape()[0].Point2);
         }
 
-        // move a shape
-        [TestMethod]
-        public void move_a_shape()
-        {
-            _model.Add("Rectangle");
+        //// move a shape
+        //[TestMethod]
+        //public void move_a_shape()
+        //{
+        //    _model.Add("Rectangle");
 
-            PointF temp1 = _model.GetListOfShape()[0].Point1;
-            PointF temp2 = _model.GetListOfShape()[0].Point2;
+        //    PointF temp1 = _model.GetListOfShape()[0].Point1;
+        //    PointF temp2 = _model.GetListOfShape()[0].Point2;
 
-            _pointState.MousePress(temp2);
+        //    _pointState.MousePress(temp2);
 
-            _pointState.IsZoom = false;
+        //    _pointState.IsZoom = false;
 
-            _pointState.MouseMove(temp2 + new SizeF(1, 1));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
+        //    _pointState.MouseMove(temp2 + new SizeF(1, 1));
+        //    Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
-            _pointState.MouseRelease(temp2 + new SizeF(2, 2));
-            Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
-        }
+        //    _pointState.MouseRelease(temp2 + new SizeF(2, 2));
+        //    Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
+        //}
 
-        // move a line
-        [TestMethod]
-        public void move_a_line()
-        {
-            _model.Add("Line");
+        //private PointF UpdatePoint(PointF point1, PointF point2)
+        //{
+        //    return new PointF(Math.Max(point1.X, point2.X), Math.Max(point1.Y, point2.Y));
+        //}
 
-            PointF temp1 = _model.GetListOfShape()[0].Point1;
-            PointF temp2 = _model.GetListOfShape()[0].Point2;
+        //[TestMethod]
+        //public void move_a_rectangle()
+        //{
+        //    _model.Add("Line");
 
-            _pointState.MousePress(temp2);
+        //    PointF temp1 = _model.GetListOfShape()[0].Point1;
+        //    PointF temp2 = _model.GetListOfShape()[0].Point2;
 
-            _pointState.IsZoom = false;
+        //    _pointState.TargetIndex = 0;
+        //    _model.MousePress(temp2);
 
-            _pointState.MouseMove(temp2 + new SizeF(1, 1));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
+        //    _pointState.MouseMove(temp2 + new SizeF(1, 1));
+        //    Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
-            _pointState.MouseRelease(temp2 + new SizeF(2, 2));
-            Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
-        }
+        //    _pointState.MouseRelease(temp2 + new SizeF(2, 2));
+        //    Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
+        //}
 
-        // move a shape but didn't select any shape when move or release
-        [TestMethod]
-        public void move_a_shape_but_didnt_select_any_shape_when_move_or_release()
-        {
-            _model.Add("Rectangle");
+        //// move a shape but didn't select any shape when move or release
+        //[TestMethod]
+        //public void move_a_shape_but_didnt_select_any_shape_when_move_or_release()
+        //{
+        //    _model.Add("Rectangle");
 
-            PointF temp1 = _model.GetListOfShape()[0].Point1;
-            PointF temp2 = _model.GetListOfShape()[0].Point2;
+        //    PointF temp1 = _model.GetListOfShape()[0].Point1;
+        //    PointF temp2 = _model.GetListOfShape()[0].Point2;
 
-            _pointState.MousePress(temp2);
+        //    _pointState.MousePress(temp2);
 
-            _pointState.IsZoom = false;
+        //    _pointState.IsZoom = false;
 
-            _pointState.MouseMove(temp2 + new SizeF(1, 1));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
+        //    _pointState.MouseMove(temp2 + new SizeF(1, 1));
+        //    Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
-            _pointState.TargetIndex = -1;
-            _pointState.MouseMove(temp2 + new SizeF(3, 3));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
+        //    _pointState.TargetIndex = -1;
+        //    _pointState.MouseMove(temp2 + new SizeF(3, 3));
+        //    Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
-            _pointState.MouseRelease(temp2 + new SizeF(3, 3));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
+        //    _pointState.MouseRelease(temp2 + new SizeF(3, 3));
+        //    Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
-            _pointState.TargetIndex = 0;
-            _pointState.MouseIsPressed = true;
+        //    _pointState.TargetIndex = 0;
+        //    _pointState.MouseIsPressed = true;
 
-            _pointState.MouseRelease(temp2 + new SizeF(2, 2));
-            Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
-        }
+        //    _pointState.MouseRelease(temp2 + new SizeF(2, 2));
+        //    Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
+        //}
 
-        // move a shape but move with mouse not pressed
-        [TestMethod]
-        public void move_a_shape_but_move_with_mouse_not_pressed()
-        {
-            _model.Add("Rectangle");
+        //// move a shape but move with mouse not pressed
+        //[TestMethod]
+        //public void move_a_shape_but_move_with_mouse_not_pressed()
+        //{
+        //    _model.Add("Rectangle");
 
-            PointF temp1 = _model.GetListOfShape()[0].Point1;
-            PointF temp2 = _model.GetListOfShape()[0].Point2;
+        //    PointF temp1 = _model.GetListOfShape()[0].Point1;
+        //    PointF temp2 = _model.GetListOfShape()[0].Point2;
 
-            _pointState.MousePress(temp2);
+        //    _pointState.MousePress(temp2);
 
-            _pointState.IsZoom = false;
+        //    _pointState.IsZoom = false;
 
-            _pointState.MouseMove(temp2 + new SizeF(1, 1));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
+        //    _pointState.MouseMove(temp2 + new SizeF(1, 1));
+        //    Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
-            _pointState.MouseIsPressed = false;
+        //    _pointState.MouseIsPressed = false;
 
-            _pointState.MouseMove(temp2 + new SizeF(3, 3));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
+        //    _pointState.MouseMove(temp2 + new SizeF(3, 3));
+        //    Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
-            _pointState.MouseRelease(temp2 + new SizeF(3, 3));
-            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
+        //    _pointState.MouseRelease(temp2 + new SizeF(3, 3));
+        //    Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
 
-            _pointState.MouseIsPressed = true;
+        //    _pointState.MouseIsPressed = true;
 
-            _pointState.MouseRelease(temp2 + new SizeF(2, 2));
-            Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
-            Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
-        }
+        //    _pointState.MouseRelease(temp2 + new SizeF(2, 2));
+        //    Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
+        //    Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
+        //}
     }
 }

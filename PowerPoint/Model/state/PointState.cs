@@ -117,17 +117,6 @@ namespace PowerPoint.model.state
             _targetIndex = _model.FindTargetIndex(point);
             _isZoom = IsClickTheRightBottomCorner(point);
             _model.NotifyModelChanged();
-            //if (_targetIndex != -1) 
-            //{
-            //    _pointRecord1 = _model.GetShapeByIndex(_targetIndex).Point1;
-            //    _pointRecord2 = _model.GetShapeByIndex(_targetIndex).Point2;
-            //    if (_model.GetShapeByIndex(_targetIndex) is Line)
-            //    {
-            //        Line line = (Line)_model.GetShapeByIndex(_targetIndex);
-            //        _drawPointRecord1 = line.DrawPoint1;
-            //        _drawPointRecord2 = line.DrawPoint2;
-            //    }
-            //}
         }
 
         // is zoom

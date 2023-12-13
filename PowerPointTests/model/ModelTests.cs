@@ -193,7 +193,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void press_dlete_key()
+        public void press_delete_key()
         {
             _model.Add("Circle");
             _model.Add("Line");
@@ -218,6 +218,45 @@ namespace PowerPoint.model.test
             Assert.AreEqual(2, shapes.Count);
             Assert.AreEqual("Circle", shapes[0].Name);
             Assert.AreEqual("Rectangle", shapes[1].Name);
+        }
+
+        [TestMethod]
+        public void remove_shape_by_id()
+        {
+            _model.Add("Circle");
+            _model.Add("Line");
+            _model.Add("Rectangle");
+
+            BindingList<Shape> shapes = _model.GetListOfShape();
+            Assert.AreEqual(3, shapes.Count);
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual("Line", shapes[1].Name);
+            Assert.AreEqual("Rectangle", shapes[2].Name);
+
+            string id = shapes[1].Id;
+            _model.RemoveShapeById(id);
+
+            Assert.AreEqual(2, shapes.Count);
+            Assert.AreEqual("Circle", shapes[0].Name);
+            Assert.AreEqual("Rectangle", shapes[1].Name);
+        }
+
+        [TestMethod]
+        public void update_by_ratio()
+        {
+            _model.Add("Circle", new PointF(100, 200), new PointF(200, 100));
+            _model.Add("Line", new PointF(200, 300), new PointF(300, 200));
+            _model.Add("Rectangle", new PointF(300, 400), new PointF(400, 300));
+
+            _model.Update(2);
+
+            Assert.AreEqual(3, _model.GetListOfShape().Count);
+            Assert.AreEqual(new PointF(200, 200), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(new PointF(400, 400), _model.GetListOfShape()[0].Point2);
+            Assert.AreEqual(new PointF(400, 400), _model.GetListOfShape()[1].Point1);
+            Assert.AreEqual(new PointF(600, 600), _model.GetListOfShape()[1].Point2);
+            Assert.AreEqual(new PointF(600, 600), _model.GetListOfShape()[2].Point1);
+            Assert.AreEqual(new PointF(800, 800), _model.GetListOfShape()[2].Point2);
         }
 
         [TestMethod]

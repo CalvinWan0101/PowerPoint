@@ -1,12 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PowerPoint.model.state;
 using PowerPoint.model;
-using PowerPoint.model.command;
 
 namespace PowerPointTests.model.command
 {
     [TestClass]
-    public class AddCommandTest
+    public class CommandManagerTest
     {
         DrawingState _drawingState;
         PointState _pointState;
@@ -48,11 +47,22 @@ namespace PowerPointTests.model.command
         }
 
         [TestMethod]
-        public void set_and_get_id()
+        public void redo_add_command()
         {
-            AddCommand addCommand = new AddCommand(_model, "Line");
-            addCommand.Id = "123";
-            Assert.AreEqual("123", addCommand.Id);
+            _model.Add("Line");
+            Assert.AreEqual(1, _model.GetShapes().GetListOfShape().Count);
+            Assert.AreEqual("Line", _model.GetShapes().GetListOfShape()[0].Name);
+            Assert.AreEqual("線", _model.GetShapes().GetListOfShape()[0].ChineseName);
+
+            _model.Undo();
+            Assert.AreEqual(0, _model.GetShapes().GetListOfShape().Count);
+
+            _model.Redo();
+            Assert.AreEqual(1, _model.GetShapes().GetListOfShape().Count);
+            Assert.AreEqual("Line", _model.GetShapes().GetListOfShape()[0].Name);
+            Assert.AreEqual("線", _model.GetShapes().GetListOfShape()[0].ChineseName);
         }
     }
+
+
 }
