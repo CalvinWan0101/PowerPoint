@@ -14,7 +14,6 @@ namespace PowerPoint.model
         public event ModelChangedEventHandler _modelChanged;
         public delegate void ModelChangedEventHandler();
 
-
         private Random _random = new Random();
         const int X_MAX = 640;
         const int Y_MAX = 360;

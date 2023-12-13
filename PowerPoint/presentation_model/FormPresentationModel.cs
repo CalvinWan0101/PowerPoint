@@ -95,8 +95,11 @@ namespace PowerPoint.presentation_model
         const string RECTANGLE = "Rectangle";
         const string CIRCLE = "Circle";
 
-        private float _drawRatio = 1.0f;
-        private float _previewDrawRatio = 0.25f;
+        const float FIRST_RATIO = 1.0f;
+        const float DRAW_RATIO = 0.25f;
+
+        private float _drawRatio = FIRST_RATIO;
+        private float _previewDrawRatio = DRAW_RATIO;
 
         public float DrawRatio
         {

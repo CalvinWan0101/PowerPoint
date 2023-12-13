@@ -35,6 +35,20 @@ namespace PowerPoint.model.shape.test
             Assert.AreEqual(new PointF(0, 0), rectangle.Point1);
             Assert.AreEqual(new PointF(100, 100), rectangle.Point2);
         }
+
+        [TestMethod]
+        public void adjust_rectangle()
+        {
+            Rectangle rectangle = new Rectangle(new PointF(0, 0), new PointF(100, 100));
+            Assert.AreEqual(new PointF(0, 0), rectangle.Point1);
+            Assert.AreEqual(new PointF(100, 100), rectangle.Point2);
+
+            rectangle.AdjustPoint(2);
+
+            Assert.AreEqual(new PointF(0, 0), rectangle.Point1);
+            Assert.AreEqual(new PointF(200, 200), rectangle.Point2);
+        }
+
         [TestMethod]
         public void check_if_the_rectangle_contains_point()
         {

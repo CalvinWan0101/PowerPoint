@@ -185,7 +185,136 @@
     <div class="data">
       <Data id="ReviewPalData">
         <CodeReview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-          <Reviews />
+          <Reviews>
+            <Smell>
+              <Id>1</Id>
+              <SmellType>Long parameter list(過長參數列)</SmellType>
+              <HashCode>LongParameterList.Model.MoveCommand.int targetIndex;PointF point1;PointF point2;PointF pointRecord1;PointF pointRecord2;PointF originDrawPoint1;PointF originDrawPoint2;</HashCode>
+              <Severity>Red</Severity>
+              <Weight>7</Weight>
+              <Project>PowerPoint</Project>
+              <File>Model.cs</File>
+              <Line>213</Line>
+              <StartLine>0</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>0</EndLine>
+              <EndCol>0</EndCol>
+              <Comment />
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>2</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>35 目前物件 PowerPoint.model.command.AddCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\command\AddCommand.cs</File>
+              <Line>35</Line>
+              <StartLine>34</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>35</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 PowerPoint.model.command.AddCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>3</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>43 目前物件 PowerPoint.model.command.AddCommand，使用物件的方法或屬性次數：1次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</HashCode>
+              <Severity>Warning</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\command\AddCommand.cs</File>
+              <Line>43</Line>
+              <StartLine>43</StartLine>
+              <StartCol>20</StartCol>
+              <EndLine>43</EndLine>
+              <EndCol>56</EndCol>
+              <Comment>目前物件 PowerPoint.model.command.AddCommand，使用物件的方法或屬性次數：1次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>4</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>46 目前物件 PowerPoint.model.command.AddCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetShapes() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\command\AddCommand.cs</File>
+              <Line>46</Line>
+              <StartLine>45</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>46</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 PowerPoint.model.command.AddCommand，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.GetShapes() 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.GetListOfShape()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>5</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>74 目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs</File>
+              <Line>74</Line>
+              <StartLine>73</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>74</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>6</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>75 目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs</File>
+              <Line>75</Line>
+              <StartLine>74</StartLine>
+              <StartCol>0</StartCol>
+              <EndLine>75</EndLine>
+              <EndCol>0</EndCol>
+              <Comment>目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>7</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>75 目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF)</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs</File>
+              <Line>75</Line>
+              <StartLine>75</StartLine>
+              <StartCol>20</StartCol>
+              <EndLine>75</EndLine>
+              <EndCol>65</EndCol>
+              <Comment>目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：3次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF)</Comment>
+              <Auto>false</Auto>
+            </Smell>
+            <Smell>
+              <Id>8</Id>
+              <SmellType>Feature Envy(依戀情節)</SmellType>
+              <HashCode>77 目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape()</HashCode>
+              <Severity>Red</Severity>
+              <Weight>1</Weight>
+              <Project>PowerPoint</Project>
+              <File>C:\Users\CalvinWan\Documents\GitHub\PowerPoint\PowerPoint\model\state\PointState.cs</File>
+              <Line>77</Line>
+              <StartLine>77</StartLine>
+              <StartCol>25</StartCol>
+              <EndLine>77</EndLine>
+              <EndCol>75</EndCol>
+              <Comment>目前物件 PowerPoint.model.state.PointState，使用物件的方法或屬性次數：0次，Envy到對象物件 PowerPoint.model.Model，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape() 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.FindTargetIndex(System.Drawing.PointF) 以及 PowerPoint.model.Model.GetListOfShape()</Comment>
+              <Auto>false</Auto>
+            </Smell>
+          </Reviews>
           <HashCodeIgnoreList />
           <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
@@ -204,6 +333,31 @@
                 <RelativePath>Form1.Designer.cs</RelativePath>
                 <ProjectName>PowerPoint</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>model\command\AddCommand.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>model\command\DeleteCommand.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>model\command\ICommand.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>model\command\MoveCommand.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>model\CommandManager.cs</RelativePath>
+                <ProjectName>PowerPoint</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
                 <RelativePath>model\Factory.cs</RelativePath>
@@ -296,6 +450,16 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>model\command\AddCommandTest.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>model\command\MoveCommandTest.cs</RelativePath>
+                <ProjectName>PowerPointTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>model\FactoryTests.cs</RelativePath>
                 <ProjectName>PowerPointTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
@@ -357,8 +521,8 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>2175</ProductionLoc>
-          <TestLoc>2030</TestLoc>
+          <ProductionLoc>2677</ProductionLoc>
+          <TestLoc>2309</TestLoc>
         </CodeReview>
       </Data>
     </div>

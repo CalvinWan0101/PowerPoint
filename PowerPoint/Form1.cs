@@ -63,11 +63,11 @@ namespace PowerPoint
             _panel.MouseMove += MouseZoom;
             _panel.Paint += HandleMousePaint;
             _slide1.Paint += HandleSlidePaint;
-            this.SizeChanged += AutoSize;
+            this.SizeChanged += UpdateAutoSize;
             _slide1.SizeChanged += PreviewSlideAutoSize;
-            _splitContainer1.SplitterMoved += AutoSize;
+            _splitContainer1.SplitterMoved += UpdateAutoSize;
             _splitContainer1.SplitterMoved += PreviewSlideAutoSize;
-            _splitContainer2.SplitterMoved += AutoSize;
+            _splitContainer2.SplitterMoved += UpdateAutoSize;
             _splitContainer2.SplitterMoved += PreviewSlideAutoSize;
 
             _slide1.SizeChanged += HandleModelChangedDraw;
@@ -221,7 +221,7 @@ namespace PowerPoint
             {
                 Cursor = Cursors.SizeNWSE;
             }
-            else if (_presentationModel.LineButtonChecked || _presentationModel.RectangleButtonChecked || _presentationModel.CircleButtonChecked)
+            else if (_lineButton.Checked || _rectangleButton.Checked || _circleButton.Checked)
             {
                 Cursor = Cursors.Cross;
             }
@@ -242,27 +242,31 @@ namespace PowerPoint
 
         private int _panelWidthRecord = -1;
 
+        const int NINE = 9;
+        const int SIXTEEN = 16;
 
         // auto size
-        private void AutoSize(object sender, EventArgs e)
+        private void UpdateAutoSize(object sender, EventArgs e)
         {
             _presentationModel.DrawRatio = (float)_panel.Width / (float)_panelWidthRecord;
             _panelWidthRecord = _panel.Width;
-            _panel.Size = new Size(_panel.Width, _panel.Width * 9 / 16);
+            _panel.Size = new Size(_panel.Width, _panel.Width * NINE / SIXTEEN);
         }
 
         // slide preview auto size
         private void PreviewSlideAutoSize(object sender, EventArgs e)
         {
-            _slide1.Size = new Size(_slide1.Width, _slide1.Width * 9 / 16);
+            _slide1.Size = new Size(_slide1.Width, _slide1.Width * NINE / SIXTEEN);
             _presentationModel.PreviewDrawRatio = (float)_slide1.Width / (float)_panel.Width;
         }
 
+        // press undo button
         private void PressUndoButton(object sender, EventArgs e)
         {
             _model.Undo();
         }
 
+        // press redo button
         private void PressRedoButton(object sender, EventArgs e)
         {
             _model.Redo();

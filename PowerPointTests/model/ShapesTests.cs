@@ -76,6 +76,21 @@ namespace PowerPoint.model.test {
         }
 
         [TestMethod]
+        public void add_exist_shape() 
+        {
+            Shape shape = new Line(new PointF(0, 0), new PointF(100, 100));
+            _shapes.Add(shape);
+
+            Assert.AreEqual(1, _shapes.GetListOfShape().Count);
+
+            Assert.AreEqual("Line", _shapes.GetListOfShape()[0].Name);
+            Assert.AreEqual("線", _shapes.GetListOfShape()[0].ChineseName);
+            Assert.AreEqual(string.Format(TEMPLATE, 0, 0) + COMMA + string.Format(TEMPLATE, 100, 100), _shapes.GetListOfShape()[0].Information);
+            Assert.AreEqual(new PointF(0, 0), _shapes.GetListOfShape()[0].Point1);
+            Assert.AreEqual(new PointF(100, 100), _shapes.GetListOfShape()[0].Point2);
+        }
+
+        [TestMethod]
         public void clear_list_of_shape() {
             _shapes.Add("Line");
             _shapes.Add("Rectangle");

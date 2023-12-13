@@ -97,7 +97,11 @@ namespace PowerPoint.model.shape
         }
 
         // adjust point
-        public abstract void AdjustPoint(float ratio);
+        public virtual void AdjustPoint(float ratio)
+        {
+            Point1 = new PointF(Point1.X * ratio, Point1.Y * ratio);
+            Point2 = new PointF(Point2.X * ratio, Point2.Y * ratio);
+        }
 
         // make sure the point
         public abstract void UpdatePoint();

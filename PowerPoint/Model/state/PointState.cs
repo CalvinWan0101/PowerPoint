@@ -73,8 +73,9 @@ namespace PowerPoint.model.state
             {
                 _pointRecord1 = _model.GetListOfShape()[_targetIndex].Point1;
                 _pointRecord2 = _model.GetListOfShape()[_targetIndex].Point2;
-                if (_model.GetListOfShape()[_targetIndex] is Line line)
+                if (_model.GetListOfShape()[_targetIndex] is Line)
                 {
+                    Line line = (Line)_model.GetListOfShape()[_targetIndex];
                     _drawPointRecord1 = line.DrawPoint1;
                     _drawPointRecord2 = line.DrawPoint2;
                 }

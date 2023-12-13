@@ -21,14 +21,6 @@ namespace PowerPoint.model.shape
             Information = string.Format(TEMPLATE, (int)this.Point1.X, (int)this.Point1.Y) + COMMA + string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
         }
 
-        // adjust point
-        public override void AdjustPoint(float ratio)
-        {
-            Point1 = new PointF(Point1.X * ratio, Point1.Y * ratio);
-            Point2 = new PointF(Point2.X * ratio, Point2.Y * ratio);
-            UpdatePoint();
-        }
-
         // make sure the point
         public override void UpdatePoint()
         {

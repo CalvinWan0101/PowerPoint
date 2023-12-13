@@ -268,6 +268,28 @@ namespace PowerPoint.model.state.test
             Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
         }
 
+        // move a line
+        [TestMethod]
+        public void move_a_line()
+        {
+            _model.Add("Line");
+
+            PointF temp1 = _model.GetListOfShape()[0].Point1;
+            PointF temp2 = _model.GetListOfShape()[0].Point2;
+
+            _pointState.MousePress(temp2);
+
+            _pointState.IsZoom = false;
+
+            _pointState.MouseMove(temp2 + new SizeF(1, 1));
+            Assert.AreEqual(temp1 + new SizeF(1, 1), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(1, 1), _model.GetListOfShape()[0].Point2);
+
+            _pointState.MouseRelease(temp2 + new SizeF(2, 2));
+            Assert.AreEqual(temp1 + new SizeF(2, 2), _model.GetListOfShape()[0].Point1);
+            Assert.AreEqual(temp2 + new SizeF(2, 2), _model.GetListOfShape()[0].Point2);
+        }
+
         // move a shape but didn't select any shape when move or release
         [TestMethod]
         public void move_a_shape_but_didnt_select_any_shape_when_move_or_release()

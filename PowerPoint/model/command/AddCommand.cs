@@ -7,8 +7,20 @@ namespace PowerPoint.model.command
         const int TWO = 2;
 
         private string _shapeName;
-        private  PointF[] _position = new PointF[TWO];
+        private PointF[] _position = new PointF[TWO];
         private string _id;
+
+        public string Id
+        {
+            set
+            {
+                _id = value;
+            }
+            get
+            {
+                return _id;
+            }
+        }
 
         public AddCommand(Model model, string shapeName, params PointF[] position) : base(model)
         {
@@ -16,6 +28,7 @@ namespace PowerPoint.model.command
             _position = position;
         }
 
+        // execute
         public override void Execute()
         {
             _model.GetShapes().Add(_shapeName, _position);
@@ -23,7 +36,8 @@ namespace PowerPoint.model.command
             _model.NotifyModelChanged();
         }
 
-        public override void Unexcute()
+        // unexecute
+        public override void ExecuteBack()
         {
             for (int i = 0; i < _model.GetListOfShape().Count; i++)
             {

@@ -48,6 +48,23 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
+        public void adjust_line()
+        {
+            Line line = new Line(new PointF(100, 0), new PointF(0, 100));
+            Assert.AreEqual(new PointF(0, 0), line.Point1);
+            Assert.AreEqual(new PointF(100, 100), line.Point2);
+            Assert.AreEqual(new PointF(100, 0), line.DrawPoint1);
+            Assert.AreEqual(new PointF(0, 100), line.DrawPoint2);
+
+            line.AdjustPoint(2);
+
+            Assert.AreEqual(new PointF(0, 0), line.Point1);
+            Assert.AreEqual(new PointF(200, 200), line.Point2);
+            Assert.AreEqual(new PointF(200, 0), line.DrawPoint1);
+            Assert.AreEqual(new PointF(0, 200), line.DrawPoint2);
+        }
+
+        [TestMethod]
         public void create_line_reverse()
         {
             Line line = new Line(new PointF(0, 100), new PointF(100, 0));

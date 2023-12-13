@@ -29,44 +29,38 @@ namespace PowerPoint.model.command
             _originPoint1 = pointRecord1;
             _originPoint2 = pointRecord2;
 
-            if (_model.GetListOfShape()[_targetIndex] is Line line)
+            if (_model.GetListOfShape()[_targetIndex] is Line)
             {
                 _originDrawPoint1 = originDrawPoint1;
                 _originDrawPoint2 = originDrawPoint2;
             }
         }
 
+        // execute
         public override void Execute()
         {
-            //_point1 = _originPoint1 + new SizeF(_endPoint.X - _startPoint.X, _endPoint.Y - _startPoint.Y);
-            //_point2 = _originPoint2 + new SizeF(_endPoint.X - _startPoint.X, _endPoint.Y - _startPoint.Y);
-            //_model.GetListOfShape()[_targetIndex].Point1 = _point1;
-            //_model.GetListOfShape()[_targetIndex].Point2 = _point2;
-            //_model.GetListOfShape()[_targetIndex].Information = string.Format(TEMPLATE, (int)this._point1.X, (int)this._point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
-            //_model.NotifyModelChanged();
-
             _point1 = _originPoint1 + new SizeF(_endPoint.X - _startPoint.X, _endPoint.Y - _startPoint.Y);
             _point2 = _originPoint2 + new SizeF(_endPoint.X - _startPoint.X, _endPoint.Y - _startPoint.Y);
             _model.GetListOfShape()[_targetIndex].Point1 = _point1;
             _model.GetListOfShape()[_targetIndex].Point2 = _point2;
-
-            if (_model.GetListOfShape()[_targetIndex] is Line line)
+            if (_model.GetListOfShape()[_targetIndex] is Line)
             {
+                Line line = (Line)_model.GetListOfShape()[_targetIndex];
                 line.DrawPoint1 = _originDrawPoint1 + new SizeF(_endPoint.X - _startPoint.X, _endPoint.Y - _startPoint.Y);
                 line.DrawPoint2 = _originDrawPoint2 + new SizeF(_endPoint.X - _startPoint.X, _endPoint.Y - _startPoint.Y);
             }
-
             _model.GetListOfShape()[_targetIndex].Information = string.Format(TEMPLATE, (int)this._point1.X, (int)this._point1.Y) + COMMA + string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
             _model.NotifyModelChanged();
-
         }
 
-        public override void Unexcute()
+        // unexecute
+        public override void ExecuteBack()
         {
             _model.GetListOfShape()[_targetIndex].Point1 = _originPoint1;
             _model.GetListOfShape()[_targetIndex].Point2 = _originPoint2;
-            if (_model.GetListOfShape()[_targetIndex] is Line line)
+            if (_model.GetListOfShape()[_targetIndex] is Line)
             {
+                Line line = (Line)_model.GetListOfShape()[_targetIndex];
                 line.DrawPoint1 = _originDrawPoint1;
                 line.DrawPoint2 = _originDrawPoint2;
             }

@@ -9,7 +9,10 @@
             this._model = model;
         }
 
+        // execute
         public abstract void Execute();
-        public abstract void Unexcute();
+
+        // unexecute
+        public abstract void ExecuteBack();
     }
 }

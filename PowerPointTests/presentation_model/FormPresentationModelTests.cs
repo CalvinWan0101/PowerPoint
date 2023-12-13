@@ -68,6 +68,20 @@ namespace PowerPoint.presentation_model.Tests
         }
 
         [TestMethod]
+        public void draw_ratio() 
+        {
+            _prModel.DrawRatio = 2;
+            Assert.AreEqual(2, _prModel.DrawRatio);
+        }
+
+        [TestMethod]
+        public void preview_draw_ratio()
+        {
+            _prModel.PreviewDrawRatio = 2;
+            Assert.AreEqual(2, _prModel.PreviewDrawRatio);
+        }
+
+        [TestMethod]
         public void draw_shape_and_preview()
         {
             _prModel.Draw(Graphics.FromImage(new Bitmap(50, 50)));

@@ -16,6 +16,7 @@ namespace PowerPoint.model
             _redoStack = new Stack<ICommand>();
         }
 
+        // execute
         public void ExecuteCommand(ICommand command)
         {
             command.Execute();
@@ -23,16 +24,18 @@ namespace PowerPoint.model
             _redoStack.Clear();
         }
 
+        // undo
         public void UndoCommand()
         {
             if (_undoStack.Count > 0)
             {
                 ICommand command = _undoStack.Pop();
-                command.Unexcute();
+                command.ExecuteBack();
                 _redoStack.Push(command);
             }
         }
 
+        // redo
         public void RedoCommand()
         {
             if (_redoStack.Count > 0)

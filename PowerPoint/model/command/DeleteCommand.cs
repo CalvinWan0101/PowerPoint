@@ -12,6 +12,7 @@ namespace PowerPoint.model.command
             _index = index;
         }
 
+        // execute
         public override void Execute()
         {
             _shape = _model.GetListOfShape()[_index];
@@ -19,7 +20,8 @@ namespace PowerPoint.model.command
             _model.NotifyModelChanged();
         }
 
-        public override void Unexcute()
+        // unexecute
+        public override void ExecuteBack()
         {
             _model.GetShapes().Add(_shape);
             _model.NotifyModelChanged();

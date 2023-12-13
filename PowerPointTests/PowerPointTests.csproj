@@ -58,6 +58,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="model\command\AddCommandTest.cs" />
+    <Compile Include="model\command\MoveCommandTest.cs" />
     <Compile Include="model\FactoryTests.cs" />
     <Compile Include="model\FakeModel.cs" />
     <Compile Include="model\ModelTests.cs" />

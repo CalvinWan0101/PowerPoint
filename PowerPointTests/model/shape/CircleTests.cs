@@ -36,6 +36,19 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
+        public void adjust_circle()
+        {
+            Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
+            Assert.AreEqual(new PointF(0, 0), circle.Point1);
+            Assert.AreEqual(new PointF(100, 100), circle.Point2);
+
+            circle.AdjustPoint(2);
+
+            Assert.AreEqual(new PointF(0, 0), circle.Point1);
+            Assert.AreEqual(new PointF(200, 200), circle.Point2);
+        }
+
+        [TestMethod]
         public void check_if_the_circle_contains_point()
         {
             Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
