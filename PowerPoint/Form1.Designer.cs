@@ -49,6 +49,7 @@ namespace PowerPoint
             this._splitContainer1 = new System.Windows.Forms.SplitContainer();
             this._splitContainer2 = new System.Windows.Forms.SplitContainer();
             this._panel = new PowerPoint.DoubleBufferedPanel();
+            this._newSlideButton = new System.Windows.Forms.ToolStripButton();
             this._slidePanel.SuspendLayout();
             this._slideDetailGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._shapesDataGridView)).BeginInit();
@@ -167,6 +168,7 @@ namespace PowerPoint
             this._rectangleButton,
             this._circleButton,
             this._mouseButton,
+            this._newSlideButton,
             this._undoButton,
             this._redoButton});
             this._toolBar.Location = new System.Drawing.Point(0, 24);
@@ -286,6 +288,15 @@ namespace PowerPoint
             this._panel.MouseEnter += new System.EventHandler(this.PanelMouseEnter);
             this._panel.MouseLeave += new System.EventHandler(this.PanelMouseLeave);
             // 
+            // _newSlideButton
+            // 
+            this._newSlideButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._newSlideButton.Image = ((System.Drawing.Image)(resources.GetObject("_newSlideButton.Image")));
+            this._newSlideButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._newSlideButton.Name = "_newSlideButton";
+            this._newSlideButton.Size = new System.Drawing.Size(23, 22);
+            this._newSlideButton.Text = "toolStripButton1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,6 +349,7 @@ namespace PowerPoint
         private System.Windows.Forms.ToolStripButton _redoButton;
         private System.Windows.Forms.SplitContainer _splitContainer1;
         private System.Windows.Forms.SplitContainer _splitContainer2;
+        private System.Windows.Forms.ToolStripButton _newSlideButton;
     }
 }
 
