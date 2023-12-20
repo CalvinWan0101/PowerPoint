@@ -14,6 +14,9 @@ namespace PowerPoint.model
         public event ModelChangedEventHandler _modelChanged;
         public delegate void ModelChangedEventHandler();
 
+        public event PropertyChangedEventHandler _redoUndoChanged;
+        public delegate void PropertyChangedEventHandler();
+
         private Random _random = new Random();
         const int X_MAX = 640;
         const int Y_MAX = 360;
@@ -34,6 +37,47 @@ namespace PowerPoint.model
             _commandManager = new CommandManager(this);
             _state = _drawingState;
             _mouseButtonChecked = false;
+        }
+
+        // notify property changed
+        public void NotifyRedoUndoChanged()
+        {
+            if (_redoUndoChanged != null)
+            {
+                _redoUndoChanged();
+            }
+        }
+
+        // redo undo button enabled
+        private bool _redoButtonEnabled = false;
+        private bool _undoButtonEnabled = false;
+
+        // the getter and setter of redo button enabled
+        public bool RedoButtonEnabled
+        {
+            get
+            {
+                return _redoButtonEnabled;
+            }
+            set
+            {
+                _redoButtonEnabled = value;
+                NotifyRedoUndoChanged();
+            }
+        }
+
+        // the getter and setter of undo button enabled
+        public bool UndoButtonEnabled
+        {
+            get
+            {
+                return _undoButtonEnabled;
+            }
+            set
+            {
+                _undoButtonEnabled = value;
+                NotifyRedoUndoChanged();
+            }
         }
 
         // mouse button checked
@@ -221,7 +265,10 @@ namespace PowerPoint.model
             {
                 if (i == _pointState.TargetIndex)
                 {
-                    GetListOfShape()[i].DrawSelected(graphics);
+                    if (GetListOfShape()[i] != null)
+                    {
+                        GetListOfShape()[i].DrawSelected(graphics);
+                    }
                 }
                 else
                 {

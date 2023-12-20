@@ -75,6 +75,7 @@ namespace PowerPoint
 
             // button click
             _presentationModel.PropertyChanged += UpdateButtonStatus;
+            _model._redoUndoChanged += UpdateRedoUndoButtonStatus;
 
             // delete the shape
             this.KeyPreview = true;
@@ -89,6 +90,9 @@ namespace PowerPoint
             _splitContainer2.FixedPanel = FixedPanel.Panel2;
 
             _panelWidthRecord = _panel.Width;
+
+            _undoButton.Enabled = false;
+            _redoButton.Enabled = false;
         }
         // function for create
         private void CreateNewShapeButtonClick(object sender, EventArgs e)
@@ -128,6 +132,13 @@ namespace PowerPoint
             _rectangleButton.Checked = _presentationModel.RectangleButtonChecked;
             _circleButton.Checked = _presentationModel.CircleButtonChecked;
             _mouseButton.Checked = _presentationModel.MouseButtonChecked;
+        }
+
+        // update redo undo button status
+        private void UpdateRedoUndoButtonStatus()
+        {
+            _undoButton.Enabled = _model.UndoButtonEnabled;
+            _redoButton.Enabled = _model.RedoButtonEnabled;
         }
 
         // line button click
