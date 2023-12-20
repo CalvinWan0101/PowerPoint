@@ -55,6 +55,7 @@
     <Compile Include="model\command\AddCommand.cs" />
     <Compile Include="model\command\DeleteCommand.cs" />
     <Compile Include="model\command\MoveCommand.cs" />
+    <Compile Include="model\command\ZoomCommand.cs" />
     <Compile Include="model\Factory.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

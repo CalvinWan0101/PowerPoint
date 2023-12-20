@@ -179,10 +179,11 @@ namespace PowerPoint.model.state
         private void IsZoomMouseRelease(PointF point)
         {
             _isZoom = false;
-            _model.GetListOfShape()[_targetIndex].Zoom(point);
-            _model.GetListOfShape()[_targetIndex].UpdatePoint();
-            _pointA = point;
-            _model.NotifyModelChanged();
+            //_model.GetListOfShape()[_targetIndex].Zoom(point);
+            //_model.GetListOfShape()[_targetIndex].UpdatePoint();
+            //_pointA = point;
+            //_model.NotifyModelChanged();
+            _model.ZoomCommand(_targetIndex, point);
         }
 
         // mouse release when mouse not release

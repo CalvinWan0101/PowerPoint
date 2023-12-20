@@ -273,5 +273,11 @@ namespace PowerPoint.model
         {
             _commandManager.ExecuteCommand(new MoveCommand(this, targetIndex, point1, point2, _pointState.PointRecord1, _pointState.PointRecord2, _pointState.DrawPointRecord1, _pointState.DrawPointRecord2));
         }
+
+        // zoom command
+        public void ZoomCommand(int targetIndex, PointF endPoint)
+        {
+            _commandManager.ExecuteCommand(new ZoomCommand(this, targetIndex, endPoint, _pointState.PointRecord1, _pointState.PointRecord2, _pointState.DrawPointRecord1, _pointState.DrawPointRecord2));
+        }
     }
 }

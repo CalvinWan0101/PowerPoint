@@ -39,7 +39,14 @@ namespace PowerPoint.model
         // get shape by index
         public Shape GetShapeByIndex(int index)
         {
-            return _shapes[index];
+            if (index != -1)
+            {
+                return _shapes[index];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         // update hint
