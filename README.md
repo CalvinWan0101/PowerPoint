@@ -25,4 +25,5 @@ This is a imitation of power point.
 |hw4|30 hrs|[hw4.pdf](./homework/hw4.pdf)
 |hw5|46 hrs|[hw5.pdf](./homework/hw5.pdf)
 |hw6|26 hrs|[hw6.pdf](./homework/hw6.pdf)
+|hw7|00 hrs|[hw7.pdf](./homework/hw7.pdf)
 |Total|143 hrs||
