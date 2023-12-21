@@ -74,6 +74,8 @@ namespace PowerPoint
             _slide1.SizeChanged += HandleModelChangedDraw;
             _panel.SizeChanged += HandleModelChangedDraw;
 
+            _slide1.MouseClick += PreviewSlideClick;
+
             // button click
             _presentationModel.PropertyChanged += UpdateButtonStatus;
             _model._redoUndoChanged += UpdateRedoUndoButtonStatus;
@@ -202,6 +204,16 @@ namespace PowerPoint
         {
             _panel.Invalidate(true);
             _slide1.Invalidate(true);
+            foreach (Control control in _slidePanel.Controls)
+            {
+                if (control is Button button)
+                {
+                    if (button.TabStop)
+                    { 
+                        button.Invalidate(true);
+                    }
+                }
+            }
         }
 
         // function to handle the change of model
@@ -293,26 +305,43 @@ namespace PowerPoint
             _model.Redo();
         }
 
+        private int _buttonCount = 1;
+
         private void PressNewSlideButton(object sender, EventArgs e)
         {
-            // Create a new button
+            _buttonCount++;
             Button newButton = new Button();
-
+            newButton.Name = "_slide" + _buttonCount;
             newButton.BackColor = Color.White;
-
-            // Copy properties from _slide1 to the new button
-            newButton.Text = _slide1.Text;
             newButton.Size = _slide1.Size;
             newButton.Location = new Point(_lastButton.Location.X, _lastButton.Location.Y + _lastButton.Height + 10); // 10 is the space between the buttons
             newButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 
-            // Add the new button to the same parent control as _slide1
+            newButton.TabStop = false;
+
             _slide1.Parent.Controls.Add(newButton);
 
             newButton.SizeChanged += PreviewSlideAutoSize;
 
-            // Update the last button
             _lastButton = newButton;
+
+            newButton.Click += new EventHandler(PreviewSlideClick);
+        }
+
+        private void PreviewSlideClick(object sender, EventArgs e)
+        {
+            foreach (Control control in _slidePanel.Controls)
+            {
+                if (control is Button button)
+                {
+                    button.TabStop = false;
+                }
+            }
+            Button clickedButton = (Button)sender;
+            clickedButton.TabStop = true;
+
+            _model.TargetIndex = -1;
+            _model.NotifyModelChanged();
         }
     }
 }

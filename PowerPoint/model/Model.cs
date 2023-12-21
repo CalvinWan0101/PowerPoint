@@ -195,6 +195,7 @@ namespace PowerPoint.model
             set
             {
                 _targetIndex = value;
+                _pointState.TargetIndex = value;
             }
         }
 
