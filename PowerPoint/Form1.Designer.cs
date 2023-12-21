@@ -32,6 +32,7 @@ namespace PowerPoint
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this._slidePanel = new System.Windows.Forms.Panel();
             this._slide1 = new System.Windows.Forms.Button();
+            this._lastButton = _slide1;
             this._createNewShape = new System.Windows.Forms.Button();
             this._addNewShapeSelector = new System.Windows.Forms.ComboBox();
             this._slideDetailGroupBox = new System.Windows.Forms.GroupBox();
@@ -44,12 +45,12 @@ namespace PowerPoint
             this._rectangleButton = new System.Windows.Forms.ToolStripButton();
             this._circleButton = new System.Windows.Forms.ToolStripButton();
             this._mouseButton = new System.Windows.Forms.ToolStripButton();
+            this._newSlideButton = new System.Windows.Forms.ToolStripButton();
             this._undoButton = new System.Windows.Forms.ToolStripButton();
             this._redoButton = new System.Windows.Forms.ToolStripButton();
             this._splitContainer1 = new System.Windows.Forms.SplitContainer();
             this._splitContainer2 = new System.Windows.Forms.SplitContainer();
             this._panel = new PowerPoint.DoubleBufferedPanel();
-            this._newSlideButton = new System.Windows.Forms.ToolStripButton();
             this._slidePanel.SuspendLayout();
             this._slideDetailGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._shapesDataGridView)).BeginInit();
@@ -217,6 +218,16 @@ namespace PowerPoint
             this._mouseButton.Text = "toolStripButton1";
             this._mouseButton.Click += new System.EventHandler(this.ClickMouseButton);
             // 
+            // _newSlideButton
+            // 
+            this._newSlideButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._newSlideButton.Image = ((System.Drawing.Image)(resources.GetObject("_newSlideButton.Image")));
+            this._newSlideButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._newSlideButton.Name = "_newSlideButton";
+            this._newSlideButton.Size = new System.Drawing.Size(23, 22);
+            this._newSlideButton.Text = "toolStripButton1";
+            this._newSlideButton.Click += new System.EventHandler(this.PressNewSlideButton);
+            // 
             // _undoButton
             // 
             this._undoButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -288,15 +299,6 @@ namespace PowerPoint
             this._panel.MouseEnter += new System.EventHandler(this.PanelMouseEnter);
             this._panel.MouseLeave += new System.EventHandler(this.PanelMouseLeave);
             // 
-            // _newSlideButton
-            // 
-            this._newSlideButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this._newSlideButton.Image = ((System.Drawing.Image)(resources.GetObject("_newSlideButton.Image")));
-            this._newSlideButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._newSlideButton.Name = "_newSlideButton";
-            this._newSlideButton.Size = new System.Drawing.Size(23, 22);
-            this._newSlideButton.Text = "toolStripButton1";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,6 +337,7 @@ namespace PowerPoint
         private System.Windows.Forms.ComboBox _addNewShapeSelector;
         private System.Windows.Forms.GroupBox _slideDetailGroupBox;
         private System.Windows.Forms.Button _slide1;
+        private System.Windows.Forms.Button _lastButton;
         private System.Windows.Forms.MenuStrip _headMenu;
         private System.Windows.Forms.ToolStripMenuItem _headMenuHelp;
         private System.Windows.Forms.ToolStripMenuItem _headMenuAbout;

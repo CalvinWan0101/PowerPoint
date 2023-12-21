@@ -4,6 +4,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskBand;
 
 namespace PowerPoint
 {
@@ -267,8 +268,17 @@ namespace PowerPoint
         // slide preview auto size
         private void PreviewSlideAutoSize(object sender, EventArgs e)
         {
-            _slide1.Size = new Size(_slide1.Width, _slide1.Width * NINE / SIXTEEN);
-            _presentationModel.PreviewDrawRatio = (float)_slide1.Width / (float)_panel.Width;
+            int y = _slide1.Location.Y;
+            foreach (Control control in _slidePanel.Controls)
+            {
+                if (control is Button button)
+                {
+                    button.Size = new Size(button.Width, button.Width * NINE / SIXTEEN);
+                    button.Location = new Point(button.Location.X, y);
+                    y += button.Height + 10; // 10 is the space between the buttons
+                }
+            }
+            _presentationModel.PreviewDrawRatio = (float)_slidePanel.Width / (float)_panel.Width;
         }
 
         // press undo button
@@ -281,6 +291,28 @@ namespace PowerPoint
         private void PressRedoButton(object sender, EventArgs e)
         {
             _model.Redo();
+        }
+
+        private void PressNewSlideButton(object sender, EventArgs e)
+        {
+            // Create a new button
+            Button newButton = new Button();
+
+            newButton.BackColor = Color.White;
+
+            // Copy properties from _slide1 to the new button
+            newButton.Text = _slide1.Text;
+            newButton.Size = _slide1.Size;
+            newButton.Location = new Point(_lastButton.Location.X, _lastButton.Location.Y + _lastButton.Height + 10); // 10 is the space between the buttons
+            newButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
+            // Add the new button to the same parent control as _slide1
+            _slide1.Parent.Controls.Add(newButton);
+
+            newButton.SizeChanged += PreviewSlideAutoSize;
+
+            // Update the last button
+            _lastButton = newButton;
         }
     }
 }
