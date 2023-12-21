@@ -203,15 +203,12 @@ namespace PowerPoint
         public void HandleModelChanged()
         {
             _panel.Invalidate(true);
-            _slide1.Invalidate(true);
+            //_slide1.Invalidate(true);
             foreach (Control control in _slidePanel.Controls)
             {
                 if (control is Button button)
                 {
-                    if (button.TabStop)
-                    { 
-                        button.Invalidate(true);
-                    }
+                    button.Invalidate(true);
                 }
             }
         }
@@ -220,7 +217,14 @@ namespace PowerPoint
         public void HandleModelChangedDraw(object sender, EventArgs e)
         {
             _panel.Invalidate(true);
-            _slide1.Invalidate(true);
+            //_slide1.Invalidate(true);
+            foreach (Control control in _slidePanel.Controls)
+            {
+                if (control is Button button)
+                {
+                    button.Invalidate(true);
+                }
+            }
         }
 
         // when mouse enter the panel
@@ -316,8 +320,7 @@ namespace PowerPoint
             newButton.Size = _slide1.Size;
             newButton.Location = new Point(_lastButton.Location.X, _lastButton.Location.Y + _lastButton.Height + 10); // 10 is the space between the buttons
             newButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-
-            newButton.TabStop = false;
+            newButton.Paint += HandleSlidePaint;
 
             _slide1.Parent.Controls.Add(newButton);
 
@@ -334,11 +337,11 @@ namespace PowerPoint
             {
                 if (control is Button button)
                 {
-                    button.TabStop = false;
+                    button.BackColor = Color.White;
                 }
             }
             Button clickedButton = (Button)sender;
-            clickedButton.TabStop = true;
+            clickedButton.BackColor = Color.BlueViolet;
 
             _model.TargetIndex = -1;
             _model.NotifyModelChanged();
