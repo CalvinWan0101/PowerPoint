@@ -101,6 +101,20 @@ namespace PowerPoint.model
             }
         }
 
+        private int _slideIndex = -1;
+
+        public int SlideIndex
+        {
+            get
+            {
+                return _slideIndex;
+            }
+            set
+            {
+                _slideIndex = value;
+            }
+        }
+
         // for the test
         public bool IsClickTheRightBottomCorner(PointF point)
         {

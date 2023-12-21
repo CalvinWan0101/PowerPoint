@@ -96,6 +96,9 @@ namespace PowerPoint
 
             _undoButton.Enabled = false;
             _redoButton.Enabled = false;
+
+            _slide1.BackColor = Color.BlueViolet;
+            _model.SlideIndex = 0;
         }
         // function for create
         private void CreateNewShapeButtonClick(object sender, EventArgs e)
@@ -264,7 +267,15 @@ namespace PowerPoint
         {
             if (e.KeyCode == Keys.Delete)
             {
-                _model.PressDeleteKey();
+                if (_model.TargetIndex == -1 && _model.SlideIndex != -1)
+                {
+                    _slidePanel.Controls.RemoveAt(_model.SlideIndex);
+                    _model.SlideIndex = -1;
+                }
+                else
+                {
+                    _model.PressDeleteKey();
+                }
             }
         }
 
@@ -289,12 +300,13 @@ namespace PowerPoint
             {
                 if (control is Button button)
                 {
+                    button.Width = _splitContainer1.Panel1.Width - 5;
                     button.Size = new Size(button.Width, button.Width * NINE / SIXTEEN);
                     button.Location = new Point(button.Location.X, y);
-                    y += button.Height + 10; // 10 is the space between the buttons
+                    y += button.Height + 10;
                 }
             }
-            _presentationModel.PreviewDrawRatio = (float)_slidePanel.Width / (float)_panel.Width;
+            _presentationModel.PreviewDrawRatio = (float)_slide1.Width / (float)_panel.Width;
         }
 
         // press undo button
@@ -322,7 +334,7 @@ namespace PowerPoint
             newButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             newButton.Paint += HandleSlidePaint;
 
-            _slide1.Parent.Controls.Add(newButton);
+            _slidePanel.Controls.Add(newButton);
 
             newButton.SizeChanged += PreviewSlideAutoSize;
 
@@ -342,9 +354,16 @@ namespace PowerPoint
             }
             Button clickedButton = (Button)sender;
             clickedButton.BackColor = Color.BlueViolet;
-
             _model.TargetIndex = -1;
+            _model.SlideIndex = _slidePanel.Controls.GetChildIndex(clickedButton);
             _model.NotifyModelChanged();
+            foreach (Control control in _slidePanel.Controls)
+            {
+                if (control is Button button)
+                {
+                    Console.WriteLine(button.Name + " " + _slidePanel.Controls.GetChildIndex(button));
+                }
+            }
         }
     }
 }
