@@ -22,6 +22,7 @@ namespace PowerPoint.model
         const int Y_MAX = 360;
 
         private Shapes _shapes;
+        private List<Shapes> _slides;
         private IState _state;
         private DrawingState _drawingState;
         private PointState _pointState;

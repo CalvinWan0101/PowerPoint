@@ -53,6 +53,7 @@
     </Compile>
     <Compile Include="model\CommandManager.cs" />
     <Compile Include="model\command\AddCommand.cs" />
+    <Compile Include="model\command\AddSlideCommand.cs" />
     <Compile Include="model\command\DeleteCommand.cs" />
     <Compile Include="model\command\MoveCommand.cs" />
     <Compile Include="model\command\ZoomCommand.cs" />

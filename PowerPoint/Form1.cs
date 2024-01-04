@@ -357,13 +357,13 @@ namespace PowerPoint
             _model.TargetIndex = -1;
             _model.SlideIndex = _slidePanel.Controls.GetChildIndex(clickedButton);
             _model.NotifyModelChanged();
-            foreach (Control control in _slidePanel.Controls)
-            {
-                if (control is Button button)
-                {
-                    Console.WriteLine(button.Name + " " + _slidePanel.Controls.GetChildIndex(button));
-                }
-            }
+            //foreach (Control control in _slidePanel.Controls)
+            //{
+            //    if (control is Button button)
+            //    {
+            //        Console.WriteLine(button.Name + " " + _slidePanel.Controls.GetChildIndex(button));
+            //    }
+            //}
         }
     }
 }
