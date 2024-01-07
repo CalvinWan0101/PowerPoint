@@ -21,7 +21,7 @@ namespace PowerPoint.model
         const int X_MAX = 640;
         const int Y_MAX = 360;
 
-        private Shapes _shapes;
+        //private Shapes _shapes;
         private List<Shapes> _slides;
         private IState _state;
         private DrawingState _drawingState;
@@ -32,12 +32,15 @@ namespace PowerPoint.model
 
         public Model()
         {
-            _shapes = new Shapes();
+            //_shapes = new Shapes();
+            _slides = new List<Shapes>();
+            _slides.Add(new Shapes());
             _drawingState = new DrawingState(this);
             _pointState = new PointState(this);
             _commandManager = new CommandManager(this);
             _state = _drawingState;
             _mouseButtonChecked = false;
+            _slideIndex = 0;
         }
 
         // notify property changed
@@ -160,7 +163,8 @@ namespace PowerPoint.model
         // clear all the shape
         public virtual void Clear()
         {
-            _shapes.Clear();
+            //_shapes.Clear();
+            _slides[SlideIndex].Clear();
             NotifyModelChanged();
         }
 
@@ -232,31 +236,31 @@ namespace PowerPoint.model
         // get list of shape
         public BindingList<Shape> GetListOfShape()
         {
-            return _shapes.GetListOfShape();
+            return _slides[SlideIndex].GetListOfShape();
         }
 
         // get shapes
         public Shapes GetShapes()
         {
-            return _shapes;
+            return _slides[SlideIndex];
         }
 
         // get last shape
         public Shape GetLastShape()
         {
-            return GetShapeByIndex(_shapes.GetLength() - 1);
+            return GetShapeByIndex(_slides[SlideIndex].GetLength() - 1);
         }
 
         // get shape by index
         public Shape GetShapeByIndex(int index)
         {
-            return _shapes.GetShapeByIndex(index);
+            return _slides[SlideIndex].GetShapeByIndex(index);
         }
 
         // remove shape by index
         public void RemoveShapeByIndex(int index)
         {
-            _shapes.Remove(index);
+            _slides[SlideIndex].Remove(index);
         }
 
         // remove shape by id
@@ -341,6 +345,12 @@ namespace PowerPoint.model
         public void ZoomCommand(int targetIndex, PointF endPoint)
         {
             _commandManager.ExecuteCommand(new ZoomCommand(this, targetIndex, endPoint, _pointState.PointRecord1, _pointState.PointRecord2, _pointState.DrawPointRecord1, _pointState.DrawPointRecord2));
+        }
+
+        // add shapes
+        public void AddShapes()
+        {
+            _slides.Add(new Shapes());
         }
     }
 }

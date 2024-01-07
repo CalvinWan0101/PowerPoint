@@ -199,7 +199,9 @@ namespace PowerPoint
         // function to handle preview paint
         public void HandleSlidePaint(object sender, PaintEventArgs e)
         {
-            _presentationModel.PreviewDraw(e.Graphics);
+            Button button = sender as Button;
+            if (_slidePanel.Controls.GetChildIndex(button) == _model.SlideIndex)
+                _presentationModel.PreviewDraw(e.Graphics);
         }
 
         // function to handle the change of model
@@ -341,6 +343,7 @@ namespace PowerPoint
             _lastButton = newButton;
 
             newButton.Click += new EventHandler(PreviewSlideClick);
+            _model.AddShapes();
         }
 
         private void PreviewSlideClick(object sender, EventArgs e)
@@ -357,13 +360,8 @@ namespace PowerPoint
             _model.TargetIndex = -1;
             _model.SlideIndex = _slidePanel.Controls.GetChildIndex(clickedButton);
             _model.NotifyModelChanged();
-            //foreach (Control control in _slidePanel.Controls)
-            //{
-            //    if (control is Button button)
-            //    {
-            //        Console.WriteLine(button.Name + " " + _slidePanel.Controls.GetChildIndex(button));
-            //    }
-            //}
+            _shapesDataGridView.DataSource = _model.GetListOfShape();
+
         }
     }
 }
