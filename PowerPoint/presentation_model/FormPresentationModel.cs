@@ -131,13 +131,13 @@ namespace PowerPoint.presentation_model
         // draw all the shape
         public void Draw(Graphics graphics)
         {
-            _model.Draw(new FormGraphicsAdaptor(graphics));
+            _model.Draw(new FormGraphicsAdaptor(graphics), _model.SlideIndex);
         }
 
         // preview draw
-        public void PreviewDraw(Graphics graphics)
+        public void PreviewDraw(Graphics graphics, int slideIndex)
         {
-            _model.Draw(new PreviewGraphicsAdaptor(graphics, PreviewDrawRatio));
+            _model.Draw(new PreviewGraphicsAdaptor(graphics, PreviewDrawRatio), slideIndex);
         }
 
         // line button click

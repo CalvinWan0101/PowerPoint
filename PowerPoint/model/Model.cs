@@ -239,6 +239,12 @@ namespace PowerPoint.model
             return _slides[SlideIndex].GetListOfShape();
         }
 
+        // get list of shape by index
+        public BindingList<Shape> GetListOfShapeByIndex(int index)
+        {
+            return _slides[index].GetListOfShape();
+        }
+
         // get shapes
         public Shapes GetShapes()
         {
@@ -278,26 +284,29 @@ namespace PowerPoint.model
         }
 
         // draw all the shape
-        public virtual void Draw(IGraphics graphics)
+        public virtual void Draw(IGraphics graphics, int slideIndex)
         {
             graphics.ClearAll();
-            for (int i = 0; i < GetListOfShape().Count; i++)
+            for (int i = 0; i < GetListOfShapeByIndex(slideIndex).Count; i++)
             {
                 if (i == _pointState.TargetIndex)
                 {
-                    if (GetListOfShape()[i] != null)
+                    if (GetListOfShapeByIndex(slideIndex)[i] != null && slideIndex == SlideIndex)
                     {
-                        GetListOfShape()[i].DrawSelected(graphics);
+                        GetListOfShapeByIndex(slideIndex)[i].DrawSelected(graphics);
                     }
+                    GetListOfShapeByIndex(slideIndex)[i].Draw(graphics);
                 }
                 else
                 {
-                    GetListOfShape()[i].Draw(graphics);
+                    GetListOfShapeByIndex(slideIndex)[i].Draw(graphics);
                 }
             }
 
-            if (_drawingState.IsMousePressed && GetShapes().GetHint() != null)
+            if (_drawingState.IsMousePressed && GetShapes().GetHint() != null && slideIndex == SlideIndex)
+            {
                 GetShapes().GetHint().Draw(graphics);
+            }
         }
 
         // update all the shape

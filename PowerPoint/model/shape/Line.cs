@@ -155,7 +155,6 @@ namespace PowerPoint.model.shape
         // function to draw the selected line
         public override void DrawSelected(IGraphics graphics)
         {
-            graphics.DrawLine(DrawPoint1, DrawPoint2);
             graphics.DrawSelectedShape(Point1, Point2);
         }
     }

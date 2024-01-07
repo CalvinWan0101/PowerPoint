@@ -200,8 +200,10 @@ namespace PowerPoint
         public void HandleSlidePaint(object sender, PaintEventArgs e)
         {
             Button button = sender as Button;
-            if (_slidePanel.Controls.GetChildIndex(button) == _model.SlideIndex)
-                _presentationModel.PreviewDraw(e.Graphics);
+            foreach (Control control in _slidePanel.Controls)
+            {
+                _presentationModel.PreviewDraw(e.Graphics, _slidePanel.Controls.GetChildIndex(button));
+            }
         }
 
         // function to handle the change of model
@@ -227,7 +229,10 @@ namespace PowerPoint
             {
                 if (control is Button button)
                 {
-                    button.Invalidate(true);
+                    if (_slidePanel.Controls.GetChildIndex(button) == _model.SlideIndex)
+                    {
+                        button.Invalidate(true);
+                    }
                 }
             }
         }

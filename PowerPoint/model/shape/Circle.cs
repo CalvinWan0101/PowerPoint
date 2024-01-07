@@ -55,7 +55,6 @@ namespace PowerPoint.model.shape
         // function to draw the selected circle
         public override void DrawSelected(IGraphics graphics)
         {
-            graphics.DrawCircle(Point1, Point2);
             graphics.DrawSelectedShape(Point1, Point2);
         }
     }

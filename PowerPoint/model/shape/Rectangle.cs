@@ -55,7 +55,6 @@ namespace PowerPoint.model.shape
         // function to draw the selected rectangle
         public override void DrawSelected(IGraphics graphics)
         {
-            graphics.DrawRectangle(Point1, Point2);
             graphics.DrawSelectedShape(Point1, Point2);
         }
     }
