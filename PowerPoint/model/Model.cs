@@ -239,6 +239,12 @@ namespace PowerPoint.model
             return _slides[SlideIndex].GetListOfShape();
         }
 
+        // get list of shape
+        public BindingList<Shape> GetListOfShape(int slideIndex)
+        {
+            return _slides[slideIndex].GetListOfShape();
+        }
+
         // get list of shape by index
         public BindingList<Shape> GetListOfShapeByIndex(int index)
         {
