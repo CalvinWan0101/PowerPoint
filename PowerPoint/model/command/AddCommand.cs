@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace PowerPoint.model.command
 {
@@ -9,6 +10,7 @@ namespace PowerPoint.model.command
         private string _shapeName;
         private PointF[] _position = new PointF[TWO];
         private string _id;
+        private int _slideIndex;
 
         public string Id
         {
@@ -26,20 +28,22 @@ namespace PowerPoint.model.command
         {
             _shapeName = shapeName;
             _position = position;
+            _slideIndex = model.SlideIndex;
         }
 
         // execute
         public override void Execute()
         {
-            _model.GetShapes().Add(_shapeName, _position);
-            _id = _model.GetLastShape().Id;
+            _model.GetShapes(_slideIndex).Add(_shapeName, _position);
+            _id = _model.GetLastShape(_slideIndex).Id;
             _model.NotifyModelChanged();
         }
 
         // unexecute
         public override void ExecuteBack()
         {
-            _model.RemoveShapeById(_id);
+            Console.WriteLine(_slideIndex);
+            _model.RemoveShapeById(_slideIndex, _id);
         }
     }
 }

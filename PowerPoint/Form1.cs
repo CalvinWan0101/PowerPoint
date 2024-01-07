@@ -347,14 +347,11 @@ namespace PowerPoint
             newButton.Location = new Point(_lastButton.Location.X, _lastButton.Location.Y + _lastButton.Height + 10); // 10 is the space between the buttons
             newButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             newButton.Paint += HandleSlidePaint;
+            newButton.SizeChanged += PreviewSlideAutoSize;
+            newButton.Click += new EventHandler(PreviewSlideClick);
 
             _slidePanel.Controls.Add(newButton);
-
-            newButton.SizeChanged += PreviewSlideAutoSize;
-
             _lastButton = newButton;
-
-            newButton.Click += new EventHandler(PreviewSlideClick);
             _model.AddShapes();
         }
 

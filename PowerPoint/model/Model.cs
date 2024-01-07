@@ -251,6 +251,12 @@ namespace PowerPoint.model
             return _slides[SlideIndex];
         }
 
+        // get shapes
+        public Shapes GetShapes(int slideIndex)
+        {
+            return _slides[slideIndex];
+        }
+
         // remove shapes
         public void RemoveShapes(int target)
         {
@@ -263,10 +269,22 @@ namespace PowerPoint.model
             return GetShapeByIndex(_slides[SlideIndex].GetLength() - 1);
         }
 
+        // get last shape
+        public Shape GetLastShape(int slideIndex)
+        {
+            return _slides[slideIndex].GetShapeByIndex(_slides[slideIndex].GetLength() - 1);
+        }
+
         // get shape by index
         public Shape GetShapeByIndex(int index)
         {
             return _slides[SlideIndex].GetShapeByIndex(index);
+        }
+
+        // get shape by slide and index
+        public Shape GetShapeByIndex(int slide, int index)
+        {
+            return _slides[slide].GetShapeByIndex(index);
         }
 
         // remove shape by index
@@ -275,14 +293,20 @@ namespace PowerPoint.model
             _slides[SlideIndex].Remove(index);
         }
 
-        // remove shape by id
-        public void RemoveShapeById(string id)
+        // remove shape by slide and index
+        public void RemoveShapeByIndex(int silde, int index)
         {
-            for (int i = 0; i < GetListOfShape().Count; i++)
+            _slides[silde].Remove(index);
+        }
+
+        // remove shape by id
+        public void RemoveShapeById(int slideIndex, string id)
+        {
+            for (int i = 0; i < GetListOfShapeByIndex(slideIndex).Count; i++)
             {
-                if (GetShapeByIndex(i).Id == id)
+                if (GetShapeByIndex(slideIndex, i).Id == id)
                 {
-                    RemoveShapeByIndex(i);
+                    RemoveShapeByIndex(slideIndex, i);
                     break;
                 }
             }
@@ -360,6 +384,12 @@ namespace PowerPoint.model
         public void ZoomCommand(int targetIndex, PointF endPoint)
         {
             _commandManager.ExecuteCommand(new ZoomCommand(this, targetIndex, endPoint, _pointState.PointRecord1, _pointState.PointRecord2, _pointState.DrawPointRecord1, _pointState.DrawPointRecord2));
+        }
+
+        // add slide command
+        public void AddSlideCommand()
+        {
+            _commandManager.ExecuteCommand(new AddSlideCommand(this));
         }
 
         // add shapes
