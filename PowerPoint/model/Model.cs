@@ -251,6 +251,12 @@ namespace PowerPoint.model
             return _slides[SlideIndex];
         }
 
+        // remove shapes
+        public void RemoveShapes(int target)
+        {
+            _slides.RemoveAt(target);
+        }
+
         // get last shape
         public Shape GetLastShape()
         {

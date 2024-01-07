@@ -272,6 +272,13 @@ namespace PowerPoint
         // press delete key
         private void PressDeleteKey(object sender, KeyEventArgs e)
         {
+            if (_model.SlideIndex != -1 && _model.TargetIndex == -1)
+            {
+                _model.RemoveShapes(_model.SlideIndex);
+                if (_model.SlideIndex - 1 >= 0)
+                    _model.SlideIndex -= 1;
+            }
+
             if (e.KeyCode == Keys.Delete)
             {
                 if (_model.TargetIndex == -1 && _model.SlideIndex != -1)
