@@ -25,7 +25,6 @@ namespace PowerPoint.model
         public event DeleteSlideEventHandler _slideDeleted;
         public delegate void DeleteSlideEventHandler();
 
-
         private Random _random = new Random();
         const int X_MAX = 640;
         const int Y_MAX = 360;

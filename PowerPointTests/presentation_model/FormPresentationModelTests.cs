@@ -85,7 +85,7 @@ namespace PowerPoint.presentation_model.Tests
         public void draw_shape_and_preview()
         {
             _prModel.Draw(Graphics.FromImage(new Bitmap(50, 50)));
-            _prModel.PreviewDraw(Graphics.FromImage(new Bitmap(50, 50)));
+            _prModel.PreviewDraw(Graphics.FromImage(new Bitmap(50, 50)), 0);
             Assert.AreEqual(2, _fakeModel.DrawUsed);
         }
 

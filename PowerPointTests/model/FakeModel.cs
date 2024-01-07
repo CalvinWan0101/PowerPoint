@@ -109,7 +109,7 @@ namespace PowerPointTests.model
         }
 
         // draw all the shape
-        public override void Draw(IGraphics graphics)
+        public override void Draw(IGraphics graphics, int slideIndex)
         {
             DrawUsed++;
         }

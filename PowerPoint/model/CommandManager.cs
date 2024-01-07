@@ -50,6 +50,7 @@ namespace PowerPoint.model
             UpdateRedoUndoButtonEnabled();
         }
 
+        // update redo undo button enabled
         private void UpdateRedoUndoButtonEnabled()
         {
             if (_undoStack.Count > 0)

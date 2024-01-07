@@ -4,7 +4,6 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskBand;
 
 namespace PowerPoint
 {
@@ -22,6 +21,7 @@ namespace PowerPoint
 
         private Model _model;
         private FormPresentationModel _presentationModel;
+        private int _slideIndex;
 
         public Form1(Model model)
         {
@@ -103,6 +103,21 @@ namespace PowerPoint
             _model._slideChanged += CreateSlide;
             _model._slideDeleted += RemoveSlide;
         }
+
+        // slide index
+        int SlideIndex
+        {
+            get
+            {
+                return _slideIndex;
+            }
+            set
+            {
+                _slideIndex = value;
+                _model.SlideIndex = value;
+            }
+        }
+
         // function for create
         private void CreateNewShapeButtonClick(object sender, EventArgs e)
         {
@@ -336,11 +351,13 @@ namespace PowerPoint
             _model.Redo();
         }
 
+        // press new slide button
         private void PressNewSlideButton(object sender, EventArgs e)
         {
             _model.AddSlideCommand();
         }
 
+        // create slide
         private void CreateSlide()
         {
             Button newButton = new Button();
@@ -355,11 +372,13 @@ namespace PowerPoint
             _lastButton = newButton;
         }
 
+        // remove slide
         private void RemoveSlide()
         { 
             _slidePanel.Controls.RemoveAt(_model.SlideIndex);
         }
 
+        // preview slide click
         private void PreviewSlideClick(object sender, EventArgs e)
         {
             foreach (Control control in _slidePanel.Controls)

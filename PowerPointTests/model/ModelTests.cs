@@ -165,7 +165,7 @@ namespace PowerPoint.model.test
             _model.GetShapes().AddHint();
 
             _pointState.TargetIndex = 1;
-            _model.Draw(graphic);
+            _model.Draw(graphic, 0);
 
             Assert.AreEqual(1, graphic.IsClearAll);
             Assert.AreEqual(3, graphic.IsLine);
@@ -183,7 +183,7 @@ namespace PowerPoint.model.test
             _model.MousePress(new PointF(100, 200));
             _model.MouseMove(new PointF(200, 100));
             _pointState.TargetIndex = -1;
-            _model.Draw(graphic);
+            _model.Draw(graphic, 0);
 
             Assert.AreEqual(1, graphic.IsClearAll);
             Assert.AreEqual(0, graphic.IsLine);
@@ -234,7 +234,7 @@ namespace PowerPoint.model.test
             Assert.AreEqual("Rectangle", shapes[2].Name);
 
             string id = shapes[1].Id;
-            _model.RemoveShapeById(id);
+            _model.RemoveShapeById(0, id);
 
             Assert.AreEqual(2, shapes.Count);
             Assert.AreEqual("Circle", shapes[0].Name);

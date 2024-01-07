@@ -7,19 +7,14 @@ namespace PowerPoint.model.command
     {
         const string COMMA = ", ";
         const string TEMPLATE = "({0:D3}, {1:D3})";
-
         private int _targetIndex;
-
-
         private PointF _originPoint1;
         private PointF _originPoint2;
         private PointF _originDrawPoint1;
         private PointF _originDrawPoint2;
-
         private PointF _endPoint;
         private PointF _point1;
         private PointF _point2;
-
         private int _slideIndex;
 
         public ZoomCommand(Model model, int targetIndex, PointF endPoint, PointF pointRecord1, PointF pointRecord2, PointF originDrawPoint1, PointF originDrawPoint2) : base(model)

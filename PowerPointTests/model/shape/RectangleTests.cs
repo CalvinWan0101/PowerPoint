@@ -127,7 +127,7 @@ namespace PowerPoint.model.shape.test
 
             Assert.AreEqual(0, graphic.IsLine);
             Assert.AreEqual(0, graphic.IsCircle);
-            Assert.AreEqual(1, graphic.IsRectangle);
+            Assert.AreEqual(0, graphic.IsRectangle);
             Assert.AreEqual(0, graphic.IsClearAll);
             Assert.AreEqual(1, graphic.IsSelectedShape);
         }
