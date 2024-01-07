@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Windows;
 
 namespace PowerPoint.model
 {
@@ -16,6 +18,13 @@ namespace PowerPoint.model
 
         public event PropertyChangedEventHandler _redoUndoChanged;
         public delegate void PropertyChangedEventHandler();
+
+        public event CreateSlideEventHandler _slideChanged;
+        public delegate void CreateSlideEventHandler();
+
+        public event DeleteSlideEventHandler _slideDeleted;
+        public delegate void DeleteSlideEventHandler();
+
 
         private Random _random = new Random();
         const int X_MAX = 640;
@@ -362,10 +371,52 @@ namespace PowerPoint.model
                 _modelChanged();
         }
 
+        // notify slide changed
+        public void NotifySlideChanged()
+        {
+            if (_slideChanged != null)
+                _slideChanged();
+        }
+
+        // notify slide deleted
+        public void NotifySlideDeleted()
+        {
+            if (_slideDeleted != null)
+                _slideDeleted();
+        }
+
         // press delete key
         public void PressDeleteKey()
         {
             _pointState.ClickDeleteButton();
+        }
+
+        // add slide
+        public void AddSlide()
+        {
+            AddShapes();
+            NotifyModelChanged();
+            NotifySlideChanged();
+        }
+
+        // add slide
+        public void AddSlide(int slideIndex, Shapes shapes)
+        {
+            AddShapes(slideIndex, shapes);
+            NotifyModelChanged();
+            NotifySlideChanged();
+        }
+
+        // remove slide
+        public void RemoveSlide(int slideIndex)
+        {
+            RemoveShapes(slideIndex);
+            if (SlideIndex - 1 >= 0)
+            {
+                SlideIndex -= 1;
+            }
+            NotifyModelChanged();
+            NotifySlideDeleted();
         }
 
         // undo
@@ -398,10 +449,22 @@ namespace PowerPoint.model
             _commandManager.ExecuteCommand(new AddSlideCommand(this));
         }
 
+        // delete slide command
+        public void DeleteSlideCommand(int slideIndex)
+        {
+            _commandManager.ExecuteCommand(new DeleteSlideCommand(this, slideIndex));
+        }
+
         // add shapes
         public void AddShapes()
         {
             _slides.Add(new Shapes());
+        }
+
+        // add shapes
+        public void AddShapes(int slideIndex, Shapes shapes)
+        {
+            _slides.Insert(slideIndex, shapes);
         }
     }
 }

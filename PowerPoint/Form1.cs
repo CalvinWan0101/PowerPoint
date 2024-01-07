@@ -99,6 +99,9 @@ namespace PowerPoint
 
             _slide1.BackColor = Color.BlueViolet;
             _model.SlideIndex = 0;
+
+            _model._slideChanged += CreateSlide;
+            _model._slideDeleted += RemoveSlide;
         }
         // function for create
         private void CreateNewShapeButtonClick(object sender, EventArgs e)
@@ -274,9 +277,8 @@ namespace PowerPoint
         {
             if (_model.SlideIndex != -1 && _model.TargetIndex == -1)
             {
-                _model.RemoveShapes(_model.SlideIndex);
-                if (_model.SlideIndex - 1 >= 0)
-                    _model.SlideIndex -= 1;
+                _model.DeleteSlideCommand(_model.SlideIndex);
+                return;
             }
 
             if (e.KeyCode == Keys.Delete)
@@ -284,7 +286,6 @@ namespace PowerPoint
                 if (_model.TargetIndex == -1 && _model.SlideIndex != -1)
                 {
                     _slidePanel.Controls.RemoveAt(_model.SlideIndex);
-                    _model.SlideIndex = -1;
                 }
                 else
                 {
@@ -335,13 +336,14 @@ namespace PowerPoint
             _model.Redo();
         }
 
-        private int _buttonCount = 1;
-
         private void PressNewSlideButton(object sender, EventArgs e)
         {
-            _buttonCount++;
+            _model.AddSlideCommand();
+        }
+
+        private void CreateSlide()
+        {
             Button newButton = new Button();
-            newButton.Name = "_slide" + _buttonCount;
             newButton.BackColor = Color.White;
             newButton.Size = _slide1.Size;
             newButton.Location = new Point(_lastButton.Location.X, _lastButton.Location.Y + _lastButton.Height + 10); // 10 is the space between the buttons
@@ -349,10 +351,13 @@ namespace PowerPoint
             newButton.Paint += HandleSlidePaint;
             newButton.SizeChanged += PreviewSlideAutoSize;
             newButton.Click += new EventHandler(PreviewSlideClick);
-
             _slidePanel.Controls.Add(newButton);
             _lastButton = newButton;
-            _model.AddShapes();
+        }
+
+        private void RemoveSlide()
+        { 
+            _slidePanel.Controls.RemoveAt(_model.SlideIndex);
         }
 
         private void PreviewSlideClick(object sender, EventArgs e)
