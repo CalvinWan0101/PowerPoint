@@ -1,36 +1,19 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Drawing;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PowerPointTests.model.shape;
-using System;
-using System.Drawing;
 
-namespace PowerPoint.model.shape.test
-{
+namespace PowerPoint.model.shape.test {
     [TestClass]
-    public class LineTests
-    {
-        const string COMMA = ", ";
-        const string TEMPLATE = "({0:D3}, {1:D3})";
-
-        Factory _factory;
-
-        [TestInitialize]
-        public void Initialize()
-        {
-            _factory = new Factory();
+    public class LineTests {
+        [TestMethod]
+        public void make_sure_constructor_work() {
         }
 
         [TestMethod]
-        public void make_sure_constructor_work()
-        {
-        }
-
-        [TestMethod]
-        public void create_line()
-        {
+        public void create_line() {
             Line line = new Line(new PointF(1, 1), new PointF(2, 2));
 
             Assert.AreEqual("Line", line.Name);
-            Assert.AreEqual("線", line.ChineseName);
             Assert.AreEqual("(001, 001), (002, 002)", line.Information);
 
             Assert.AreEqual(new PointF(1, 1), line.DrawPoint1);
@@ -48,8 +31,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void adjust_line()
-        {
+        public void adjust_line() {
             Line line = new Line(new PointF(100, 0), new PointF(0, 100));
             Assert.AreEqual(new PointF(0, 0), line.Point1);
             Assert.AreEqual(new PointF(100, 100), line.Point2);
@@ -65,12 +47,10 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void create_line_reverse()
-        {
+        public void create_line_reverse() {
             Line line = new Line(new PointF(0, 100), new PointF(100, 0));
 
             Assert.AreEqual("Line", line.Name);
-            Assert.AreEqual("線", line.ChineseName);
             Assert.AreEqual("(000, 100), (100, 000)", line.Information);
             Assert.AreEqual(new PointF(0, 100), line.DrawPoint1);
             Assert.AreEqual(new PointF(100, 0), line.DrawPoint2);
@@ -79,8 +59,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void check_if_the_line_contains_point()
-        {
+        public void check_if_the_line_contains_point() {
             Line line = new Line(new PointF(0, 0), new PointF(100, 100));
 
             Assert.IsTrue(line.Contains(new PointF(50, 50)));
@@ -97,8 +76,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void check_if_the_line_contains_point_reverse()
-        {
+        public void check_if_the_line_contains_point_reverse() {
             Line line = new Line(new PointF(0, 100), new PointF(100, 0));
 
             Assert.IsTrue(line.Contains(new PointF(50, 50)));
@@ -115,8 +93,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void move_line()
-        {
+        public void move_line() {
             Line line = new Line(new PointF(0, 100), new PointF(100, 0));
 
             Assert.AreEqual(new PointF(0, 100), line.DrawPoint1);
@@ -133,8 +110,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_up()
-        {
+        public void zoom_up() {
             Line line = new Line(new PointF(100, 100), new PointF(200, 150));
 
             Assert.AreEqual(new PointF(100, 100), line.DrawPoint1);
@@ -150,8 +126,8 @@ namespace PowerPoint.model.shape.test
             //Assert.AreEqual(new PointF(200, 100), line.Point2);
         }
 
-        [TestMethod] public void zoom_up_switch() 
-        {
+        [TestMethod]
+        public void zoom_up_switch() {
             Line line = new Line(new PointF(200, 150), new PointF(100, 100));
 
             Assert.AreEqual(new PointF(200, 150), line.DrawPoint1);
@@ -166,8 +142,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_up_reverse()
-        {
+        public void zoom_up_reverse() {
             Line line = new Line(new PointF(100, 150), new PointF(200, 100));
 
             Assert.AreEqual(new PointF(100, 150), line.DrawPoint1);
@@ -184,8 +159,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_up_reverse_switch()
-        {
+        public void zoom_up_reverse_switch() {
             Line line = new Line(new PointF(200, 100), new PointF(100, 150));
 
             Assert.AreEqual(new PointF(200, 100), line.DrawPoint1);
@@ -200,8 +174,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_down()
-        {
+        public void zoom_down() {
             Line line = new Line(new PointF(100, 100), new PointF(200, 50));
 
             Assert.AreEqual(new PointF(100, 100), line.DrawPoint1);
@@ -217,8 +190,7 @@ namespace PowerPoint.model.shape.test
 
 
         [TestMethod]
-        public void zoom_down_switch()
-        {
+        public void zoom_down_switch() {
             Line line = new Line(new PointF(200, 50), new PointF(100, 100));
 
             Assert.AreEqual(new PointF(200, 50), line.DrawPoint1);
@@ -233,8 +205,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_down_reverse()
-        {
+        public void zoom_down_reverse() {
             Line line = new Line(new PointF(100, 50), new PointF(200, 100));
 
             Assert.AreEqual(new PointF(100, 50), line.DrawPoint1);
@@ -249,8 +220,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_down_reverse_switch()
-        {
+        public void zoom_down_reverse_switch() {
             Line line = new Line(new PointF(200, 100), new PointF(100, 50));
 
             Assert.AreEqual(new PointF(200, 100), line.DrawPoint1);
@@ -265,8 +235,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_left()
-        {
+        public void zoom_left() {
             Line line = new Line(new PointF(100, 100), new PointF(200, 150));
 
             Assert.AreEqual(new PointF(100, 100), line.DrawPoint1);
@@ -282,8 +251,8 @@ namespace PowerPoint.model.shape.test
             //Assert.AreEqual(new PointF(100, 150), line.Point2);
         }
 
-        [TestMethod] public void zoom_left_switch()
-        {
+        [TestMethod]
+        public void zoom_left_switch() {
             Line line = new Line(new PointF(200, 150), new PointF(100, 100));
 
             Assert.AreEqual(new PointF(200, 150), line.DrawPoint1);
@@ -295,11 +264,10 @@ namespace PowerPoint.model.shape.test
 
             Assert.AreEqual(new PointF(0, 150), line.DrawPoint1);
             Assert.AreEqual(new PointF(100, 100), line.DrawPoint2);
-        }   
+        }
 
         [TestMethod]
-        public void zoom_left_reverse()
-        {
+        public void zoom_left_reverse() {
             Line line = new Line(new PointF(100, 150), new PointF(200, 100));
 
             Assert.AreEqual(new PointF(100, 150), line.DrawPoint1);
@@ -316,8 +284,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_left_reverse_switch() 
-        { 
+        public void zoom_left_reverse_switch() {
             Line line = new Line(new PointF(200, 100), new PointF(100, 150));
 
             Assert.AreEqual(new PointF(200, 100), line.DrawPoint1);
@@ -332,8 +299,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_right()
-        {
+        public void zoom_right() {
             Line line = new Line(new PointF(100, 100), new PointF(200, 150));
 
             Assert.AreEqual(new PointF(100, 100), line.DrawPoint1);
@@ -348,8 +314,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_right_switch() 
-        {
+        public void zoom_right_switch() {
             Line line = new Line(new PointF(200, 150), new PointF(100, 100));
 
             Assert.AreEqual(new PointF(200, 150), line.DrawPoint1);
@@ -364,8 +329,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_right_reverse()
-        {
+        public void zoom_right_reverse() {
             Line line = new Line(new PointF(100, 150), new PointF(200, 100));
 
             Assert.AreEqual(new PointF(100, 150), line.DrawPoint1);
@@ -380,8 +344,7 @@ namespace PowerPoint.model.shape.test
         }
 
         [TestMethod]
-        public void zoom_right_reverse_switch()
-        {
+        public void zoom_right_reverse_switch() {
             Line line = new Line(new PointF(200, 100), new PointF(100, 150));
 
             Assert.AreEqual(new PointF(200, 100), line.DrawPoint1);
@@ -393,11 +356,10 @@ namespace PowerPoint.model.shape.test
 
             Assert.AreEqual(new PointF(300, 100), line.DrawPoint1);
             Assert.AreEqual(new PointF(100, 150), line.DrawPoint2);
-        }   
+        }
 
         [TestMethod]
-        public void draw_line()
-        {
+        public void draw_line() {
             Line line = new Line(new PointF(0, 0), new PointF(100, 100));
             FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
             line.Draw(graphic);
@@ -407,12 +369,10 @@ namespace PowerPoint.model.shape.test
             Assert.AreEqual(0, graphic.IsRectangle);
             Assert.AreEqual(0, graphic.IsClearAll);
             Assert.AreEqual(0, graphic.IsSelectedShape);
-
         }
 
         [TestMethod]
-        public void draw_selected_line()
-        {
+        public void draw_selected_line() {
             Line line = new Line(new PointF(0, 0), new PointF(100, 100));
             FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
             line.DrawSelected(graphic);

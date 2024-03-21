@@ -1,22 +1,19 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint.model.state;
+﻿using System.ComponentModel;
+using System.Drawing;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PowerPoint.model;
 using PowerPoint.model.shape;
-using System.ComponentModel;
-using System.Drawing;
+using PowerPoint.model.state;
 
-namespace PowerPointTests.model.command
-{
+namespace PowerPointTests.model.command {
     [TestClass]
-    public class MoveCommandTest
-    {
+    public class MoveCommandTest {
         DrawingState _drawingState;
         PointState _pointState;
         Model _model;
 
         [TestInitialize]
-        public void initialize()
-        {
+        public void initialize() {
             _model = new Model();
             _drawingState = new DrawingState(_model);
             _pointState = new PointState(_model);
@@ -24,13 +21,11 @@ namespace PowerPointTests.model.command
         }
 
         [TestMethod]
-        public void make_sure_constructor_work()
-        {
+        public void make_sure_constructor_work() {
         }
 
         [TestMethod]
-        public void execute_move_command()
-        {
+        public void execute_move_command() {
             _model.MouseButtonChecked = true;
             _model.Add("Rectangle", new PointF(100, 200), new PointF(200, 100));
             _model.MousePress(new PointF(200, 100));
@@ -48,8 +43,7 @@ namespace PowerPointTests.model.command
         }
 
         [TestMethod]
-        public void execute_move_command_with_line()
-        {
+        public void execute_move_command_with_line() {
             _model.MouseButtonChecked = true;
             _model.Add("Line", new PointF(100, 200), new PointF(200, 100));
             _model.MousePress(new PointF(200, 100));
@@ -69,8 +63,7 @@ namespace PowerPointTests.model.command
         }
 
         [TestMethod]
-        public void undo_move_command()
-        {
+        public void undo_move_command() {
             _model.MouseButtonChecked = true;
             _model.Add("Rectangle", new PointF(100, 200), new PointF(200, 100));
             _model.MousePress(new PointF(200, 100));
@@ -99,8 +92,7 @@ namespace PowerPointTests.model.command
         }
 
         [TestMethod]
-        public void undo_move_command_with_line()
-        {
+        public void undo_move_command_with_line() {
             _model.MouseButtonChecked = true;
             _model.Add("Line", new PointF(100, 200), new PointF(200, 100));
             _model.MousePress(new PointF(200, 100));

@@ -1,9 +1,7 @@
 ﻿using System.Drawing;
 
-namespace PowerPoint.presentation_model
-{
-    public interface IGraphics
-    {
+namespace PowerPoint.presentation_model {
+    public interface IGraphics {
         // clear all the paint
         void ClearAll();
 

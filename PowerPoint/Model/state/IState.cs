@@ -1,9 +1,7 @@
 ﻿using System.Drawing;
 
-namespace PowerPoint.model.state
-{
-    public interface IState
-    {
+namespace PowerPoint.model.state {
+    public interface IState {
         // mouse press
         void MousePress(PointF point);
 

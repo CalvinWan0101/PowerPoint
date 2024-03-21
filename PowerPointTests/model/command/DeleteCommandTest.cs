@@ -1,19 +1,16 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint.model.state;
 using PowerPoint.model;
+using PowerPoint.model.state;
 
-namespace PowerPointTests.model.command
-{
+namespace PowerPointTests.model.command {
     [TestClass]
-    public class DeleteCommandTest
-    {
+    public class DeleteCommandTest {
         DrawingState _drawingState;
         PointState _pointState;
         Model _model;
 
         [TestInitialize]
-        public void initialize()
-        {
+        public void initialize() {
             _model = new Model();
             _drawingState = new DrawingState(_model);
             _pointState = new PointState(_model);
@@ -21,29 +18,24 @@ namespace PowerPointTests.model.command
         }
 
         [TestMethod]
-        public void make_sure_constructor_work()
-        {
+        public void make_sure_constructor_work() {
         }
 
         [TestMethod]
-        public void execute_delete_command()
-        {
+        public void execute_delete_command() {
             _model.Add("Line");
             Assert.AreEqual(1, _model.GetShapes().GetListOfShape().Count);
             Assert.AreEqual("Line", _model.GetShapes().GetListOfShape()[0].Name);
-            Assert.AreEqual("線", _model.GetShapes().GetListOfShape()[0].ChineseName);
 
             _model.Remove(0);
             Assert.AreEqual(0, _model.GetShapes().GetListOfShape().Count);
         }
 
         [TestMethod]
-        public void undo_delete_command()
-        {
+        public void undo_delete_command() {
             _model.Add("Line");
             Assert.AreEqual(1, _model.GetShapes().GetListOfShape().Count);
             Assert.AreEqual("Line", _model.GetShapes().GetListOfShape()[0].Name);
-            Assert.AreEqual("線", _model.GetShapes().GetListOfShape()[0].ChineseName);
 
             _model.Remove(0);
             Assert.AreEqual(0, _model.GetShapes().GetListOfShape().Count);
@@ -51,7 +43,6 @@ namespace PowerPointTests.model.command
             _model.Undo();
             Assert.AreEqual(1, _model.GetShapes().GetListOfShape().Count);
             Assert.AreEqual("Line", _model.GetShapes().GetListOfShape()[0].Name);
-            Assert.AreEqual("線", _model.GetShapes().GetListOfShape()[0].ChineseName);
         }
     }
 }

@@ -72,7 +72,7 @@ namespace PowerPoint
             this._createNewShape.Name = "_createNewShape";
             this._createNewShape.Size = new System.Drawing.Size(63, 31);
             this._createNewShape.TabIndex = 2;
-            this._createNewShape.Text = "新增";
+            this._createNewShape.Text = "New";
             this._createNewShape.UseVisualStyleBackColor = true;
             this._createNewShape.Click += new System.EventHandler(this.CreateNewShapeButtonClick);
             // 
@@ -80,9 +80,9 @@ namespace PowerPoint
             // 
             this._addNewShapeSelector.FormattingEnabled = true;
             this._addNewShapeSelector.Items.AddRange(new object[] {
-            "線",
-            "矩形",
-            "圓"});
+            "Line",
+            "Rectangle",
+            "Circle"});
             this._addNewShapeSelector.Location = new System.Drawing.Point(68, 29);
             this._addNewShapeSelector.Name = "_addNewShapeSelector";
             this._addNewShapeSelector.Size = new System.Drawing.Size(91, 21);
@@ -99,7 +99,7 @@ namespace PowerPoint
             this._slideDetailGroupBox.Size = new System.Drawing.Size(273, 361);
             this._slideDetailGroupBox.TabIndex = 4;
             this._slideDetailGroupBox.TabStop = false;
-            this._slideDetailGroupBox.Text = "資料顯示";
+            this._slideDetailGroupBox.Text = "Data Grid View";
             // 
             // _shapesDataGridView
             // 
@@ -133,13 +133,13 @@ namespace PowerPoint
             this._headMenuAbout});
             this._headMenuHelp.Name = "_headMenuHelp";
             this._headMenuHelp.Size = new System.Drawing.Size(44, 20);
-            this._headMenuHelp.Text = "說明";
+            this._headMenuHelp.Text = "Help";
             // 
             // _headMenuAbout
             // 
             this._headMenuAbout.Name = "_headMenuAbout";
             this._headMenuAbout.Size = new System.Drawing.Size(98, 22);
-            this._headMenuAbout.Text = "關於";
+            this._headMenuAbout.Text = "About";
             // 
             // _toolBar
             // 

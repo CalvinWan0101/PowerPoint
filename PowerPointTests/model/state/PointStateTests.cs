@@ -1,21 +1,17 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint.model.shape;
-using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PowerPoint.model.shape;
 
-namespace PowerPoint.model.state.test
-{
+namespace PowerPoint.model.state.test {
     [TestClass]
-    public class PointStateTests
-    {
+    public class PointStateTests {
         Model _model;
         DrawingState _drawingState;
         PointState _pointState;
 
         [TestInitialize]
-        public void Initialize()
-        {
+        public void Initialize() {
             _model = new Model();
             _drawingState = new DrawingState(_model);
             _pointState = new PointState(_model);
@@ -23,8 +19,7 @@ namespace PowerPoint.model.state.test
         }
 
         [TestCleanup]
-        public void CleanUp()
-        {
+        public void CleanUp() {
             _model = new Model();
             _drawingState = new DrawingState(_model);
             _pointState = new PointState(_model);
@@ -32,13 +27,11 @@ namespace PowerPoint.model.state.test
         }
 
         [TestMethod]
-        public void make_sure_constructor_work()
-        {
+        public void make_sure_constructor_work() {
         }
 
         [TestMethod]
-        public void get_and_set()
-        {
+        public void get_and_set() {
             _pointState.MouseIsPressed = true;
             Assert.IsTrue(_pointState.MouseIsPressed);
 
@@ -50,8 +43,7 @@ namespace PowerPoint.model.state.test
         }
 
         [TestMethod]
-        public void is_click_the_right_button_corner()
-        {
+        public void is_click_the_right_button_corner() {
             _model.Add("Circle");
             _model.Add("Line");
             _model.Add("Rectangle");
@@ -121,8 +113,7 @@ namespace PowerPoint.model.state.test
         }
 
         [TestMethod]
-        public void click_delete_button()
-        {
+        public void click_delete_button() {
             _model.Add("Circle");
             _model.Add("Line");
             _model.Add("Rectangle");
@@ -149,8 +140,7 @@ namespace PowerPoint.model.state.test
         }
 
         [TestMethod]
-        public void zoom_a_shape()
-        {
+        public void zoom_a_shape() {
             _model.Add("Rectangle", new PointF(100, 100), new PointF(200, 200));
 
             _pointState.MousePress(new PointF(200, 200));
@@ -162,8 +152,7 @@ namespace PowerPoint.model.state.test
         }
 
         [TestMethod]
-        public void zoom_a_shape_but_didnt_select_any_shape_when_move()
-        {
+        public void zoom_a_shape_but_didnt_select_any_shape_when_move() {
             _model.Add("Rectangle");
 
             PointF temp1 = _model.GetListOfShape()[0].Point1;
@@ -210,8 +199,7 @@ namespace PowerPoint.model.state.test
 
         // zoom a shape but move with mouse not pressed
         [TestMethod]
-        public void zoom_a_shape_but_move_with_mouse_not_pressed()
-        {
+        public void zoom_a_shape_but_move_with_mouse_not_pressed() {
             _model.Add("Rectangle");
 
             PointF temp1 = _model.GetListOfShape()[0].Point1;

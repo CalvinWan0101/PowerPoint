@@ -1,97 +1,82 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Windows.Forms;
+﻿using System.Drawing;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PowerPointTests.model;
-using System.Drawing;
-using PowerPointTests.model.shape;
 
-namespace PowerPoint.presentation_model.Tests
-{
+namespace PowerPoint.presentation_model.Tests {
     [TestClass]
-    public class FormPresentationModelTests
-    {
+    public class FormPresentationModelTests {
         FakeModel _fakeModel;
         FormPresentationModel _prModel;
 
         private int _notifyPropertyChangedCount = 0;
 
-        private void NotifyPropertyChangedCount()
-        {
+        private void NotifyPropertyChangedCount() {
             _notifyPropertyChangedCount++;
         }
 
         [TestInitialize]
-        public void Initialize()
-        {
+        public void Initialize() {
             _fakeModel = new FakeModel();
             _prModel = new FormPresentationModel(_fakeModel);
             _prModel.PropertyChanged += NotifyPropertyChangedCount;
         }
 
         [TestMethod]
-        public void notify_property_changed()
-        {
+        public void notify_property_changed() {
             _prModel.NotifyPropertyChanged();
             _prModel.NotifyPropertyChanged();
             Assert.AreEqual(2, _notifyPropertyChangedCount);
         }
 
         [TestMethod]
-        public void line_button_checked()
-        {
+        public void line_button_checked() {
             _prModel.LineButtonChecked = true;
             Assert.AreEqual(true, _prModel.LineButtonChecked);
             Assert.AreEqual(1, _notifyPropertyChangedCount);
         }
 
         [TestMethod]
-        public void rectangle_button_checked()
-        {
+        public void rectangle_button_checked() {
             _prModel.RectangleButtonChecked = true;
             Assert.AreEqual(true, _prModel.RectangleButtonChecked);
             Assert.AreEqual(1, _notifyPropertyChangedCount);
         }
 
         [TestMethod]
-        public void circle_button_checked()
-        {
+        public void circle_button_checked() {
             _prModel.CircleButtonChecked = true;
             Assert.AreEqual(true, _prModel.CircleButtonChecked);
             Assert.AreEqual(1, _notifyPropertyChangedCount);
         }
 
         [TestMethod]
-        public void mouse_button_checked()
-        {
+        public void mouse_button_checked() {
             _prModel.MouseButtonChecked = true;
             Assert.AreEqual(true, _prModel.MouseButtonChecked);
             Assert.AreEqual(1, _notifyPropertyChangedCount);
         }
 
         [TestMethod]
-        public void draw_ratio() 
-        {
+        public void draw_ratio() {
             _prModel.DrawRatio = 2;
             Assert.AreEqual(2, _prModel.DrawRatio);
         }
 
         [TestMethod]
-        public void preview_draw_ratio()
-        {
+        public void preview_draw_ratio() {
             _prModel.PreviewDrawRatio = 2;
             Assert.AreEqual(2, _prModel.PreviewDrawRatio);
         }
 
         [TestMethod]
-        public void draw_shape_and_preview()
-        {
+        public void draw_shape_and_preview() {
             _prModel.Draw(Graphics.FromImage(new Bitmap(50, 50)));
             _prModel.PreviewDraw(Graphics.FromImage(new Bitmap(50, 50)), 0);
             Assert.AreEqual(2, _fakeModel.DrawUsed);
         }
 
         [TestMethod]
-        public void click_line_button()
-        {
+        public void click_line_button() {
             _prModel.LineButtonChecked = false;
             _prModel.ClickLineButton();
 
@@ -110,8 +95,7 @@ namespace PowerPoint.presentation_model.Tests
         }
 
         [TestMethod]
-        public void click_rectangle_button()
-        {
+        public void click_rectangle_button() {
             _prModel.RectangleButtonChecked = false;
             _prModel.ClickRectangleButton();
 
@@ -130,8 +114,7 @@ namespace PowerPoint.presentation_model.Tests
         }
 
         [TestMethod]
-        public void click_circle_button()
-        {
+        public void click_circle_button() {
             _prModel.CircleButtonChecked = false;
             _prModel.ClickCircleButton();
 
@@ -150,8 +133,7 @@ namespace PowerPoint.presentation_model.Tests
         }
 
         [TestMethod]
-        public void click_mouse_button()
-        {
+        public void click_mouse_button() {
             _prModel.MouseButtonChecked = false;
             _prModel.ClickMouseButton();
 
@@ -168,24 +150,21 @@ namespace PowerPoint.presentation_model.Tests
         }
 
         [TestMethod]
-        public void mouse_press()
-        {
+        public void mouse_press() {
             _prModel.MousePress(new PointF(0, 0));
 
             Assert.AreEqual(1, _fakeModel.MousePressUsed);
         }
 
         [TestMethod]
-        public void mouse_move()
-        {
+        public void mouse_move() {
             _prModel.MouseMove(new PointF(0, 0));
 
             Assert.AreEqual(1, _fakeModel.MouseMoveUsed);
         }
 
         [TestMethod]
-        public void mouse_release()
-        {
+        public void mouse_release() {
             _prModel.MouseRelease(new PointF(0, 0));
 
             Assert.AreEqual(1, _fakeModel.MouseReleaseUsed);
@@ -196,8 +175,7 @@ namespace PowerPoint.presentation_model.Tests
         }
 
         [TestMethod]
-        public void clear()
-        {
+        public void clear() {
             _prModel.Clear();
 
             Assert.AreEqual(1, _fakeModel.ClearUsed);

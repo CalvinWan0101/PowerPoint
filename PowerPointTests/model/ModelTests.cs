@@ -1,29 +1,25 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.ComponentModel;
+using System.Drawing;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PowerPoint.model.shape;
 using PowerPoint.model.state;
 using PowerPointTests.model.shape;
-using System.ComponentModel;
-using System.Drawing;
 
-namespace PowerPoint.model.test
-{
+namespace PowerPoint.model.test {
     [TestClass]
-    public class ModelTests
-    {
+    public class ModelTests {
         DrawingState _drawingState;
         PointState _pointState;
         Model _model;
 
         private int _modelChangedCount = 0;
 
-        private void TestModelChanged()
-        {
+        private void TestModelChanged() {
             _modelChangedCount++;
         }
 
         [TestInitialize]
-        public void initialize()
-        {
+        public void initialize() {
             _model = new Model();
             _drawingState = new DrawingState(_model);
             _pointState = new PointState(_model);
@@ -32,13 +28,11 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void make_sure_constructor_work()
-        {
+        public void make_sure_constructor_work() {
         }
 
         [TestMethod]
-        public void add_shape_with_only_name()
-        {
+        public void add_shape_with_only_name() {
             _model.Add("Circle");
             _model.Add("Line");
             _model.Add("Rectangle");
@@ -52,8 +46,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void add_shape_with_name_and_position()
-        {
+        public void add_shape_with_name_and_position() {
             _model.Add("Circle", new PointF(100, 200), new PointF(200, 100));
             _model.Add("Line", new PointF(200, 100), new PointF(100, 200));
             _model.Add("Rectangle", new PointF(100, 200), new PointF(200, 100));
@@ -76,8 +69,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void remove_and_clear_shape()
-        {
+        public void remove_and_clear_shape() {
             _model.Add("Circle");
             _model.Add("Line");
             _model.Add("Rectangle");
@@ -97,15 +89,13 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void set_shape_name()
-        {
+        public void set_shape_name() {
             _model.SetShapeName("Circle");
             Assert.AreEqual("Circle", _drawingState.ShapeName);
         }
 
         [TestMethod]
-        public void create_shape_with_mouse()
-        {
+        public void create_shape_with_mouse() {
             _model.MouseButtonChecked = false;
             _model.SetShapeName("Rectangle");
             _model.MousePress(new PointF(100, 200));
@@ -122,8 +112,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void zoom_shape()
-        {
+        public void zoom_shape() {
             _model.MouseButtonChecked = true;
             _model.Add("Rectangle", new PointF(100, 200), new PointF(200, 100));
             _model.MousePress(new PointF(200, 200));
@@ -141,8 +130,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void find_target_index()
-        {
+        public void find_target_index() {
             _model.Add("Rectangle", new PointF(100, 200), new PointF(200, 100));
             _model.Add("Circle", new PointF(200, 300), new PointF(300, 200));
             _model.Add("Line", new PointF(300, 400), new PointF(400, 300));
@@ -154,8 +142,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void draw()
-        {
+        public void draw() {
             FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
             _model.Add("Circle");
             _model.Add("Line");
@@ -175,8 +162,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void draw_while_mouse_moving()
-        {
+        public void draw_while_mouse_moving() {
             _model.MouseButtonChecked = false;
             FakeGraphicsAdaptor graphic = new FakeGraphicsAdaptor();
             _model.SetShapeName("Rectangle");
@@ -193,8 +179,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void press_delete_key()
-        {
+        public void press_delete_key() {
             _model.Add("Circle");
             _model.Add("Line");
             _model.Add("Rectangle");
@@ -221,8 +206,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void remove_shape_by_id()
-        {
+        public void remove_shape_by_id() {
             _model.Add("Circle");
             _model.Add("Line");
             _model.Add("Rectangle");
@@ -242,8 +226,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void update_by_ratio()
-        {
+        public void update_by_ratio() {
             _model.Add("Circle", new PointF(100, 200), new PointF(200, 100));
             _model.Add("Line", new PointF(200, 300), new PointF(300, 200));
             _model.Add("Rectangle", new PointF(300, 400), new PointF(400, 300));
@@ -260,8 +243,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void is_click_the_right_button_corner()
-        {
+        public void is_click_the_right_button_corner() {
             _model.Add("Circle");
             _model.Add("Line");
             _model.Add("Rectangle");
@@ -327,8 +309,7 @@ namespace PowerPoint.model.test
         }
 
         [TestMethod]
-        public void notify_model_changed()
-        {
+        public void notify_model_changed() {
             _model.NotifyModelChanged();
             _model.NotifyModelChanged();
             Assert.AreEqual(2, _modelChangedCount);

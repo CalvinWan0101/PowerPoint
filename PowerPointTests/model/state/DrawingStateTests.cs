@@ -1,14 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PowerPoint.model.shape;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PowerPoint.model.shape;
 
-namespace PowerPoint.model.state.test
-{
+namespace PowerPoint.model.state.test {
     [TestClass]
-    public class DrawingStateTests
-    {
+    public class DrawingStateTests {
         private Random _random = new Random();
         const int X_MAX = 640;
         const int Y_MAX = 360;
@@ -19,8 +17,7 @@ namespace PowerPoint.model.state.test
 
         // initialize the test
         [TestInitialize]
-        public void Initialize()
-        {
+        public void Initialize() {
             _model = new Model();
             _drawingState = new DrawingState(_model);
             _pointState = new PointState(_model);
@@ -29,8 +26,7 @@ namespace PowerPoint.model.state.test
 
         // reset the _model, _drawingState and _pointState after each test method
         [TestCleanup]
-        public void CleanUp()
-        {
+        public void CleanUp() {
             _model = new Model();
             _drawingState = new DrawingState(_model);
             _pointState = new PointState(_model);
@@ -39,14 +35,12 @@ namespace PowerPoint.model.state.test
 
         // make sure constructor work
         [TestMethod]
-        public void make_sure_constructor_work()
-        {
+        public void make_sure_constructor_work() {
         }
 
         // get and set MouseIsPressed
         [TestMethod]
-        public void get_and_set_mouse_is_pressed()
-        {
+        public void get_and_set_mouse_is_pressed() {
             _drawingState.IsMousePressed = true;
             Assert.IsTrue(_drawingState.IsMousePressed);
             _drawingState.IsMousePressed = false;
@@ -55,16 +49,14 @@ namespace PowerPoint.model.state.test
 
         // get and set shape name
         [TestMethod]
-        public void get_and_set_shape_name()
-        {
+        public void get_and_set_shape_name() {
             _drawingState.ShapeName = "Circle";
             Assert.AreEqual("Circle", _drawingState.ShapeName);
         }
 
         // draw single shape by using mouse
         [TestMethod]
-        public void draw_single_shape_by_using_mouse()
-        {
+        public void draw_single_shape_by_using_mouse() {
             PointF temp1 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF temp2 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF startPoint = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
@@ -92,8 +84,7 @@ namespace PowerPoint.model.state.test
 
         // draw many shapes by using mouse
         [TestMethod]
-        public void draw_many_shapes_by_using_mouse()
-        {
+        public void draw_many_shapes_by_using_mouse() {
             PointF temp1 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF temp2 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF startPoint = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
@@ -134,8 +125,7 @@ namespace PowerPoint.model.state.test
 
         // draw many shapes by using mouse and clear
         [TestMethod]
-        public void draw_many_shapes_by_using_mouse_and_clear()
-        {
+        public void draw_many_shapes_by_using_mouse_and_clear() {
             PointF temp1 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF temp2 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF startPoint = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
@@ -167,8 +157,7 @@ namespace PowerPoint.model.state.test
 
         // draw a shape with mouse unpressed move
         [TestMethod]
-        public void draw_a_shape_with_mouse_unpressed_move()
-        {
+        public void draw_a_shape_with_mouse_unpressed_move() {
             PointF temp1 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF temp2 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF startPoint = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
@@ -201,8 +190,7 @@ namespace PowerPoint.model.state.test
 
         // draw a shape with mouse unpressed release
         [TestMethod]
-        public void draw_a_shape_with_mouse_unpressed_release()
-        {
+        public void draw_a_shape_with_mouse_unpressed_release() {
             PointF temp1 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF temp2 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF startPoint = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
@@ -237,8 +225,7 @@ namespace PowerPoint.model.state.test
 
         // draw single shape by using mouse with null name
         [TestMethod]
-        public void draw_single_shape_by_using_mouse_with_null_name()
-        {
+        public void draw_single_shape_by_using_mouse_with_null_name() {
             PointF temp1 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF temp2 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF startPoint = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
