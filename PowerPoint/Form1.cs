@@ -88,6 +88,7 @@ namespace PowerPoint {
 
             _model._slideChanged += CreateSlide;
             _model._slideDeleted += RemoveSlide;
+            _lastButton = _slide1;
         }
 
         // function for create
