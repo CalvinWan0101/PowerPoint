@@ -14,8 +14,8 @@ namespace PowerPoint.model {
         }
 
         // add a new shape to the end of the list (with concrete number)
-        public void Add(string shapeName, params PointF[] position) {
-            Shape shape = _factory.CreateShape(shapeName, position);
+        public void Add(string shapeName, PointF pointA, PointF pointB) {
+            Shape shape = _factory.CreateShape(shapeName, pointA, pointB);
             _shapes.Add(shape);
         }
 

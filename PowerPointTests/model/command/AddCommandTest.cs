@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Drawing;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PowerPoint.model;
 using PowerPoint.model.command;
 using PowerPoint.model.state;
@@ -41,7 +42,7 @@ namespace PowerPointTests.model.command {
 
         [TestMethod]
         public void set_and_get_id() {
-            AddCommand addCommand = new AddCommand(_model, "Line");
+            AddCommand addCommand = new AddCommand(_model, "Line", new PointF(0, 0), new PointF(1, 1));
             addCommand.Id = "123";
             Assert.AreEqual("123", addCommand.Id);
         }

@@ -112,33 +112,24 @@ namespace PowerPoint.model {
         }
 
         // this function is to add the Shape into Shapes (with concrete number)
-        public void Add(string shapeName, params PointF[] position) {
-            //_shapes.Add(shapeName, position);
-            //NotifyModelChanged();
-            _commandManager.ExecuteCommand(new AddCommand(this, shapeName, position));
+        public void Add(string shapeName, PointF pointA, PointF pointB) {
+            _commandManager.ExecuteCommand(new AddCommand(this, shapeName, pointA, pointB));
         }
 
         // this function is to add the Shape into Shapes (with random number)
         public void Add(string shapeName) {
             PointF point1 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF point2 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
-            PointF[] position = new PointF[] { point1, point2 };
-            //_shapes.Add(shapeName, position);
-            //NotifyModelChanged();
-
-            _commandManager.ExecuteCommand(new AddCommand(this, shapeName, position));
+            _commandManager.ExecuteCommand(new AddCommand(this, shapeName, point1, point2));
         }
 
         // this function is to remove the Shape into Shapes
         public void Remove(int targetIndex) {
-            //_shapes.Remove(targetIndex);
-            //NotifyModelChanged();
             _commandManager.ExecuteCommand(new DeleteCommand(this, targetIndex));
         }
 
         // clear all the shape
         public virtual void Clear() {
-            //_shapes.Clear();
             _slides[SlideIndex].Clear();
             NotifyModelChanged();
         }

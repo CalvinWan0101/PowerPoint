@@ -10,14 +10,14 @@ namespace PowerPoint.model {
         const int Y_MAX = 360;
 
         // create the corresponding Shape, like Line or Rectangle (with concrete number)
-        public Shape CreateShape(string shapeName, params PointF[] position) {
+        public Shape CreateShape(string shapeName, PointF pointA, PointF pointB) {
             switch (shapeName) {
                 case "Line":
-                    return new Line(position[0], position[1]);
+                    return new Line(pointA, pointB);
                 case "Rectangle":
-                    return new Rectangle(position[0], position[1]);
+                    return new Rectangle(pointA, pointB);
                 case "Circle":
-                    return new Circle(position[0], position[1]);
+                    return new Circle(pointA, pointB);
             }
 
             return null;
