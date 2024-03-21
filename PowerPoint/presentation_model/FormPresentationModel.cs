@@ -63,10 +63,6 @@ namespace PowerPoint.presentation_model {
             }
         }
 
-        const string LINE = "Line";
-        const string RECTANGLE = "Rectangle";
-        const string CIRCLE = "Circle";
-
         const float FIRST_RATIO = 1.0f;
         const float DRAW_RATIO = 0.25f;
 
@@ -102,7 +98,7 @@ namespace PowerPoint.presentation_model {
             LineButtonChecked = !LineButtonChecked;
 
             if (LineButtonChecked) {
-                _model.SetShapeName(LINE);
+                _model.SetShapeName("Line");
                 RectangleButtonChecked = CircleButtonChecked = MouseButtonChecked = false;
             }
             else {
@@ -115,7 +111,7 @@ namespace PowerPoint.presentation_model {
         public void ClickRectangleButton() {
             RectangleButtonChecked = !RectangleButtonChecked;
             if (RectangleButtonChecked) {
-                _model.SetShapeName(RECTANGLE);
+                _model.SetShapeName("Rectangle");
                 LineButtonChecked = CircleButtonChecked = MouseButtonChecked = false;
             }
             else {
@@ -128,7 +124,7 @@ namespace PowerPoint.presentation_model {
         public void ClickCircleButton() {
             CircleButtonChecked = !CircleButtonChecked;
             if (_circleButtonChecked) {
-                _model.SetShapeName(CIRCLE);
+                _model.SetShapeName("Circle");
                 LineButtonChecked = RectangleButtonChecked = MouseButtonChecked = false;
             }
             else {

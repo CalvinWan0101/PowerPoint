@@ -49,10 +49,6 @@ namespace PowerPoint.presentation_model {
                 height);
         }
 
-        const int FIVE = 5;
-        const int TWO = 2;
-        const int TEN = 10;
-
         // draw the selected shape
         public void DrawSelectedShape(PointF point1, PointF point2) {
             PointF temp1 = point1;
@@ -64,17 +60,17 @@ namespace PowerPoint.presentation_model {
             Rectangle rectangle = new Rectangle((int)Math.Min(point1.X, point2.X),
                 (int)Math.Min(point1.Y, point2.Y), (int)width, (int)height);
             _graphics.DrawRectangle(Pens.Red, rectangle);
-            _graphics.DrawEllipse(Pens.Gray, rectangle.X - FIVE, rectangle.Y - FIVE, TEN, TEN);
-            _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width / TWO - FIVE, rectangle.Y - FIVE, TEN, TEN);
-            _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width - FIVE, rectangle.Y - FIVE, TEN, TEN);
-            _graphics.DrawEllipse(Pens.Gray, rectangle.X - FIVE, rectangle.Y + rectangle.Height / TWO - FIVE, TEN, TEN);
-            _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width - FIVE,
-                rectangle.Y + rectangle.Height / TWO - FIVE, TEN, TEN);
-            _graphics.DrawEllipse(Pens.Gray, rectangle.X - FIVE, rectangle.Y + rectangle.Height - FIVE, TEN, TEN);
-            _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width / TWO - FIVE,
-                rectangle.Y + rectangle.Height - FIVE, TEN, TEN);
-            _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width - FIVE,
-                rectangle.Y + rectangle.Height - FIVE, TEN, TEN);
+            _graphics.DrawEllipse(Pens.Gray, rectangle.X - 5, rectangle.Y - 5, 10, 10);
+            _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width / 2 - 5, rectangle.Y - 5, 10, 10);
+            _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width - 5, rectangle.Y - 5, 10, 10);
+            _graphics.DrawEllipse(Pens.Gray, rectangle.X - 5, rectangle.Y + rectangle.Height / 2 - 5, 10, 10);
+            _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width - 5,
+                rectangle.Y + rectangle.Height / 2 - 5, 10, 10);
+            _graphics.DrawEllipse(Pens.Gray, rectangle.X - 5, rectangle.Y + rectangle.Height - 5, 10, 10);
+            _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width / 2 - 5,
+                rectangle.Y + rectangle.Height - 5, 10, 10);
+            _graphics.DrawEllipse(Pens.Gray, rectangle.X + rectangle.Width - 5,
+                rectangle.Y + rectangle.Height - 5, 10, 10);
         }
     }
 }

@@ -6,16 +6,6 @@ using PowerPoint.presentation_model;
 
 namespace PowerPoint {
     public partial class Form1 : Form {
-        const int LINE_NUMBER = 0;
-        const int RECTANGLE_NUMBER = 1;
-        const int CIRCLE_NUMBER = 2;
-        const string LINE = "Line";
-        const string RECTANGLE = "Rectangle";
-        const string CIRCLE = "Circle";
-        const string DELETE = "Delete";
-        const string SHAPE = "Shape";
-        const string INFORMATION = "Information";
-
         private Model _model;
         private FormPresentationModel _presentationModel;
         private int _slideIndex;
@@ -32,22 +22,22 @@ namespace PowerPoint {
 
             // add button column
             DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-            buttonColumn.HeaderText = DELETE;
-            buttonColumn.Text = DELETE;
+            buttonColumn.HeaderText = "Delete";
+            buttonColumn.Text = "Delete";
             buttonColumn.Width = 50;
             buttonColumn.UseColumnTextForButtonValue = true;
             _shapesDataGridView.Columns.Insert(0, buttonColumn);
 
             // add shape column
             DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
-            nameColumn.HeaderText = SHAPE;
+            nameColumn.HeaderText = "Shape";
             nameColumn.Width = 60;
             nameColumn.DataPropertyName = "Name";
             _shapesDataGridView.Columns.Insert(1, nameColumn);
 
             // add information column
             DataGridViewTextBoxColumn informationColumn = new DataGridViewTextBoxColumn();
-            informationColumn.HeaderText = INFORMATION;
+            informationColumn.HeaderText = "Information";
             informationColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             informationColumn.DataPropertyName = "Information";
             _shapesDataGridView.Columns.Insert(2, informationColumn);
@@ -60,7 +50,7 @@ namespace PowerPoint {
             _panel.MouseMove += MouseZoom;
             _panel.Paint += HandleMousePaint;
             _slide1.Paint += HandleSlidePaint;
-            this.SizeChanged += UpdateAutoSize;
+            SizeChanged += UpdateAutoSize;
             _slide1.SizeChanged += PreviewSlideAutoSize;
             _splitContainer1.SplitterMoved += UpdateAutoSize;
             _splitContainer1.SplitterMoved += PreviewSlideAutoSize;
@@ -77,8 +67,8 @@ namespace PowerPoint {
             _model._redoUndoChanged += UpdateRedoUndoButtonStatus;
 
             // delete the shape
-            this.KeyPreview = true;
-            this.KeyDown += PressDeleteKey;
+            KeyPreview = true;
+            KeyDown += PressDeleteKey;
 
             Controls.Add(_panel);
 
@@ -100,27 +90,18 @@ namespace PowerPoint {
             _model._slideDeleted += RemoveSlide;
         }
 
-        // slide index
-        int SlideIndex {
-            get { return _slideIndex; }
-            set {
-                _slideIndex = value;
-                _model.SlideIndex = value;
-            }
-        }
-
         // function for create
         private void CreateNewShapeButtonClick(object sender, EventArgs e) {
             string name;
             switch (_addNewShapeSelector.SelectedIndex) {
-                case LINE_NUMBER:
-                    name = LINE;
+                case 0:
+                    name = "Line";
                     break;
-                case RECTANGLE_NUMBER:
-                    name = RECTANGLE;
+                case 1:
+                    name = "Rectangle";
                     break;
-                case CIRCLE_NUMBER:
-                    name = CIRCLE;
+                case 2:
+                    name = "Circle";
                     break;
                 default:
                     return;
@@ -268,14 +249,11 @@ namespace PowerPoint {
 
         private int _panelWidthRecord = -1;
 
-        const int NINE = 9;
-        const int SIXTEEN = 16;
-
         // auto size
         private void UpdateAutoSize(object sender, EventArgs e) {
             _presentationModel.DrawRatio = (float)_panel.Width / (float)_panelWidthRecord;
             _panelWidthRecord = _panel.Width;
-            _panel.Size = new Size(_panel.Width, _panel.Width * NINE / SIXTEEN);
+            _panel.Size = new Size(_panel.Width, _panel.Width * 9 / 16);
         }
 
         // slide preview auto size
@@ -284,7 +262,7 @@ namespace PowerPoint {
             foreach (Control control in _slidePanel.Controls) {
                 if (control is Button button) {
                     button.Width = _splitContainer1.Panel1.Width - 5;
-                    button.Size = new Size(button.Width, button.Width * NINE / SIXTEEN);
+                    button.Size = new Size(button.Width, button.Width * 9 / 16);
                     button.Location = new Point(button.Location.X, y);
                     y += button.Height + 10;
                 }

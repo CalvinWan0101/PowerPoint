@@ -27,8 +27,7 @@ namespace PowerPoint
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this._createNewShape = new System.Windows.Forms.Button();
             this._addNewShapeSelector = new System.Windows.Forms.ComboBox();
@@ -48,7 +47,6 @@ namespace PowerPoint
             this._splitContainer1 = new System.Windows.Forms.SplitContainer();
             this._slidePanel = new System.Windows.Forms.FlowLayoutPanel();
             this._slide1 = new System.Windows.Forms.Button();
-            this._lastButton = _slide1;
             this._splitContainer2 = new System.Windows.Forms.SplitContainer();
             this._panel = new PowerPoint.DoubleBufferedPanel();
             this._slideDetailGroupBox.SuspendLayout();
@@ -79,10 +77,7 @@ namespace PowerPoint
             // _addNewShapeSelector
             // 
             this._addNewShapeSelector.FormattingEnabled = true;
-            this._addNewShapeSelector.Items.AddRange(new object[] {
-            "Line",
-            "Rectangle",
-            "Circle"});
+            this._addNewShapeSelector.Items.AddRange(new object[] { "Line", "Rectangle", "Circle" });
             this._addNewShapeSelector.Location = new System.Drawing.Point(68, 29);
             this._addNewShapeSelector.Name = "_addNewShapeSelector";
             this._addNewShapeSelector.Size = new System.Drawing.Size(91, 21);
@@ -104,9 +99,7 @@ namespace PowerPoint
             // _shapesDataGridView
             // 
             this._shapesDataGridView.AllowUserToAddRows = false;
-            this._shapesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this._shapesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this._shapesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._shapesDataGridView.Location = new System.Drawing.Point(-2, 56);
             this._shapesDataGridView.Name = "_shapesDataGridView";
@@ -119,8 +112,7 @@ namespace PowerPoint
             // _headMenu
             // 
             this._headMenu.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this._headMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._headMenuHelp});
+            this._headMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this._headMenuHelp });
             this._headMenu.Location = new System.Drawing.Point(0, 0);
             this._headMenu.Name = "_headMenu";
             this._headMenu.Size = new System.Drawing.Size(1094, 24);
@@ -129,8 +121,7 @@ namespace PowerPoint
             // 
             // _headMenuHelp
             // 
-            this._headMenuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._headMenuAbout});
+            this._headMenuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this._headMenuAbout });
             this._headMenuHelp.Name = "_headMenuHelp";
             this._headMenuHelp.Size = new System.Drawing.Size(44, 20);
             this._headMenuHelp.Text = "Help";
@@ -138,20 +129,13 @@ namespace PowerPoint
             // _headMenuAbout
             // 
             this._headMenuAbout.Name = "_headMenuAbout";
-            this._headMenuAbout.Size = new System.Drawing.Size(98, 22);
+            this._headMenuAbout.Size = new System.Drawing.Size(107, 22);
             this._headMenuAbout.Text = "About";
             // 
             // _toolBar
             // 
             this._toolBar.BackColor = System.Drawing.SystemColors.ControlDark;
-            this._toolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._lineButton,
-            this._rectangleButton,
-            this._circleButton,
-            this._mouseButton,
-            this._newSlideButton,
-            this._undoButton,
-            this._redoButton});
+            this._toolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this._lineButton, this._rectangleButton, this._circleButton, this._mouseButton, this._newSlideButton, this._undoButton, this._redoButton });
             this._toolBar.Location = new System.Drawing.Point(0, 24);
             this._toolBar.Name = "_toolBar";
             this._toolBar.Size = new System.Drawing.Size(1094, 25);
@@ -195,7 +179,7 @@ namespace PowerPoint
             this._mouseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._mouseButton.Name = "_mouseButton";
             this._mouseButton.Size = new System.Drawing.Size(23, 22);
-            this._mouseButton.Text = "Mouse";
+            this._mouseButton.Text = "Point";
             this._mouseButton.Click += new System.EventHandler(this.ClickMouseButton);
             // 
             // _newSlideButton
@@ -230,9 +214,7 @@ namespace PowerPoint
             // 
             // _splitContainer1
             // 
-            this._splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this._splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this._splitContainer1.Location = new System.Drawing.Point(0, 52);
             this._splitContainer1.Name = "_splitContainer1";
             // 
@@ -259,8 +241,7 @@ namespace PowerPoint
             // 
             // _slide1
             // 
-            this._slide1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this._slide1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this._slide1.AutoSize = true;
             this._slide1.Location = new System.Drawing.Point(3, 3);
             this._slide1.Name = "_slide1";
@@ -288,8 +269,7 @@ namespace PowerPoint
             // 
             // _panel
             // 
-            this._panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this._panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this._panel.AutoScroll = true;
             this._panel.BackColor = System.Drawing.SystemColors.Control;
             this._panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -329,7 +309,6 @@ namespace PowerPoint
             this._splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
