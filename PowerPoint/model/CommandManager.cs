@@ -1,16 +1,13 @@
-﻿using PowerPoint.model.command;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using PowerPoint.model.command;
 
-namespace PowerPoint.model
-{
-    public class CommandManager
-    {
+namespace PowerPoint.model {
+    public class CommandManager {
         Model _model;
         Stack<ICommand> _undoStack;
         Stack<ICommand> _redoStack;
 
-        public CommandManager(Model model)
-        {
+        public CommandManager(Model model) {
             _model = model;
             _undoStack = new Stack<ICommand>();
             _redoStack = new Stack<ICommand>();
@@ -18,8 +15,7 @@ namespace PowerPoint.model
         }
 
         // execute
-        public void ExecuteCommand(ICommand command)
-        {
+        public void ExecuteCommand(ICommand command) {
             command.Execute();
             _undoStack.Push(command);
             _redoStack.Clear();
@@ -27,47 +23,40 @@ namespace PowerPoint.model
         }
 
         // undo
-        public void UndoCommand()
-        {
-            if (_undoStack.Count > 0)
-            {
+        public void UndoCommand() {
+            if (_undoStack.Count > 0) {
                 ICommand command = _undoStack.Pop();
                 command.ExecuteBack();
                 _redoStack.Push(command);
             }
+
             UpdateRedoUndoButtonEnabled();
         }
 
         // redo
-        public void RedoCommand()
-        {
-            if (_redoStack.Count > 0)
-            {
+        public void RedoCommand() {
+            if (_redoStack.Count > 0) {
                 ICommand command = _redoStack.Pop();
                 command.Execute();
                 _undoStack.Push(command);
             }
+
             UpdateRedoUndoButtonEnabled();
         }
 
         // update redo undo button enabled
-        private void UpdateRedoUndoButtonEnabled()
-        {
-            if (_undoStack.Count > 0)
-            {
+        private void UpdateRedoUndoButtonEnabled() {
+            if (_undoStack.Count > 0) {
                 _model.UndoButtonEnabled = true;
             }
-            else
-            {
+            else {
                 _model.UndoButtonEnabled = false;
             }
 
-            if (_redoStack.Count > 0)
-            {
+            if (_redoStack.Count > 0) {
                 _model.RedoButtonEnabled = true;
             }
-            else
-            {
+            else {
                 _model.RedoButtonEnabled = false;
             }
         }

@@ -1,11 +1,8 @@
-﻿namespace PowerPoint.model.command
-{
-    public abstract class ICommand
-    {
+﻿namespace PowerPoint.model.command {
+    public abstract class ICommand {
         protected Model _model;
 
-        public ICommand(Model model)
-        {
+        public ICommand(Model model) {
             this._model = model;
         }
 

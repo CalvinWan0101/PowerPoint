@@ -165,7 +165,7 @@ namespace PowerPoint
             this._lineButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._lineButton.Name = "_lineButton";
             this._lineButton.Size = new System.Drawing.Size(23, 22);
-            this._lineButton.Text = "線";
+            this._lineButton.Text = "Line";
             this._lineButton.Click += new System.EventHandler(this.ClickLineButton);
             // 
             // _rectangleButton
@@ -175,7 +175,7 @@ namespace PowerPoint
             this._rectangleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._rectangleButton.Name = "_rectangleButton";
             this._rectangleButton.Size = new System.Drawing.Size(23, 22);
-            this._rectangleButton.Text = "矩形";
+            this._rectangleButton.Text = "Rectangle";
             this._rectangleButton.Click += new System.EventHandler(this.ClickRectangleButton);
             // 
             // _circleButton
@@ -185,7 +185,7 @@ namespace PowerPoint
             this._circleButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._circleButton.Name = "_circleButton";
             this._circleButton.Size = new System.Drawing.Size(23, 22);
-            this._circleButton.Text = "圓形";
+            this._circleButton.Text = "Circle";
             this._circleButton.Click += new System.EventHandler(this.ClickCircleButton);
             // 
             // _mouseButton
@@ -195,7 +195,7 @@ namespace PowerPoint
             this._mouseButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._mouseButton.Name = "_mouseButton";
             this._mouseButton.Size = new System.Drawing.Size(23, 22);
-            this._mouseButton.Text = "toolStripButton1";
+            this._mouseButton.Text = "Mouse";
             this._mouseButton.Click += new System.EventHandler(this.ClickMouseButton);
             // 
             // _newSlideButton
@@ -205,7 +205,7 @@ namespace PowerPoint
             this._newSlideButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._newSlideButton.Name = "_newSlideButton";
             this._newSlideButton.Size = new System.Drawing.Size(23, 22);
-            this._newSlideButton.Text = "toolStripButton1";
+            this._newSlideButton.Text = "New Slide";
             this._newSlideButton.Click += new System.EventHandler(this.PressNewSlideButton);
             // 
             // _undoButton
@@ -215,7 +215,7 @@ namespace PowerPoint
             this._undoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._undoButton.Name = "_undoButton";
             this._undoButton.Size = new System.Drawing.Size(23, 22);
-            this._undoButton.Text = "toolStripButton1";
+            this._undoButton.Text = "Undo";
             this._undoButton.Click += new System.EventHandler(this.PressUndoButton);
             // 
             // _redoButton
@@ -225,7 +225,7 @@ namespace PowerPoint
             this._redoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._redoButton.Name = "_redoButton";
             this._redoButton.Size = new System.Drawing.Size(23, 22);
-            this._redoButton.Text = "toolStripButton2";
+            this._redoButton.Text = "Redo";
             this._redoButton.Click += new System.EventHandler(this.PressRedoButton);
             // 
             // _splitContainer1

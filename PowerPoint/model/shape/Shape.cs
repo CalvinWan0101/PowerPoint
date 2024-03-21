@@ -1,19 +1,15 @@
-﻿using PowerPoint.presentation_model;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using PowerPoint.presentation_model;
 
-namespace PowerPoint.model.shape
-{
-    public abstract class Shape : INotifyPropertyChanged
-    {
+namespace PowerPoint.model.shape {
+    public abstract class Shape : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
 
         // notify property change
-        protected virtual void NotifyPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
+        protected virtual void NotifyPropertyChanged(string propertyName) {
+            if (PropertyChanged != null) {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
@@ -22,83 +18,40 @@ namespace PowerPoint.model.shape
         protected PointF _point1;
         protected PointF _point2;
         private string _name;
-        private string _chineseName;
         private string _information;
 
-        public string Id
-        {
-            get
-            {
-                return _id;
-            }
+        public string Id {
+            get { return _id; }
         }
 
-        public PointF Point1
-        {
-            get
-            {
-                return _point1;
-            }
-            set
-            {
-                _point1 = value;
-            }
+        public PointF Point1 {
+            get { return _point1; }
+            set { _point1 = value; }
         }
 
-        public PointF Point2
-        {
-            get
-            {
-                return _point2;
-            }
-            set
-            {
-                _point2 = value;
-            }
+        public PointF Point2 {
+            get { return _point2; }
+            set { _point2 = value; }
         }
 
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
+        public string Name {
+            get { return _name; }
+            set {
                 _name = value;
                 NotifyPropertyChanged(nameof(Name));
             }
         }
 
-        public string ChineseName
-        {
-            get
-            {
-                return _chineseName;
-            }
-            set
-            {
-                _chineseName = value;
-                NotifyPropertyChanged(nameof(ChineseName));
-            }
-        }
-
-        public string Information
-        {
-            get
-            {
-                return _information;
-            }
-            set
-            {
+        public string Information {
+            get { return _information; }
+            set {
                 _information = value;
                 NotifyPropertyChanged(nameof(Information));
             }
         }
 
         // adjust point
-        public virtual void AdjustPoint(float ratio)
-        {
+        public virtual void AdjustPoint(float ratio) {
             Point1 = new PointF(Point1.X * ratio, Point1.Y * ratio);
             Point2 = new PointF(Point2.X * ratio, Point2.Y * ratio);
         }
@@ -107,8 +60,7 @@ namespace PowerPoint.model.shape
         public abstract void UpdatePoint();
 
         // function to check if the shape contains the point
-        public bool Contains(PointF point)
-        {
+        public bool Contains(PointF point) {
             return Point1.X <= point.X && point.X <= Point2.X && Point1.Y <= point.Y && point.Y <= Point2.Y;
         }
 

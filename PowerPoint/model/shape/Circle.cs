@@ -1,29 +1,24 @@
-﻿using PowerPoint.presentation_model;
-using System;
+﻿using System;
 using System.Drawing;
+using PowerPoint.presentation_model;
 
-namespace PowerPoint.model.shape
-{
-    public class Circle : Shape
-    {
+namespace PowerPoint.model.shape {
+    public class Circle : Shape {
         const string CIRCLE = "Circle";
-        const string CIRCLE_CHINESE = "圓";
         const string COMMA = ", ";
         const string TEMPLATE = "({0:D3}, {1:D3})";
 
-        public Circle(PointF point1, PointF point2)
-        {
-            this.Point1 = point1;
+        public Circle(PointF point1, PointF point2) {
+            Point1 = point1;
             Point2 = point2;
             UpdatePoint();
             Name = CIRCLE;
-            ChineseName = CIRCLE_CHINESE;
-            Information = string.Format(TEMPLATE, (int)this.Point1.X, (int)this.Point1.Y) + COMMA + string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
+            Information = string.Format(TEMPLATE, (int)this.Point1.X, (int)this.Point1.Y) + COMMA +
+                          string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
         }
 
         // make sure the point
-        public override void UpdatePoint()
-        {
+        public override void UpdatePoint() {
             PointF temp1 = Point1;
             PointF temp2 = Point2;
 
@@ -32,29 +27,27 @@ namespace PowerPoint.model.shape
         }
 
         // function to move the circle
-        public override void Move(PointF firstPoint, PointF secondPoint)
-        {
+        public override void Move(PointF firstPoint, PointF secondPoint) {
             Point1 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
             Point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
-            Information = string.Format(TEMPLATE, (int)Point1.X, (int)Point1.Y) + COMMA + string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
+            Information = string.Format(TEMPLATE, (int)Point1.X, (int)Point1.Y) + COMMA +
+                          string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
         }
 
         // function to zoom the circle
-        public override void Zoom(PointF secondPoint)
-        {
+        public override void Zoom(PointF secondPoint) {
             Point2 = secondPoint;
-            Information = string.Format(TEMPLATE, (int)Point1.X, (int)Point1.Y) + COMMA + string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
+            Information = string.Format(TEMPLATE, (int)Point1.X, (int)Point1.Y) + COMMA +
+                          string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
         }
 
         // function to draw the circle
-        public override void Draw(IGraphics graphics)
-        {
+        public override void Draw(IGraphics graphics) {
             graphics.DrawCircle(Point1, Point2);
         }
 
         // function to draw the selected circle
-        public override void DrawSelected(IGraphics graphics)
-        {
+        public override void DrawSelected(IGraphics graphics) {
             graphics.DrawSelectedShape(Point1, Point2);
         }
     }
