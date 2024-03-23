@@ -7,8 +7,7 @@ namespace PowerPoint.model.shape {
     public abstract class Shape : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        // notify property change
-        protected virtual void NotifyPropertyChanged(string propertyName) {
+        protected void NotifyPropertyChanged(string propertyName) {
             if (PropertyChanged != null) {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
@@ -18,7 +17,6 @@ namespace PowerPoint.model.shape {
         protected PointF _point1;
         protected PointF _point2;
         private string _name;
-        private string _information;
 
         public string Id {
             get { return _id; }
@@ -26,12 +24,18 @@ namespace PowerPoint.model.shape {
 
         public PointF Point1 {
             get { return _point1; }
-            set { _point1 = value; }
+            set {
+                _point1 = value;
+                NotifyPropertyChanged(nameof(Information));
+            }
         }
 
         public PointF Point2 {
             get { return _point2; }
-            set { _point2 = value; }
+            set {
+                _point2 = value;
+                NotifyPropertyChanged(nameof(Information));
+            }
         }
 
         public string Name {
@@ -42,38 +46,30 @@ namespace PowerPoint.model.shape {
             }
         }
 
-        public string Information {
-            get { return _information; }
-            set {
-                _information = value;
-                NotifyPropertyChanged(nameof(Information));
+        public virtual string Information {
+            get {
+                return string.Format("({0:D3}, {1:D3})", (int)Point1.X, (int)Point1.Y) + ", " +
+                       string.Format("({0:D3}, {1:D3})", (int)Point2.X, (int)Point2.Y);
             }
         }
 
-        // adjust point
         public virtual void AdjustPoint(float ratio) {
             Point1 = new PointF(Point1.X * ratio, Point1.Y * ratio);
             Point2 = new PointF(Point2.X * ratio, Point2.Y * ratio);
         }
 
-        // make sure the point
         public abstract void UpdatePoint();
 
-        // function to check if the shape contains the point
         public bool Contains(PointF point) {
             return Point1.X <= point.X && point.X <= Point2.X && Point1.Y <= point.Y && point.Y <= Point2.Y;
         }
 
-        // function to move the shape
         public abstract void Move(PointF firstPoint, PointF secondPoint);
 
-        // function to zoom the shape
         public abstract void Zoom(PointF secondPoint);
 
-        // function to draw the shape
         public abstract void Draw(IGraphics graphics);
 
-        // function to draw the selected shape
         public abstract void DrawSelected(IGraphics graphics);
     }
 }

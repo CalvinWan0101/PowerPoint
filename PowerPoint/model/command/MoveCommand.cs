@@ -51,9 +51,6 @@ namespace PowerPoint.model.command {
                                   new SizeF(_endPoint.X - _startPoint.X, _endPoint.Y - _startPoint.Y);
             }
 
-            _model.GetListOfShape(_slideIndex)[_targetIndex].Information =
-                string.Format(TEMPLATE, (int)this._point1.X, (int)this._point1.Y) + COMMA +
-                string.Format(TEMPLATE, (int)_point2.X, (int)_point2.Y);
             _model.NotifyModelChanged();
         }
 
@@ -67,9 +64,6 @@ namespace PowerPoint.model.command {
                 line.DrawPoint2 = _originDrawPoint2;
             }
 
-            _model.GetListOfShape(_slideIndex)[_targetIndex].Information =
-                string.Format(TEMPLATE, (int)this._originPoint1.X, (int)this._originPoint1.Y) + COMMA +
-                string.Format(TEMPLATE, (int)_originPoint2.X, (int)_originPoint2.Y);
             _model.NotifyModelChanged();
         }
     }

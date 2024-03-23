@@ -5,8 +5,6 @@ using PowerPoint.presentation_model;
 namespace PowerPoint.model.shape {
     public class Line : Shape {
         const string LINE = "Line";
-        const string COMMA = ", ";
-        const string TEMPLATE = "({0:D3}, {1:D3})";
 
         private bool _lineReverse;
         private PointF _drawPoint1;
@@ -27,6 +25,13 @@ namespace PowerPoint.model.shape {
             set { _drawPoint2 = value; }
         }
 
+        public override string Information {
+            get {
+                return string.Format("({0:D3}, {1:D3})", (int)DrawPoint1.X, (int)DrawPoint1.Y) + ", " +
+                       string.Format("({0:D3}, {1:D3})", (int)DrawPoint2.X, (int)DrawPoint2.Y);
+            }
+        }
+
         public Line(PointF point1, PointF point2) {
             _lineReverse = false;
             DrawPoint1 = point1;
@@ -34,8 +39,6 @@ namespace PowerPoint.model.shape {
             UpdatePoint();
             CheckReverse();
             Name = LINE;
-            Information = string.Format(TEMPLATE, (int)DrawPoint1.X, (int)DrawPoint1.Y) + COMMA +
-                          string.Format(TEMPLATE, (int)DrawPoint2.X, (int)DrawPoint2.Y);
         }
 
         // check the line is reverse or not;
@@ -67,8 +70,6 @@ namespace PowerPoint.model.shape {
             Point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
             DrawPoint1 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
             DrawPoint2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
-            Information = string.Format(TEMPLATE, (int)DrawPoint1.X, (int)DrawPoint1.Y) + COMMA +
-                          string.Format(TEMPLATE, (int)DrawPoint2.X, (int)DrawPoint2.Y);
         }
 
         // function to zoom the line
@@ -80,9 +81,6 @@ namespace PowerPoint.model.shape {
             else {
                 ReverseNotZoom();
             }
-
-            Information = string.Format(TEMPLATE, (int)DrawPoint1.X, (int)DrawPoint1.Y) + COMMA +
-                          string.Format(TEMPLATE, (int)DrawPoint2.X, (int)DrawPoint2.Y);
         }
 
         // zoom a reverse line

@@ -5,16 +5,12 @@ using PowerPoint.presentation_model;
 namespace PowerPoint.model.shape {
     public class Circle : Shape {
         const string CIRCLE = "Circle";
-        const string COMMA = ", ";
-        const string TEMPLATE = "({0:D3}, {1:D3})";
 
         public Circle(PointF point1, PointF point2) {
             Point1 = point1;
             Point2 = point2;
             UpdatePoint();
             Name = CIRCLE;
-            Information = string.Format(TEMPLATE, (int)this.Point1.X, (int)this.Point1.Y) + COMMA +
-                          string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
         }
 
         // make sure the point
@@ -30,15 +26,11 @@ namespace PowerPoint.model.shape {
         public override void Move(PointF firstPoint, PointF secondPoint) {
             Point1 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
             Point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
-            Information = string.Format(TEMPLATE, (int)Point1.X, (int)Point1.Y) + COMMA +
-                          string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
         }
 
         // function to zoom the circle
         public override void Zoom(PointF secondPoint) {
             Point2 = secondPoint;
-            Information = string.Format(TEMPLATE, (int)Point1.X, (int)Point1.Y) + COMMA +
-                          string.Format(TEMPLATE, (int)Point2.X, (int)Point2.Y);
         }
 
         // function to draw the circle
