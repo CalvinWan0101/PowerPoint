@@ -4,7 +4,7 @@ using PowerPoint.presentation_model;
 
 namespace PowerPoint.model.shape {
     public class Rectangle : Shape {
-        public static string NAME = "Rectangle";
+        public static readonly string NAME = "Rectangle";
 
         public Rectangle(PointF point1, PointF point2) {
             Point1 = point1;

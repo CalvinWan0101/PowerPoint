@@ -4,7 +4,7 @@ using PowerPoint.presentation_model;
 
 namespace PowerPoint.model.shape {
     public class Circle : Shape {
-        public static string NAME = "Circle";
+        public static readonly string NAME = "Circle";
 
         public Circle(PointF point1, PointF point2) {
             Point1 = point1;

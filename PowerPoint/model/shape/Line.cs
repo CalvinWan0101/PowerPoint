@@ -4,7 +4,7 @@ using PowerPoint.presentation_model;
 
 namespace PowerPoint.model.shape {
     public class Line : Shape {
-        public static string NAME = "Line";
+        public static readonly string NAME = "Line";
 
         private bool _lineReverse;
         private PointF _drawPoint1;
