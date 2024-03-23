@@ -13,14 +13,6 @@ namespace PowerPoint.model.shape {
             Name = NAME;
         }
 
-        public override void UpdatePoint() {
-            PointF temp1 = Point1;
-            PointF temp2 = Point2;
-
-            Point1 = new PointF(Math.Min(temp1.X, temp2.X), Math.Min(temp1.Y, temp2.Y));
-            Point2 = new PointF(Math.Max(temp1.X, temp2.X), Math.Max(temp1.Y, temp2.Y));
-        }
-
         public override void Move(PointF firstPoint, PointF secondPoint) {
             Point1 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
             Point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
