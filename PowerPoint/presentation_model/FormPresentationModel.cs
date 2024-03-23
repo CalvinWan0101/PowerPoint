@@ -1,5 +1,7 @@
 ﻿using System.Drawing;
 using PowerPoint.model;
+using PowerPoint.model.shape;
+using Rectangle = PowerPoint.model.shape.Rectangle;
 
 namespace PowerPoint.presentation_model {
     public class FormPresentationModel {
@@ -13,20 +15,17 @@ namespace PowerPoint.presentation_model {
             _model = model;
         }
 
-        // notify property changed
         public void NotifyPropertyChanged() {
             if (PropertyChanged != null) {
                 PropertyChanged();
             }
         }
 
-        // button checked
         private bool _lineButtonChecked = false;
         private bool _rectangleButtonChecked = false;
         private bool _circleButtonChecked = false;
         private bool _mouseButtonChecked = true;
 
-        // the getter and setter of line button checked
         public bool LineButtonChecked {
             get { return _lineButtonChecked; }
             set {
@@ -35,7 +34,6 @@ namespace PowerPoint.presentation_model {
             }
         }
 
-        // the getter and setter of rectangle button checked
         public bool RectangleButtonChecked {
             get { return _rectangleButtonChecked; }
             set {
@@ -44,7 +42,6 @@ namespace PowerPoint.presentation_model {
             }
         }
 
-        // the getter and setter of circle button checked
         public bool CircleButtonChecked {
             get { return _circleButtonChecked; }
             set {
@@ -53,7 +50,6 @@ namespace PowerPoint.presentation_model {
             }
         }
 
-        // the getter and setter of mouse button checked
         public bool MouseButtonChecked {
             get { return _mouseButtonChecked; }
             set {
@@ -83,22 +79,19 @@ namespace PowerPoint.presentation_model {
             set { _previewDrawRatio = value; }
         }
 
-        // draw all the shape
         public void Draw(Graphics graphics) {
             _model.Draw(new FormGraphicsAdaptor(graphics), _model.SlideIndex);
         }
 
-        // preview draw
         public void PreviewDraw(Graphics graphics, int slideIndex) {
             _model.Draw(new PreviewGraphicsAdaptor(graphics, PreviewDrawRatio), slideIndex);
         }
 
-        // line button click
         public void ClickLineButton() {
             LineButtonChecked = !LineButtonChecked;
 
             if (LineButtonChecked) {
-                _model.SetShapeName("Line");
+                _model.SetShapeName(Line.NAME);
                 RectangleButtonChecked = CircleButtonChecked = MouseButtonChecked = false;
             }
             else {
@@ -107,11 +100,10 @@ namespace PowerPoint.presentation_model {
             }
         }
 
-        // rectangle button click
         public void ClickRectangleButton() {
             RectangleButtonChecked = !RectangleButtonChecked;
             if (RectangleButtonChecked) {
-                _model.SetShapeName("Rectangle");
+                _model.SetShapeName(Rectangle.NAME);
                 LineButtonChecked = CircleButtonChecked = MouseButtonChecked = false;
             }
             else {
@@ -120,11 +112,10 @@ namespace PowerPoint.presentation_model {
             }
         }
 
-        // circle button click
         public void ClickCircleButton() {
             CircleButtonChecked = !CircleButtonChecked;
             if (_circleButtonChecked) {
-                _model.SetShapeName("Circle");
+                _model.SetShapeName(Circle.NAME);
                 LineButtonChecked = RectangleButtonChecked = MouseButtonChecked = false;
             }
             else {
@@ -133,7 +124,6 @@ namespace PowerPoint.presentation_model {
             }
         }
 
-        // click buutton mouse
         public void ClickMouseButton() {
             MouseButtonChecked = !MouseButtonChecked;
             if (MouseButtonChecked) {
@@ -142,34 +132,25 @@ namespace PowerPoint.presentation_model {
             }
         }
 
-        // press the mouse
         public void MousePress(PointF point) {
             _model.MousePress(point);
         }
 
-        // move the mouse
         public void MouseMove(PointF point) {
             _model.MouseMove(point);
         }
 
-        // release the mouse
         public void MouseRelease(PointF point) {
             _model.MouseRelease(point);
             LineButtonChecked = RectangleButtonChecked = CircleButtonChecked = false;
             MouseButtonChecked = true;
         }
 
-        // clear all the shape
         public void Clear() {
             _model.Clear();
         }
 
         private int _width = -1;
         private int _height = -1;
-
-        // auto size of the panel
-        //public List<int> AutoSize(int panelWidth, int panelHeight)
-        //{
-        //}
     }
 }

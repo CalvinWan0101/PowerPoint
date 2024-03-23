@@ -22,13 +22,11 @@ namespace PowerPoint.model.state {
             _model = model;
         }
 
-        // mouse press
         public void MousePress(PointF point) {
             _isMousePressed = true;
             _pointA = point;
         }
 
-        // mouse move
         public void MouseMove(PointF point) {
             if (_isMousePressed) {
                 _model.GetShapes().SetHint(_shapeName, _pointA, point);
@@ -36,14 +34,12 @@ namespace PowerPoint.model.state {
             }
         }
 
-        // mouse release
         public void MouseRelease(PointF point) {
             if (_isMousePressed) {
                 _isMousePressed = false;
                 if (_shapeName != null) {
                     _model.GetShapes().SetHint(_shapeName, _pointA, point);
                     _model.Add(_shapeName, _pointA, point);
-                    //_model.GetShapes().AddHint();
                     _model.NotifyModelChanged();
                     _shapeName = null;
                 }

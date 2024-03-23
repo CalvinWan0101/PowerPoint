@@ -11,14 +11,12 @@ namespace PowerPoint.model.command {
             _slideIndex = model.SlideIndex;
         }
 
-        // execute
         public override void Execute() {
             _shape = _model.GetListOfShape(_slideIndex)[_index];
             _model.GetShapes(_slideIndex).Remove(_index);
             _model.NotifyModelChanged();
         }
 
-        // unexecute
         public override void ExecuteBack() {
             _model.GetShapes(_slideIndex).Add(_shape);
             _model.NotifyModelChanged();

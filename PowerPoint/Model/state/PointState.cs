@@ -12,13 +12,11 @@ namespace PowerPoint.model.state {
         private bool _mouseIsPressed = false;
         private bool _isZoom = false;
 
-        // for the test
         public bool MouseIsPressed {
             get { return _mouseIsPressed; }
             set { _mouseIsPressed = value; }
         }
 
-        // for the test
         public bool IsZoom {
             get { return _isZoom; }
             set { _isZoom = value; }
@@ -55,7 +53,6 @@ namespace PowerPoint.model.state {
             set { _targetIndex = value; }
         }
 
-        // mouse press
         public void MousePress(PointF point) {
             _mouseIsPressed = !_mouseIsPressed;
             _pointA = point;
@@ -65,7 +62,6 @@ namespace PowerPoint.model.state {
             _model.NotifyModelChanged();
         }
 
-        // is zoom
         public bool IsClickTheRightBottomCorner(PointF point) {
             const int RADIUS = 10;
             if (_targetIndex != -1) {
@@ -81,9 +77,7 @@ namespace PowerPoint.model.state {
             return false;
         }
 
-        // mouse move
         public void MouseMove(PointF point) {
-            // move the shape
             if (_targetIndex != -1 && _mouseIsPressed) {
                 if (_isZoom) {
                     _model.GetListOfShape()[_targetIndex].Zoom(point);
@@ -98,7 +92,6 @@ namespace PowerPoint.model.state {
             }
         }
 
-        // mouse release
         public void MouseRelease(PointF point) {
             if (_targetIndex != -1 && _mouseIsPressed) {
                 if (_isZoom) {
@@ -112,24 +105,15 @@ namespace PowerPoint.model.state {
             _mouseIsPressed = false;
         }
 
-        // mouse release when mouse release
         private void IsZoomMouseRelease(PointF point) {
             _isZoom = false;
-            //_model.GetListOfShape()[_targetIndex].Zoom(point);
-            //_model.GetListOfShape()[_targetIndex].UpdatePoint();
-            //_pointA = point;
-            //_model.NotifyModelChanged();
             _model.ZoomCommand(_targetIndex, point);
         }
 
-        // mouse release when mouse not release
         private void IsNotZoomMouseRelease(PointF point) {
-            //_model.GetListOfShape()[_targetIndex].Move(_pointA, point);
-            //_model.NotifyModelChanged();
             _model.MoveCommand(_targetIndex, _startPointRecord, point);
         }
 
-        // user click delete button
         public void ClickDeleteButton() {
             if (_targetIndex != -1) {
                 _model.Remove(_targetIndex);

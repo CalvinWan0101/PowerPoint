@@ -14,7 +14,6 @@ namespace PowerPoint.model {
             UpdateRedoUndoButtonEnabled();
         }
 
-        // execute
         public void ExecuteCommand(ICommand command) {
             command.Execute();
             _undoStack.Push(command);
@@ -22,7 +21,6 @@ namespace PowerPoint.model {
             UpdateRedoUndoButtonEnabled();
         }
 
-        // undo
         public void UndoCommand() {
             if (_undoStack.Count > 0) {
                 ICommand command = _undoStack.Pop();
@@ -33,7 +31,6 @@ namespace PowerPoint.model {
             UpdateRedoUndoButtonEnabled();
         }
 
-        // redo
         public void RedoCommand() {
             if (_redoStack.Count > 0) {
                 ICommand command = _redoStack.Pop();
@@ -44,7 +41,6 @@ namespace PowerPoint.model {
             UpdateRedoUndoButtonEnabled();
         }
 
-        // update redo undo button enabled
         private void UpdateRedoUndoButtonEnabled() {
             if (_undoStack.Count > 0) {
                 _model.UndoButtonEnabled = true;

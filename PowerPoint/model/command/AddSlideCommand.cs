@@ -6,12 +6,10 @@
             _slideIndex = model.SlideIndex;
         }
 
-        // execute
         public override void Execute() {
             _model.AddSlide();
         }
 
-        // execute back
         public override void ExecuteBack() {
             _model.RemoveSlide(_slideIndex);
         }

@@ -29,7 +29,6 @@ namespace PowerPoint.model {
         const int X_MAX = 640;
         const int Y_MAX = 360;
 
-        //private Shapes _shapes;
         private List<Shapes> _slides;
         private IState _state;
         private DrawingState _drawingState;
@@ -39,7 +38,6 @@ namespace PowerPoint.model {
         private bool _mouseButtonChecked = true;
 
         public Model() {
-            //_shapes = new Shapes();
             _slides = new List<Shapes>();
             _slides.Add(new Shapes());
             _drawingState = new DrawingState(this);
@@ -50,7 +48,6 @@ namespace PowerPoint.model {
             _slideIndex = 0;
         }
 
-        // notify property changed
         public void NotifyRedoUndoChanged() {
             if (_redoUndoChanged != null) {
                 _redoUndoChanged();

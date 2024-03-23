@@ -9,16 +9,13 @@ namespace PowerPoint.presentation_model {
             this._graphics = graphics;
         }
 
-        // clear all the paint
         public void ClearAll() {
         }
 
-        // draw a line
         public void DrawLine(PointF point1, PointF point2) {
             _graphics.DrawLine(Pens.Purple, (float)point1.X, (float)point1.Y, (float)point2.X, (float)point2.Y);
         }
 
-        // draw a rectangle
         public void DrawRectangle(PointF point1, PointF point2) {
             PointF temp1 = point1;
             PointF temp2 = point2;
@@ -34,7 +31,6 @@ namespace PowerPoint.presentation_model {
             _graphics.DrawRectangle(Pens.Purple, rectangle);
         }
 
-        // draw a circle
         public void DrawCircle(PointF point1, PointF point2) {
             PointF temp1 = point1;
             PointF temp2 = point2;
@@ -49,7 +45,6 @@ namespace PowerPoint.presentation_model {
                 height);
         }
 
-        // draw the selected shape
         public void DrawSelectedShape(PointF point1, PointF point2) {
             PointF temp1 = point1;
             PointF temp2 = point2;

@@ -6,10 +6,8 @@
             this._model = model;
         }
 
-        // execute
         public abstract void Execute();
 
-        // unexecute
         public abstract void ExecuteBack();
     }
 }

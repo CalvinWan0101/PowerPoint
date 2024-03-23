@@ -3,8 +3,6 @@ using PowerPoint.model.shape;
 
 namespace PowerPoint.model.command {
     public class ZoomCommand : ICommand {
-        const string COMMA = ", ";
-        const string TEMPLATE = "({0:D3}, {1:D3})";
         private int _targetIndex;
         private PointF _originPoint1;
         private PointF _originPoint2;
@@ -30,14 +28,12 @@ namespace PowerPoint.model.command {
             _slideIndex = model.SlideIndex;
         }
 
-        // execute
         public override void Execute() {
             _model.GetListOfShape(_slideIndex)[_targetIndex].Zoom(_endPoint);
             _model.GetListOfShape(_slideIndex)[_targetIndex].UpdatePoint();
             _model.NotifyModelChanged();
         }
 
-        // unexecute
         public override void ExecuteBack() {
             _model.GetListOfShape(_slideIndex)[_targetIndex].Point1 = _originPoint1;
             _model.GetListOfShape(_slideIndex)[_targetIndex].Point2 = _originPoint2;

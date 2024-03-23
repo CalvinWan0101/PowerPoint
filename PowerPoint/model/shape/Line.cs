@@ -4,7 +4,7 @@ using PowerPoint.presentation_model;
 
 namespace PowerPoint.model.shape {
     public class Line : Shape {
-        const string LINE = "Line";
+        public static string NAME = "Line";
 
         private bool _lineReverse;
         private PointF _drawPoint1;
@@ -38,10 +38,9 @@ namespace PowerPoint.model.shape {
             DrawPoint2 = point2;
             UpdatePoint();
             CheckReverse();
-            Name = LINE;
+            Name = NAME;
         }
 
-        // check the line is reverse or not;
         public void CheckReverse() {
             if (DrawPoint1 == Point2 || DrawPoint2 == Point2) {
                 LineReverse = false;
@@ -51,20 +50,17 @@ namespace PowerPoint.model.shape {
             }
         }
 
-        // adjust point
         public override void AdjustPoint(float ratio) {
             base.AdjustPoint(ratio);
             DrawPoint1 = new PointF(DrawPoint1.X * ratio, DrawPoint1.Y * ratio);
             DrawPoint2 = new PointF(DrawPoint2.X * ratio, DrawPoint2.Y * ratio);
         }
 
-        // make sure the point
         public override void UpdatePoint() {
             Point1 = new PointF(Math.Min(DrawPoint1.X, DrawPoint2.X), Math.Min(DrawPoint1.Y, DrawPoint2.Y));
             Point2 = new PointF(Math.Max(DrawPoint1.X, DrawPoint2.X), Math.Max(DrawPoint1.Y, DrawPoint2.Y));
         }
 
-        // function to move the line
         public override void Move(PointF firstPoint, PointF secondPoint) {
             Point1 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
             Point2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
@@ -72,7 +68,6 @@ namespace PowerPoint.model.shape {
             DrawPoint2 += new SizeF(secondPoint.X - firstPoint.X, secondPoint.Y - firstPoint.Y);
         }
 
-        // function to zoom the line
         public override void Zoom(PointF secondPoint) {
             Point2 = secondPoint;
             if (LineReverse) {
@@ -83,7 +78,6 @@ namespace PowerPoint.model.shape {
             }
         }
 
-        // zoom a reverse line
         private void ReverseZoom() {
             if (DrawPoint1.X > DrawPoint2.X) {
                 DrawPoint1 = new PointF(Point2.X, Point1.Y);
@@ -95,7 +89,6 @@ namespace PowerPoint.model.shape {
             }
         }
 
-        // zoom a not reverse line
         private void ReverseNotZoom() {
             if (DrawPoint1.X > DrawPoint2.X) {
                 _drawPoint1 = _point2;
@@ -107,12 +100,10 @@ namespace PowerPoint.model.shape {
             }
         }
 
-        // function to draw the line
         public override void Draw(IGraphics graphics) {
             graphics.DrawLine(DrawPoint1, DrawPoint2);
         }
 
-        // function to draw the selected line
         public override void DrawSelected(IGraphics graphics) {
             graphics.DrawSelectedShape(Point1, Point2);
         }

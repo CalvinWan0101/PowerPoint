@@ -11,11 +11,9 @@ namespace PowerPoint.presentation_model {
             this._ratio = ratio;
         }
 
-        // clear all the paint
         public void ClearAll() {
         }
 
-        // draw a line
         public void DrawLine(PointF point1, PointF point2) {
             point1 = new PointF(point1.X * _ratio, point1.Y * _ratio);
             point2 = new PointF(point2.X * _ratio, point2.Y * _ratio);
@@ -23,7 +21,6 @@ namespace PowerPoint.presentation_model {
             _graphics.DrawLine(Pens.Purple, (float)point1.X, (float)point1.Y, (float)point2.X, (float)point2.Y);
         }
 
-        // draw a rectangle
         public void DrawRectangle(PointF point1, PointF point2) {
             point1 = new PointF(point1.X * _ratio, point1.Y * _ratio);
             point2 = new PointF(point2.X * _ratio, point2.Y * _ratio);
@@ -42,7 +39,6 @@ namespace PowerPoint.presentation_model {
             _graphics.DrawRectangle(Pens.Purple, rectangle);
         }
 
-        // draw a circle
         public void DrawCircle(PointF point1, PointF point2) {
             point1 = new PointF(point1.X * _ratio, point1.Y * _ratio);
             point2 = new PointF(point2.X * _ratio, point2.Y * _ratio);
@@ -64,7 +60,6 @@ namespace PowerPoint.presentation_model {
         const int TWO = 2;
         const int TEN = 10;
 
-        // draw the selected shape
         public void DrawSelectedShape(PointF point1, PointF point2) {
             PointF temp1 = new PointF(point1.X * _ratio, point1.Y * _ratio);
             PointF temp2 = new PointF(point2.X * _ratio, point2.Y * _ratio);

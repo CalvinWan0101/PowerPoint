@@ -3,9 +3,6 @@ using PowerPoint.model.shape;
 
 namespace PowerPoint.model.command {
     public class MoveCommand : ICommand {
-        const string COMMA = ", ";
-        const string TEMPLATE = "({0:D3}, {1:D3})";
-
         private int _targetIndex;
         private PointF _originPoint1;
         private PointF _originPoint2;
@@ -37,7 +34,6 @@ namespace PowerPoint.model.command {
             _slideIndex = model.SlideIndex;
         }
 
-        // execute
         public override void Execute() {
             _point1 = _originPoint1 + new SizeF(_endPoint.X - _startPoint.X, _endPoint.Y - _startPoint.Y);
             _point2 = _originPoint2 + new SizeF(_endPoint.X - _startPoint.X, _endPoint.Y - _startPoint.Y);
@@ -54,7 +50,6 @@ namespace PowerPoint.model.command {
             _model.NotifyModelChanged();
         }
 
-        // unexecute
         public override void ExecuteBack() {
             _model.GetListOfShape(_slideIndex)[_targetIndex].Point1 = _originPoint1;
             _model.GetListOfShape(_slideIndex)[_targetIndex].Point2 = _originPoint2;

@@ -9,7 +9,6 @@ namespace PowerPoint.model {
         const int X_MAX = 640;
         const int Y_MAX = 360;
 
-        // create the corresponding Shape, like Line or Rectangle (with concrete number)
         public Shape CreateShape(string shapeName, PointF pointA, PointF pointB) {
             switch (shapeName) {
                 case "Line":
@@ -23,7 +22,6 @@ namespace PowerPoint.model {
             return null;
         }
 
-        // create the corresponding Shape, like Line or Rectangle (with random number)
         public Shape CreateShape(string shapeName) {
             PointF point1 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF point2 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
