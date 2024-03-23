@@ -5,11 +5,11 @@ using Rectangle = PowerPoint.model.shape.Rectangle;
 
 namespace PowerPoint.model {
     public class Factory {
-        private Random _random = new Random();
+        private static Random _random = new Random();
         const int X_MAX = 640;
         const int Y_MAX = 360;
 
-        public Shape CreateShape(string shapeName, PointF pointA, PointF pointB) {
+        public static Shape CreateShape(string shapeName, PointF pointA, PointF pointB) {
             switch (shapeName) {
                 case "Line":
                     return new Line(pointA, pointB);
@@ -22,7 +22,7 @@ namespace PowerPoint.model {
             return null;
         }
 
-        public Shape CreateShape(string shapeName) {
+        public static Shape CreateShape(string shapeName) {
             PointF point1 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             PointF point2 = new PointF(_random.Next(X_MAX), _random.Next(Y_MAX));
             switch (shapeName) {

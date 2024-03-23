@@ -4,22 +4,20 @@ using PowerPoint.model.shape;
 
 namespace PowerPoint.model {
     public class Shapes {
-        private Factory _factory;
         private BindingList<Shape> _shapes;
         private Shape _hint;
 
         public Shapes() {
-            _factory = new Factory();
             _shapes = new BindingList<Shape>();
         }
 
         public void Add(string shapeName, PointF pointA, PointF pointB) {
-            Shape shape = _factory.CreateShape(shapeName, pointA, pointB);
+            Shape shape = Factory.CreateShape(shapeName, pointA, pointB);
             _shapes.Add(shape);
         }
 
         public void Add(string shapeName) {
-            Shape shape = _factory.CreateShape(shapeName);
+            Shape shape = Factory.CreateShape(shapeName);
             _shapes.Add(shape);
         }
 
@@ -37,7 +35,7 @@ namespace PowerPoint.model {
         }
 
         public void SetHint(string shapeName, PointF firstPoint, PointF secondPoint) {
-            _hint = _factory.CreateShape(shapeName, firstPoint, secondPoint);
+            _hint = Factory.CreateShape(shapeName, firstPoint, secondPoint);
         }
 
         public int GetLength() {
