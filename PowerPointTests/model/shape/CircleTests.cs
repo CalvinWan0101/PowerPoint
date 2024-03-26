@@ -6,10 +6,6 @@ namespace PowerPoint.model.shape.test {
     [TestClass]
     public class CircleTests {
         [TestMethod]
-        public void make_sure_constructor_work() {
-        }
-
-        [TestMethod]
         public void create_circle() {
             Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
 
@@ -17,18 +13,6 @@ namespace PowerPoint.model.shape.test {
             Assert.AreEqual("(000, 000), (100, 100)", circle.Information);
             Assert.AreEqual(new PointF(0, 0), circle.Point1);
             Assert.AreEqual(new PointF(100, 100), circle.Point2);
-        }
-
-        [TestMethod]
-        public void adjust_circle() {
-            Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
-            Assert.AreEqual(new PointF(0, 0), circle.Point1);
-            Assert.AreEqual(new PointF(100, 100), circle.Point2);
-
-            circle.AdjustPoint(2);
-
-            Assert.AreEqual(new PointF(0, 0), circle.Point1);
-            Assert.AreEqual(new PointF(200, 200), circle.Point2);
         }
 
         [TestMethod]
@@ -59,6 +43,18 @@ namespace PowerPoint.model.shape.test {
         }
 
         [TestMethod]
+        public void adjust_circle() {
+            Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
+            Assert.AreEqual(new PointF(0, 0), circle.Point1);
+            Assert.AreEqual(new PointF(100, 100), circle.Point2);
+
+            circle.AdjustPoint(2);
+
+            Assert.AreEqual(new PointF(0, 0), circle.Point1);
+            Assert.AreEqual(new PointF(200, 200), circle.Point2);
+        }
+
+        [TestMethod]
         public void zoom_circle_to_right_down() {
             Circle circle = new Circle(new PointF(0, 0), new PointF(100, 100));
             Assert.AreEqual(new PointF(0, 0), circle.Point1);
@@ -71,7 +67,7 @@ namespace PowerPoint.model.shape.test {
         }
 
         [TestMethod]
-        public void zoom_circle_to_left_high() {
+        public void zoom_circle_to_left_up() {
             Circle circle = new Circle(new PointF(50, 50), new PointF(100, 100));
             Assert.AreEqual(new PointF(50, 50), circle.Point1);
             Assert.AreEqual(new PointF(100, 100), circle.Point2);
