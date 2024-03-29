@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a imitation of power point.
+This is a imitation of power point. Particularly focus on the drawing shapes on the slide.
 
 - Language: C#
 - Supported IDE:
@@ -20,7 +20,7 @@ This is a imitation of power point.
 
 ## Features
 
-- Create three different shapes: Rectangle, Circle, Triangle
+- Create three different types of shapes: Rectangle, Circle, Triangle
     - draw directly on the slide
     - use the buttons to create the shapes
     - ![](./image/draw.gif)
