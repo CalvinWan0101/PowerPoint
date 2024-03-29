@@ -1,16 +1,11 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using PowerPoint.presentation_model;
 
 namespace PowerPoint.model.shape {
     public class Circle : Shape {
         public static readonly string NAME = "Circle";
 
-        public Circle(PointF point1, PointF point2) {
-            Point1 = point1;
-            Point2 = point2;
-            UpdatePoint();
-            Name = NAME;
+        public Circle(PointF point1, PointF point2) : base(point1, point2, NAME) {
         }
 
         public override void Move(PointF firstPoint, PointF secondPoint) {
@@ -26,7 +21,6 @@ namespace PowerPoint.model.shape {
             graphics.DrawCircle(Point1, Point2);
         }
 
-        // function to draw the selected circle
         public override void DrawSelected(IGraphics graphics) {
             graphics.DrawSelectedShape(Point1, Point2);
         }

@@ -18,6 +18,16 @@ namespace PowerPoint.model.shape {
         protected PointF _point2;
         private string _name;
 
+        public Shape(PointF point1, PointF point2, string name) {
+            _point1 = point1;
+            _point2 = point2;
+            _name = name;
+            UpdatePoint();
+        }
+
+        public Shape() {
+        }
+
         public string Id {
             get { return _id; }
         }
